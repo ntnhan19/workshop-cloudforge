@@ -25,21 +25,25 @@ pre: " <b> 4.2. </b> "
 ### Những Điểm Nhấn Quan Trọng (Key Highlights)
 
 #### 1. Tầm quan trọng của Ngữ cảnh trong AI (Tinh Truong)
+![Session 1](../../images/4-EventParticipated/4.2-Event2/session1.jpg)
 - **Lỗi sai phổ biến:** AI đưa ra câu trả lời kém thường do đầu vào (ngữ cảnh) yếu chứ không phải do mô hình. Việc nhồi nhét quá nhiều thông tin rác (Internet Puller) sẽ làm giảm độ chính xác và tốn kém token.
 - **Công thức xây dựng Context:** Một ngữ cảnh tốt cần có đủ 4 yếu tố: Mục tiêu (Goal), Thông tin liên quan (Relevant info), Các ràng buộc (Constraints), và Tiêu chí thành công (Success criteria).
 - **Sự tiến hóa của AI:** Cách chúng ta tương tác với AI đang dịch chuyển từ việc chỉ dùng Prompt đơn thuần -> Xây dựng Context -> Hình thành Memory (Trí não AI thứ hai) để hỗ trợ cá nhân hóa dài hạn.
 
 #### 2. Trợ lý AI thân thiện với Amazon Q (Anh Pham)
+![Session 2](../../images/4-EventParticipated/4.2-Event2/session2.jpg)
 - **Q Chat Agent:** Trợ lý AI giúp khám phá dữ liệu, phân tích insight, tự động hóa công việc cho PM như tóm tắt biên bản họp (MoM), gửi email và lên lịch.
 - **Q Flows:** Tạo các luồng làm việc thông minh bằng ngôn ngữ tự nhiên — không cần viết code.
 - **Q Spaces & Sight:** Không gian làm việc chung biến insight cá nhân thành kiến thức nhóm, đồng thời xây dựng dashboard và báo cáo từ dữ liệu thô bằng ngôn ngữ tự nhiên.
 
 #### 3. Tối ưu kiến trúc nền tảng với Amazon CloudFront (Thuan Nguyen)
+![Session 3](../../images/4-EventParticipated/4.2-Event2/session3.jpg)
 - **Vấn đề chi phí và bảo mật:** Mô hình pay-as-you-go đôi khi mang lại hóa đơn CDN ngoài dự kiến. Cần các gói định tuyến và bảo vệ để giảm rủi ro tài chính.
 - **Origin Cloaking:** Sử dụng Origin Access Control (OAC) để khóa quyền truy cập trực tiếp vào S3, Lambda, đảm bảo luồng traffic bắt buộc phải đi qua CloudFront.
 - **Tính khả dụng cao:** CloudFront hỗ trợ cấu hình Failover (chuyển đổi dự phòng) khi origin chính gặp lỗi, duy trì trải nghiệm người dùng không bị gián đoạn và tăng tốc độ bằng tính năng HTTP Compression (có thể giảm tới 81% thời gian tải).
 
 #### 4. 36 giờ với LotusHacks – Xây dựng UTMorpho từ Ý tưởng đến Thực tế (Thao Nguyen & Mai Nguyen & Uyen Le)
+![Session 4](../../images/4-EventParticipated/4.2-Event2/session4.jpg)
 - **Từ số 0 đến Ý tưởng:** Hành trình brainstorm, xác định vấn đề và định hình sản phẩm UTMorpho.
 - **Phát triển dưới áp lực:** Quá trình chạy nước rút 36 giờ đối mặt với nhiều thách thức, thất bại và những bước ngoặt.
 - **Bài học đắt giá:** Những ý tưởng tốt nhất xuất phát từ sự bực bội trong thực tế. Trong làm việc nhóm, sự đồng bộ quan trọng hơn tất cả và cần tránh "scope creep" (ôm đồm quá nhiều tính năng).
@@ -50,6 +54,7 @@ pre: " <b> 4.2. </b> "
 - **Chiến lược giảm thiểu:** Xây dựng hệ thống với tư duy "chấp nhận sự biến thiên" bằng cách dùng majority voting (chạy nhiều lần và lấy kết quả phổ biến nhất), ép kiểu đầu ra (JSON, YAML) và sử dụng temp=0.1 để tránh việc mô hình bị kẹt trong vòng lặp lặp đi lặp lại.
 
 #### 6. Hệ thống Multi-Agent cấp Doanh nghiệp - Bài toán chấm điểm Startup (Vy Lam)
+![Session 6](../../images/4-EventParticipated/4.2-Event2/session6.jpg)
 - **Hạn chế của Single Agent:** Khi dùng một AI Agent duy nhất để duyệt tín dụng, hệ thống dễ gặp vấn đề về giới hạn ngữ cảnh, pha loãng chuyên môn, thiếu cơ chế kiểm tra chéo và trở thành điểm nghẽn duy nhất.
 - **Sức mạnh của Multi-Agent:** Kiến trúc mô phỏng một hội đồng tín dụng ảo gồm nhiều Agent chuyên biệt (Phân tích tài chính, Thị trường, Đội ngũ, Rủi ro, và Tuân thủ) giúp đưa ra quyết định chính xác hơn.
 - **Tư duy Enterprise-Grade:** Để đưa từ POC lên Production, hệ thống cần được trang bị Guardrails (bảo vệ đầu vào/đầu ra), bảo mật (MFA, mã hóa), Data Governance (xử lý PII) và tuân thủ các khung quy định như SOC 2, GDPR.

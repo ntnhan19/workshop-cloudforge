@@ -17,36 +17,42 @@ pre: " <b> 4.2. </b> "
 ### Speakers
 - **Duc Dao** – Solution Architect, Cloud Kinetics
 - **Vy Lam** – Senior Business Systems Analyst, VPBank
-- **Pham Ng Hai Anh** – Cloud Consultant (G-AsiaPacific Vietnam) & AWS Community Builder
-- **Nguyen Tuan Thinh** – DevOps Engineer, First Cloud AI Journey
+- **Thao Nguyen & Mai Nguyen & Uyen Le** - GenAI Engineer, VIB
+- **Anh Pham** – Cloud Consultant, G-AsiaPacific Vietnam & AWS Community Builder
+- **Thuan Nguyen** – DevOps Engineer, First Cloud AI Journey
 - **Tinh Truong** – Platform Engineer, GoTymeX
-- **Team VIB** – Track Winner at LotusHacks 2026
 
 ### Key Highlights
 
-#### 1. The Non-determinism of LLM Settings (Duc Dao)
+#### 1. Non-Determinism of "Deterministic" LLM Settings (Duc Dao)
 - **The Reality of Temperature = 0:** Theoretically, Temp=0 should yield deterministic results (100% identical outputs). In reality, however, no LLM guarantees consistency across all tasks.
 - **Technical Causes:** GPU architectures perform floating-point operations that lack associativity, and API providers often batch user requests to optimize costs, leading to minor errors that alter the final output.
 - **Mitigation Strategies:** Build systems with an "accept variability" mindset using majority voting (running multiple times and picking the most common result), enforcing output types (JSON, YAML), and using temp=0.1 to prevent the model from getting stuck in repetitive loops.
 
-#### 2. Enterprise-Grade Multi-Agent Systems - Startup Scoring (Vy Lam)
+#### 2. Enterprise-Grade Multi-Agent System: The Case of Startup Credit Scoring (Vy Lam)
 - **Limitations of a Single Agent:** Using a single AI Agent for credit approvals often encounters context limits, diluted expertise, a lack of cross-checking, and becoming a single point of failure.
 - **The Power of Multi-Agent:** An architecture simulating a virtual credit committee comprised of specialized Agents (Financial Analysis, Market, Team, Risk, and Compliance) helps make more accurate decisions.
 - **Enterprise-Grade Mindset:** To transition from POC to Production, the system must be equipped with Guardrails (input/output protection), security (MFA, encryption), Data Governance (handling PII), and compliance with frameworks like SOC 2 and GDPR.
 
-#### 3. The Importance of Context in AI (Tinh Truong)
-- **Common Mistakes:** AI giving poor answers is often due to weak input (context) rather than the model itself. Cramming too much garbage information (Internet Puller) reduces accuracy and wastes tokens.
-- **Context Building Formula:** A good context needs 4 essential elements: Goal, Relevant info, Constraints, and Success criteria.
-- **The Evolution of AI:** How we interact with AI is shifting from simply using Prompts -> Building Context -> Forming Memory (A second AI brain) to support long-term personalization.
+#### 3. 36 hrs with LotusHacks – Building UTMorpho from Idea to Reality (Thao Nguyen & Mai Nguyen & Uyen Le)
+- **From Zero to Idea:** The brainstorming journey of defining the problem and shaping UTMorpho.
+- **Building Under Pressure:** A 36-hour development sprint facing challenges, failures, and turning points.
+- **Key Learnings:** The best ideas stem from real-world frustrations. In teamwork, synchronization is paramount, and one must avoid "scope creep" (overloading features).
 
-#### 4. Platform Architecture Optimization with Amazon CloudFront (Nguyen Tuan Thinh)
+#### 4. Friendly AI Assistant with Amazon Q (Anh Pham)
+- **Q Chat Agent:** AI assistants for exploring data, analyzing insights, and automating PM tasks like summarizing meeting minutes, sending emails, and scheduling.
+- **Q Flows:** Create intelligent workflows with natural language — no coding required.
+- **Q Spaces & Sight:** Shared collaborative spaces that turn individual insights into team knowledge, and build dashboards/reports from raw data using natural language.
+
+#### 5. From Edge To Origin: CloudFront as Your Foundation (Thuan Nguyen)
 - **Cost and Security Issues:** The pay-as-you-go model can sometimes result in unexpected CDN bills. Routing and protection packages are needed to mitigate financial risks.
 - **Origin Cloaking:** Utilizing Origin Access Control (OAC) to lock direct access to S3 and Lambda ensures that traffic must route through CloudFront.
 - **High Availability:** CloudFront supports Failover configuration when the primary origin fails, maintaining an uninterrupted user experience and boosting speed with HTTP Compression (reducing load times by up to 81%).
 
-#### 5. AI Assistants and Practical Applications (Pham Ng Hai Anh & Team VIB)
-- **Amazon Q:** Introduced the Amazon Q Suite which helps automate PM tasks like summarizing meeting minutes (MoM), sending emails, and scheduling, via its internal data connection capabilities.
-- **Lessons from LotusHacks:** Building the UTMorpho project in 36 hours. The hard-learned lesson is that the best ideas stem from real-world frustrations. In teamwork, synchronization is paramount, and one must avoid "scope creep" (overloading features).
+#### 6. Context Is Everything: Making AI Actually Work for You (Tinh Truong)
+- **Common Mistakes:** AI giving poor answers is often due to weak input (context) rather than the model itself. Cramming too much garbage information (Internet Puller) reduces accuracy and wastes tokens.
+- **Context Building Formula:** A good context needs 4 essential elements: Goal, Relevant info, Constraints, and Success criteria.
+- **The Evolution of AI:** How we interact with AI is shifting from simply using Prompts -> Building Context -> Forming Memory (A second AI brain) to support long-term personalization.
 
 ### Key Takeaways
 

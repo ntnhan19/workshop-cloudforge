@@ -34,19 +34,25 @@ pre: " <b> 4.2. </b> "
 - **Sức mạnh của Multi-Agent:** Kiến trúc mô phỏng một hội đồng tín dụng ảo gồm nhiều Agent chuyên biệt (Phân tích tài chính, Thị trường, Đội ngũ, Rủi ro, và Tuân thủ) giúp đưa ra quyết định chính xác hơn.
 - **Tư duy Enterprise-Grade:** Để đưa từ POC lên Production, hệ thống cần được trang bị Guardrails (bảo vệ đầu vào/đầu ra), bảo mật (MFA, mã hóa), Data Governance (xử lý PII) và tuân thủ các khung quy định như SOC 2, GDPR.
 
-#### 3. Tầm quan trọng của Ngữ cảnh trong AI (Tinh Truong)
-- **Lỗi sai phổ biến:** AI đưa ra câu trả lời kém thường do đầu vào (ngữ cảnh) yếu chứ không phải do mô hình. Việc nhồi nhét quá nhiều thông tin rác (Internet Puller) sẽ làm giảm độ chính xác và tốn kém token.
-- **Công thức xây dựng Context:** Một ngữ cảnh tốt cần có đủ 4 yếu tố: Mục tiêu (Goal), Thông tin liên quan (Relevant info), Các ràng buộc (Constraints), và Tiêu chí thành công (Success criteria).
-- **Sự tiến hóa của AI:** Cách chúng ta tương tác với AI đang dịch chuyển từ việc chỉ dùng Prompt đơn thuần -> Xây dựng Context -> Hình thành Memory (Trí não AI thứ hai) để hỗ trợ cá nhân hóa dài hạn.
+#### 3. 36 giờ với LotusHacks – Xây dựng UTMorpho từ Ý tưởng đến Thực tế (Thao Nguyen & Mai Nguyen & Uyen Le)
+- **Từ số 0 đến Ý tưởng:** Hành trình brainstorm, xác định vấn đề và định hình sản phẩm UTMorpho.
+- **Phát triển dưới áp lực:** Quá trình chạy nước rút 36 giờ đối mặt với nhiều thách thức, thất bại và những bước ngoặt.
+- **Bài học đắt giá:** Những ý tưởng tốt nhất xuất phát từ sự bực bội trong thực tế. Trong làm việc nhóm, sự đồng bộ quan trọng hơn tất cả và cần tránh "scope creep" (ôm đồm quá nhiều tính năng).
 
-#### 4. Tối ưu kiến trúc nền tảng với Amazon CloudFront (Nguyen Tuan Thinh)
+#### 4. Trợ lý AI thân thiện với Amazon Q (Anh Pham)
+- **Q Chat Agent:** Trợ lý AI giúp khám phá dữ liệu, phân tích insight, tự động hóa công việc cho PM như tóm tắt biên bản họp (MoM), gửi email và lên lịch.
+- **Q Flows:** Tạo các luồng làm việc thông minh bằng ngôn ngữ tự nhiên — không cần viết code.
+- **Q Spaces & Sight:** Không gian làm việc chung biến insight cá nhân thành kiến thức nhóm, đồng thời xây dựng dashboard và báo cáo từ dữ liệu thô bằng ngôn ngữ tự nhiên.
+
+#### 5. Tối ưu kiến trúc nền tảng với Amazon CloudFront (Thuan Nguyen)
 - **Vấn đề chi phí và bảo mật:** Mô hình pay-as-you-go đôi khi mang lại hóa đơn CDN ngoài dự kiến. Cần các gói định tuyến và bảo vệ để giảm rủi ro tài chính.
 - **Origin Cloaking:** Sử dụng Origin Access Control (OAC) để khóa quyền truy cập trực tiếp vào S3, Lambda, đảm bảo luồng traffic bắt buộc phải đi qua CloudFront.
 - **Tính khả dụng cao:** CloudFront hỗ trợ cấu hình Failover (chuyển đổi dự phòng) khi origin chính gặp lỗi, duy trì trải nghiệm người dùng không bị gián đoạn và tăng tốc độ bằng tính năng HTTP Compression (có thể giảm tới 81% thời gian tải).
 
-#### 5. Trợ lý AI và Ứng dụng thực tiễn (Pham Ng Hai Anh & Team VIB)
-- **Amazon Q:** Giới thiệu công cụ Amazon Q Suite giúp tự động hóa công việc cho PM như tóm tắt biên bản họp (MoM), gửi email và lên lịch, thông qua khả năng kết nối dữ liệu nội bộ.
-- **Kinh nghiệm từ LotusHacks:** Xây dựng dự án UTMorpho trong 36 giờ. Bài học đắt giá là những ý tưởng tốt nhất xuất phát từ sự bực bội trong thực tế. Trong làm việc nhóm, sự đồng bộ quan trọng hơn tất cả và cần tránh "scope creep" (ôm đồm quá nhiều tính năng).
+#### 6. Tầm quan trọng của Ngữ cảnh trong AI (Tinh Truong)
+- **Lỗi sai phổ biến:** AI đưa ra câu trả lời kém thường do đầu vào (ngữ cảnh) yếu chứ không phải do mô hình. Việc nhồi nhét quá nhiều thông tin rác (Internet Puller) sẽ làm giảm độ chính xác và tốn kém token.
+- **Công thức xây dựng Context:** Một ngữ cảnh tốt cần có đủ 4 yếu tố: Mục tiêu (Goal), Thông tin liên quan (Relevant info), Các ràng buộc (Constraints), và Tiêu chí thành công (Success criteria).
+- **Sự tiến hóa của AI:** Cách chúng ta tương tác với AI đang dịch chuyển từ việc chỉ dùng Prompt đơn thuần -> Xây dựng Context -> Hình thành Memory (Trí não AI thứ hai) để hỗ trợ cá nhân hóa dài hạn.
 
 ### Tổng kết (Key Takeaways)
 

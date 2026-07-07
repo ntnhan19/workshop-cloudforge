@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 3. </b> "
 ---
 
-Tại đây sẽ là phần liệt kê, giới thiệu các blogs mà các bạn đã đăng trên [AWS Study Group](https://www.facebook.com/groups/awsstudygroupfcj). Ví dụ:
+Chào mừng bạn đến với chuyên mục blog kỹ thuật! Dưới đây là danh sách các bài viết mà nhóm chúng mình đã cùng nhau tìm hiểu và chia sẻ trên cộng đồng [AWS Study Group](https://www.facebook.com/groups/awsstudygroupfcj) trong quá trình thực tập. Các bài viết tập trung khám phá những kiến trúc và giải pháp thực tế trên AWS.
 
 ### [Blog 1 - Xây dựng ứng dụng tìm kiếm đầu tiên với Amazon OpenSearch Service](3.1-Blog1/)
 Trong thời đại dữ liệu bùng nổ, khả năng tìm kiếm và phân tích thông tin theo thời gian thực là điều kiện sống còn của doanh nghiệp. Bài viết này khám phá cách xây dựng một ứng dụng tìm kiếm trên AWS với Amazon OpenSearch Service.

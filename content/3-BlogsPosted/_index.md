@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 3. </b> "
 ---
 
-This section will list and introduce the blogs you have posted to [AWS Study Group](https://www.facebook.com/groups/awsstudygroupfcj). For example:
+Welcome to our technical blog section! Here, you will find a collection of articles that our team has collaboratively written and published to the [AWS Study Group](https://www.facebook.com/groups/awsstudygroupfcj) community during our internship. These posts cover various practical AWS architectures and implementations.
 
 ### [Blog 1 - Building Your First Search Application with Amazon OpenSearch Service](3.1-Blog1/)
 In the era of data explosion, the ability to search and analyze information in real-time is a core business necessity. This blog explores how to build a serverless search application on AWS using Amazon OpenSearch Service.

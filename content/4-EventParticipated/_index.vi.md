@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 4. </b> "
 ---
 
-Trong quá trình thực tập, nhóm chúng mình đã có cơ hội tham gia 2 sự kiện lớn của cộng đồng AWS. Mỗi sự kiện đều là một trải nghiệm đáng nhớ, mang lại những kiến thức thực tế vô cùng bổ ích, đồng thời giúp chúng mình mở rộng mạng lưới kết nối và học hỏi từ các chuyên gia hàng đầu trong ngành.
+Trong quá trình thực tập, mình đã có cơ hội tham gia 2 sự kiện lớn của cộng đồng AWS. Mỗi sự kiện đều là một trải nghiệm đáng nhớ, mang lại những kiến thức thực tế vô cùng bổ ích, đồng thời giúp mình mở rộng mạng lưới kết nối và học hỏi từ các chuyên gia hàng đầu trong ngành.
 
 ### [Event 1: GenAI-powered App-DB Modernization Workshop](4.1-Event1/)
 &emsp;**Tên sự kiện:** GenAI-powered App-DB Modernization workshop

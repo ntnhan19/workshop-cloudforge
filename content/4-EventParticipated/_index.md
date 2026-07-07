@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 4. </b> "
 ---
 
-During our internship, our team had the opportunity to participate in two major events hosted by the AWS community. Each event was a memorable experience that provided invaluable practical knowledge, while also helping us expand our professional network and learn from top industry experts.
+During my internship, I had the opportunity to participate in two major events hosted by the AWS community. Each event was a memorable experience that provided invaluable practical knowledge, while also helping me expand my professional network and learn from top industry experts.
 
 ### [Event 1: GenAI-powered App-DB Modernization Workshop](4.1-Event1/)  
 &emsp;**Event Name:** GenAI-powered App-DB Modernization workshop  

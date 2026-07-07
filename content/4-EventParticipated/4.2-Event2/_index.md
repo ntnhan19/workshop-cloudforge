@@ -71,6 +71,6 @@ The event didn't just impart technical knowledge but also reminded me of product
 
 ### Event Photos
 
-![Event Photo 1](images/4-EventParticipated/4.2-Event2/event_23_05(1).jpg)
+![Event Photo 1](/images/4-EventParticipated/4.2-Event2/event_23_05%281%29.jpg)
 
-![Event Photo 2](images/4-EventParticipated/4.2-Event2/event_23_05(2).jpg)
+![Event Photo 2](/images/4-EventParticipated/4.2-Event2/event_23_05%282%29.jpg)

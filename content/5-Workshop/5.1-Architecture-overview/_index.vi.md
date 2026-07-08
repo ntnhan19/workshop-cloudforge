@@ -32,7 +32,7 @@ Dưới đây là sơ đồ kiến trúc tổng thể của hệ thống:
    - Quá trình phân tích sử dụng các dịch vụ AI Managed mạnh mẽ của AWS:
      - **Amazon Transcribe**: Trích xuất giọng nói thành văn bản (Speech-to-Text).
      - **Amazon Bedrock (Nova Lite & Titan Embeddings)**: Phân tích khung hình (Vision AI) và tạo vector nhúng (Embeddings).
-   - Trạng thái tiến trình (Job Progress) liên tục được cập nhật vào **ElastiCache for Redis** và đẩy thẳng về Frontend qua kết nối WebSocket.
+   - Trạng thái tiến trình (Job Progress) liên tục được đẩy vào **ElastiCache for Redis** trong Private Subnet. Dịch vụ backend trên **App Runner** sẽ đăng ký theo dõi (subscribe) các sự kiện này và gửi cập nhật tiến độ theo thời gian thực về Frontend thông qua **kết nối WebSocket**.
 
 4. **Data Persistence & Search (Luồng Lưu trữ & Tìm kiếm):**
    - Sau khi phân tích xong, cụm ECS gọi **AWS Lambda** để lưu trữ Metadata và Vector vào cơ sở dữ liệu **RDS PostgreSQL** (triển khai Multi-AZ với Primary/Standby giúp đảm bảo độ sẵn sàng cao).

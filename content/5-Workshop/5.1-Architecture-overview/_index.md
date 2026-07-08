@@ -33,7 +33,7 @@ Below is the high-level architecture diagram of the entire system:
    - The processing leverages AWS managed AI/ML services:
      - **Amazon Transcribe**: For Speech-to-Text conversion.
      - **Amazon Bedrock (Nova Lite & Titan Embeddings)**: For image analysis and generating vector embeddings.
-   - Job progress is published to **ElastiCache for Redis** in the private subnet, which pushes real-time WebSocket updates to the client.
+   - Job progress is published to **ElastiCache for Redis** in the private subnet. The backend service on **App Runner** subscribes to these events and pushes real-time progress updates to the client via a **WebSocket connection**.
 
 4. **Data Persistence & Semantic Search:**
    - Upon completion, ECS invokes an **AWS Lambda** function to securely write metadata and vector embeddings into **RDS PostgreSQL** (configured with Multi-AZ Primary/Replica for high availability).

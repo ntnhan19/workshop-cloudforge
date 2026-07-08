@@ -1,6 +1,6 @@
 ---
 title : "Tổng quan Kiến trúc"
-date : 2024-01-01 
+date : 2026-07-08
 weight : 1
 chapter : false
 pre : " <b> 5.1. </b> "
@@ -12,7 +12,7 @@ Dự án **Smart Media Analytics** là một giải pháp phân tích video toà
 
 Dưới đây là sơ đồ kiến trúc tổng thể của toàn bộ hệ thống khi được triển khai trên Cloud:
 
-![Tổng quan kiến trúc nền tảng](../../images/2-Proposal/platform_architecture.png)
+![Tổng quan kiến trúc nền tảng](../../images/5-Workshop/5.1-Architecture-overview/diagram.png)
 
 #### Các luồng xử lý chính (Key Workflows)
 

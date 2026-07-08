@@ -1,59 +1,37 @@
 ---
 title: "Worklog Tuần 9"
-date: 2024-01-01
+date: 2026-07-10
 weight: 1
 chapter: false
 pre: " <b> 1.9. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
+*Lưu ý: Tiến độ chung của nhóm dự án (4 thành viên).*
 
 ### Mục tiêu tuần 9:
-
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+- Hoàn thiện thiết kế giao diện Asset Detail dựa trên thiết kế Figma.
+- Phát triển các component chính của Asset Detail Page.
+- Tích hợp API Asset, Scene và Video Streaming.
+- Xây dựng luồng Upload Video và theo dõi tiến trình bằng WebSocket.
+- Hỗ trợ quản lý nhiều tiến trình xử lý đồng thời và khôi phục trạng thái sau khi refresh.
+- Phát triển API Re-Ingest và Regenerate Insights.
+- Hoàn thiện AI Pipeline và đồng bộ dữ liệu vào PostgreSQL, Redis.
+- Tích hợp Vector Embedding phục vụ Semantic Search.
+- Xây dựng abstraction cho AI Provider phục vụ triển khai AWS Bedrock.
+- Điều chỉnh và hoàn thiện kiến trúc triển khai AWS.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --------- | ------------ | --------------- | -------------- |
+| Thứ Hai | | 15/06/2026 | 15/06/2026 | |
+| Thứ Ba  | | 16/06/2026 | 16/06/2026 | |
+| Thứ Tư  | | 17/06/2026 | 17/06/2026 | |
+| Thứ Năm | | 18/06/2026 | 18/06/2026 | |
+| Thứ Sáu | | 19/06/2026 | 19/06/2026 | |
+| Thứ Bảy | | 20/06/2026 | 20/06/2026 | |
+| Chủ Nhật| | 21/06/2026 | 21/06/2026 | |
 
 ### Kết quả đạt được tuần 9:
-
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+- Hoàn thiện luồng Upload WebSocket đa tiến trình và đồng bộ dữ liệu PostgreSQL, Redis.
+- **Vai trò cá nhân (Team Lead & Deployer):** Hoàn thiện bản vẽ kiến trúc AWS cuối cùng, review các API phức tạp (WebSocket, đa tiến trình) và đảm bảo chất lượng hệ thống backend.

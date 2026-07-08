@@ -8,27 +8,36 @@ pre : " <b> 5.1. </b> "
 
 #### Kiến trúc hệ thống Smart Media Analytics (Team CloudForge)
 
-Dự án **Smart Media Analytics** là một giải pháp phân tích video toàn diện, kết hợp sức mạnh của AI và kiến trúc Serverless/Microservices trên AWS. Hệ thống được thiết kế để xử lý video dung lượng lớn, trích xuất dữ liệu thông minh (nhận diện khung cảnh, giọng nói, vật thể) và cho phép người dùng tìm kiếm theo ngữ nghĩa (Semantic Search).
+Dự án **Smart Media Analytics** là một giải pháp phân tích video toàn diện, kết hợp sức mạnh của Generative AI và kiến trúc Serverless / Event-Driven trên AWS. Hệ thống được thiết kế mở rộng tự động, xử lý video dung lượng lớn, trích xuất dữ liệu thông minh và cho phép tìm kiếm theo ngữ nghĩa (Semantic Search).
 
-Dưới đây là sơ đồ kiến trúc tổng thể của toàn bộ hệ thống khi được triển khai trên Cloud:
+Dưới đây là sơ đồ kiến trúc tổng thể của hệ thống:
 
-![Tổng quan kiến trúc nền tảng](../../images/5-Workshop/5.1-Architecture-overview/diagram.png)
+![Tổng quan kiến trúc nền tảng](../../images/5-Workshop/5.1-Architecture-overview/diagram1.png)
 
 #### Các luồng xử lý chính (Key Workflows)
 
-1. **Luồng Ingestion (Tải lên & Tiền xử lý):**
-   - Người dùng tải video lên thông qua giao diện Web (React).
-   - Video gốc được lưu trữ an toàn tại **Amazon S3**.
-   - Một bản ghi Job được tạo trong **RDS PostgreSQL**, và một thông báo được đẩy qua **Redis Pub/Sub** để Frontend cập nhật trạng thái theo thời gian thực (Real-time).
+1. **Frontend & Authentication (Luồng Truy cập & Xác thực):**
+   - Ứng dụng Web (React) được host trên **AWS Amplify**, kết hợp **Route 53** để quản lý tên miền toàn cầu.
+   - Người dùng đăng nhập thông qua **Amazon Cognito** để nhận JWT Token an toàn.
+   - Các API request được định tuyến qua **API Gateway** tới ứng dụng Backend chạy trên **AWS App Runner**.
 
-2. **Luồng AI Pipeline (Phân tích & Trích xuất):**
-   - Nền tảng tính toán chính là **Amazon ECS (AWS Fargate)** hoạt động trong vùng an toàn (Private Subnet).
-   - ECS sẽ kéo video từ S3 (thông qua S3 Gateway Endpoint để tối ưu băng thông mạng nội bộ).
-   - **FFmpeg & PySceneDetect** sẽ cắt video thành các phân cảnh (scenes) và tách ảnh đại diện (keyframes).
-   - **Whisper AI** xử lý âm thanh để tạo phụ đề (Transcript/Captions).
-   - Các keyframes được gửi tới mô hình **Vision AI (Qwen-VL)** để nhận diện và mô tả cảnh vật, sau đó được chuyển thành vector (Embeddings) để phục vụ cho tính năng tìm kiếm.
+2. **Ingestion & Orchestration (Luồng Tải lên & Điều phối Job):**
+   - Người dùng upload video trực tiếp lên **Amazon S3** (Secure Upload).
+   - S3 tạo *Event Notification* gửi tới hàng đợi **Amazon SQS**, sau đó tiếp tục được chuyển qua **Amazon EventBridge** để kích hoạt **AWS Step Functions**.
+   - **Step Functions** đóng vai trò nhạc trưởng (Orchestrator), điều phối toàn bộ quá trình chia tách và xử lý video tự động.
 
-3. **Luồng Serving & Semantic Search (Truy vấn & Phân phối):**
-   - API Backend được xây dựng bằng **FastAPI** và bảo vệ bởi Rate Limiter.
-   - Toàn bộ vector nhúng và metadata được lưu tại **PostgreSQL (với extension pgvector)**. Khi người dùng nhập từ khóa tìm kiếm (ví dụ: "Người đàn ông đạp xe"), hệ thống sẽ thực hiện tìm kiếm vector độ tương đồng cosine (Cosine Similarity) ngay trong Database.
-   - Ứng dụng Backend được host trực tiếp trên **AWS App Runner**, sử dụng VPC Connector để thọc sâu vào truy vấn Database nằm trong vùng an toàn (Private Subnet).
+3. **AI Processing Pipeline (Luồng Xử lý AI):**
+   - Các tác vụ xử lý nặng được tự động khởi chạy trên **Amazon ECS (AWS Fargate)** nằm trong vùng an toàn (Private Subnet) và có khả năng Auto Scaling trên đa vùng (AZ A & B).
+   - ECS kết nối tới S3 thông qua **S3 Gateway Endpoint (PrivateLink)** để lấy video và lưu keyframes mà không tốn chi phí truyền tải qua Internet.
+   - Quá trình phân tích sử dụng các dịch vụ AI Managed mạnh mẽ của AWS:
+     - **Amazon Transcribe**: Trích xuất giọng nói thành văn bản (Speech-to-Text).
+     - **Amazon Bedrock (Nova Lite & Titan Embeddings)**: Phân tích khung hình (Vision AI) và tạo vector nhúng (Embeddings).
+   - Trạng thái tiến trình (Job Progress) liên tục được cập nhật vào **ElastiCache for Redis** và đẩy thẳng về Frontend qua kết nối WebSocket.
+
+4. **Data Persistence & Search (Luồng Lưu trữ & Tìm kiếm):**
+   - Sau khi phân tích xong, cụm ECS gọi **AWS Lambda** để lưu trữ Metadata và Vector vào cơ sở dữ liệu **RDS PostgreSQL** (triển khai Multi-AZ với Primary/Standby giúp đảm bảo độ sẵn sàng cao).
+   - Khi người dùng tìm kiếm, **App Runner** gọi Bedrock tạo vector truy vấn, sau đó sử dụng **VPC Connector** thọc sâu vào Private Subnet để truy xuất dữ liệu từ RDS (Vector Search).
+
+5. **CI/CD & Observability (Triển khai & Giám sát):**
+   - Quá trình CI/CD hoàn toàn tự động qua **GitHub Actions**, build và đẩy Docker Image lên **Amazon ECR**.
+   - Toàn bộ log, số liệu đo lường và theo dõi luồng (tracing) được quản lý bởi **CloudWatch** và **AWS X-Ray**.

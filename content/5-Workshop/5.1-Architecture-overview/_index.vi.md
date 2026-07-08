@@ -12,7 +12,7 @@ Dự án **Smart Media Analytics** là một giải pháp phân tích video toà
 
 Dưới đây là sơ đồ kiến trúc tổng thể của toàn bộ hệ thống khi được triển khai trên Cloud:
 
-![Tổng quan kiến trúc nền tảng](/images/2-Proposal/platform_architecture.png)
+![Tổng quan kiến trúc nền tảng](../../images/2-Proposal/platform_architecture.png)
 
 #### Các luồng xử lý chính (Key Workflows)
 

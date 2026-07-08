@@ -12,7 +12,7 @@ pre : " <b> 5.1. </b> "
 
 Below is the high-level architecture diagram of the entire system deployed on the Cloud:
 
-![Platform Architecture Overview](/images/2-Proposal/platform_architecture.png)
+![Platform Architecture Overview](../../images/2-Proposal/platform_architecture.png)
 
 #### Key Workflows
 

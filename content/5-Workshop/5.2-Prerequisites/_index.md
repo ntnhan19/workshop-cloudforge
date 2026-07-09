@@ -1,24 +1,21 @@
 ---
 title : "Prerequisites & IAM"
-date : 2026-07-08
+date : 2026-07-09
 weight : 2 
 chapter : false
 pre : " <b> 5.2. </b> "
 ---
 
-#### 1. AWS Account & IAM Permissions
+#### 1. AWS Account & IAM Roles
 
-To deploy the **Smart Media Analytics** project, you need an active AWS account. For this workshop, it is recommended to use an IAM User or Role with `AdministratorAccess` to provision the necessary services (VPC, ECS, S3, RDS, Bedrock, etc.). 
+To allow the system to operate automatically and securely, we need to create IAM Roles so that AWS services can communicate with each other. For this workshop, it is recommended your AWS User has `AdministratorAccess` to provision the infrastructure, and then you will create the following specific roles:
 
-If you are using a restricted environment, ensure you have permissions for the following services:
-- **Networking & API:** VPC, ALB (Application Load Balancer), API Gateway, Route 53.
-- **Compute & Orchestration:** ECS Fargate, Step Functions, EventBridge.
-- **Storage & Data:** S3, RDS PostgreSQL, ElastiCache for Redis, SQS.
-- **AI/ML Services:** Amazon Bedrock, Amazon Transcribe.
-- **Frontend, Security & Ops:** Amplify, Cognito, Secrets Manager, ECR, CloudWatch, X-Ray.
+- **ECS-Backend-TaskRole:** Grants the Backend API cluster permission to invoke Bedrock (for vectorizing search queries), read/write to S3, and access internal networks.
+- **ECS-Worker-TaskRole:** Grants the heavy AI processing task permission to invoke Bedrock, Transcribe, read/write to S3, and publish job progress to Redis.
+- **StepFunctions-Orchestrator:** Grants Step Functions permission to trigger the ECS Worker (RunTask API) and read messages from SQS.
 
-*Insert a screenshot of your IAM User/Role permissions here:*
-![IAM Permissions](../../images/5-Workshop/5.2-Prerequisites/iam_permissions.png)
+*📸 Screenshot: IAM Roles list in the AWS Console when searching for the project name.*
+![IAM Roles](../../images/5-Workshop/5.2-Prerequisites/iam_permissions.png)
 
 #### 2. Local Environment Setup
 

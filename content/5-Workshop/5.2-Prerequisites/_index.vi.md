@@ -1,24 +1,21 @@
 ---
 title : "Chuẩn bị & Phân quyền"
-date : 2026-07-08
+date : 2026-07-09
 weight : 2
 chapter : false
 pre : " <b> 5.2. </b> "
 ---
 
-#### 1. Tài khoản AWS & Quyền IAM
+#### 1. Tài khoản AWS & Các Quyền hạn (IAM Roles)
 
-Để triển khai dự án **Smart Media Analytics**, bạn cần một tài khoản AWS đang hoạt động. Trong khuôn khổ bài thực hành này, khuyến nghị sử dụng IAM User hoặc Role có quyền `AdministratorAccess` để dễ dàng khởi tạo các dịch vụ (VPC, ECS, S3, RDS, Bedrock, v.v.).
+Để hệ thống hoạt động tự động, chúng ta cần tạo trước các "thẻ bài" (IAM Roles) để các dịch vụ có thể tự do nói chuyện với nhau một cách bảo mật nhất. Trong khuôn khổ bài thực hành này, khuyến nghị user của bạn có quyền `AdministratorAccess` để dễ dàng khởi tạo các dịch vụ, và sau đó tạo các Role chuyên biệt sau:
 
-Nếu tài khoản của bạn bị giới hạn, hãy đảm bảo bạn có quyền tạo và quản lý các nhóm dịch vụ sau:
-- **Mạng & API (Networking & API):** VPC, ALB (Application Load Balancer), API Gateway, Route 53.
-- **Tính toán & Điều phối (Compute & Orchestration):** ECS Fargate, Step Functions, EventBridge.
-- **Lưu trữ & Dữ liệu (Storage & Data):** S3, RDS PostgreSQL, ElastiCache for Redis, SQS.
-- **Dịch vụ AI (AI/ML):** Amazon Bedrock, Amazon Transcribe.
-- **Frontend, Bảo mật & Khác:** Amplify, Cognito, Secrets Manager, ECR, CloudWatch, X-Ray.
+- **ECS-Backend-TaskRole:** Cấp quyền cho cụm API Backend được gọi Bedrock (để chuyển câu query tìm kiếm thành Vector), đọc/ghi S3 và truy cập mạng nội bộ.
+- **ECS-Worker-TaskRole:** Cấp quyền cho tác vụ xử lý AI nặng được phép gọi Bedrock, Transcribe, đọc/ghi S3 và Publish tiến độ vào Redis.
+- **StepFunctions-Orchestrator:** Cấp quyền cho Step Functions được phép kích hoạt cụm ECS Worker (API RunTask) và đọc thông điệp từ SQS.
 
-*Chèn ảnh chụp màn hình cấu hình quyền IAM của bạn tại đây:*
-![Quyền IAM](../../images/5-Workshop/5.2-Prerequisites/iam_permissions.png)
+*📸 Góc chụp: Màn hình danh sách Roles trong IAM khi gõ tìm kiếm tên dự án.*
+![IAM Roles](../../images/5-Workshop/5.2-Prerequisites/iam_permissions.png)
 
 #### 2. Cài đặt môi trường Local
 

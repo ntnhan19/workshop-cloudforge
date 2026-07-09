@@ -19,7 +19,7 @@ Dưới đây là sơ đồ kiến trúc tổng thể của hệ thống:
 1. **Frontend & Authentication (Luồng Truy cập & Xác thực):**
    - Ứng dụng Web (React) được host trên **AWS Amplify**, kết hợp **Route 53** để quản lý tên miền toàn cầu.
    - Người dùng đăng nhập thông qua **Amazon Cognito** để nhận JWT Token an toàn.
-   - Các API request được định tuyến qua **API Gateway** tới ứng dụng Backend chạy trên **AWS App Runner**.
+   - Các API request được xác thực bởi **API Gateway** và định tuyến qua **Application Load Balancer (ALB)** tới dịch vụ Backend API chạy trên **Amazon ECS (AWS Fargate)**.
 
 2. **Ingestion & Orchestration (Luồng Tải lên & Điều phối Job):**
    - Người dùng upload video trực tiếp lên **Amazon S3** (Secure Upload).
@@ -27,16 +27,16 @@ Dưới đây là sơ đồ kiến trúc tổng thể của hệ thống:
    - **Step Functions** đóng vai trò nhạc trưởng (Orchestrator), điều phối toàn bộ quá trình chia tách và xử lý video tự động.
 
 3. **AI Processing Pipeline (Luồng Xử lý AI):**
-   - Các tác vụ xử lý nặng được tự động khởi chạy trên **Amazon ECS (AWS Fargate)** nằm trong vùng an toàn (Private Subnet) và có khả năng Auto Scaling trên đa vùng (AZ A & B).
-   - ECS kết nối tới S3 thông qua **S3 Gateway Endpoint (PrivateLink)** để lấy video và lưu keyframes mà không tốn chi phí truyền tải qua Internet.
+   - Các tác vụ xử lý nặng được tự động khởi chạy trên **ECS AI Worker (AWS Fargate)** nằm trong vùng an toàn (Private Subnet) và có khả năng Auto Scaling trên đa vùng (AZ A & B).
+   - ECS Worker kết nối tới S3 thông qua **S3 Gateway Endpoint (PrivateLink)** để lấy video và lưu keyframes mà không tốn chi phí truyền tải qua Internet.
    - Quá trình phân tích sử dụng các dịch vụ AI Managed mạnh mẽ của AWS:
      - **Amazon Transcribe**: Trích xuất giọng nói thành văn bản (Speech-to-Text).
-     - **Amazon Bedrock (Nova Lite & Titan Embeddings)**: Phân tích khung hình (Vision AI) và tạo vector nhúng (Embeddings).
-   - Trạng thái tiến trình (Job Progress) liên tục được đẩy vào **ElastiCache for Redis** trong Private Subnet. Dịch vụ backend trên **App Runner** sẽ đăng ký theo dõi (subscribe) các sự kiện này và gửi cập nhật tiến độ theo thời gian thực về Frontend thông qua **kết nối WebSocket**.
+     - **Amazon Bedrock (Nova Lite & Titan Embeddings)**: Phân tích đa phương thức (multimodal analysis) và tạo vector nhúng (Embeddings).
+   - Trạng thái tiến trình (Job Progress) liên tục được Worker đẩy vào **ElastiCache for Redis** trong Private Subnet. Dịch vụ **ECS Backend API** sẽ đăng ký theo dõi (subscribe) các sự kiện này và gửi cập nhật tiến độ theo thời gian thực trực tiếp về Frontend thông qua **kết nối WebSocket (WSS)** được quản lý bởi ALB.
 
 4. **Data Persistence & Search (Luồng Lưu trữ & Tìm kiếm):**
-   - Sau khi phân tích xong, cụm ECS gọi **AWS Lambda** để lưu trữ Metadata và Vector vào cơ sở dữ liệu **RDS PostgreSQL** (triển khai Multi-AZ với Primary/Standby giúp đảm bảo độ sẵn sàng cao).
-   - Khi người dùng tìm kiếm, **App Runner** gọi Bedrock tạo vector truy vấn, sau đó sử dụng **VPC Connector** thọc sâu vào Private Subnet để truy xuất dữ liệu từ RDS (Vector Search).
+   - Sau khi phân tích xong, ECS AI Worker ghi trực tiếp Metadata và Vector vào cơ sở dữ liệu **RDS PostgreSQL** (triển khai Multi-AZ với Primary/Standby giúp đảm bảo độ sẵn sàng cao).
+   - Khi người dùng tìm kiếm, **ECS Backend API** gọi Bedrock tạo vector truy vấn, sau đó truy xuất trực tiếp dữ liệu từ RDS để thực hiện tìm kiếm Vector (Vector Search).
 
 5. **CI/CD & Observability (Triển khai & Giám sát):**
    - Quá trình CI/CD hoàn toàn tự động qua **GitHub Actions**, build và đẩy Docker Image lên **Amazon ECR**.

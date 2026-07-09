@@ -1,20 +1,18 @@
 ---
-title : "Access S3 from on-premises"
-date : 2024-01-01
+title : "Database Setup"
+date : 2026-07-09
 weight : 4
 chapter : false
 pre : " <b> 5.4. </b> "
 ---
 
-#### Overview
+#### Storage & Database Overview
 
-+ In this section, you will create an Interface endpoint to access Amazon S3 from a simulated on-premises environment. The Interface endpoint will allow you to route to Amazon S3 over a VPN connection from your simulated on-premises environment.
+In this section, we will configure the robust database and storage layers for our Smart Media Analytics pipeline. We will set up Amazon RDS PostgreSQL (with pgvector for semantic search) and Amazon ElastiCache (Redis) for real-time progress tracking.
 
-+ Why using **Interface endpoint**: 
-    + Gateway endpoints only work with resources running in the VPC where they are created. Interface endpoints work with resources running in VPC, and also resources running in on-premises environments. Connectivty from your on-premises environment to the cloud can be provided by AWS Site-to-Site VPN or AWS Direct Connect.
-    + Interface endpoints allow you to connect to services powered by AWS PrivateLink. These services include some AWS services, services hosted by other AWS customers and partners in their own VPCs (referred to as PrivateLink Endpoint Services), and supported AWS Marketplace Partner services. For this workshop, we will focus on connecting to Amazon S3.
+#### Content
 
-![Interface endpoint architecture](/images/5-Workshop/5.4-S3-onprem/diagram3.png)
-
-
-
+- [Create RDS PostgreSQL](5.4.1-create-rds-postgresql/)
+- [Enable pgvector](5.4.2-enable-pgvector/)
+- [Create ElastiCache Redis](5.4.3-create-elasticache-redis/)
+- [Test Connection](5.4.4-test-connection/)

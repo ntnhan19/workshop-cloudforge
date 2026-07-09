@@ -1,18 +1,18 @@
 ---
-title : "Truy cập S3 từ VPC"
-date : 2024-01-01 
+title : "VPC & Networking"
+date : 2026-07-09 
 weight : 3
 chapter : false
 pre : " <b> 5.3. </b> "
 ---
 
-#### Sử dụng Gateway endpoint
+#### Nền móng Mạng nội bộ (VPC)
 
-Trong phần này, bạn sẽ tạo một Gateway endpoint để truy cập Amazon S3 từ một EC2 instance. Gateway endpoint sẽ cho phép tải một object lên S3 bucket mà không cần sử dụng Internet Công cộng. Để tạo endpoint, bạn phải chỉ định VPC mà bạn muốn tạo endpoint và dịch vụ (trong trường hợp này là S3) mà bạn muốn thiết lập kết nối.
-
-![overview](/images/5-Workshop/5.3-S3-vpc/diagram2.png)
+Trong phần này, chúng ta sẽ xây dựng một Virtual Private Cloud (VPC) bảo mật và có tính sẵn sàng cao để lưu trữ hệ thống Smart Media Analytics. Chúng ta sẽ cấu hình các Public và Private Subnet, NAT Gateway cho lưu lượng đầu ra, và S3 Gateway Endpoint để tối ưu chi phí truyền tải dữ liệu.
 
 #### Nội dung
 
-- [Tạo gateway endpoint](3.1-create-gwe/)
-- [Test gateway endpoint](3.2-test-gwe/)
+- [Tạo VPC & Subnets](5.3.1-create-vpc-subnets/)
+- [Kiểm tra NAT Gateway & Định tuyến](5.3.2-create-nat-gateway/)
+- [Phân tích S3 Gateway Endpoint](5.3.3-create-s3-gateway-endpoint/)
+- [Cấu hình Security Groups](5.3.4-security-groups/)

@@ -1,20 +1,18 @@
 ---
-title : "Truy cập S3 từ môi trường truyền thống"
-date : 2024-01-01 
+title : "Database Setup"
+date : 2026-07-09
 weight : 4 
 chapter : false
 pre : " <b> 5.4. </b> "
 ---
 
-#### Tổng quan
+#### Tổng quan Lưu trữ & Dữ liệu
 
-+ Trong phần này, bạn sẽ tạo một Interface Endpoint để truy cập Amazon S3 từ môi trường truyền thống mô phỏng. Interface Endpoint sẽ cho phép bạn định tuyến đến Amazon S3 qua kết nối VPN từ môi trường truyền thống mô phỏng của bạn.
+Trong phần này, chúng ta sẽ cấu hình các lớp cơ sở dữ liệu và lưu trữ mạnh mẽ cho Smart Media Analytics. Chúng ta sẽ thiết lập Amazon RDS PostgreSQL (với pgvector để tìm kiếm ngữ nghĩa) và Amazon ElastiCache (Redis) để theo dõi tiến trình xử lý theo thời gian thực.
 
-+ Tại sao nên sử dụng **Interface Endpoint**:
-    + Các Gateway endpoints chỉ hoạt động với các tài nguyên đang chạy trong VPC nơi chúng được tạo. Interface Endpoint  hoạt động với tài nguyên chạy trong VPC và cả tài nguyên chạy trong môi trường truyền thống. Khả năng kết nối từ môi trường truyền thống của bạn với aws cloud có thể được cung cấp bởi AWS Site-to-Site VPN hoặc AWS Direct Connect.
-    + Interface Endpoint cho phép bạn kết nối với các dịch vụ do AWS PrivateLink cung cấp. Các dịch vụ này bao gồm một số dịch vụ AWS, dịch vụ do các đối tác và khách hàng AWS lưu trữ trong VPC của riêng họ (gọi tắt là Dịch vụ PrivateLink endpoints) và các dịch vụ Đối tác AWS Marketplace. Đối với workshop này, chúng ta sẽ tập trung vào việc kết nối với Amazon S3.
-    
-![Interface endpoint architecture](/images/5-Workshop/5.4-S3-onprem/diagram3.png)
+#### Nội dung
 
-
-
+- [Tạo RDS PostgreSQL](5.4.1-create-rds-postgresql/)
+- [Kích hoạt pgvector](5.4.2-enable-pgvector/)
+- [Tạo ElastiCache Redis](5.4.3-create-elasticache-redis/)
+- [Kiểm tra Kết nối](5.4.4-test-connection/)

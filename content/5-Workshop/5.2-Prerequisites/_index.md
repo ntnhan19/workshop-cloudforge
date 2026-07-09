@@ -18,19 +18,16 @@ Before creating service roles, set up IAM groups to manage console access for yo
    - **Permissions policy:** `AdministratorAccess`
    
    ![Create Admin Group](../../images/5-Workshop/5.2-Prerequisites/iam_group_admin.png)
-   *Creating the CloudForge-Admins group*
 
 3. Create a developer group (for team members to deploy without full account access):
    - **User group name:** `CloudForge-Developers`
    - **Permissions policy:** `PowerUserAccess`
    
    ![Create Dev Group](../../images/5-Workshop/5.2-Prerequisites/iam_group_dev.png)
-   *Creating the CloudForge-Developers group*
 
 4. Go to **IAM > Users > Create user**, create users for your team members (e.g., `cf-vy`, `cf-luan`), and assign them to the appropriate groups.
 
    ![Assign Users](../../images/5-Workshop/5.2-Prerequisites/iam_assign_users.png)
-   *Assigning users to the Admin/Dev groups*
 
 #### 1. Create IAM Roles for Compute & Workflow
 
@@ -42,7 +39,6 @@ In AWS ECS Fargate, a container requires two types of roles: an **Execution Role
 3. Name it: `ecsTaskExecutionRole` and click Create.
 
    ![ECS Execution Role](../../images/5-Workshop/5.2-Prerequisites/iam_ecs_execution_role.png)
-   *Attaching the AmazonECSTaskExecutionRolePolicy*
 
 **Role 2: ECS-Backend-TaskRole (API & Vector Search)**
 This role allows your FastAPI/Node.js backend to convert text to vectors via Bedrock and read/write to S3.
@@ -75,7 +71,6 @@ This role allows your FastAPI/Node.js backend to convert text to vectors via Bed
 5. Name the role: `ECS-Backend-TaskRole`.
 
 ![ECS Backend Role](../../images/5-Workshop/5.2-Prerequisites/iam_ecs_backend_role.png)
-*Creating the ECS-Backend-TaskRole with the custom policy*
 
 **Role 3: ECS-Worker-TaskRole (Heavy AI Processing)**
 This role allows the asynchronous background worker to extract scenes, call Bedrock for multimodal analysis, and call Transcribe for Speech-to-Text.
@@ -108,7 +103,6 @@ This role allows the asynchronous background worker to extract scenes, call Bedr
 3. Name the policy `cloudforge-ai-worker-policy`. Create it, then attach it to a new role named `ECS-Worker-TaskRole`.
 
 ![ECS Worker Role](../../images/5-Workshop/5.2-Prerequisites/iam_ecs_worker_role.png)
-*Summary page of the successfully created ECS-Worker-TaskRole*
 
 **Role 4: StepFunctions-Orchestrator**
 This role allows the Step Functions State Machine to trigger the ECS AI Worker and consume SQS messages.
@@ -151,7 +145,6 @@ This role allows the Step Functions State Machine to trigger the ECS AI Worker a
 4. Create a role (Trusted Entity: Step Functions) named `StepFunctions-Orchestrator` and attach this policy.
 
 ![Final IAM Roles](../../images/5-Workshop/5.2-Prerequisites/iam_final_roles.png)
-*The final list of Roles in the IAM Console searching for "ECS" and "StepFunctions"*
 
 #### 2. Local Environment Setup
 Before starting the deployment, ensure your local machine has the following tools installed:
@@ -166,7 +159,6 @@ aws configure
 aws sts get-caller-identity
 ```
 ![AWS CLI Config](../../images/5-Workshop/5.2-Prerequisites/aws_cli_config.png)
-*Terminal showing a successful aws sts get-caller-identity response*
 
 #### 3. Amazon Bedrock Model Access (New AWS Update)
 
@@ -175,4 +167,3 @@ Previously, Amazon Bedrock required manual activation for specific foundation mo
 Serverless foundation models (including **Nova Lite** and **Titan Embeddings** used in our project) are now **automatically enabled** across all AWS commercial regions when first invoked in our account. Therefore, no manual intervention is required in the AWS Console for this step.
 
 ![Bedrock Model Access Auto](../../images/5-Workshop/5.2-Prerequisites/bedrock_access_retired.png)
-*The retired Model Access page in Amazon Bedrock, confirming automatic model availability*

@@ -168,13 +168,11 @@ aws sts get-caller-identity
 *📸 Góc chụp: Màn hình Terminal hiển thị kết quả gọi lệnh get-caller-identity thành công.*
 ![AWS CLI Config](../../images/5-Workshop/5.2-Prerequisites/aws_cli_config.png)
 
-#### 3. Cấp quyền truy cập Amazon Bedrock (Model Access)
-Vì dự án sử dụng Amazon Bedrock (Nova Lite & Titan Embeddings), bạn bắt buộc phải yêu cầu cấp quyền sử dụng các model này (chúng không được bật mặc định).
+#### 3. Quyền truy cập Amazon Bedrock Model (Bản cập nhật mới của AWS)
 
-1. Truy cập giao diện **Amazon Bedrock**.
-2. Ở menu trái, chọn **Model access**.
-3. Bấm **Manage model access** và chọn **Nova Lite** cùng **Titan Embeddings**.
-4. Bấm **Save changes** và chờ đến khi trạng thái chuyển sang `Access granted`.
+Trước đây, Amazon Bedrock yêu cầu người dùng phải kích hoạt thủ công cho các mô hình nền tảng (foundation models) cụ thể. Tuy nhiên, theo bản cập nhật mới nhất từ AWS, trang Model Access đã chính thức bị loại bỏ.
 
-*📸 Góc chụp: Trang Model Access của Bedrock với chữ "Access granted" màu xanh lá cho 2 model Nova và Titan.*
-![Bedrock Model Access](../../images/5-Workshop/5.2-Prerequisites/bedrock_access.png)
+Các mô hình nền tảng Serverless (bao gồm **Nova Lite** và **Titan Embeddings** được sử dụng trong dự án của chúng ta) giờ đây sẽ được **tự động kích hoạt (automatically enabled)** trên tất cả các khu vực AWS thương mại ngay trong lần gọi API đầu tiên của tài khoản. Do đó, bạn không cần phải thực hiện bất kỳ thao tác thủ công nào trên AWS Console ở bước này nữa.
+
+*📸 Góc chụp: Trang Model Access cũ trong Amazon Bedrock, xác nhận các model đã được tự động cung cấp.*
+![Bedrock Model Access Auto](../../images/5-Workshop/5.2-Prerequisites/bedrock_access_retired.png)

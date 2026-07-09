@@ -168,13 +168,11 @@ aws sts get-caller-identity
 *📸 Screenshot: Terminal showing a successful aws sts get-caller-identity response.*
 ![AWS CLI Config](../../images/5-Workshop/5.2-Prerequisites/aws_cli_config.png)
 
-#### 3. Requesting Amazon Bedrock Model Access
-Because the project utilizes Amazon Bedrock (Nova Lite & Titan Embeddings), you must explicitly request model access in the AWS Console (these models are not enabled by default).
+#### 3. Amazon Bedrock Model Access (New AWS Update)
 
-1. Go to the **Amazon Bedrock** console.
-2. Navigate to **Model access** on the left menu.
-3. Click **Manage model access** and select **Nova Lite** and **Titan Embeddings**.
-4. Click **Save changes** and wait for the access status to become `Access granted`.
+Previously, Amazon Bedrock required manual activation for specific foundation models. However, as per the latest AWS update, the Model Access page has been retired. 
 
-*📸 Screenshot: Amazon Bedrock Model Access page showing "Access granted" in green for Nova and Titan models.*
-![Bedrock Model Access](../../images/5-Workshop/5.2-Prerequisites/bedrock_access.png)
+Serverless foundation models (including **Nova Lite** and **Titan Embeddings** used in our project) are now **automatically enabled** across all AWS commercial regions when first invoked in our account. Therefore, no manual intervention is required in the AWS Console for this step.
+
+*📸 Screenshot: The retired Model Access page in Amazon Bedrock, confirming automatic model availability.*
+![Bedrock Model Access Auto](../../images/5-Workshop/5.2-Prerequisites/bedrock_access_retired.png)

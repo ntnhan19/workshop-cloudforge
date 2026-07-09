@@ -1,6 +1,6 @@
 ---
 title : "Tổng quan Kiến trúc"
-date : 2026-07-08
+date : 2026-07-09
 weight : 1
 chapter : false
 pre : " <b> 5.1. </b> "

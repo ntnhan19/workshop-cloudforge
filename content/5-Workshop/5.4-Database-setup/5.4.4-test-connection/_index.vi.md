@@ -65,8 +65,9 @@ REDIS_HOST=master.cloudforge-redis.xxxxxx.apse1.cache.amazonaws.com
 REDIS_PORT=6379
 ```
 
-> [!WARNING]
-> **Lưu ý bảo mật nghiêm ngặt:** Tuyệt đối không bao giờ được commit tệp tin chứa thông tin mật khẩu thực tế (`DB_PASSWORD`) lên các kho lưu trữ mã nguồn công khai như Public GitHub. Đối với môi trường doanh nghiệp thực tế, các thông tin nhạy cảm này sẽ được quản lý tập trung, mã hóa và nạp động thông qua các dịch vụ chuyên dụng như AWS Secrets Manager hoặc Systems Manager Parameter Store.
+{{% notice warning %}}
+**Lưu ý bảo mật nghiêm ngặt:** Tuyệt đối không bao giờ được commit tệp tin chứa thông tin mật khẩu thực tế (`DB_PASSWORD`) lên các kho lưu trữ mã nguồn công khai như Public GitHub. Đối với môi trường doanh nghiệp thực tế, các thông tin nhạy cảm này sẽ được quản lý tập trung, mã hóa và nạp động thông qua các dịch vụ chuyên dụng như AWS Secrets Manager hoặc Systems Manager Parameter Store.
+{{% /notice %}}
 
 ***
 

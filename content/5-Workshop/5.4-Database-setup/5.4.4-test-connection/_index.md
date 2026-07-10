@@ -65,8 +65,9 @@ REDIS_HOST=master.cloudforge-redis.xxxxxx.apse1.cache.amazonaws.com
 REDIS_PORT=6379
 ```
 
-> [!WARNING]
-> **Strict Security Warning:** Absolutely never commit a file containing actual password information (`DB_PASSWORD`) to public source code repositories like Public GitHub. For a real enterprise environment, these sensitive details will be centrally managed, encrypted, and dynamically injected through specialized services such as AWS Secrets Manager or Systems Manager Parameter Store.
+{{% notice warning %}}
+**Strict Security Warning:** Absolutely never commit a file containing actual password information (`DB_PASSWORD`) to public source code repositories like Public GitHub. For a real enterprise environment, these sensitive details will be centrally managed, encrypted, and dynamically injected through specialized services such as AWS Secrets Manager or Systems Manager Parameter Store.
+{{% /notice %}}
 
 ***
 

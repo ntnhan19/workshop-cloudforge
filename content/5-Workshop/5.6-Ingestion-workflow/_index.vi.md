@@ -8,13 +8,13 @@ pre : " <b> 5.6. </b> "
 
 ### Tổng quan Điều phối (Ingestion Workflow)
 
-Trong các chương trước, chúng ta đã xây dựng xong tầng lưu trữ, cơ sở dữ liệu và bảo mật. Ở chương 5.6 này, chúng ta sẽ thiết lập hệ thống **tin nhắn và điều phối sự kiện (Event-driven)** để liên kết các thành phần lại với nhau một cách lỏng lẻo (decoupled) nhưng cực kỳ bền bỉ.
+Trong các chương trước, chúng ta đã hoàn thiện phân lớp lưu trữ, cơ sở dữ liệu và bảo mật nền tảng. Tại chương 5.6 này, hệ thống sẽ được thiết lập **kiến trúc hướng sự kiện (Event-driven Architecture)** để liên kết các thành phần dịch vụ một cách lỏng lẻo (decoupled) nhưng vẫn đảm bảo tính bền bỉ và khả năng mở rộng cao.
 
-Hệ thống Smart Media Analytics phải xử lý khối lượng lớn file đa phương tiện. Quá trình xử lý AI mất nhiều thời gian, do đó chúng ta không thể gọi API đồng bộ. Thay vào đó, chúng ta sử dụng kiến trúc bất đồng bộ (Asynchronous) dựa trên hàng đợi.
+Với đặc thù của hệ thống Smart Media Analytics là phải xử lý khối lượng lớn tệp đa phương tiện, các tác vụ phân tích AI (nhận diện hình ảnh, bóc băng âm thanh, trích xuất metadata) đòi hỏi rất nhiều thời gian tính toán. Nếu sử dụng kiến trúc gọi API đồng bộ (Synchronous) truyền thống, hệ thống sẽ dễ dàng đối mặt với tình trạng thắt cổ chai (bottleneck) hoặc ngắt kết nối (timeout). Do đó, việc chuyển đổi sang mô hình xử lý bất đồng bộ (Asynchronous) dựa trên thông điệp là bắt buộc.
 
-Trong chương này, chúng ta sẽ tập trung vào:
-1. **Amazon SQS (Simple Queue Service):** Hàng đợi chứa các tác vụ (task) xử lý video/âm thanh đang chờ được AI Worker lấy ra xử lý.
-2. **Amazon EventBridge:** Trung tâm định tuyến sự kiện (Event Bus), lắng nghe các sự kiện trạng thái (thành công/thất bại) và kích hoạt luồng xử lý tiếp theo.
-3. **AWS Step Functions:** (Tùy chọn) Điều phối quy trình xử lý phức tạp gồm nhiều bước nối tiếp nhau một cách trực quan.
+Trong chương này, chúng ta sẽ tập trung triển khai các thành phần điều phối lõi:
+1. **Amazon SQS (Simple Queue Service):** Đóng vai trò là bộ đệm (buffer) và hàng đợi chứa các tác vụ xử lý video/âm thanh, phân phối công việc đến các AI Worker một cách an toàn mà không rủi ro mất mát dữ liệu khi tải tăng đột biến.
+2. **Amazon EventBridge:** Trung tâm định tuyến sự kiện (Event Bus), có nhiệm vụ lắng nghe các thay đổi trạng thái (ví dụ: tệp tin được tải lên S3 thành công, hoặc AI xử lý hoàn tất/thất bại) để kích hoạt tự động luồng xử lý tiếp nối.
+3. **AWS Step Functions (Tùy chọn):** Máy trạng thái (State Machine) điều phối các quy trình xử lý luồng phức tạp, rẽ nhánh đa điều kiện và cung cấp khả năng giám sát trực quan toàn bộ vòng đời của một tác vụ Media.
 
-*(Nội dung chi tiết các bước thiết lập sẽ được cập nhật ở các bài viết con trong phần này).*
+*(Chi tiết triển khai kỹ thuật cho từng dịch vụ sẽ được trình bày tại các phân mục tiếp theo).*

@@ -40,4 +40,4 @@ Khi quy tắc được tạo thành công và kích hoạt, đường ống dữ
 
 ***
 
-**Bước tiếp theo:** Hệ thống điều phối tin nhắn đã hoàn thiện. Chúng ta đã sẵn sàng bước sang phân lớp cốt lõi nhất của dự án: **Chương 5.7: Triển khai Compute (ECS)** để thiết lập cụm máy chủ AI Worker thực thi các tác vụ từ hàng đợi.
+**Bước tiếp theo:** Dòng chảy dữ liệu từ khi người dùng Upload (S3) → Nhận diện sự kiện (EventBridge) → Chờ xử lý (SQS) đã được khơi thông. Tiếp theo, chúng ta sẽ làm quen với một khái niệm nâng cao trong kiến trúc điều phối tại bài **5.6.3: Khởi tạo Step Functions (Tùy chọn)**.

@@ -40,4 +40,4 @@ When the rule is successfully created and activated, the Asynchronous Data Pipel
 
 ***
 
-**Next Step:** The message orchestration system is complete. We are ready to move on to the most core tier of the project: **Chapter 5.7: Compute Setup (ECS)** to deploy the AI Worker server cluster that will execute tasks from the queue.
+**Next Step:** The data flow from User Upload (S3) → Event Detection (EventBridge) → Waiting for Processing (SQS) is now fully connected. Next, we will introduce an advanced orchestration concept in section **5.6.3: Step Functions Setup (Optional)**.

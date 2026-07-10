@@ -8,18 +8,25 @@ pre : " <b> 5.7. </b> "
 
 ### Tổng quan Khối Tính toán (Compute Setup)
 
-Sau khi có mạng nội bộ, cơ sở dữ liệu, bảo mật và hàng đợi sự kiện, đây là lúc chúng ta mang "trái tim" của hệ thống lên Cloud: Các mã nguồn ứng dụng Backend và AI Worker.
+Sau khi hoàn thiện phân lớp mạng nội bộ bảo mật, cơ sở dữ liệu bền bỉ và đường ống điều phối tin nhắn hướng sự kiện, hệ thống Smart Media Analytics cần một nền tảng tính toán mạnh mẽ để vận hành "trái tim" của toàn bộ dự án: Các ứng dụng Backend API và các tác vụ AI Worker thực thi tác vụ nặng.
 
-Thay vì quản lý máy chủ ảo EC2 truyền thống nặng nề, chúng ta sẽ đóng gói ứng dụng bằng Docker và chạy chúng trên nền tảng **Amazon ECS (Elastic Container Service)** kết hợp với công cụ tính toán không máy chủ **AWS Fargate**.
+Thay vì sử dụng kiến trúc quản lý máy chủ ảo EC2 truyền thống vốn đòi hỏi nhiều công sức vận hành (OS patching, scaling group quản lý thủ công), dự án áp dụng giải pháp đóng gói ứng dụng bằng Docker Container và triển khai trên nền tảng **Amazon ECS (Elastic Container Service)** kết hợp với công cụ tính toán không máy chủ **AWS Fargate**.
 
-Lợi ích của Fargate:
-- **Không quản lý máy chủ:** AWS tự lo việc cấp phát tài nguyên CPU/RAM bên dưới.
-- **Bảo mật tuyệt đối:** Các Container sẽ chạy hoàn toàn trong vùng mạng **Private Subnet** mà chúng ta đã vạch ra ở Chương 5.3.
-- **Tự động mở rộng:** Dễ dàng tăng giảm số lượng Container dựa trên lượng tin nhắn trong hàng đợi SQS hoặc tải CPU.
+#### Lợi ích cốt lõi của Kiến trúc ECS Fargate:
+- **Trừu tượng hóa hạ tầng (Serverless Compute):** AWS tự động chịu trách nhiệm cấp phát, quản lý và tối ưu hóa tài nguyên phần cứng (CPU/RAM) bên dưới. Kỹ sư chỉ cần tập trung vào việc tối ưu hóa mã nguồn ứng dụng.
+- **Bảo mật chuyên sâu (Isolate by Design):** Các tác vụ tính toán (Tasks) được cấu hình để khởi chạy hoàn toàn trong phân vùng **Private Subnets** đã thiết lập ở Chương 5.3, cách ly hoàn toàn khỏi Internet công cộng.
+- **Khả năng co giãn linh hoạt (Elastic Scalability):** Hệ thống có khả năng tự động tăng giảm số lượng tác vụ xử lý (Containers) dựa trên số lượng thông điệp tích tụ trong hàng đợi SQS hoặc ngưỡng tải phần cứng, giúp tối ưu hóa chi phí vận hành tối đa.
 
-Trong chương này, chúng ta sẽ thiết lập:
-1. **Amazon ECR:** Đẩy Docker Image của Backend và AI Worker lên kho lưu trữ đám mây.
-2. **ECS Cluster & Task Definitions:** Định nghĩa cấu hình phần cứng và nạp các thông số môi trường (`.env`) từ Secrets Manager.
-3. **Application Load Balancer (ALB):** Tạo cổng giao tiếp từ Internet vào Backend API (đã được bọc bởi WAF).
+#### Lộ trình triển khai phân lớp Compute:
+1. **Amazon ECR (Elastic Container Registry):** Khởi tạo kho lưu trữ đám mây bảo mật để quản lý và lưu trữ các bản phân phối Docker Images của hệ thống.
+2. **ECS Cluster & Task Definitions:** Thiết lập nhóm quản lý logic và định nghĩa cấu hình phần cứng, quyền thực thi cùng các thông số môi trường nạp từ Secrets Manager.
+3. **Application Load Balancer (ALB):** Thiết lập bộ cân bằng tải ứng dụng làm cổng giao tiếp trung gian điều phối lưu lượng từ Internet vào các Container Backend API một cách an toàn.
 
-*(Nội dung chi tiết các bước thiết lập sẽ được cập nhật ở các bài viết con trong phần này).*
+Hoàn thành chương này sẽ cung cấp cho hệ thống một năng lực tính toán linh hoạt, bảo mật tuyệt đối và tự động tối ưu hóa theo quy quy mô tải thực tế của doanh nghiệp.
+
+### Nội dung thực hành
+
+- [Khởi tạo ECS Cluster](5.7.1-create-ecs-cluster/)
+- [Triển khai ECS Backend](5.7.2-deploy-ecs-backend/)
+- [Triển khai ECS AI Worker](5.7.3-deploy-ecs-ai-worker/)
+- [Cấu hình Auto Scaling](5.7.4-configure-auto-scaling/)

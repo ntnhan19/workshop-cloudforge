@@ -8,18 +8,25 @@ pre : " <b> 5.7. </b> "
 
 ### Compute Setup Overview
 
-With the internal network, databases, security, and event queues in place, it is time to bring the "heart" of the system to the Cloud: the Backend and AI Worker application source codes.
+After completing the secure internal network layer, persistent databases, and event-driven message orchestration pipeline, the Smart Media Analytics system needs a robust computing platform to operate the "heart" of the entire project: the Backend API applications and AI Worker tasks executing heavy processing.
 
-Instead of managing traditional EC2 virtual machines, we will package the applications using Docker and run them on **Amazon ECS (Elastic Container Service)** combined with the serverless compute engine **AWS Fargate**.
+Instead of using the traditional EC2 virtual machine management architecture, which requires significant operational effort (OS patching, manual scaling group management), the project adopts a solution of packaging applications with Docker Containers and deploying them on the **Amazon ECS (Elastic Container Service)** platform combined with the **AWS Fargate** serverless compute engine.
 
-Benefits of Fargate:
-- **No server management:** AWS handles underlying CPU/RAM provisioning.
-- **Absolute security:** Containers will run entirely within the **Private Subnets** established in Chapter 5.3.
-- **Auto-scaling:** Easily scale the number of Containers based on SQS queue depth or CPU load.
+#### Core Benefits of the ECS Fargate Architecture:
+- **Infrastructure Abstraction (Serverless Compute):** AWS automatically takes responsibility for provisioning, managing, and optimizing the underlying hardware resources (CPU/RAM). Engineers only need to focus on optimizing the application source code.
+- **In-depth Security (Isolate by Design):** Compute tasks (Tasks) are configured to launch entirely within the **Private Subnets** partition established in Chapter 5.3, completely isolated from the public Internet.
+- **Elastic Scalability:** The system can automatically scale up or down the number of processing tasks (Containers) based on the number of messages accumulated in the SQS queue or hardware load thresholds, helping to maximize operational cost optimization.
 
-In this chapter, we will set up:
-1. **Amazon ECR:** Push the Backend and AI Worker Docker Images to the cloud registry.
-2. **ECS Cluster & Task Definitions:** Define hardware configurations and inject environment variables (`.env`) from Secrets Manager.
-3. **Application Load Balancer (ALB):** Create a gateway from the Internet to the Backend API (wrapped by WAF).
+#### Compute Tier Deployment Roadmap:
+1. **Amazon ECR (Elastic Container Registry):** Initialize a secure cloud repository to manage and store the system's Docker Image distributions.
+2. **ECS Cluster & Task Definitions:** Establish logical management groups and define hardware configurations, execution permissions, and environment parameters injected from Secrets Manager.
+3. **Application Load Balancer (ALB):** Establish an application load balancer to act as an intermediate gateway, safely orchestrating traffic from the Internet to the Backend API Containers.
 
-*(Detailed setup steps will be updated in the sub-articles of this section).*
+Completing this chapter will provide the system with flexible computing capacity, absolute security, and automatic optimization according to the enterprise's actual load scale.
+
+### Hands-on Content
+
+- [Create ECS Cluster](5.7.1-create-ecs-cluster/)
+- [Deploy ECS Backend](5.7.2-deploy-ecs-backend/)
+- [Deploy ECS AI Worker](5.7.3-deploy-ecs-ai-worker/)
+- [Configure Auto Scaling](5.7.4-configure-auto-scaling/)

@@ -6,37 +6,47 @@ chapter : false
 pre : " <b> 5.6.4. </b> "
 ---
 
-Ba thành phần cốt lõi của kiến trúc điều phối tin nhắn (SQS, EventBridge, Step Functions) đã được thiết lập. Bây giờ là lúc chúng ta kiểm chứng (End-to-End Test) xem đường ống dữ liệu (Data Pipeline) có hoạt động thông suốt từ đầu đến cuối hay không.
+Sau khi hoàn tất cấu hình toàn bộ các thành phần cốt lõi của kiến trúc điều phối hướng sự kiện (S3, SQS, EventBridge, Step Functions), bước cuối cùng là thực hiện kiểm thử tích hợp (Integration Test). Quá trình này nhằm xác thực tính thông suốt của đường ống dữ liệu (Data Pipeline) từ lúc tiếp nhận file cho đến khi kích hoạt luồng xử lý nghiệp vụ.
 
-Mục tiêu của bài thực hành này là: Giả lập một người dùng tải video lên S3, và kiểm tra xem SQS có nhận được tin nhắn báo hiệu có video mới hay không mà không cần bất kỳ sự can thiệp thủ công nào.
+Kịch bản kiểm thử được chia làm hai giai đoạn độc lập nhằm minh chứng cho tính phân tách cao (Loose Coupling) của hệ thống.
 
-#### 1. Tải tệp tin mẫu lên Amazon S3
-Đầu tiên, chúng ta sẽ đóng vai người dùng cuối thực hiện thao tác tải tệp tin lên hệ thống lưu trữ.
+#### 1. Kiểm thử luồng định tuyến sự kiện (S3 → EventBridge → SQS)
+Mục tiêu của giai đoạn này là xác nhận Amazon EventBridge có bắt đúng sự kiện thay đổi trạng thái từ Amazon S3 và chuyển giao gói tin siêu dữ liệu (Metadata) an toàn vào hàng đợi Amazon SQS hay không.
 
-1. Truy cập dịch vụ **Amazon S3** trên AWS Console.
-2. Tìm và bấm vào Bucket dùng để lưu trữ video upload của dự án (ví dụ: `cloudforge-media-upload-xxxxxx`).
-3. Bấm nút **Upload** màu cam.
-4. Bấm **Add files**, chọn một tệp tin bất kỳ từ máy tính của bạn (có thể là một đoạn video `.mp4` ngắn, hoặc đơn giản là một file `.txt` mẫu).
-5. Cuộn xuống dưới cùng và bấm **Upload**. Đợi vài giây cho đến khi thanh tiến trình báo màu xanh (Succeeded).
+**Bước 1: Tải lên tệp tin dữ liệu mẫu**
+- Truy cập vào giao diện console của S3 Bucket `cloudforge-media-upload-ntnhan19`.
+- Bấm **Add files**, chọn một tệp tin đa phương tiện mẫu (ví dụ: `sample-audio.mp3` hoặc `demo-video.mp4`) từ máy tính và bấm **Upload**.
 
-Ngay tại khoảnh khắc tệp tin này được đưa lên S3 thành công, S3 đã phát ra một sự kiện (Event), EventBridge đã lập tức bắt lấy nó và định tuyến thẳng vào hàng đợi SQS. Hãy cùng kiểm chứng điều này!
+*Ảnh minh họa: Thực hiện tải tệp tin mẫu thành công lên Amazon S3 Bucket.*
+![S3 Upload Success](../../../../images/5-Workshop/5.6-Ingestion-workflow/5.6.4-test-ingestion-flow/s3_upload_success.png)
 
-#### 2. Kiểm tra tin nhắn tại SQS Queue
-1. Mở một tab trình duyệt mới và truy cập dịch vụ **Amazon SQS**.
-2. Bấm vào hàng đợi tác vụ chính **`cloudforge-media-task-queue`**.
-3. Ở góc trên cùng bên phải, bấm nút **Send and receive messages**.
-4. Cuộn xuống phần **Receive messages**, bạn sẽ thấy thông số *Messages available* đang có giá trị lớn hơn 0.
-5. Bấm nút **Poll for messages** để hệ thống lấy tin nhắn ra khỏi hàng đợi.
-6. Một tin nhắn mới sẽ xuất hiện trong danh sách bên dưới. Hãy bấm vào **ID** của tin nhắn đó.
+**Bước 2: Kiểm tra và xác thực thông điệp tại hàng đợi SQS**
+- Truy cập dịch vụ **Amazon SQS** → Chọn hàng đợi tác vụ chính `cloudforge-media-task-queue`.
+- Chọn **Send and receive messages** → Di chuyển xuống mục *Receive messages* và bấm **Poll for messages**.
+- Click vào ID thông điệp vừa xuất hiện để kiểm tra tab **Body**. Gói tin JSON được EventBridge gửi qua phải chứa chính xác các thông tin:
+  - Sự kiện phát sinh: `ObjectCreated:Put`.
+  - Tên tệp tin gốc nằm trong trường `object.key`.
 
-Tại tab **Body** của tin nhắn, bạn sẽ thấy một cấu trúc JSON chi tiết được gửi từ EventBridge. Nếu nhìn kỹ, bạn sẽ tìm thấy tên Bucket S3 và tên File (Object Key) mà bạn vừa tải lên ở Bước 1. 
+*Ảnh minh họa: Kiểm tra Payload của thông điệp được EventBridge định tuyến thành công vào SQS.*
+![SQS Message Received](../../../../images/5-Workshop/5.6-Ingestion-workflow/5.6.4-test-ingestion-flow/sqs_message_received.png)
 
-{{% notice tip %}}
-**Sức mạnh của kiến trúc lỏng lẻo (Decoupled):** Tin nhắn này sẽ nằm chờ an toàn trong hàng đợi SQS (tối đa 4 ngày theo cấu hình mặc định) cho đến khi có một máy chủ AI Worker rảnh rỗi đến lấy (Receive) và xóa (Delete) nó đi. Dù hệ thống Backend của bạn hiện tại chưa có, hoặc có bị sập nguồn đi chăng nữa, bạn cũng không bao giờ lo mất dữ liệu khách hàng!
-{{% /notice %}}
+#### 2. Xác thực tiến trình điều phối (Step Functions Workflow)
+Mục tiêu của giai đoạn này là kiểm tra tính hợp lệ và khả năng rẽ nhánh logic nghiệp vụ của máy trạng thái khi tiếp nhận yêu cầu điều phối.
+
+**Bước 1: Kích hoạt thực thi State Machine**
+- Truy cập dịch vụ **AWS Step Functions** → Chọn máy trạng thái `cloudforge-media-workflow`.
+- Bấm nút **Start execution**. Tại hộp thoại Input, giữ nguyên cấu trúc mặc định và chọn **Start execution** một lần nữa.
+
+**Bước 2: Giám sát trực quan luồng công việc (Graph View)**
+- Dựa trên điều kiện giữ chỗ (`{% true %}`) đã thiết lập tại phân đoạn xây dựng bộ khung, luồng thực thi sẽ tự động chuyển trạng thái tuần tự từ `Start Processing` → vượt qua điểm đánh giá `Check Status` → hội tụ chính xác về nhánh tác vụ thành công `Update Metadata`.
+- Thanh trạng thái tổng thể hiển thị màu xanh lá kèm nhãn **Succeeded**.
+
+*Ảnh minh họa: Biểu đồ Graph View của Step Functions thực thi thành công chu trình điều phối rẽ nhánh.*
+![Step Functions Success](../../../../images/5-Workshop/5.6-Ingestion-workflow/5.6.4-test-ingestion-flow/step_functions_success.png)
+
+#### 3. Kết luận Phân lớp Điều phối Workflow
+Kết quả thực nghiệm cho thấy toàn bộ đường ống Ingestion Workflow đã vận hành hoàn toàn đúng với thiết kế kiến trúc ban đầu. Dữ liệu từ tầng lưu trữ đã được định tuyến, cô lập an toàn tại bộ đệm hàng đợi và kịch bản điều phối sẵn sàng kết nối với các ứng dụng tính toán thực tế.
 
 ***
 
-**Bước tiếp theo:** Chúc mừng bạn! Luồng Ingestion phi kết nối (Serverless Ingestion Pipeline) đã hoạt động hoàn hảo. Nhưng ai sẽ là người đọc những tin nhắn đang nằm chờ trong SQS và thực thi các khối xử lý AI? 
-
-Hãy bước sang chương quan trọng nhất của hệ thống: **Chương 5.7: Compute Setup** để triển khai cụm máy chủ ứng dụng Amazon ECS (Elastic Container Service).
+**Bước tiếp theo:** Hệ thống điều phối và đường ống tin nhắn hướng sự kiện của Chương 5.6 đã hoàn thành trọn vẹn. Chúng ta đã có đầy đủ nền tảng vững chắc để bước sang **Chương 5.7: Triển khai Compute (ECS)** nhằm cấu hình các cụm máy chủ Container thực thi mô hình AI kéo dữ liệu từ SQS.

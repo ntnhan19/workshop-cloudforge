@@ -6,41 +6,47 @@ chapter : false
 pre : " <b> 5.4.2. </b> "
 ---
 
-Để hỗ trợ tính năng tìm kiếm ngữ nghĩa AI (semantic search), cơ sở dữ liệu PostgreSQL của chúng ta cần khả năng lưu trữ và tính toán khoảng cách giữa các vector embeddings. May mắn là Amazon RDS for PostgreSQL hỗ trợ sẵn extension `pgvector`.
+Sau khi Amazon RDS PostgreSQL đã khởi tạo thành công, bước tiếp theo là kết nối vào cơ sở dữ liệu và kích hoạt `pgvector` - extension cốt lõi biến PostgreSQL truyền thống thành một Vector Database phục vụ lưu trữ embeddings cho AI.
 
-#### 1. Kết nối vào Database
-Vì database của chúng ta được đặt an toàn trong Private Subnet (tuân thủ mô hình Zero-Trust), bạn không thể kết nối trực tiếp từ Internet. Để thao tác, bạn cần sử dụng một công cụ SQL client (như `psql`, DBeaver, hoặc pgAdmin) từ bên trong mạng VPC.
+Vì cụm RDS của chúng ta được đặt an toàn trong **Private Subnet** (tuân thủ mô hình Zero-Trust), chúng ta không thể kết nối trực tiếp từ Internet. Thay vào đó, thao tác này cần được thực hiện thông qua một máy chủ trung gian (Bastion Host / EC2) nằm bên trong mạng VPC.
 
-*Các cách phổ biến để kết nối trong workshop này:*
-- Sử dụng một máy chủ **EC2 Bastion Host** hoặc môi trường **AWS Cloud9** được đặt ở Public Subnet.
-- Sử dụng tính năng port forwarding của **AWS Systems Manager (SSM) Session Manager** để kết nối an toàn từ máy tính cá nhân.
+#### 1. Lấy thông tin kết nối (Endpoint)
+1. Truy cập **RDS Console** $\rightarrow$ **Databases**.
+2. Click vào `cloudforge-db` (đảm bảo trạng thái đã chuyển sang *Available*).
+3. Trong tab **Connectivity & security**, hãy copy đường dẫn ở mục **Endpoint** (ví dụ: `cloudforge-db.xxxxxx.ap-southeast-1.rds.amazonaws.com`).
 
-Sử dụng thông tin đăng nhập bạn đã tạo ở bài trước:
-- **Host:** *[Endpoint URL của RDS]*
-- **Port:** 5432
-- **Database:** `cloudforge_db`
-- **Username:** `postgres`
-- **Password:** *[Mật khẩu Master của bạn]*
+#### 2. Kết nối và Kích hoạt extension
+Chúng ta sẽ sử dụng một máy chủ EC2 (Bastion Host) được gán Security Group `cloudforge-ecs-app-sg` để đi xuyên qua tường lửa của Database. Từ Terminal của EC2, hãy thực hiện lần lượt các lệnh sau:
 
-#### 2. Kích hoạt Extension
-Sau khi kết nối thành công vào database `cloudforge_db`, hãy chạy câu lệnh SQL sau để kích hoạt extension:
+**Cài đặt công cụ PostgreSQL Client:**
+```bash
+sudo dnf install -y postgresql15
+```
+
+**Kết nối vào Database:**
+```bash
+psql -h <ĐIỀN_ENDPOINT_CỦA_BẠN_VÀO_ĐÂY> -U postgres -d cloudforge_db
+```
+*(Hệ thống sẽ yêu cầu nhập mật khẩu, hãy nhập mật khẩu mà bạn đã thiết lập ở bước khởi tạo RDS).*
+
+Sau khi đăng nhập thành công vào PostgreSQL prompt (`cloudforge_db=>`), hãy chạy lệnh SQL sau để kích hoạt extension:
 
 ```sql
 CREATE EXTENSION IF NOT EXISTS vector;
 ```
 
-#### 3. Kiểm tra cài đặt
-Để xác nhận extension đã được cài đặt và hoạt động tốt, bạn có thể chạy truy vấn sau:
+#### 3. Kiểm tra kết quả
+Để xác nhận extension đã được cài đặt thành công, bạn chạy lệnh:
 
 ```sql
-SELECT * FROM pg_extension WHERE extname = 'vector';
+SELECT extname, extversion FROM pg_extension WHERE extname = 'vector';
 ```
 
-Nếu kết quả trả về có chứa dòng dữ liệu của `vector`, xin chúc mừng! Database của bạn hiện đã được "nâng cấp" thành một Vector Database, sẵn sàng lưu trữ các chuỗi đa chiều do Amazon Titan tạo ra.
+Nếu kết quả trả về hiển thị `vector` kèm theo phiên bản (ví dụ: `0.8.1`), xin chúc mừng! Cơ sở dữ liệu của bạn đã hoàn toàn sẵn sàng để lưu trữ các chuỗi đa chiều do Amazon Titan tạo ra.
 
-*📸 Ảnh minh họa: Chạy lệnh CREATE EXTENSION thành công trên SQL client.*
+*📸 Ảnh minh họa: Kết quả kích hoạt pgvector thành công trên Terminal.*
 ![Enable pgvector](../../../../images/5-Workshop/5.4-Database-setup/5.4.2-enable-pgvector/enable_pgvector.png)
 
 ***
 
-**Bước tiếp theo:** Với lớp lưu trữ dữ liệu AI đã sẵn sàng, chúng ta sẽ chuyển sang phần **5.4.3: Tạo ElastiCache Redis** để thiết lập hệ thống đệm tốc độ cao và quản lý hàng đợi.
+**Bước tiếp theo:** Với lớp lưu trữ dữ liệu bền vững đã hoàn thiện, chúng ta sẽ chuyển sang phần **5.4.3: Khởi tạo ElastiCache (Redis)** để xây dựng lớp Caching tốc độ cao và Message Queue cho các AI Worker.

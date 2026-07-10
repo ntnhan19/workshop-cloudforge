@@ -6,31 +6,36 @@ chapter : false
 pre : " <b> 5.3.3. </b> "
 ---
 
-In Media / AI Pipeline systems, Workers residing in Private Subnets must continuously read and write massive files (such as high-resolution videos and images) to Amazon S3 every single second.
+In Media / AI Pipeline systems, Workers residing in Private Subnets or servers in Public Subnets must continuously read and write massive files (such as high-resolution videos and images) to Amazon S3 constantly.
 
-If this data follows the default routing path (Private Subnet $\rightarrow$ NAT Gateway $\rightarrow$ Internet $\rightarrow$ S3), AWS will apply NAT Gateway data processing charges (approximately $0.045/GB). With hundreds of GBs or TBs of video processing in a real-world scenario, costs can skyrocket. To solve this, the **VPC and more** wizard automatically provisioned an **S3 Gateway Endpoint**.
+If data from the Private Subnet follows the default routing path (`Private Subnet` $\rightarrow$ `NAT Gateway` $\rightarrow$ `Internet` $\rightarrow$ `S3`), AWS will apply NAT Gateway data processing charges (approximately $0.045/GB). With the large video capacities of our project, these costs would skyrocket. To solve this cost optimization challenge, the **VPC and more** wizard automatically provisioned an **S3 Gateway Endpoint** to steer packets through the internal network.
 
 #### 1. Verify Endpoint Status
-1. On the left menu of the VPC service, locate **Endpoints** (under the *Virtual private cloud* category).
-2. You should see an Endpoint with a name containing `cloudforge-vpce-s3`.
+1. On the left navigation menu of the VPC service, go to **Endpoints** (located right under *Managed prefix lists*).
+2. Check the list and select the Endpoint whose name contains the S3 service code for the Singapore region: `com.amazonaws.ap-southeast-1.s3`.
 3. Ensure the **Status** column displays in green as **Available**.
-4. Look at the **Service name** column; it will point to the S3 service in the Singapore region: `com.amazonaws.ap-southeast-1.s3`.
 
    ![S3 Endpoint Verification](../../../../images/5-Workshop/5.3-Network-vpc/5.3.3-create-s3-gateway-endpoint/s3_endpoint_verify.png)
 
-#### 2. The Secret lies in the Route Table
-How do servers in a Private Subnet know how to "shortcut" to S3 without traversing the NAT Gateway? The answer lies in automatically injected routing rules:
+#### 2. Analyze Route Table Configurations
+The secret to this shortcut is that AWS automatically injects a special routing rule into both groups of route tables (Public and Private) in our project. This keeps all traffic destined for S3 within the AWS internal bandwidth network instead of looping out to the Internet.
 
-1. Navigate back to **Route tables** and select one of the system's **Private Route Tables**.
-2. Click the **Routes** tab. You will see a new route rule appearing alongside the NAT Gateway rule:
-   * **Destination:** `pl-XXXXXX` (This is a *Prefix List* – a curated list containing all the public IP ranges of the AWS S3 service).
-   * **Target:** Points directly to `vpce-XXXXXX` (The exact ID of the S3 Gateway Endpoint verified above).
+##### A. For Private Route Tables (Optimizing NAT Costs)
+1. Select a private route table (e.g., `cloudforge-rtb-private1`).
+2. On the **Routes** tab, observe the routing rule running parallel to the NAT Gateway:
+   - **Destination:** `pl-6fa54006` (The IP Prefix List representing the entire S3 service in the Singapore Region).
+   - **Target:** Points directly to the S3 Endpoint ID (`vpce-xxxxxx`).
+   - **Meaning:** Any upload/download operations from the AI Worker application (Private) to S3 will go directly through this gateway, **completely bypassing the NAT Gateway**. This maximizes speed and reduces data processing costs through NAT to **$0**.
 
-   ![S3 Endpoint Routes](../../../../images/5-Workshop/5.3-Network-vpc/5.3.3-create-s3-gateway-endpoint/s3_endpoint_routes.png)
+   ![S3 Endpoint Routes Private](../../../../images/5-Workshop/5.3-Network-vpc/5.3.3-create-s3-gateway-endpoint/s3_endpoint_routes_private.png)
 
-#### 🎯 Architectural Conclusion:
-Thanks to this precise routing rule, whenever our AI Workers or Backend applications execute a video upload/download to S3, AWS will "steer" the packets directly through the internal AWS backbone, **completely bypassing the NAT Gateway**. This architecture guarantees maximum transfer speeds (data center internal network velocity) and **reduces data transfer costs to $0**!
+##### B. For Public Route Table (Optimizing Public Bandwidth)
+1. Switch to select the public route table `cloudforge-rtb-public`.
+2. On the **Routes** tab, you will also see the rule pointing the `pl-6fa54006` IP range to `vpce-xxxxxx`, appearing independently of the Internet Gateway (`igw-xxxx`).
+   - **Meaning:** Even resources in the Public zone (like a Load Balancer or Bastion Host, if any), when interacting with S3, will go through this internal Endpoint. This reduces the load on the Internet Gateway and increases the security of the data flow.
+
+   ![S3 Endpoint Routes Public](../../../../images/5-Workshop/5.3-Network-vpc/5.3.3-create-s3-gateway-endpoint/s3_endpoint_routes_public.png)
 
 ***
 
-**Next Step:** Now that our core network, routing, and cost-optimized shortcuts are perfectly established, we will move on to section **5.3.4: Configure Security Groups** to establish strict firewall locks for each specific service.
+**Next Step:** Now that our core network, routing, and cost-optimized shortcuts have been verified to work perfectly, we will move on to section **5.3.4: Configure Security Groups** to establish strict firewall locks for each specific service.

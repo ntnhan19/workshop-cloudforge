@@ -17,4 +17,11 @@ In this chapter, we will focus on deploying the core orchestration components:
 2. **Amazon EventBridge:** The Event Bus, responsible for listening to state changes (e.g., successful file upload to S3, or AI processing completion/failure) to automatically trigger subsequent processing workflows.
 3. **AWS Step Functions (Optional):** A State Machine that orchestrates complex processing workflows, multi-condition branching, and provides visual monitoring of a Media task's entire lifecycle.
 
-*(Technical deployment details for each service will be presented in the following subsections).*
+Completing this chapter will transform our project from a synchronous API-calling system prone to bottlenecks into a highly durable message-processing architecture, ready to handle thousands of simultaneous video uploads.
+
+### Hands-on Content
+
+- [Amazon SQS Setup](5.6.1-create-sqs-queue/)
+- [EventBridge Setup](5.6.2-create-eventbridge-rule/)
+- [Step Functions Setup (Optional)](5.6.3-create-step-functions/)
+- [Test Ingestion Flow](5.6.4-test-ingestion-flow/)

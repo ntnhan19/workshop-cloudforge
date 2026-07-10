@@ -17,4 +17,11 @@ Trong chương này, chúng ta sẽ tập trung triển khai các thành phần 
 2. **Amazon EventBridge:** Trung tâm định tuyến sự kiện (Event Bus), có nhiệm vụ lắng nghe các thay đổi trạng thái (ví dụ: tệp tin được tải lên S3 thành công, hoặc AI xử lý hoàn tất/thất bại) để kích hoạt tự động luồng xử lý tiếp nối.
 3. **AWS Step Functions (Tùy chọn):** Máy trạng thái (State Machine) điều phối các quy trình xử lý luồng phức tạp, rẽ nhánh đa điều kiện và cung cấp khả năng giám sát trực quan toàn bộ vòng đời của một tác vụ Media.
 
-*(Chi tiết triển khai kỹ thuật cho từng dịch vụ sẽ được trình bày tại các phân mục tiếp theo).*
+Hoàn thành chương này sẽ giúp dự án của chúng ta chuyển mình từ một hệ thống gọi API đồng bộ dễ bị nghẽn sang một kiến trúc xử lý tin nhắn bền bỉ, sẵn sàng tiếp nhận hàng ngàn video tải lên cùng lúc.
+
+### Nội dung thực hành
+
+- [Khởi tạo Hàng đợi SQS](5.6.1-create-sqs-queue/)
+- [Cấu hình EventBridge](5.6.2-create-eventbridge-rule/)
+- [Khởi tạo Step Functions (Tùy chọn)](5.6.3-create-step-functions/)
+- [Kiểm tra luồng Ingestion](5.6.4-test-ingestion-flow/)

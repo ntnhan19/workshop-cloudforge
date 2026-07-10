@@ -46,7 +46,9 @@ After successfully clicking Store, the system will redirect you back to the list
 Here, you need to note down the following extremely important parameter:
 * **Secret ARN:** The globally unique identifier string from AWS (Format: `arn:aws:secretsmanager:ap-southeast-1:xxxxxxxxxxxx:secret:cloudforge/backend/config-xxxxxx`). 
 
-> **Future operation mechanism:** Later on, when configuring the AWS ECS (Elastic Container Service) to run the Backend application, we will no longer need to pass the `.env` file into the Container. Instead, we only need to attach this **Secret ARN** string into the Task Definition configuration section. When the Container starts, AWS ECS will automatically use IAM permissions to read this vault and directly inject the environment variables into the Container's RAM in an absolutely secure manner.
+{{% notice info %}}
+**Future operation mechanism:** Later on, when configuring the AWS ECS (Elastic Container Service) to run the Backend application, we will no longer need to pass the `.env` file into the Container. Instead, we only need to attach this **Secret ARN** string into the Task Definition configuration section. When the Container starts, AWS ECS will automatically use IAM permissions to read this vault and directly inject the environment variables into the Container's RAM in an absolutely secure manner.
+{{% /notice %}}
 
 *📸 Illustration: Successfully configuring a Secret to centrally store sensitive parameters on the AWS Console.*
 ![Secrets Manager Created](../../../../images/5-Workshop/5.5-Security-setup/5.5.2-secrets-manager/secrets_manager_created.png)

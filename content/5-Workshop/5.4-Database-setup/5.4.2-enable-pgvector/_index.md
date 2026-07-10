@@ -11,7 +11,7 @@ Once the Amazon RDS PostgreSQL instance is successfully provisioned, the next st
 Because our RDS cluster is securely placed in a **Private Subnet** (following the Zero-Trust model), it cannot be accessed directly from the Internet. Instead, this operation must be performed through an intermediary server (Bastion Host / EC2) located inside the VPC.
 
 #### 1. Retrieve Connection Information (Endpoint)
-1. Navigate to **RDS Console** $\rightarrow$ **Databases**.
+1. Navigate to **RDS Console** → **Databases**.
 2. Click on `cloudforge-db` (ensure its status has changed to *Available*).
 3. In the **Connectivity & security** tab, copy the URL under the **Endpoint** section (e.g., `cloudforge-db.xxxxxx.ap-southeast-1.rds.amazonaws.com`).
 

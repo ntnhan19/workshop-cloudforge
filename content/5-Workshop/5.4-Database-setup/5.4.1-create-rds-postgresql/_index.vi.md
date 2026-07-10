@@ -42,7 +42,7 @@ Trước khi tạo database, RDS yêu cầu chúng ta phải định nghĩa mộ
    - **Virtual private cloud (VPC):** Chọn đúng `cloudforge-vpc`.
    - **DB Subnet group:** Chọn đúng `cloudforge-db-subnet-group` vừa tạo ở bước 1.
    - **Public access:** Chọn **No** *(Đảm bảo Database tuyệt đối không bị phơi ra Internet)*.
-   - **VPC security group:** Chọn **Choose existing** $\rightarrow$ Xóa nhóm `default` đi và chọn duy nhất **`cloudforge-db-redis-sg`** (Tường lửa bạn vừa tạo ở bài 5.3.4).
+   - **VPC security group:** Chọn **Choose existing** → Xóa nhóm `default` đi và chọn duy nhất **`cloudforge-db-redis-sg`** (Tường lửa bạn vừa tạo ở bài 5.3.4).
 8. Mở rộng phần **Additional configuration** ở cuối trang:
    - **Initial database name:** Nhập `cloudforge_db` (để tự động tạo sẵn database trống).
    - **Backup:** Bỏ tích chọn *Enable automated backups* để rút ngắn thời gian khởi tạo trong workshop.

@@ -42,7 +42,7 @@ Before launching the database, RDS requires us to define a **Subnet Group** to s
    - **Virtual private cloud (VPC):** Select `cloudforge-vpc`.
    - **DB Subnet group:** Select the `cloudforge-db-subnet-group` created in step 1.
    - **Public access:** Select **No** *(Ensure the database is completely isolated from the Internet)*.
-   - **VPC security group:** Select **Choose existing** $\rightarrow$ Remove the `default` group and select only **`cloudforge-db-redis-sg`** (The Zero-Trust firewall you created in section 5.3.4).
+   - **VPC security group:** Select **Choose existing** → Remove the `default` group and select only **`cloudforge-db-redis-sg`** (The Zero-Trust firewall you created in section 5.3.4).
 8. Expand the **Additional configuration** section at the bottom:
    - **Initial database name:** Enter `cloudforge_db` (so AWS creates an empty DB automatically).
    - **Backup:** Uncheck *Enable automated backups* to speed up the provisioning process for the workshop.

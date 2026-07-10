@@ -24,7 +24,7 @@ Route Table (Bảng định tuyến) chứa các quy tắc mạng quyết địn
 1. Chọn bảng định tuyến công cộng này và bấm sang tab **Routes**. Bạn sẽ thấy một luật định tuyến:
    * **Destination:** `0.0.0.0/0` (Toàn bộ lưu lượng Internet).
    * **Target:** Trỏ về `igw-XXXX` (Internet Gateway). Đây chính là "chìa khóa" biến các Subnet gắn liền với nó trở thành Public Subnet.
-2. Chuyển sang tab **Subnet associations** $\rightarrow$ Mục **Explicit subnet associations**: Xác nhận rằng 2 Subnet Public (`cloudforge-subnet-public-...`) đã được gắn chặt vào đây.
+2. Chuyển sang tab **Subnet associations** → Mục **Explicit subnet associations**: Xác nhận rằng 2 Subnet Public (`cloudforge-subnet-public-...`) đã được gắn chặt vào đây.
 
    ![Public Route Table](../../../../images/5-Workshop/5.3-Network-vpc/5.3.2-create-nat-gateway/public_route_table.png)
 

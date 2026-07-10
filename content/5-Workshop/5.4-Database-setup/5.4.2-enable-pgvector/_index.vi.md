@@ -11,7 +11,7 @@ Sau khi Amazon RDS PostgreSQL đã khởi tạo thành công, bước tiếp the
 Vì cụm RDS của chúng ta được đặt an toàn trong **Private Subnet** (tuân thủ mô hình Zero-Trust), chúng ta không thể kết nối trực tiếp từ Internet. Thay vào đó, thao tác này cần được thực hiện thông qua một máy chủ trung gian (Bastion Host / EC2) nằm bên trong mạng VPC.
 
 #### 1. Lấy thông tin kết nối (Endpoint)
-1. Truy cập **RDS Console** $\rightarrow$ **Databases**.
+1. Truy cập **RDS Console** → **Databases**.
 2. Click vào `cloudforge-db` (đảm bảo trạng thái đã chuyển sang *Available*).
 3. Trong tab **Connectivity & security**, hãy copy đường dẫn ở mục **Endpoint** (ví dụ: `cloudforge-db.xxxxxx.ap-southeast-1.rds.amazonaws.com`).
 

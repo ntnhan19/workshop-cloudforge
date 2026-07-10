@@ -8,7 +8,7 @@ pre : " <b> 5.3.3. </b> "
 
 Trong các hệ thống xử lý Media / AI Pipeline, việc các Worker nằm trong Private Subnet hoặc các máy chủ ở Public Subnet phải liên tục đọc/ghi các file dung lượng lớn (như video, ảnh chất lượng cao) vào Amazon S3 là chuyện diễn ra liên tục. 
 
-Nếu dữ liệu từ Private Subnet đi theo đường định tuyến mặc định (`Private Subnet` $\rightarrow$ `NAT Gateway` $\rightarrow$ `Internet` $\rightarrow$ `S3`), AWS sẽ tính phí xử lý dữ liệu của NAT Gateway (khoảng $0.045/GB). Với dung lượng video lớn của dự án, chi phí này sẽ tăng phi mã. Để giải quyết bài toán tối ưu chi phí này, công cụ **VPC and more** đã tự động thiết lập sẵn một **S3 Gateway Endpoint** để bẻ lái gói tin đi theo đường nội bộ.
+Nếu dữ liệu từ Private Subnet đi theo đường định tuyến mặc định (`Private Subnet` → `NAT Gateway` → `Internet` → `S3`), AWS sẽ tính phí xử lý dữ liệu của NAT Gateway (khoảng $0.045/GB). Với dung lượng video lớn của dự án, chi phí này sẽ tăng phi mã. Để giải quyết bài toán tối ưu chi phí này, công cụ **VPC and more** đã tự động thiết lập sẵn một **S3 Gateway Endpoint** để bẻ lái gói tin đi theo đường nội bộ.
 
 #### 1. Kiểm tra trạng thái Endpoint
 1. Tại thanh điều hướng bên trái của dịch vụ VPC, truy cập vào mục **Endpoints** (nằm ngay dưới mục *Managed prefix lists*).

@@ -24,7 +24,7 @@ A Route Table contains network rules that dictate where packets from a subnet ar
 1. Select this public route table and click the **Routes** tab. You will see a routing rule:
    * **Destination:** `0.0.0.0/0` (All internet traffic).
    * **Target:** Points to `igw-XXXX` (Internet Gateway). This is the key that transforms its associated subnets into "Public Subnets".
-2. Switch to the **Subnet associations** tab $\rightarrow$ **Explicit subnet associations** section: Verify that the 2 Public Subnets (`cloudforge-subnet-public-...`) are securely associated here.
+2. Switch to the **Subnet associations** tab → **Explicit subnet associations** section: Verify that the 2 Public Subnets (`cloudforge-subnet-public-...`) are securely associated here.
 
    ![Public Route Table](../../../../images/5-Workshop/5.3-Network-vpc/5.3.2-create-nat-gateway/public_route_table.png)
 

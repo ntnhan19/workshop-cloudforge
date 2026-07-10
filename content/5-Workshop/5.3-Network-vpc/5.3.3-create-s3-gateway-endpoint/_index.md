@@ -8,7 +8,7 @@ pre : " <b> 5.3.3. </b> "
 
 In Media / AI Pipeline systems, Workers residing in Private Subnets or servers in Public Subnets must continuously read and write massive files (such as high-resolution videos and images) to Amazon S3 constantly.
 
-If data from the Private Subnet follows the default routing path (`Private Subnet` $\rightarrow$ `NAT Gateway` $\rightarrow$ `Internet` $\rightarrow$ `S3`), AWS will apply NAT Gateway data processing charges (approximately $0.045/GB). With the large video capacities of our project, these costs would skyrocket. To solve this cost optimization challenge, the **VPC and more** wizard automatically provisioned an **S3 Gateway Endpoint** to steer packets through the internal network.
+If data from the Private Subnet follows the default routing path (`Private Subnet` → `NAT Gateway` → `Internet` → `S3`), AWS will apply NAT Gateway data processing charges (approximately $0.045/GB). With the large video capacities of our project, these costs would skyrocket. To solve this cost optimization challenge, the **VPC and more** wizard automatically provisioned an **S3 Gateway Endpoint** to steer packets through the internal network.
 
 #### 1. Verify Endpoint Status
 1. On the left navigation menu of the VPC service, go to **Endpoints** (located right under *Managed prefix lists*).

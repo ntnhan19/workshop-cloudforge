@@ -12,7 +12,7 @@ pre : " <b> 5.1. </b> "
 
 Below is the high-level architecture diagram of the entire system:
 
-![Platform Architecture Overview](../../images/5-Workshop/5.1-Architecture-overview/diagram1.png)
+![Platform Architecture Overview](/images/5-Workshop/5.1-Architecture-overview/diagram1.png)
 
 #### Key Workflows
 

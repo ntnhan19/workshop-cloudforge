@@ -12,7 +12,7 @@ Dự án **Smart Media Analytics** là một giải pháp phân tích video toà
 
 Dưới đây là sơ đồ kiến trúc tổng thể của hệ thống:
 
-![Tổng quan kiến trúc nền tảng](../../images/5-Workshop/5.1-Architecture-overview/diagram1.png)
+![Tổng quan kiến trúc nền tảng](/images/5-Workshop/5.1-Architecture-overview/diagram1.png)
 
 #### Các luồng xử lý chính (Key Workflows)
 

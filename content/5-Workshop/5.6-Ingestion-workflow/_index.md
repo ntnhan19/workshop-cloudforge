@@ -23,5 +23,5 @@ Completing this chapter will transform our project from a synchronous API-callin
 
 - [Amazon SQS Setup](5.6.1-create-sqs-queue/)
 - [EventBridge Setup](5.6.2-create-eventbridge-rule/)
-- [Step Functions Setup (Optional)](5.6.3-create-step-functions/)
+- [Workflow Orchestration with Step Functions](5.6.3-create-step-functions/)
 - [Test Ingestion Flow](5.6.4-test-ingestion-flow/)

@@ -24,22 +24,29 @@ Before launching the database, RDS requires us to define a **Subnet Group** to s
 
 #### 2. Provision the PostgreSQL Database
 1. Switch to the **Databases** menu on the left and click **Create database**.
-2. **Choose a database creation method:** Select **Standard create**.
-3. **Engine options:** Select **PostgreSQL** (choose the latest supported version, e.g., 15.x or 16.x).
-4. **Templates:** Select **Free tier** or **Dev/Test** (to optimize costs for this workshop).
+2. From the dropdown menu, click on **Full configuration** to reveal all deep system configurations.
+3. **Engine options:** Select **PostgreSQL** (leave the default version suggested by the system).
+4. **Templates & Durability:**
+   - **Templates:** Select **Sandbox** (or *Dev/Test*) to maximize cost savings for the workshop environment.
+   - **Deployment options:** Ensure the system defaults to **Single-AZ DB instance deployment**.
 5. **Settings:**
-   - **DB instance identifier:** `cloudforge-db`
-   - **Master username:** `postgres`
-   - **Master password:** *Enter a secure password (e.g., CloudForge2026!)*. *(Note: Remember this password as we will need it to log in later)*.
-6. **Connectivity (Extremely Important):**
+   - **DB instance identifier:** Change the default name to `cloudforge-db`.
+   - **Credentials management:** Check **Self managed** to manage your own password.
+   - **Master username:** Keep `postgres`.
+   - **Master password / Confirm password:** Enter a secure password (e.g., `CloudForge2026!`).
+6. **Instance configuration & Storage:**
+   - **DB instance class:** Keep the smallest burstable class suggested (e.g., `db.t3.micro`).
+   - **Allocated storage:** Reduce the large default value to **20 GiB** (the minimum allowed).
+   - **Storage autoscaling:** Uncheck *Enable storage autoscaling*.
+7. **Connectivity (Internal Network - Extremely Important):**
    - **Virtual private cloud (VPC):** Select `cloudforge-vpc`.
-   - **DB Subnet group:** Select the `cloudforge-db-subnet-group` you just created.
+   - **DB Subnet group:** Select the `cloudforge-db-subnet-group` created in step 1.
    - **Public access:** Select **No** *(Ensure the database is completely isolated from the Internet)*.
-   - **VPC security group:** Select **Choose existing** $\rightarrow$ Remove the `default` group and select **`cloudforge-db-redis-sg`** (The Zero-Trust firewall you created in section 5.3.4).
-7. Expand the **Additional configuration** section:
+   - **VPC security group:** Select **Choose existing** $\rightarrow$ Remove the `default` group and select only **`cloudforge-db-redis-sg`** (The Zero-Trust firewall you created in section 5.3.4).
+8. Expand the **Additional configuration** section at the bottom:
    - **Initial database name:** Enter `cloudforge_db` (so AWS creates an empty DB automatically).
-   - You may uncheck *Enable automated backups* to speed up the provisioning process for the workshop.
-8. Scroll to the bottom and click **Create database**. *(Note: The actual provisioning process usually takes 5-10 minutes).*
+   - **Backup:** Uncheck *Enable automated backups* to speed up the provisioning process for the workshop.
+9. Scroll to the bottom and click **Create database**. *(The actual provisioning process usually takes 3-5 minutes).*
 
 *📸 Illustration: Setting up Connectivity to lock the DB inside the Private Subnet using the Zero-Trust Security Group.*
 ![RDS Connectivity Setup](../../../../images/5-Workshop/5.4-Database-setup/5.4.1-create-rds-postgresql/rds_connectivity.png)

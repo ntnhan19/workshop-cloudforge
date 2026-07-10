@@ -28,7 +28,7 @@ Use the Primary Endpoint collected in the previous section (note: remove the por
 redis6-cli -h <ENTER_YOUR_REDIS_ENDPOINT_HERE> -p 6379 --tls ping
 ```
 
-> **💡 Real-world Experience (Troubleshooting):**
+> **Real-world Experience (Troubleshooting):**
 > - **System command name:** Ensure you use the exact `redis6-cli` command instead of the traditional `redis-cli` to align with the new package management mechanism of Amazon Linux 2023.
 > - **`--tls` Security flag:** ElastiCache enables Encryption in transit by default. If the `--tls` flag is missing, the connection from EC2 to Redis will fall into a silent state and time out.
 > - **Firewall Clearance:** Ensure the Redis Security Group (`cloudforge-db-redis-sg`) has been configured to open Port 6379 with the Source accepting traffic from the application Security Group (`cloudforge-ecs-app-sg`).

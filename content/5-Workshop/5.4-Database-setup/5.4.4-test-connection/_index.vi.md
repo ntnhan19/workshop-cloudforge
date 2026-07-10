@@ -28,7 +28,7 @@ Sử dụng Primary Endpoint đã thu thập được ở bài trước (lưu ý
 redis6-cli -h <ĐIỀN_ENDPOINT_REDIS_CỦA_BẠN> -p 6379 --tls ping
 ```
 
-> **💡 Kinh nghiệm thực tế (Troubleshooting):**
+> **Kinh nghiệm thực tế (Troubleshooting):**
 > - **Tên lệnh hệ thống:** Hãy đảm bảo sử dụng chính xác lệnh `redis6-cli` thay vì `redis-cli` truyền thống để phù hợp với cơ chế quản lý package mới của Amazon Linux 2023.
 > - **Cờ bảo mật `--tls`:** ElastiCache mặc định bật tính năng mã hóa đường truyền (Encryption in transit). Nếu thiếu cờ `--tls`, kết nối từ EC2 đến Redis sẽ rơi vào trạng thái im lặng và bị treo lệnh (Timeout).
 > - **Thông chốt Tường lửa:** Đảm bảo Security Group của Redis (`cloudforge-db-redis-sg`) đã được cấu hình mở Port 6379 với Nguồn (Source) chấp nhận lưu lượng đến từ Security Group của ứng dụng (`cloudforge-ecs-app-sg`).

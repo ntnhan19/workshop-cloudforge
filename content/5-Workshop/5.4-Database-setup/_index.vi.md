@@ -1,18 +1,24 @@
 ---
 title : "Database Setup"
-date : 2026-07-09
+date : 2026-07-10
 weight : 4 
 chapter : false
 pre : " <b> 5.4. </b> "
 ---
 
-#### Tổng quan Lưu trữ & Dữ liệu
+### Tổng quan Hệ thống Dữ liệu Cốt lõi
 
-Trong phần này, chúng ta sẽ cấu hình các lớp cơ sở dữ liệu và lưu trữ mạnh mẽ cho Smart Media Analytics. Chúng ta sẽ thiết lập Amazon RDS PostgreSQL (với pgvector để tìm kiếm ngữ nghĩa) và Amazon ElastiCache (Redis) để theo dõi tiến trình xử lý theo thời gian thực.
+Trong chương này, chúng ta sẽ tiến hành xây dựng nền tảng dữ liệu vững chắc và bảo mật cho ứng dụng Smart Media Analytics. Để tuân thủ nghiêm ngặt kiến trúc bảo mật **Zero-Trust**, toàn bộ các dịch vụ cơ sở dữ liệu sẽ được triển khai hoàn toàn bên trong vùng mạng nội bộ (**Private Subnets**) và được bảo vệ bởi các lớp tường lửa chuyên biệt.
 
-#### Nội dung
+Các thành phần cốt lõi được thiết lập bao gồm:
+1. **Amazon RDS PostgreSQL:** Đóng vai trò là cơ sở dữ liệu quan hệ chính, được tích hợp sẵn tiện ích mở rộng `pgvector` nhằm phục vụ tính năng tìm kiếm ngữ nghĩa (Semantic Search) cho các mô hình AI.
+2. **Amazon ElastiCache (Redis):** Đóng vai trò làm bộ nhớ đệm (Caching) tốc độ siêu cao và quản lý hàng đợi (Message Broker) để phân phối tác vụ cho các AI Worker xử lý bất đồng bộ.
+
+Kết thúc chương này, hệ thống dữ liệu không chỉ được kiểm chứng khả năng giao tiếp an toàn, mà bạn còn thu thập được toàn bộ các thông số kết nối cần thiết để đóng gói thành biến môi trường (`.env`), sẵn sàng cho việc triển khai ứng dụng.
+
+### Nội dung thực hành
 
 - [Tạo RDS PostgreSQL](5.4.1-create-rds-postgresql/)
 - [Kích hoạt pgvector](5.4.2-enable-pgvector/)
-- [Tạo ElastiCache Redis](5.4.3-create-elasticache-redis/)
-- [Kiểm tra Kết nối](5.4.4-test-connection/)
+- [Khởi tạo ElastiCache (Redis)](5.4.3-create-elasticache-redis/)
+- [Kiểm tra Kết nối & Tổng hợp Endpoint](5.4.4-test-connection/)

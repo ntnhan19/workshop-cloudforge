@@ -1,9 +1,9 @@
 ---
 title : "Test Connection"
 date : 2026-07-10
-weight : 4
+weight : 5
 chapter : false
-pre : " <b> 5.4.4. </b> "
+pre : " <b> 5.4.5. </b> "
 ---
 
 After successfully provisioning RDS PostgreSQL and ElastiCache Redis, the final step of the Database Setup section is to **test and validate the connection**. This step ensures the firewall system (Security Groups) and routing configurations in the internal network (Private Subnets) are operating exactly as designed.
@@ -41,7 +41,7 @@ PONG
 To prove that the Zero-Trust network and security infrastructure layer is fully unblocked, we will run two connection status check commands concurrently to both the Caching service (Redis) and the core Database (RDS PostgreSQL) right on the same command-line window.
 
 *Illustration: Successful connection validation to isolated internal data layers.*
-![Test Connection Result](../../../../images/5-Workshop/5.4-Database-setup/5.4.4-test-connection/test_connection.png)
+![Test Connection Result](../../../../images/5-Workshop/5.4-Database-setup/5.4.5-test-connection/test_connection.png)
 
 The result returned on the Terminal is the technical proof confirming:
 - Future application servers (ECS Tasks / AI Workers) have completely valid and safe access rights to the core data tiers.

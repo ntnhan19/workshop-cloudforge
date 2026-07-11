@@ -62,6 +62,12 @@ Role này cho phép ứng dụng FastAPI/Node.js chuyển văn bản thành Vect
             "Effect": "Allow",
             "Action": "bedrock:InvokeModel",
             "Resource": "*"
+        },
+        {
+            "Sid": "AllowSQSPublish",
+            "Effect": "Allow",
+            "Action": "sqs:SendMessage",
+            "Resource": "arn:aws:sqs:*:*:cloudforge-media-task-queue"
         }
     ]
 }
@@ -96,6 +102,16 @@ Role này cho phép Worker chạy ngầm cắt cảnh, gọi Bedrock (phân tíc
                 "transcribe:GetTranscriptionJob"
             ],
             "Resource": "*"
+        },
+        {
+            "Sid": "AllowSQSWorker",
+            "Effect": "Allow",
+            "Action": [
+                "sqs:ReceiveMessage",
+                "sqs:DeleteMessage",
+                "sqs:GetQueueAttributes"
+            ],
+            "Resource": "arn:aws:sqs:*:*:cloudforge-media-task-queue"
         }
     ]
 }

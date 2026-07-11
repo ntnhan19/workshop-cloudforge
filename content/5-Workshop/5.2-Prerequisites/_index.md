@@ -62,6 +62,12 @@ This role allows your FastAPI/Node.js backend to convert text to vectors via Bed
             "Effect": "Allow",
             "Action": "bedrock:InvokeModel",
             "Resource": "*"
+        },
+        {
+            "Sid": "AllowSQSPublish",
+            "Effect": "Allow",
+            "Action": "sqs:SendMessage",
+            "Resource": "arn:aws:sqs:*:*:cloudforge-media-task-queue"
         }
     ]
 }
@@ -96,6 +102,16 @@ This role allows the asynchronous background worker to extract scenes, call Bedr
                 "transcribe:GetTranscriptionJob"
             ],
             "Resource": "*"
+        },
+        {
+            "Sid": "AllowSQSWorker",
+            "Effect": "Allow",
+            "Action": [
+                "sqs:ReceiveMessage",
+                "sqs:DeleteMessage",
+                "sqs:GetQueueAttributes"
+            ],
+            "Resource": "arn:aws:sqs:*:*:cloudforge-media-task-queue"
         }
     ]
 }

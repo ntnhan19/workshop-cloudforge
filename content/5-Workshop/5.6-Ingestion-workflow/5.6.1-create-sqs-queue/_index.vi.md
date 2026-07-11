@@ -1,4 +1,4 @@
-﻿---
+---
 title : "Khởi tạo Hàng đợi SQS"
 date : 2026-07-10
 weight : 1
@@ -21,6 +21,8 @@ Từ AWS Console, truy cập dịch vụ **Amazon SQS** → **Queues** → chọ
 - **Phân đoạn Configuration & Encryption & Access policy:** Giữ nguyên các thông số cấu hình mặc định của hệ thống.
 - **Phân đoạn Dead-letter queue - Optional:** Mặc định chọn `Disabled` (hàng đợi DLQ không cần trỏ đến một DLQ khác).
 
+![Create DLQ](/images/5-Workshop/5.6-Ingestion-workflow/5.6.1-create-sqs-queue/create_dlq.png)
+
 Cuối cùng, di chuyển xuống góc dưới cùng bên phải và bấm **Create queue** để hoàn tất khởi tạo.
 
 #### 2. Khởi tạo Hàng đợi tác vụ chính (Task Queue)
@@ -41,6 +43,10 @@ Sau khi có DLQ, quay lại giao diện danh sách Queues, bấm **Create queue*
   - **Set this queue to receive undeliverable messages:** Chuyển sang trạng thái **Enabled**.
   - **Choose queue:** Chọn đúng hàng đợi `cloudforge-media-dlq` vừa khởi tạo ở mục 1.
   - **Maximum receives:** Thiết lập giá trị bằng `3`. (Nếu một tác vụ Media bị Worker xử lý lỗi vượt quá 3 lần, thông điệp sẽ tự động chuyển sang DLQ để đội ngũ kỹ sư kiểm tra thủ công).
+
+![Configure Task Queue](/images/5-Workshop/5.6-Ingestion-workflow/5.6.1-create-sqs-queue/configure_task_queue1.png)
+
+![Configure Task Queue](/images/5-Workshop/5.6-Ingestion-workflow/5.6.1-create-sqs-queue/configure_task_queue2.png)
 
 Cuối cùng, kiểm tra lại toàn bộ thông tin cấu hình và bấm nút **Create queue**.
 

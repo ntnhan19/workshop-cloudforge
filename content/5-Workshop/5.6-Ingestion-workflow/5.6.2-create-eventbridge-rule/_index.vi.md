@@ -1,4 +1,4 @@
-﻿---
+---
 title : "Cấu hình EventBridge"
 date : 2026-07-10
 weight : 2
@@ -17,14 +17,20 @@ Truy cập dịch vụ **Amazon EventBridge** → **Rules** → **Create rule**.
 - Tại thẻ **Build**, khu vực *Events* bên trái, tìm và kéo khối **S3 (Simple Storage Service) Object Created** thả vào khu vực **Triggering Events**.
 - *Tùy chọn nâng cao (Lọc sự kiện):* Thông qua tính năng **Event pattern (Filter)**, kiến trúc có thể được cấu hình để chỉ định bắt sự kiện từ một S3 Bucket cụ thể, giúp tối ưu hóa lưu lượng và ngăn chặn các vòng lặp xử lý không mong muốn.
 
+![EventBridge Trigger Setup](/images/5-Workshop/5.6-Ingestion-workflow/5.6.2-create-eventbridge-rule/eventbridge_trigger.png)
+
 **Bước 2: Thiết lập Target (Đích đến)**
-- Tại danh mục *Application Integration* bên trái, kéo khối **Simple Queue Service (SQS)** thả vào khu vực **Targets**.
+- Tại thanh công cụ bên trái, tìm kiếm dịch vụ **SQS** (hoặc mở danh mục AWS Services), kéo khối **Amazon SQS** thả vào khu vực **Targets**.
 - Tại bảng cấu hình Target, mục *Queue*, chọn đúng hàng đợi **`cloudforge-media-task-queue`** đã khởi tạo ở phân đoạn trước.
+
+![EventBridge Target Setup](/images/5-Workshop/5.6-Ingestion-workflow/5.6.2-create-eventbridge-rule/eventbridge_target.png)
 
 **Bước 3: Định danh quy tắc**
 - Chuyển sang thẻ **Configure** ở thanh điều hướng.
 - **Rule name:** Cấp tên quy tắc là `cloudforge-s3-to-sqs-rule`.
 - **Activation:** Đảm bảo nút kích hoạt đang ở trạng thái **Active**.
+
+![EventBridge Rule Naming](/images/5-Workshop/5.6-Ingestion-workflow/5.6.2-create-eventbridge-rule/eventbridge_rule_naming.png)
 
 Cuối cùng, kiểm tra lại sơ đồ định tuyến và bấm **Create** ở góc trên cùng bên phải để hoàn tất quá trình triển khai.
 

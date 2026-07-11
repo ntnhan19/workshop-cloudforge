@@ -1,4 +1,4 @@
-﻿---
+---
 title : "Amazon SQS Setup"
 date : 2026-07-10
 weight : 1
@@ -19,9 +19,11 @@ From the AWS Console, navigate to the **Amazon SQS** service → **Queues** → 
   - **Type:** Select `Standard`.
   - **Name:** Enter `cloudforge-media-dlq`.
 - **Configuration & Encryption & Access policy sections:** Keep the system's default configurations.
-- **Dead-letter queue - Optional section:** Leave the default selection as `Disabled` (a DLQ does not need to point to another DLQ).
+- **Dead-letter queue - Optional section:** Default to `Disabled` (the DLQ does not need to point to another DLQ).
 
-Finally, scroll down to the bottom right corner and click **Create queue** to complete the initialization.
+![Create DLQ](/images/5-Workshop/5.6-Ingestion-workflow/5.6.1-create-sqs-queue/create_dlq.png)
+
+Finally, scroll down to the bottom right corner and click **Create queue** to complete initialization.
 
 #### 2. Create the Main Task Queue
 Once the DLQ is ready, return to the Queues list interface and click **Create queue** once again to set up the main workload orchestration queue:
@@ -39,8 +41,12 @@ Once the DLQ is ready, return to the Queues list interface and click **Create qu
 
 - **Dead-letter queue - Optional section:**
   - **Set this queue to receive undeliverable messages:** Switch to the **Enabled** state.
-  - **Choose queue:** Select the exact `cloudforge-media-dlq` queue created in step 1.
-  - **Maximum receives:** Set the value to `3`. (If a Media task fails to be processed by a Worker more than 3 times, the message will automatically be moved to the DLQ for manual inspection by the engineering team).
+  - **Choose queue:** Select the exact `cloudforge-media-dlq` queue initialized in step 1.
+  - **Maximum receives:** Set the value to `3`. (If a Media task is processed with errors by the Worker more than 3 times, the message will automatically be moved to the DLQ for manual inspection by the engineering team).
+
+![Configure Task Queue](/images/5-Workshop/5.6-Ingestion-workflow/5.6.1-create-sqs-queue/configure_task_queue1.png)
+
+![Configure Task Queue](/images/5-Workshop/5.6-Ingestion-workflow/5.6.1-create-sqs-queue/configure_task_queue2.png)
 
 Finally, double-check all configuration information and click the **Create queue** button.
 

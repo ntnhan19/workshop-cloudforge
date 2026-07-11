@@ -1,4 +1,4 @@
-﻿---
+---
 title : "Workflow Orchestration with Step Functions"
 date : 2026-07-10
 weight : 3
@@ -16,6 +16,8 @@ Access the **AWS Step Functions** service → **State machines** → select **Cr
 - **State machine type:** Select `Standard` (Ensuring a maximum execution time of up to 1 year and supporting detailed execution history storage, perfectly suited for long-term Media analytics tasks).
 - **State machine query language:** The system defaults to **JSONata** (A new query standard that optimizes direct data transformation during state transitions without relying on intermediate source code).
 
+![Step Functions Config](/images/5-Workshop/5.6-Ingestion-workflow/5.6.3-create-step-functions/step_functions_config.png)
+
 Click **Continue** to move to the visual design interface.
 
 #### 2. Build the Orchestration Diagram (Workflow Studio v2)
@@ -26,6 +28,8 @@ In the Workflow Studio Canvas space, drag and drop logic state blocks to establi
    - *Configure branching condition (JSONata):* Under Rule #1, set the Condition to `true` (the system will display it as `{% true %}`). This is a mandatory placeholder value to complete the branching routing skeleton before integrating actual data from the Worker servers.
 3. **Successful Processing Branch (Pass State - Update Metadata):** In the `Rule #1` branch of the Choice block, drag a `Pass` block and configure its name as `Update Metadata` (Defining the task to record the result data into the Database).
 4. **Failed Processing Branch (Pass State - Notify Error):** In the remaining `Default` branch, drag a `Pass` block and configure its name as `Notify Error` (Defining the task to trigger the error alerting system).
+
+![Workflow Studio Setup](/images/5-Workshop/5.6-Ingestion-workflow/5.6.3-create-step-functions/workflow_studio_setup.png)
 
 #### 3. Execute Infrastructure Deployment
 Once the inverted Y-shaped diagram accurately completes the orchestration logic, perform the saving steps:

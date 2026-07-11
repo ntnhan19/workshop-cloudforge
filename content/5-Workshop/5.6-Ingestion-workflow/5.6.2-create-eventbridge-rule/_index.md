@@ -1,4 +1,4 @@
-﻿---
+---
 title : "EventBridge Setup"
 date : 2026-07-10
 weight : 2
@@ -17,14 +17,20 @@ Access the **Amazon EventBridge** service → **Rules** → **Create rule**. Use
 - On the **Build** tab, in the left *Events* pane, find and drag the **S3 (Simple Storage Service) Object Created** block and drop it into the **Triggering Events** area.
 - *Advanced option (Event filtering):* Through the **Event pattern (Filter)** feature, the architecture can be configured to strictly capture events from a specific S3 Bucket, optimizing traffic and preventing unwanted processing loops.
 
+![EventBridge Trigger Setup](/images/5-Workshop/5.6-Ingestion-workflow/5.6.2-create-eventbridge-rule/eventbridge_trigger.png)
+
 **Step 2: Set up Target (Destination)**
-- In the left *Application Integration* category, drag the **Simple Queue Service (SQS)** block and drop it into the **Targets** area.
+- On the left toolbar, search for the **SQS** service (or open the AWS Services category), and drag the **Amazon SQS** block into the **Targets** area.
 - In the Target configuration panel, under *Queue*, select the exact **`cloudforge-media-task-queue`** queue initialized in the previous section.
+
+![EventBridge Target Setup](/images/5-Workshop/5.6-Ingestion-workflow/5.6.2-create-eventbridge-rule/eventbridge_target.png)
 
 **Step 3: Name the Rule**
 - Switch to the **Configure** tab on the navigation bar.
 - **Rule name:** Name the rule `cloudforge-s3-to-sqs-rule`.
 - **Activation:** Ensure the activation toggle is in the **Active** state.
+
+![EventBridge Rule Naming](/images/5-Workshop/5.6-Ingestion-workflow/5.6.2-create-eventbridge-rule/eventbridge_rule_naming.png)
 
 Finally, double-check the routing diagram and click **Create** in the top right corner to complete the deployment process.
 

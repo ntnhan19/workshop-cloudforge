@@ -1,4 +1,4 @@
-﻿---
+---
 title : "Cấu hình Amazon Bedrock"
 date : 2026-07-10
 weight : 1
@@ -16,14 +16,10 @@ Hiện tại, các mô hình nền tảng Serverless (như Amazon Titan Text Emb
 #### Lưu ý đối với các mô hình của Anthropic (Claude 3)
 Trong dự án này, chúng ta sử dụng dòng mô hình **Anthropic Claude 3** để xử lý logic lập luận sâu và tóm tắt nội dung Media. 
 
-Mặc dù cơ chế kích hoạt đã được tự động hóa, quy định của AWS đối với các mô hình của hãng Anthropic yêu cầu người dùng lần đầu tiên (First-time users) vẫn phải cung cấp thông tin Use Case (Mục đích sử dụng). 
-
-1. Tìm kiếm và truy cập dịch vụ **Amazon Bedrock** (Đảm bảo đang ở Region `ap-southeast-1`).
-2. Truy cập mục **Model access** ở thanh điều hướng bên trái.
-3. Hệ thống sẽ hiển thị thông báo xác nhận chính sách tự động cấp quyền: *"Model access page has been retired"*.
-4. Để sử dụng mô hình Claude 3, trong lần đầu tiên AI Worker gọi API (hoặc khi bạn test trên giao diện Playground của Bedrock), nếu hệ thống yêu cầu khai báo *Use case details*, bạn có thể sử dụng nội dung: *"Testing Generative AI capabilities for an educational workshop and cloud deployment pipeline simulation"*.
-
-![Bedrock Auto Access](/images/5-Workshop/5.8-AI-ML-integration/5.8.1-enable-bedrock-access/bedrock_model_access.png)
+{{% notice info %}}
+**Lưu ý quan trọng:** Bắt đầu từ chương 5.8 này, toàn bộ quá trình giao tiếp với các dịch vụ AI (Amazon Bedrock, Amazon Transcribe) đều được xử lý hoàn toàn tự động bởi mã nguồn Python bên trong Container `ai_worker` mà bạn đã triển khai ở chương trước. 
+**Bạn KHÔNG CẦN thao tác tay bất kỳ bước nào trên AWS Console trong toàn bộ Chương 5.8 này.** Hãy đọc lướt qua để hiểu cơ chế luồng dữ liệu (Data flow) hoạt động ra sao!
+{{% /notice %}}
 
 {{% notice tip %}}
 **Best Practice:** Việc AWS chuyển sang mô hình "Tự động cấp quyền" (Auto-enable upon first invocation) giúp kiến trúc sư hệ thống không cần bận tâm đến quá trình Provisioning thủ công, cực kỳ phù hợp với triết lý tự động hóa và hạ tầng linh hoạt của Cloud-native.

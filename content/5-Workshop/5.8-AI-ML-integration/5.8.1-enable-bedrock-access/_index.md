@@ -1,4 +1,4 @@
-﻿---
+---
 title : "Configure Amazon Bedrock"
 date : 2026-07-10
 weight : 1
@@ -16,14 +16,10 @@ Currently, Serverless foundation models (such as Amazon Titan Text Embeddings v2
 #### Note Regarding Anthropic Models (Claude 3)
 In this project, we utilize the **Anthropic Claude 3** model family to process deep reasoning logic and summarize Media content.
 
-Although the activation mechanism has been automated, AWS regulations for Anthropic models require First-time users to still provide Use Case information.
-
-1. Search for and access the **Amazon Bedrock** service (Ensure you are in the `ap-southeast-1` Region).
-2. Access the **Model access** section on the left navigation bar.
-3. The system will display a notification confirming the auto-enable policy: *"Model access page has been retired"*.
-4. To use the Claude 3 model, during the first API call by the AI Worker (or when you test in the Bedrock Playground interface), if the system asks for *Use case details*, you can use the content: *"Testing Generative AI capabilities for an educational workshop and cloud deployment pipeline simulation"*.
-
-![Bedrock Auto Access](/images/5-Workshop/5.8-AI-ML-integration/5.8.1-enable-bedrock-access/bedrock_model_access.png)
+{{% notice info %}}
+**Important Note:** Starting from this chapter (5.8), the entire communication process with AI services (Amazon Bedrock, Amazon Transcribe) is handled completely automatically by the Python source code inside the `ai_worker` Container that you deployed in the previous chapter. 
+**You DO NOT NEED to manually perform any steps on the AWS Console throughout Chapter 5.8.** Please skim through to understand how the data flow mechanism works!
+{{% /notice %}}
 
 {{% notice tip %}}
 **Best Practice:** AWS shifting to the "Auto-enable upon first invocation" model frees system architects from worrying about manual Provisioning processes, perfectly aligning with the automation and flexible infrastructure philosophy of Cloud-native development.

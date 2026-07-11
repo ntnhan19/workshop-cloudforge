@@ -1,4 +1,4 @@
-﻿---
+---
 title : "Test Real-time Flow"
 date : 2026-07-10
 weight : 4
@@ -20,11 +20,11 @@ npm install -g wscat
 #### End-to-End (E2E) Testing Scenario
 
 **Step 1: Establish the Listening Connection**
-Use `wscat` to initiate a connection to the WebSocket API address (Invoke URL) provisioned in lesson 5.9.3.
+Use `wscat` to open a connection piercing directly through the Backend's Application Load Balancer (ALB). Replace `[ALB-DNS]` with the actual DNS Name of your ALB, and `[job_id]` with a random identifier string (e.g., `test-job-123`).
 ```bash
-wscat -c wss://[API-ID].execute-api.ap-southeast-1.amazonaws.com/production
+wscat -c ws://[ALB-DNS]/api/v1/ingest/ws/[job_id]
 ```
-*System state: The Terminal transitions to a Connected state. The Backend records and stores the session's `connectionId` into the database.*
+*System state: The Terminal transitions to a Connected state. The Backend Container (FastAPI) natively records and maintains this connection session.*
 
 **Step 2: Trigger the Event Pipeline**
 Use the AWS CLI to upload a sample Video file into the S3 Bucket (configured in Chapter 5.6).

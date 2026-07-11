@@ -1,4 +1,4 @@
-﻿---
+---
 title : "Kiểm thử Real-time Flow"
 date : 2026-07-10
 weight : 4
@@ -20,11 +20,11 @@ npm install -g wscat
 #### Kịch bản Kiểm thử End-to-End (E2E)
 
 **Bước 1: Thiết lập kết nối lắng nghe (Listening)**
-Sử dụng `wscat` để mở kết nối tới địa chỉ WebSocket API (Invoke URL) đã được cấp phát ở bài 5.9.3.
+Sử dụng `wscat` để mở kết nối đâm xuyên trực tiếp qua Application Load Balancer (ALB) của Backend. Thay thế `[ALB-DNS]` bằng DNS Name thực tế của ALB, và `[job_id]` bằng một chuỗi định danh ngẫu nhiên (VD: `test-job-123`).
 ```bash
-wscat -c wss://[API-ID].execute-api.ap-southeast-1.amazonaws.com/production
+wscat -c ws://[ALB-DNS]/api/v1/ingest/ws/[job_id]
 ```
-*Trạng thái hệ thống: Terminal chuyển sang trạng thái Connected. Backend ghi nhận và lưu trữ `connectionId` của phiên làm việc vào cơ sở dữ liệu.*
+*Trạng thái hệ thống: Terminal chuyển sang trạng thái Connected. Container Backend (FastAPI) trực tiếp ghi nhận và duy trì phiên kết nối này.*
 
 **Bước 2: Kích hoạt luồng sự kiện (Trigger)**
 Sử dụng AWS CLI để tải lên một tệp Video mẫu vào Bucket S3 (đã cấu hình ở Chương 5.6).

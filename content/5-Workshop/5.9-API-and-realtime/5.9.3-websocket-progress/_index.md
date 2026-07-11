@@ -1,4 +1,4 @@
-﻿---
+---
 title : "Setup WebSocket"
 date : 2026-07-10
 weight : 3
@@ -10,34 +10,20 @@ If the HTTP API (RESTful) serves as the sturdy backbone for standard data transm
 
 Instead of forcing the Frontend to continuously send "check-in" requests to the server (Polling mechanism) - an incredibly expensive method regarding network resources that exerts massive pressure on the database, we will establish a persistent WebSocket connection. This mechanism allows the server to proactively Push notifications directly to the user's browser the exact moment the AI Worker concludes its analysis lifecycle.
 
-#### Structure of WebSocket API
-Unlike the traditional HTTP protocol (Stateless), a WebSocket connection maintains a Bi-directional state. AWS API Gateway manages WebSockets via core routes:
-- **`$connect`**: Triggered when the browser opens a connection. This is when the connection is established, keeping the user on the real-time "transmission line."
-- **`$disconnect`**: Triggered when the user closes the browser or loses connectivity, helping the system clean up old sessions.
+#### The Hidden Power of Application Load Balancer (ALB)
+During practical deployment, setting up WebSockets via API Gateway requires a complex architecture (e.g., requiring a Network Load Balancer - NLB to connect a VPC Link, or writing state management code for `@connections`).
 
-#### Provisioning and Optimal Configuration
-During practical deployment, the project confronts an AWS architectural characteristic: WebSocket API requires a Network Load Balancer (NLB) to integrate deeply into the internal network via VPC Link. To optimize infrastructure costs and simplify the operational flow for the Workshop while ensuring Real-time functionality, the project opts for the **Mock Integration** solution.
+However, the project's FastAPI Backend codebase is pre-programmed to manage Native WebSockets natively using the `fastapi.WebSocket` library and Redis PubSub. The brilliant part is that the **Application Load Balancer (ALB) we deployed in Chapter 5.7 supports routing the WebSocket protocol (ws:// and wss://) completely natively** on the same HTTP port (Port 80) without requiring any additional configuration!
 
-1. Access the **API Gateway** service, click **Build** in the **WebSocket API** block.
-2. **Basic Setup:**
-   - **API name:** `CloudForge-Media-WS`.
-   - **Route selection expression:** `$request.body.action` (Used to route messages from the user based on the "action" field in the JSON payload).
-3. **Route Configuration:** Add the two default routes: `$connect` and `$disconnect`.
-4. **Integration Setup:**
-   - For both routes, select the **Integration type** as **Mock**. 
-   - Using Mock Integration acts as a swift "transit station," instantly returning a success response (HTTP 200) so the browser establishes the connection immediately without waiting for complex backend processing.
-5. **Deployment:** Create a Stage named `production` and proceed to **Create and deploy**.
-
-![WebSocket Routes](/images/5-Workshop/5.9-API-and-realtime/5.9.3-websocket-progress/websocket_routes.png)
-
-#### Push Notification Mechanism
-The subtlety of this architecture lies here: Although the entry port is "Mock", the real-time data flow operates flawlessly:
-- When the AI Worker finishes processing, the information is written to the Database. 
-- The Backend API utilizes IAM permissions to call directly into the API Gateway via the connection management Endpoint (**@connections API**). 
-- API Gateway relies on the `connectionId` that is kept open to push the resulting JSON payload straight down to the user's screen.
+#### Stateful Push Notification Mechanism
+Thanks to the native support of the ALB, the real-time data flow operates incredibly smoothly and directly:
+1. **Connection Setup:** The Frontend browser will not call the API Gateway, but instead open a WebSocket connection piercing directly through the ALB: `ws://[ALB-DNS]/api/v1/ingest/ws/[job_id]`.
+2. **Stateful Connection:** The ALB transparently forwards this WebSocket session to an ECS Fargate Container running FastAPI. This container will keep the connection open.
+3. **Pub/Sub Broadcasting:** When the AI Worker finishes processing the Video, it reports the progress to Redis. The FastAPI Backend "listening" to Redis will immediately catch this message.
+4. **Pushing Results:** The Backend pushes the JSON payload containing the `ANALYSIS_COMPLETED` status directly through the open WebSocket transmission line straight to the user's screen.
 
 {{% notice tip %}}
-**Architectural Advantage:** This solution ensures the user experience (UX) is maximized with instant notifications, while keeping the AWS infrastructure extremely lean, generating no extra costs for unnecessary additional load balancers.
+**Architectural Advantage:** The solution of using Native WebSockets via ALB extremely simplifies the AWS infrastructure (completely eliminating the cumbersome API Gateway WebSocket), minimizes network latency (Network Hop), and maximizes operational cost savings for businesses.
 {{% /notice %}}
 
 ***

@@ -108,7 +108,7 @@ Service đóng vai trò giữ điều phối, đảm bảo duy trì liên tục 
 6. **Networking:**
    - **VPC:** Chọn `cloudforge-vpc`.
    - **Subnets:** Bắt buộc chọn 2 **Private Subnets** (Bảo mật: Backend không nên tiếp xúc trực tiếp với Internet).
-   - **Security group:** Chọn **Use an existing security group** và TÌM CHỌN CHÍNH XÁC **`cloudforge-ecs-app-sg`** (Đây là SG dành riêng cho ứng dụng, chỉ cho phép nhận traffic từ Load Balancer ở cổng 8080).
+   - **Security group:** Chọn **Use an existing security group** và TÌM CHỌN CHÍNH XÁC **`cloudforge-ecs-app-sg`** (Đây là SG dành riêng cho ứng dụng, chỉ cho phép nhận traffic từ Load Balancer ở cổng 8000).
 
    ![ECS Service Networking](/images/5-Workshop/5.7-Compute-setup/5.7.2-deploy-ecs-backend/ecs_service_networking.png)
 7. **Load balancing:**

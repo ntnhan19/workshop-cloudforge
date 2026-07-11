@@ -104,7 +104,7 @@ The Service plays a coordinating role, ensuring the continuous maintenance of a 
 6. **Networking:**
    - **VPC:** Select `cloudforge-vpc`.
    - **Subnets:** You must select the 2 **Private Subnets** (Security: Backend should not be directly exposed to the Internet).
-   - **Security group:** Select **Use an existing security group** and EXACTLY CHOOSE **`cloudforge-ecs-app-sg`** (This is the SG dedicated to the application, only allowing traffic from the Load Balancer on port 8080).
+   - **Security group:** Select **Use an existing security group** and EXACTLY CHOOSE **`cloudforge-ecs-app-sg`** (This is the SG dedicated to the application, only allowing traffic from the Load Balancer on port 8000).
 7. **Load balancing:**
    - Select the **Application Load Balancer** type.
    - **Application Load Balancer:** Select **Use an existing load balancer** and point to `cloudforge-backend-alb` (created in Step 2).

@@ -1,4 +1,4 @@
----
+﻿---
 title : "Automate Image Push to ECR"
 date : 2026-07-10
 weight : 2
@@ -22,7 +22,6 @@ Before GitHub Actions can upload the Image, a vacant repository must be provisio
 
 Note and copy the **URI** of the newly generated Repository (e.g., `236320489525.dkr.ecr.ap-southeast-1.amazonaws.com/cloudforge-backend`).
 
-*Illustration: Interface for creating a Private Repository in Amazon ECR.*
 ![Create ECR Repository](/images/5-Workshop/5.12-cicd/5.12.2-create-ecr.png)
 *(Screenshot Guide: Capture the Create repository screen with the name cloudforge-backend filled in, before clicking Create).*
 
@@ -87,7 +86,6 @@ You will observe a process entitled `Deploy Backend to ECR` executing autonomous
 
 Re-access the `cloudforge-backend` repository on the Amazon ECR Console; a pristine Docker Image will have been pushed, tagged with the commit's SHA string.
 
-*Illustration: Successful Workflow execution on GitHub Actions.*
 ![GitHub Actions Success](/images/5-Workshop/5.12-cicd/5.12.2-actions-success.png)
 *(Screenshot Guide: Capture the Actions tab screen on GitHub showing the green Success checkmark for the Deploy workflow).*
 

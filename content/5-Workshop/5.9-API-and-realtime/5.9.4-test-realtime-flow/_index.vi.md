@@ -1,4 +1,4 @@
----
+﻿---
 title : "Kiểm thử Real-time Flow"
 date : 2026-07-10
 weight : 4
@@ -48,7 +48,6 @@ Kết quả trả về không yêu cầu thao tác Polling từ phía Client:
   }
 ```
 
-*Ảnh minh họa: Giao diện Terminal nhận thông báo Push Notification thành công từ hệ thống Backend thông qua WebSocket.*
 ![Realtime Test](/images/5-Workshop/5.9-API-and-realtime/5.9.4-test-realtime-flow/realtime_test.png)
 
 {{% notice tip %}}

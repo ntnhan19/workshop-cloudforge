@@ -1,4 +1,4 @@
----
+﻿---
 title : "Create RDS PostgreSQL"
 date : 2026-07-10
 weight : 2
@@ -19,7 +19,6 @@ Before launching the database, RDS requires us to define a **Subnet Group** to s
 6. **Add subnets:** Select 2 Availability Zones (`ap-southeast-1a` and `ap-southeast-1b`), then check the 2 corresponding Private Subnets designated for the Database layer.
 7. Click **Create**.
 
-*📸 Illustration: Creating the DB Subnet Group*
 ![DB Subnet Group](/images/5-Workshop/5.4-Database-setup/5.4.2-create-rds-postgresql/db_subnet_group.png)
 
 #### 2. Provision the PostgreSQL Database
@@ -48,7 +47,6 @@ Before launching the database, RDS requires us to define a **Subnet Group** to s
    - **Backup:** Uncheck *Enable automated backups* to speed up the provisioning process for the workshop.
 9. Scroll to the bottom and click **Create database**. *(The actual provisioning process usually takes 3-5 minutes).*
 
-*📸 Illustration: Setting up Connectivity to lock the DB inside the Private Subnet using the Zero-Trust Security Group.*
 ![RDS Connectivity Setup](/images/5-Workshop/5.4-Database-setup/5.4.2-create-rds-postgresql/rds_connectivity.png)
 
 ***

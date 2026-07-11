@@ -1,4 +1,4 @@
----
+﻿---
 title : "Configure Amazon Bedrock"
 date : 2026-07-10
 weight : 1
@@ -23,7 +23,6 @@ Although the activation mechanism has been automated, AWS regulations for Anthro
 3. The system will display a notification confirming the auto-enable policy: *"Model access page has been retired"*.
 4. To use the Claude 3 model, during the first API call by the AI Worker (or when you test in the Bedrock Playground interface), if the system asks for *Use case details*, you can use the content: *"Testing Generative AI capabilities for an educational workshop and cloud deployment pipeline simulation"*.
 
-*Illustration: Amazon Bedrock interface notifying the auto-enabled model access policy.*
 ![Bedrock Auto Access](/images/5-Workshop/5.8-AI-ML-integration/5.8.1-enable-bedrock-access/bedrock_model_access.png)
 
 {{% notice tip %}}

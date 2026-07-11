@@ -1,4 +1,4 @@
----
+﻿---
 title : "Kiểm tra Kết nối"
 date : 2026-07-10
 weight : 5
@@ -40,7 +40,6 @@ PONG
 #### 2. Kết quả xác thực kiến trúc tổng thể
 Để minh chứng cho việc lớp hạ tầng mạng và bảo mật Zero-Trust đã thông suốt hoàn toàn, chúng ta thực hiện chạy đồng thời hai lệnh kiểm tra trạng thái kết nối đến cả dịch vụ Caching (Redis) và Cơ sở dữ liệu lõi (RDS PostgreSQL) ngay trên cùng một cửa sổ dòng lệnh.
 
-*Ảnh minh họa: Xác thực kết nối thành công tới các lớp dữ liệu cô lập nội bộ.*
 ![Test Connection Result](/images/5-Workshop/5.4-Database-setup/5.4.5-test-connection/test_connection.png)
 
 Kết quả trả về trên Terminal là minh chứng kỹ thuật khẳng định:

@@ -1,4 +1,4 @@
----
+﻿---
 title : "Test Connection"
 date : 2026-07-10
 weight : 5
@@ -40,7 +40,6 @@ PONG
 #### 2. Overall Architecture Validation Results
 To prove that the Zero-Trust network and security infrastructure layer is fully unblocked, we will run two connection status check commands concurrently to both the Caching service (Redis) and the core Database (RDS PostgreSQL) right on the same command-line window.
 
-*Illustration: Successful connection validation to isolated internal data layers.*
 ![Test Connection Result](/images/5-Workshop/5.4-Database-setup/5.4.5-test-connection/test_connection.png)
 
 The result returned on the Terminal is the technical proof confirming:

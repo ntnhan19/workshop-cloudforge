@@ -1,4 +1,4 @@
----
+﻿---
 title : "Integrate X-Ray Tracing"
 date : 2026-07-10
 weight : 2
@@ -80,7 +80,6 @@ Navigate to the **AWS X-Ray Console** -> **Service map**. You will observe an in
 
 Transition to the **Traces** tab; administrators can click on individual Requests to scrutinize a Gantt chart analyzing the precise execution duration of each sub-task measured in milliseconds. This facilitates effortless isolation of sluggish SQL queries or processing logic consuming excessive CPU.
 
-*Illustration: Application Service Map graph on AWS X-Ray.*
 ![AWS X-Ray Service Map](/images/5-Workshop/5.13-observability/5.13.2-xray-service-map.png)
 *(Screenshot Guide: Capture the Service Map screen on the AWS Console displaying the visual communication nodes from Client -> Backend -> Database).*
 

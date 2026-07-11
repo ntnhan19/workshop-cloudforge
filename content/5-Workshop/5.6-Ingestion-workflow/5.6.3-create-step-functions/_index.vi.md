@@ -1,4 +1,4 @@
----
+﻿---
 title : "Điều phối Workflow với Step Functions"
 date : 2026-07-10
 weight : 3
@@ -35,7 +35,6 @@ Sau khi sơ đồ hình chữ Y ngược hoàn thành đúng logic điều phố
 #### 4. Kết quả Khởi tạo State Machine
 Quy trình điều phối bất đồng bộ đã được cấu hình thành công, tạo ra một kiến trúc phân tách độc lập (Decoupled Architecture) bền bỉ.
 
-*Ảnh minh họa: Máy trạng thái Step Functions được khởi tạo hoàn chỉnh với các nhánh logic phân định rõ ràng (Bao gồm biểu thức JSONata tại các ngã rẽ).*
 ![Step Functions Workflow](/images/5-Workshop/5.6-Ingestion-workflow/5.6.3-create-step-functions/step_functions_diagram.png)
 
 {{% notice tip %}}

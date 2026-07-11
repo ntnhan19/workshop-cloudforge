@@ -1,4 +1,4 @@
----
+﻿---
 title : "Test Embeddings"
 date : 2026-07-10
 weight : 3
@@ -21,7 +21,6 @@ The AI Worker application utilizes the **Amazon Titan Text Embeddings v2** model
 3. **Receiving the Vector Array:** Bedrock calculates and responds with a data array containing thousands of floating-point values (e.g., `[0.012, -0.453, 0.887, ...]`). This serves as the distinct "semantic signature" of that specific text segment.
 4. **Knowledge Storage:** This Vector array is subsequently inserted into the Vector Database (PostgreSQL paired with `pgvector`) alongside its Metadata, such as the video ID and timestamps.
 
-*Illustration: The mechanism of converting Natural Language into a multi-dimensional Vector space.*
 ![Embeddings Flow](/images/5-Workshop/5.8-AI-ML-integration/5.8.3-test-embeddings/embeddings_flow.png)
 
 #### Infrastructure Role Permissions (IAM Role)

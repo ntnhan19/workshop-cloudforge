@@ -1,4 +1,4 @@
----
+﻿---
 title : "Cấu hình WAF Rules bảo vệ API"
 date : 2026-07-10
 weight : 3
@@ -41,7 +41,6 @@ Cuối cùng, cuộn xuống dưới cùng của màn hình chính và bấm nú
 #### 2. Kết quả cấu hình tường lửa ứng dụng
 Sau khi hệ thống khởi tạo thành công, Web ACL đã sẵn sàng ở trạng thái kích hoạt với các bộ luật tối ưu.
 
-*Ảnh minh họa: Tường lửa WAF (Web ACL) đã được khởi tạo thành công với cấu hình tối ưu chi phí.*
 ![WAF Rules Created](/images/5-Workshop/5.5-Security-setup/5.5.3-waf-rules/waf_rules_created.png)
 
 {{% notice tip %}}

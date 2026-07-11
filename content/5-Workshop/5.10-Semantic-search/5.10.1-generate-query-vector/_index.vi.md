@@ -1,4 +1,4 @@
----
+﻿---
 title : "Tạo Vector Truy vấn"
 date : 2026-07-10
 weight : 1
@@ -16,7 +16,6 @@ Khi người dùng nhập một câu lệnh tìm kiếm trên Frontend, luồng 
 3. ALB phân phối yêu cầu tới một API Pod (chạy trên ECS Fargate) phụ trách xử lý tác vụ tìm kiếm (Search Service).
 4. API Pod tiếp nhận chuỗi tìm kiếm và khởi tạo lệnh gọi tới dịch vụ Amazon Bedrock.
 
-*Ảnh minh họa: Luồng xử lý dữ liệu tìm kiếm.*
 ![Semantic Search Flow](/images/5-Workshop/5.10-semantic-search/5.10.1-query-flow.png)
 
 #### Thiết lập tương tác Amazon Bedrock

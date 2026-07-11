@@ -1,4 +1,4 @@
----
+﻿---
 title : "Generate Query Vector"
 date : 2026-07-10
 weight : 1
@@ -16,7 +16,6 @@ When a user submits a search phrase on the Frontend, the data processing flow is
 3. The ALB distributes the request to an API Pod (running on ECS Fargate) designated for handling search tasks (Search Service).
 4. The API Pod receives the search string and initiates a call to the Amazon Bedrock service.
 
-*Illustration: Search data processing flow.*
 ![Semantic Search Flow](/images/5-Workshop/5.10-semantic-search/5.10.1-query-flow.png)
 
 #### Amazon Bedrock Interaction Setup

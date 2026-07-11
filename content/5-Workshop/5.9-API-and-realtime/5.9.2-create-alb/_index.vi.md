@@ -1,4 +1,4 @@
----
+﻿---
 title : "Tích hợp ALB nội bộ"
 date : 2026-07-10
 weight : 2
@@ -26,7 +26,6 @@ Sau khi đã khởi tạo xong cổng API Gateway công cộng, thách thức ti
    - **Security groups:** Tích chọn **`default`** (hoặc `cloudforge-ecs-app-sg` đều được, để đảm bảo VPC Link có quyền Outbound đẩy luồng dữ liệu tới ALB).
 4. Nhấn **Create** và đợi khoảng 1-2 phút để trạng thái chuyển sang **Available**.
 
-*Ảnh minh họa: Thiết lập tạo mới VPC Link kết nối an toàn vào mạng riêng ảo.*
 ![Create VPC Link](/images/5-Workshop/5.9-API-and-realtime/5.9.2-create-alb/create_vpc_link.png)
 
 #### Bước 2: Cấu hình định tuyến (Routes & Integration) cho API
@@ -45,7 +44,6 @@ Khi đã có cây cầu VPC Link, chúng ta cần cấu hình cho API biết khi
    - **Listener:** Chọn listener cổng `80` (HTTP) hoặc `443` (HTTPS) của ALB tùy thuộc vào cấu hình Backend.
 5. Cuộn xuống dưới cùng và nhấn **Create**.
 
-*Ảnh minh họa: Cấu hình ánh xạ Proxy Route thành công kết nối API Gateway thẳng vào ALB.*
 ![Attach ALB Integration](/images/5-Workshop/5.9-API-and-realtime/5.9.2-create-alb/attach_alb_integration.png)
 
 {{% notice tip %}}

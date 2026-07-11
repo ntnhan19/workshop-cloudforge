@@ -1,4 +1,4 @@
----
+﻿---
 title : "Kích hoạt pgvector"
 date : 2026-07-10
 weight : 3
@@ -44,7 +44,6 @@ SELECT extname, extversion FROM pg_extension WHERE extname = 'vector';
 
 Nếu kết quả trả về hiển thị `vector` kèm theo phiên bản (ví dụ: `0.8.1`), xin chúc mừng! Cơ sở dữ liệu của bạn đã hoàn toàn sẵn sàng để lưu trữ các chuỗi đa chiều do Amazon Titan tạo ra.
 
-*📸 Ảnh minh họa: Kết quả kích hoạt pgvector thành công trên Terminal.*
 ![Enable pgvector](/images/5-Workshop/5.4-Database-setup/5.4.3-enable-pgvector/enable_pgvector.png)
 
 ***

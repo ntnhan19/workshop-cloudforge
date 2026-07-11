@@ -1,4 +1,4 @@
----
+﻿---
 title : "Deploy ECS Backend"
 date : 2026-07-10
 weight : 2
@@ -29,7 +29,6 @@ To transfer the local source code to the Cloud infrastructure, we compile the ap
    docker push 236320489525.dkr.ecr.ap-southeast-1.amazonaws.com/cloudforge-backend:latest
    ```
 
-*Illustration: The Backend application's Image has been successfully pushed to Amazon ECR with the latest tag.*
 ![ECR Image Pushed](/images/5-Workshop/5.7-Compute-setup/5.7.2-deploy-ecs-backend/ecr_image_pushed.png)
 
 #### 2. Initialize Application Load Balancer (ALB)
@@ -54,7 +53,6 @@ Since the Backend application's Containers will be completely isolated within th
 6. **Listeners and routing:** For HTTP Protocol Port 80, set the Default action to forward (Forward to) the `cloudforge-backend-tg` Target Group just created in Step 1.
 7. Click **Create load balancer**.
 
-*Illustration: Application Load Balancer (ALB) successfully initialized in Active state.*
 ![ALB Created](/images/5-Workshop/5.7-Compute-setup/5.7.2-deploy-ecs-backend/alb_created.png)
 
 #### 3. Establish Task Definition
@@ -74,7 +72,6 @@ The Task Definition acts as an architectural blueprint detailing the hardware li
    - Instead of hardcoding database connection information, in the environment variables section, map the `DB_HOST`, `DB_PASSWORD` variables to retrieve secure values directly from the AWS Secrets Manager service using the `ValueFrom` mechanism.
 6. Click **Create**.
 
-*Illustration: Task Definition initialization complete with full hardware configuration parameters and Image URI.*
 ![Task Definition Created](/images/5-Workshop/5.7-Compute-setup/5.7.2-deploy-ecs-backend/task_definition_created.png)
 
 #### 4. Deploy ECS Service Operations
@@ -99,7 +96,6 @@ The Service plays a coordinating role, ensuring the continuous maintenance of a 
    - **Target group:** Select the pre-established `cloudforge-backend-tg`.
 7. Scroll to the bottom and click **Create**.
 
-*Illustration: Backend API tier successfully deployed with Tasks reaching the RUNNING state.*
 ![ECS Service Success](/images/5-Workshop/5.7-Compute-setup/5.7.2-deploy-ecs-backend/ecs_service_success.png)
 
 {{% notice tip %}}

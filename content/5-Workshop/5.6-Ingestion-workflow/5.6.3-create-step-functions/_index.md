@@ -1,4 +1,4 @@
----
+﻿---
 title : "Workflow Orchestration with Step Functions"
 date : 2026-07-10
 weight : 3
@@ -35,7 +35,6 @@ Once the inverted Y-shaped diagram accurately completes the orchestration logic,
 #### 4. State Machine Initialization Results
 The asynchronous orchestration process is successfully configured, creating a durable Decoupled Architecture.
 
-*Illustration: The Step Functions state machine is fully initialized with clearly defined logic branches (Including JSONata expressions at the junctions).*
 ![Step Functions Workflow](/images/5-Workshop/5.6-Ingestion-workflow/5.6.3-create-step-functions/step_functions_diagram.png)
 
 {{% notice tip %}}

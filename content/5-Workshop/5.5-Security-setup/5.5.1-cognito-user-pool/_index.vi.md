@@ -1,4 +1,4 @@
----
+﻿---
 title : "Thiết lập Cognito User Pool"
 date : 2026-07-10
 weight : 1
@@ -33,7 +33,6 @@ Sau khi tạo thành công, hệ thống sẽ đưa bạn vào trang quản lý 
 1. **User Pool ID:** Nằm ngay trên cùng của trang tổng quan (Có dạng `ap-southeast-1_xxxxxxxxx`).
 2. **App Client ID:** Chuyển sang tab **App integration** (Tích hợp ứng dụng), cuộn xuống phần *App clients and analytics*, copy chuỗi ID của `cloudforge-app` (Ví dụ: `3abc123xyz...`).
 
-*📸 Ảnh minh họa: Thông tin App Client ID của Cognito User Pool sẵn sàng để tích hợp vào mã nguồn.*
 ![Cognito App Client](/images/5-Workshop/5.5-Security-setup/5.5.1-cognito-user-pool/cognito_app_client.png)
 
 ***

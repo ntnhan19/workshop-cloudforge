@@ -1,4 +1,4 @@
----
+﻿---
 title : "Kết nối Cognito và Frontend"
 date : 2026-07-10
 weight : 3
@@ -103,12 +103,10 @@ export default function App() {
 3. Nhìn lên góc phải trên cùng, nhấn chọn nút **Redeploy this version** để kích hoạt lại tiến trình CI/CD.
 4. Chờ đợi hệ thống hoàn tất cả 4 giai đoạn và chuyển trạng thái sang **Deployed** màu xanh.
 
-*Ảnh minh họa: Tiến trình CI/CD hoàn tất triển khai mã nguồn mới.*
 ![Amplify Redeploy Success](/images/5-Workshop/5.11-frontend/5.11.3-amplify-success.png)
 
 Lúc này, khi truy cập vào đường dẫn tên miền của ứng dụng, toàn bộ giao diện đã được bảo vệ bởi hệ thống xác thực. Người dùng bắt buộc phải đăng nhập hoặc tạo tài khoản thông qua Form UI tự động của Cognito trước khi có thể truy cập vào Dashboard chính.
 
-*Ảnh minh họa: Giao diện Đăng nhập/Đăng ký tự động sinh bởi AWS Amplify Authenticator.*
 ![Cognito Login UI](/images/5-Workshop/5.11-frontend/5.11.3-login-ui.png)
 
 ***

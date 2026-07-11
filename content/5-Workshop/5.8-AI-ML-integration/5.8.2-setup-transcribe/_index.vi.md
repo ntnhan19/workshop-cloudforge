@@ -1,4 +1,4 @@
----
+﻿---
 title : "Tích hợp Amazon Transcribe"
 date : 2026-07-10
 weight : 2
@@ -20,7 +20,6 @@ Không giống như Amazon Bedrock yêu cầu cơ chế tự động kích hoạ
 4. **Kiểm tra trạng thái bất đồng bộ (Polling):** Do tiến trình chuyển đổi giọng nói cần thời gian tính toán và diễn ra bất đồng bộ, AI Worker sẽ liên tục thực hiện vòng lặp thăm dò (Poll) qua API `GetTranscriptionJob` để cập nhật trạng thái xử lý của hệ thống.
 5. **Đồng bộ kết quả:** Ngay khi trạng thái chuyển sang nhãn `COMPLETED`, Amazon Transcribe sẽ xuất ra một tệp JSON chứa toàn bộ văn bản (Transcript) đã được bóc tách, đi kèm mốc thời gian chi tiết (Timestamps) của từng từ ngữ.
 
-*Ảnh minh họa: Biểu đồ luồng xử lý tương tác giữa AI Worker, Amazon S3 và Amazon Transcribe.*
 ![Transcribe Flow](/images/5-Workshop/5.8-AI-ML-integration/5.8.2-setup-transcribe/transcribe_flow.png)
 
 #### Yêu cầu quyền hạn hạ tầng (IAM Role Permissions)

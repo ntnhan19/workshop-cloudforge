@@ -1,4 +1,4 @@
----
+﻿---
 title : "Configure Amazon CloudWatch"
 date : 2026-07-10
 weight : 1
@@ -21,7 +21,6 @@ The project team provisions a dedicated Log Group to categorize and aggregate th
    - **Retention setting:** Select **14 days** (A 2-week log retention period to optimize AWS storage costs, averting the default `Never expire` setting which could squander project budget).
 5. Click **Create** to finalize.
 
-*Illustration: Successful provisioning of the centralized log storage space on Amazon CloudWatch.*
 ![Create Log Group](/images/5-Workshop/5.13-observability/5.13.1-create-log-group.png)
 *(Screenshot Guide: Capture the Log groups list screen clearly displaying the /ecs/cloudforge-backend record with the corresponding Retention column indicating 14 days).*
 
@@ -43,7 +42,6 @@ The `logConfiguration` block is explicitly declared within the JSON format of th
 
 Subsequent to the application update via the CI/CD pipeline, the Backend source code executing within the container will autonomously redirect all log data externally. By navigating to the `/ecs/cloudforge-backend` Log Group, administrators can open the **Log streams** to monitor the entire application initialization process in Real-time.
 
-*Illustration: Backend system log data stream displayed in detail on the CloudWatch Log Stream interface.*
 ![CloudWatch Log Stream](/images/5-Workshop/5.13-observability/5.13.1-log-stream.png)
 *(Screenshot Guide: Click into the /ecs/cloudforge-backend Log group, select the most recent log stream, and capture the screen displaying the application's running logs, such as server initialization and Database connections).*
 
@@ -62,7 +60,6 @@ To proactively mitigate network congestion or system overload scenarios before t
 6. Click **Next**. At the Configure actions phase, opt to send a notification to a dedicated Amazon SNS Topic (e.g., `DevOps-Alerts`) to autonomously forward alert emails to the operations team's inbox.
 7. Designate the Alarm name as `ECS-High-CPU-Alert` and click **Create alarm**.
 
-*Illustration: Configuration of the resource threshold alert on CloudWatch.*
 ![CloudWatch CPU Alarm](/images/5-Workshop/5.13-observability/5.13.1-cpu-alarm.png)
 *(Screenshot Guide: Capture the interface of the condition setup step for the CloudWatch Alarm, displaying the measurement graph accompanied by the red dashed horizontal line representing the Threshold at the 80% mark).*
 

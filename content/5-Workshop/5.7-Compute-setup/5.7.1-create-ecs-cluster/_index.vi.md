@@ -1,4 +1,4 @@
----
+﻿---
 title : "Khởi tạo ECS Cluster"
 date : 2026-07-10
 weight : 1
@@ -24,7 +24,6 @@ Chúng ta tiến hành khởi tạo hai kho lưu trữ riêng biệt nhằm phâ
 
 Sau khi hoàn tất, ghi nhận lại chuỗi đường dẫn **URI** của cả hai kho lưu trữ (ví dụ: `236320489525.dkr.ecr.ap-southeast-1.amazonaws.com/cloudforge-backend`) để phục vụ cho công đoạn đóng gói và đẩy mã nguồn lên Cloud ở các bài học tiếp theo.
 
-*Ảnh minh họa: Danh sách các kho lưu trữ Private ECR của dự án được khởi tạo thành công với tính năng Immutable Tag.*
 ![ECR Repositories Created](/images/5-Workshop/5.7-Compute-setup/5.7.1-create-ecs-cluster/ecr_repositories_created.png)
 
 #### 2. Khởi tạo Amazon ECS Cluster
@@ -34,7 +33,6 @@ Sau khi hoàn tất, ghi nhận lại chuỗi đường dẫn **URI** của cả
 4. **Monitoring (Tùy chọn nâng cao):** Chọn **Use Container Insights** để kích hoạt tính năng tự động đẩy các chỉ số chuyên sâu về hiệu năng phần cứng (vCPU, Memory Utilization) lên hệ thống giám sát Amazon CloudWatch.
 5. Bấm **Create** và đợi hệ thống phê duyệt khởi tạo chu trình trong vài giây.
 
-*Ảnh minh họa: Khởi tạo thành công Amazon ECS Cluster vận hành hoàn toàn trên nền tảng Serverless Fargate.*
 ![ECS Cluster Created](/images/5-Workshop/5.7-Compute-setup/5.7.1-create-ecs-cluster/ecs_cluster_created.png)
 
 {{% notice tip %}}

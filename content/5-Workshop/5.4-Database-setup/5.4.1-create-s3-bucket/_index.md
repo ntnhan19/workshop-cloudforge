@@ -1,4 +1,4 @@
----
+﻿---
 title : "Create S3 Bucket"
 date : 2026-07-10
 weight : 1
@@ -38,7 +38,6 @@ By system default, Amazon S3 will not proactively broadcast event data externall
 #### 3. Deployment Results
 The unstructured storage infrastructure (Object Storage) has been successfully established and is ready to act as the task provisioning source for the entire automated processing pipeline downstream.
 
-*Illustration: Successfully enabling the EventBridge Notification feature in the Bucket's Properties tab.*
 ![S3 EventBridge Config](/images/5-Workshop/5.4-Database-setup/5.4.1-s3/s3_eventbridge_enabled.png)
 
 ***

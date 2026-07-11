@@ -1,4 +1,4 @@
----
+﻿---
 title : "Thiết lập Tên miền Route 53"
 date : 2026-07-10
 weight : 2
@@ -26,7 +26,6 @@ Hệ thống Amplify sẽ tự động truy xuất danh sách các Hosted Zones 
    - Cấu hình chuyển hướng (Redirect) tự động từ `www.cloudforge.com` sang root domain để đảm bảo luồng truy cập của người dùng không bị phân mảnh.
 3. Nhấn **Save** để lưu cấu hình.
 
-*Ảnh minh họa: Cấu hình ánh xạ tên miền Route 53 trong Amplify.*
 ![Amplify Custom Domain](/images/5-Workshop/5.11-frontend/5.11.2-amplify-domain.png)
 
 #### Bước 3: Xác thực SSL/TLS tự động (ACM)

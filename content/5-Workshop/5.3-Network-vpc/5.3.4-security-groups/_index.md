@@ -1,4 +1,4 @@
----
+﻿---
 title : "Configure Security Groups"
 date : 2026-07-10
 weight : 4
@@ -23,7 +23,6 @@ In this section, we will create 3 core Security Groups within the `cloudforge-vp
 7. **Outbound Rules:** Keep the Default (Allow All Traffic).
 8. Click **Create security group**.
 
-*📸 Illustration: Inbound rules configuration for ALB-SG*
 ![ALB Security Group](/images/5-Workshop/5.3-Network-vpc/5.3.4-security-groups/alb_sg.png)
 
 #### 2. ECS-App-SG (Backend & AI Worker Firewall)
@@ -33,7 +32,6 @@ In this section, we will create 3 core Security Groups within the `cloudforge-vp
    - Type: `Custom TCP` | Port: `8000` (Backend API Port) | Source: Select the ID of `cloudforge-alb-sg`. *(Protects the API, only accepting traffic from the ALB)*.
    - Type: `All TCP` | Port: `0-65535` | Source: Select the ID of `cloudforge-ecs-app-sg` itself. *(Allows cross-communication between internal containers)*.
 
-*📸 Illustration: ECS-App-SG securing the application servers*
 ![ECS App Security Group](/images/5-Workshop/5.3-Network-vpc/5.3.4-security-groups/ecs_app_sg.png)
 
 #### 3. DB-Redis-SG (Database & Cache Firewall)
@@ -43,7 +41,6 @@ In this section, we will create 3 core Security Groups within the `cloudforge-vp
    - Type: `PostgreSQL` | Port: `5432` | Source: Select the ID of `cloudforge-ecs-app-sg`.
    - Type: `Custom TCP` | Port: `6379` (Redis Port) | Source: Select the ID of `cloudforge-ecs-app-sg`.
 
-*📸 Illustration: Inbound rules locking down DB-Redis-SG access, exclusively accepting secure traffic from ECS-App-SG.*
 ![DB Security Group](/images/5-Workshop/5.3-Network-vpc/5.3.4-security-groups/sg_db_redis.png)
 
 ***

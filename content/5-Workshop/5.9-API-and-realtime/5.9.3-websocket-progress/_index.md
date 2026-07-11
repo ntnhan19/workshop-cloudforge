@@ -1,4 +1,4 @@
----
+﻿---
 title : "Setup WebSocket"
 date : 2026-07-10
 weight : 3
@@ -28,7 +28,6 @@ During practical deployment, the project confronts an AWS architectural characte
    - Using Mock Integration acts as a swift "transit station," instantly returning a success response (HTTP 200) so the browser establishes the connection immediately without waiting for complex backend processing.
 5. **Deployment:** Create a Stage named `production` and proceed to **Create and deploy**.
 
-*Illustration: The route structure and Mock Integration diagram of the WebSocket API.*
 ![WebSocket Routes](/images/5-Workshop/5.9-API-and-realtime/5.9.3-websocket-progress/websocket_routes.png)
 
 #### Push Notification Mechanism

@@ -1,4 +1,4 @@
----
+﻿---
 title : "Tạo RDS PostgreSQL"
 date : 2026-07-10
 weight : 2
@@ -19,7 +19,6 @@ Trước khi tạo database, RDS yêu cầu chúng ta phải định nghĩa mộ
 6. **Add subnets:** Chọn 2 Availability Zones (`ap-southeast-1a` và `ap-southeast-1b`), sau đó tích chọn 2 Private Subnets tương ứng dành cho Database của dự án.
 7. Bấm **Create**.
 
-*📸 Ảnh minh họa: Tạo Subnet Group cho Database*
 ![DB Subnet Group](/images/5-Workshop/5.4-Database-setup/5.4.2-create-rds-postgresql/db_subnet_group.png)
 
 #### 2. Khởi tạo Database PostgreSQL
@@ -48,7 +47,6 @@ Trước khi tạo database, RDS yêu cầu chúng ta phải định nghĩa mộ
    - **Backup:** Bỏ tích chọn *Enable automated backups* để rút ngắn thời gian khởi tạo trong workshop.
 9. Cuộn xuống dưới cùng và bấm **Create database**. *(Quá trình khởi tạo máy chủ thực tế mất từ 3-5 phút).*
 
-*📸 Ảnh minh họa: Thiết lập phần Connectivity khóa chặt DB trong Private Subnet và sử dụng Security Group chuẩn Zero-Trust.*
 ![RDS Connectivity Setup](/images/5-Workshop/5.4-Database-setup/5.4.2-create-rds-postgresql/rds_connectivity.png)
 
 ***

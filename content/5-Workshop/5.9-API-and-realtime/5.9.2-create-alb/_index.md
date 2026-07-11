@@ -1,4 +1,4 @@
----
+﻿---
 title : "Integrate Internal ALB"
 date : 2026-07-10
 weight : 2
@@ -26,7 +26,6 @@ For the HTTP API family, a VPC Link acts as a "virtual network bridge" directly 
    - **Security groups:** Check **`default`** (or `cloudforge-ecs-app-sg` works as well, to ensure the VPC Link has Outbound permission to push the data stream to the ALB).
 4. Click **Create** and wait about 1-2 minutes for the status to change to **Available**.
 
-*Illustration: Setting up a new VPC Link for secure connection into the virtual private network.*
 ![Create VPC Link](/images/5-Workshop/5.9-API-and-realtime/5.9.2-create-alb/create_vpc_link.png)
 
 #### Step 2: Configure Routing (Routes & Integration) for the API
@@ -45,7 +44,6 @@ Once the VPC Link bridge is in place, we need to configure the API to know when 
    - **Listener:** Select the listener port `80` (HTTP) or `443` (HTTPS) of the ALB depending on the Backend configuration.
 5. Scroll to the very bottom and click **Create**.
 
-*Illustration: Successfully configuring the Proxy Route mapping to connect the API Gateway straight into the ALB.*
 ![Attach ALB Integration](/images/5-Workshop/5.9-API-and-realtime/5.9.2-create-alb/attach_alb_integration.png)
 
 {{% notice tip %}}

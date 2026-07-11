@@ -1,4 +1,4 @@
----
+﻿---
 title : "Thiết lập WebSocket"
 date : 2026-07-10
 weight : 3
@@ -28,7 +28,6 @@ Trong quá trình triển khai thực tế, dự án đối mặt với một đ
    - Việc sử dụng Mock Integration đóng vai trò như một "trạm trung chuyển" nhanh, lập tức trả về phản hồi thành công (HTTP 200) để trình duyệt thiết lập kết nối ngay lập tức mà không cần chờ đợi xử lý phức tạp từ phía sau.
 5. **Triển khai:** Tạo Stage tên là `production` và tiến hành **Create and deploy**.
 
-*Ảnh minh họa: Cấu trúc tuyến đường và sơ đồ Mock Integration của WebSocket API.*
 ![WebSocket Routes](/images/5-Workshop/5.9-API-and-realtime/5.9.3-websocket-progress/websocket_routes.png)
 
 #### Cơ chế đẩy thông báo (Push Notification)

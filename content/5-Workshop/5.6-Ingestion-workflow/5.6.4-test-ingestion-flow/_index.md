@@ -1,4 +1,4 @@
----
+﻿---
 title : "Test Ingestion Flow"
 date : 2026-07-10
 weight : 4
@@ -17,14 +17,12 @@ The objective of this phase is to confirm that Amazon EventBridge correctly catc
 - Access the console interface of **[Amazon S3](https://s3.console.aws.amazon.com/s3/home)** and select the Bucket `cloudforge-media-upload-ntnhan19`.
 - Click **Add files**, select a sample multimedia file (e.g., `sample-audio.mp3` or `demo-video.mp4`) from your computer, and click **Upload**.
 
-*Illustration: Successfully uploading a sample file to the Amazon S3 Bucket.*
 ![S3 Upload Success](/images/5-Workshop/5.6-Ingestion-workflow/5.6.4-test-ingestion-flow/s3_upload_success.png)
 
 **Step 2: Verify and validate the message in the SQS queue**
 - Access the **[Amazon SQS](https://console.aws.amazon.com/sqs/v2/home#/queues)** service → Select the main task queue `cloudforge-media-task-queue`.
 - (Optional) In the **Details** section, click the **`► More`** toggle to expand it. You will see the **Messages available** metric increase (e.g., 1), indicating a new event has entered the queue.
 
-*Illustration: Expanding the More section to see the Messages available metric.*
 ![SQS Queue Details](/images/5-Workshop/5.6-Ingestion-workflow/5.6.4-test-ingestion-flow/sqs_queue_list.png)
 
 - Click **Send and receive messages** → Scroll down to the *Receive messages* section and click **Poll for messages**.
@@ -32,7 +30,6 @@ The objective of this phase is to confirm that Amazon EventBridge correctly catc
   - The generated event: `ObjectCreated:Put`.
   - The original file name located in the `object.key` field.
 
-*Illustration: Inspecting the Payload of the message successfully routed by EventBridge into SQS.*
 ![SQS Message Received](/images/5-Workshop/5.6-Ingestion-workflow/5.6.4-test-ingestion-flow/sqs_message_received.png)
 
 #### 2. Validate Orchestration Process (Step Functions Workflow)
@@ -42,24 +39,20 @@ The objective of this phase is to verify the validity and business logic branchi
 - Access the **[AWS Step Functions](https://console.aws.amazon.com/states/home#/statemachines)** service → Select the state machine `cloudforge-media-workflow`.
 - Click the **Start execution** button. In the Input dialog, you can enter a dummy JSON payload (e.g., `{"status": "success"}`) and click **Start execution** again.
 
-*Illustration: Entering a dummy JSON payload and triggering the State Machine.*
 ![Step Functions Input Mock](/images/5-Workshop/5.6-Ingestion-workflow/5.6.4-test-ingestion-flow/step_functions_input_mock.png)
 
-*Illustration: The list of Executions for the State Machine.*
 ![Step Functions Execution List](/images/5-Workshop/5.6-Ingestion-workflow/5.6.4-test-ingestion-flow/step_functions_execution_list.png)
 
 **Step 2: Visually monitor the workflow (Graph View)**
 - Based on the placeholder condition (`{% true %}`) established during the skeleton building segment, the execution flow will automatically transition sequentially from `Start Processing` → pass the evaluation point `Check Status` → accurately converge on the successful task branch `Update Metadata`.
 - The overall status bar displays green with a **Succeeded** label.
 
-*Illustration: Graph View diagram of Step Functions successfully executing the branching orchestration cycle.*
 ![Step Functions Success](/images/5-Workshop/5.6-Ingestion-workflow/5.6.4-test-ingestion-flow/step_functions_success.png)
 
 **Step 3: Analyze Input/Output Data**
 - Click on any specific step on the Graph View (e.g., `Update Metadata`).
 - On the right panel, inspect the **Step input** and **Step output** tabs to clearly see how data is passed between states. *(Note: Since these are currently just placeholder "Pass States", the JSON data you entered in Step 1 will simply pass directly from Input to Output without modification).*
 
-*Illustration: Detailed In/Out Payload of a State in Step Functions.*
 ![Step Functions Details](/images/5-Workshop/5.6-Ingestion-workflow/5.6.4-test-ingestion-flow/step_functions_details.png)
 
 #### 3. Conclusion of the Workflow Orchestration Tier

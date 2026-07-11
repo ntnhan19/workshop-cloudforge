@@ -1,4 +1,4 @@
----
+﻿---
 title : "Quản lý cấu hình với Secrets Manager"
 date : 2026-07-10
 weight : 2
@@ -50,7 +50,6 @@ Tại đây, bạn cần lưu ý thông số cực kỳ quan trọng sau:
 **Cơ chế vận hành trong tương lai:** Sau này khi cấu hình dịch vụ AWS ECS (Elastic Container Service) để chạy ứng dụng Backend, chúng ta sẽ không cần truyền file `.env` vào Container nữa. Thay vào đó, chúng ta chỉ cần gắn chuỗi **Secret ARN** này vào phần cấu hình Task Definition. Khi Container khởi động, AWS ECS sẽ tự động dùng quyền IAM để đọc két sắt này và nạp thẳng các biến môi trường vào bộ nhớ RAM của Container một cách tuyệt đối an toàn.
 {{% /notice %}}
 
-*📸 Ảnh minh họa: Cấu hình Secret lưu trữ tập trung các thông số nhạy cảm thành công trên AWS Console.*
 ![Secrets Manager Created](/images/5-Workshop/5.5-Security-setup/5.5.2-secrets-manager/secrets_manager_created.png)
 
 ***

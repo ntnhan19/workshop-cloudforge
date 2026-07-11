@@ -1,4 +1,4 @@
----
+﻿---
 title : "Deploy ECS AI Worker"
 date : 2026-07-10
 weight : 3
@@ -31,7 +31,6 @@ This packaging and compilation process is executed directly at the AI Worker's d
    docker push 236320489525.dkr.ecr.ap-southeast-1.amazonaws.com/cloudforge-ai-worker:latest
    ```
 
-*Illustration: The AI Worker's Docker Image file has been successfully pushed to the Amazon ECR Private Registry.*
 ![ECR Worker Image Pushed](/images/5-Workshop/5.7-Compute-setup/5.7.3-deploy-ecs-ai-worker/ecr_worker_image_pushed.png)
 
 #### 2. Establish Task Definition
@@ -52,7 +51,6 @@ Due to the specific requirement of executing computational tasks related to Medi
    - Proceed to load dynamic links including the SQS queue path `SQS_QUEUE_URL` and the S3 storage resource name `S3_BUCKET_NAME` so the application source code can automatically identify the destinations.
 6. Click **Create** to save the V1 configuration.
 
-*Illustration: Task Definition configuration completed with Port Mappings removed to maximize information security.*
 ![Worker Task Definition](/images/5-Workshop/5.7-Compute-setup/5.7.3-deploy-ecs-ai-worker/worker_task_definition.png)
 
 #### 3. Deploy ECS Service Operations (Background Worker)
@@ -74,7 +72,6 @@ Because the AI Worker does not use a Load Balancer to receive Traffic, the Servi
 6. **Load balancing:** In this module, select the **None** state (Do not apply a load balancer).
 7. Scroll to the bottom of the dashboard and click the orange **Create** button.
 
-*Illustration: The AI Worker application successfully launched, automatically connecting to the network queue with a stable RUNNING state.*
 ![Worker Service Success](/images/5-Workshop/5.7-Compute-setup/5.7.3-deploy-ecs-ai-worker/worker_service_success.png)
 
 {{% notice tip %}}

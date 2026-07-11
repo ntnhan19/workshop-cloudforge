@@ -1,4 +1,4 @@
----
+﻿---
 title : "Configure WAF Rules to protect API"
 date : 2026-07-10
 weight : 3
@@ -41,7 +41,6 @@ Finally, scroll to the bottom of the main screen and click the **Create protecti
 #### 2. Application Firewall Configuration Results
 Once the system successfully initializes, the Web ACL is ready in an active state with optimal rule sets.
 
-*Illustration: The WAF firewall (Web ACL) has been successfully initialized with a cost-optimized configuration.*
 ![WAF Rules Created](/images/5-Workshop/5.5-Security-setup/5.5.3-waf-rules/waf_rules_created.png)
 
 {{% notice tip %}}

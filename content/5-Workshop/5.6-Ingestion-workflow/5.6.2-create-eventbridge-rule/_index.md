@@ -1,4 +1,4 @@
----
+﻿---
 title : "EventBridge Setup"
 date : 2026-07-10
 weight : 2
@@ -31,7 +31,6 @@ Finally, double-check the routing diagram and click **Create** in the top right 
 #### 2. Event Routing Deployment Results
 When the rule is successfully created and activated, the Asynchronous Data Pipeline is officially established and flows seamlessly from S3 Storage through EventBridge, securely congregating at the SQS Queue.
 
-*Illustration: The EventBridge event routing rule is successfully configured via the visual interface.*
 ![EventBridge Rule Created](/images/5-Workshop/5.6-Ingestion-workflow/5.6.2-create-eventbridge-rule/eventbridge_rule_created.png)
 
 {{% notice tip %}}

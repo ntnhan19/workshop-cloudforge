@@ -1,4 +1,4 @@
----
+﻿---
 title : "Khởi tạo Hàng đợi SQS"
 date : 2026-07-10
 weight : 1
@@ -47,7 +47,6 @@ Cuối cùng, kiểm tra lại toàn bộ thông tin cấu hình và bấm nút 
 #### 3. Kết quả triển khai
 Sau khi khởi tạo thành công, hệ thống sẽ cấp phát một định danh URL duy nhất cho từng hàng đợi. Chuỗi URL này sẽ được ghi nhận để cấu hình vào các biến môi trường của phân lớp ứng dụng.
 
-*Ảnh minh họa: Hàng đợi SQS đã được khởi tạo thành công với cấu hình Visibility Timeout và cơ chế xử lý lỗi DLQ tối ưu.*
 ![SQS Queue Created](/images/5-Workshop/5.6-Ingestion-workflow/5.6.1-create-sqs-queue/sqs_queue_created.png)
 
 ***

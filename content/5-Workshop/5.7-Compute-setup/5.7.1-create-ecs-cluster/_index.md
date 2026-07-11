@@ -1,4 +1,4 @@
----
+﻿---
 title : "Create ECS Cluster"
 date : 2026-07-10
 weight : 1
@@ -24,7 +24,6 @@ We will initialize two separate repositories to completely isolate the source co
 
 Once complete, record the **URI** paths of both repositories (e.g., `236320489525.dkr.ecr.ap-southeast-1.amazonaws.com/cloudforge-backend`) to serve the packaging and source code pushing process to the Cloud in subsequent lessons.
 
-*Illustration: The list of Private ECR repositories for the project successfully initialized with the Immutable Tag feature.*
 ![ECR Repositories Created](/images/5-Workshop/5.7-Compute-setup/5.7.1-create-ecs-cluster/ecr_repositories_created.png)
 
 #### 2. Initialize Amazon ECS Cluster
@@ -34,7 +33,6 @@ Once complete, record the **URI** paths of both repositories (e.g., `23632048952
 4. **Monitoring (Advanced Option):** Select **Use Container Insights** to activate the automatic pushing of in-depth hardware performance metrics (vCPU, Memory Utilization) to the Amazon CloudWatch monitoring system.
 5. Click **Create** and wait a few seconds for the system to approve the initialization cycle.
 
-*Illustration: Successfully initializing the Amazon ECS Cluster operating entirely on the Serverless Fargate platform.*
 ![ECS Cluster Created](/images/5-Workshop/5.7-Compute-setup/5.7.1-create-ecs-cluster/ecs_cluster_created.png)
 
 {{% notice tip %}}

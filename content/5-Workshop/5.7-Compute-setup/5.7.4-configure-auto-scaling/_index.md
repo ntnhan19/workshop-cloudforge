@@ -1,4 +1,4 @@
----
+﻿---
 title : "Configure Auto Scaling"
 date : 2026-07-10
 weight : 4
@@ -22,7 +22,6 @@ User traffic often fluctuates in real-time. Configuring Auto Scaling based on CP
 7. Enter `60` for the Scale-out cooldown period and `300` for the Scale-in cooldown period.
 8. Scroll to the bottom of the page and click **Update**.
 
-*Illustration: Setting up a Target Tracking Policy based on CPU for the Backend API.*
 ![Backend Auto Scaling](/images/5-Workshop/5.7-Compute-setup/5.7.4-configure-auto-scaling/backend_auto_scaling.png)
 
 #### 2. Configure Auto Scaling for AI Worker
@@ -37,7 +36,6 @@ The AI Worker's workload depends entirely on the number of messages backlogged i
 7. Enter `60` for the Scale-out cooldown period and `300` for the Scale-in cooldown period.
 8. Scroll to the bottom of the page and click **Update**.
 
-*Illustration: Flexible Auto Scaling configuration for the AI Worker helps optimize background analysis costs.*
 ![Worker Auto Scaling](/images/5-Workshop/5.7-Compute-setup/5.7.4-configure-auto-scaling/worker_auto_scaling.png)
 
 {{% notice tip %}}

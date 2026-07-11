@@ -1,4 +1,4 @@
----
+﻿---
 title : "Test Real-time Flow"
 date : 2026-07-10
 weight : 4
@@ -48,7 +48,6 @@ The returned result requires no Polling action from the Client:
   }
 ```
 
-*Illustration: Terminal interface successfully receiving a Push Notification from the Backend system via WebSocket.*
 ![Realtime Test](/images/5-Workshop/5.9-API-and-realtime/5.9.4-test-realtime-flow/realtime_test.png)
 
 {{% notice tip %}}

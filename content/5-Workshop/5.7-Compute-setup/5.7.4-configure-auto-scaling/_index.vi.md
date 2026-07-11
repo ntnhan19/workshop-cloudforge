@@ -1,4 +1,4 @@
----
+﻿---
 title : "Thiết lập Auto Scaling"
 date : 2026-07-10
 weight : 4
@@ -22,7 +22,6 @@ Lưu lượng truy cập người dùng thường biến động theo thời gia
 7. Điền Scale-out cooldown period là `60` và Scale-in cooldown period là `300`.
 8. Cuộn xuống cuối trang và bấm **Update**.
 
-*Ảnh minh họa: Thiết lập Target Tracking Policy dựa trên CPU cho Backend API.*
 ![Backend Auto Scaling](/images/5-Workshop/5.7-Compute-setup/5.7.4-configure-auto-scaling/backend_auto_scaling.png)
 
 #### 2. Cấu hình Auto Scaling cho AI Worker
@@ -37,7 +36,6 @@ Lưu lượng công việc của AI Worker phụ thuộc hoàn toàn vào số l
 7. Điền Scale-out cooldown period là `60` và Scale-in cooldown period là `300`.
 8. Cuộn xuống cuối trang và bấm **Update**.
 
-*Ảnh minh họa: Cấu hình Auto Scaling linh hoạt cho AI Worker giúp tối ưu hóa chi phí phân tích nền.*
 ![Worker Auto Scaling](/images/5-Workshop/5.7-Compute-setup/5.7.4-configure-auto-scaling/worker_auto_scaling.png)
 
 {{% notice tip %}}

@@ -36,7 +36,7 @@ Sau khi sơ đồ hình chữ Y ngược hoàn thành đúng logic điều phố
 Quy trình điều phối bất đồng bộ đã được cấu hình thành công, tạo ra một kiến trúc phân tách độc lập (Decoupled Architecture) bền bỉ.
 
 *Ảnh minh họa: Máy trạng thái Step Functions được khởi tạo hoàn chỉnh với các nhánh logic phân định rõ ràng (Bao gồm biểu thức JSONata tại các ngã rẽ).*
-![Step Functions Workflow](../../../../images/5-Workshop/5.6-Ingestion-workflow/5.6.3-step-functions/step_functions_diagram.png)
+![Step Functions Workflow](../../../../images/5-Workshop/5.6-Ingestion-workflow/5.6.3-create-step-functions/step_functions_diagram.png)
 
 {{% notice tip %}}
 **System Design Note (Tách biệt Logic Nghiệp vụ):** Việc đưa toàn bộ luồng rẽ nhánh và điều phối lên tầng Step Functions giúp cô lập hoàn toàn Logic nghiệp vụ (Business Logic) ra khỏi mã nguồn của máy chủ ứng dụng (Workers). Khi hệ thống cần bổ sung tính năng (ví dụ: thêm bước nén video hoặc gửi SMS), kỹ sư chỉ cần tái cấu hình sơ đồ trên Step Functions mà không cần biên dịch hay triển khai lại mã nguồn của toàn bộ cụm máy chủ xử lý.

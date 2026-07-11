@@ -36,7 +36,7 @@ Once the inverted Y-shaped diagram accurately completes the orchestration logic,
 The asynchronous orchestration process is successfully configured, creating a durable Decoupled Architecture.
 
 *Illustration: The Step Functions state machine is fully initialized with clearly defined logic branches (Including JSONata expressions at the junctions).*
-![Step Functions Workflow](../../../../images/5-Workshop/5.6-Ingestion-workflow/5.6.3-step-functions/step_functions_diagram.png)
+![Step Functions Workflow](../../../../images/5-Workshop/5.6-Ingestion-workflow/5.6.3-create-step-functions/step_functions_diagram.png)
 
 {{% notice tip %}}
 **System Design Note (Business Logic Separation):** Moving all branching and orchestration flows to the Step Functions tier completely isolates Business Logic from the application servers' (Workers) source code. When the system needs additional features (e.g., adding a video compression step or sending an SMS), engineers only need to reconfigure the diagram on Step Functions without having to recompile or redeploy the source code of the entire processing server cluster.

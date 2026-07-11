@@ -1,4 +1,4 @@
-﻿---
+---
 title : "Khởi tạo ECS Cluster"
 date : 2026-07-10
 weight : 1
@@ -19,6 +19,8 @@ Chúng ta tiến hành khởi tạo hai kho lưu trữ riêng biệt nhằm phâ
    - **Image tag mutability:** Chọn **Immutable** *(Best Practice nhằm ngăn chặn hành vi ghi đè lên các bản build cũ có cùng tag, đảm bảo tính nhất quán của lịch sử triển khai).*
    - **Encryption settings:** Giữ nguyên mặc định **AES-256**.
    - **Image scanning settings:** Tùy chọn này hiện đã được AWS đánh dấu là *deprecated* (lỗi thời) nhằm chuyển hướng sang kiến trúc quét lỗ hổng bảo mật tập trung bằng Amazon Inspector. Bỏ qua cấu hình này.
+
+![ECR Config](/images/5-Workshop/5.7-Compute-setup/5.7.1-create-ecs-cluster/ecr_config.png)
 3. Cuộn xuống cuối trang và bấm **Create repository**.
 4. Lặp lại toàn bộ chu trình trên để tạo thêm kho lưu trữ thứ hai với tên định danh `cloudforge-ai-worker`.
 
@@ -31,6 +33,8 @@ Sau khi hoàn tất, ghi nhận lại chuỗi đường dẫn **URI** của cả
 2. **Cluster configuration:** Nhập tên định danh tập trung `cloudforge-compute-cluster` vào trường Cluster name.
 3. **Infrastructure:** Đảm bảo tùy chọn **AWS Fargate (serverless)** đang được chọn mặc định. Hệ thống hoàn toàn không sử dụng các thực thể EC2 instances nhằm loại bỏ công tác vận hành hệ điều hành.
 4. **Monitoring (Tùy chọn nâng cao):** Chọn **Use Container Insights** để kích hoạt tính năng tự động đẩy các chỉ số chuyên sâu về hiệu năng phần cứng (vCPU, Memory Utilization) lên hệ thống giám sát Amazon CloudWatch.
+
+![ECS Cluster Config](/images/5-Workshop/5.7-Compute-setup/5.7.1-create-ecs-cluster/ecs_cluster_config.png)
 5. Bấm **Create** và đợi hệ thống phê duyệt khởi tạo chu trình trong vài giây.
 
 ![ECS Cluster Created](/images/5-Workshop/5.7-Compute-setup/5.7.1-create-ecs-cluster/ecs_cluster_created.png)

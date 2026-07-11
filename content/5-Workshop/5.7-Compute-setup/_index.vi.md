@@ -19,8 +19,9 @@ Thay vì sử dụng kiến trúc quản lý máy chủ ảo EC2 truyền thốn
 
 #### Lộ trình triển khai phân lớp Compute:
 1. **Amazon ECR (Elastic Container Registry):** Khởi tạo kho lưu trữ đám mây bảo mật để quản lý và lưu trữ các bản phân phối Docker Images của hệ thống.
-2. **ECS Cluster & Task Definitions:** Thiết lập nhóm quản lý logic và định nghĩa cấu hình phần cứng, quyền thực thi cùng các thông số môi trường nạp từ Secrets Manager.
-3. **Application Load Balancer (ALB):** Thiết lập bộ cân bằng tải ứng dụng làm cổng giao tiếp trung gian điều phối lưu lượng từ Internet vào các Container Backend API một cách an toàn.
+2. **ECS Backend & Application Load Balancer:** Thiết lập bộ cân bằng tải ứng dụng làm cổng giao tiếp trung gian và triển khai ứng dụng API công khai trên nền tảng AWS Fargate.
+3. **Background AI Worker:** Triển khai dịch vụ chạy ngầm hoàn toàn cô lập trong Private Subnet để xử lý các tác vụ phân tích nặng từ hàng đợi SQS.
+4. **Auto Scaling:** Cấu hình chính sách tự động mở rộng và thu hẹp tài nguyên thông minh dựa trên thông số CPU nhằm tối ưu hiệu năng và chi phí.
 
 Hoàn thành chương này sẽ cung cấp cho hệ thống một năng lực tính toán linh hoạt, bảo mật tuyệt đối và tự động tối ưu hóa theo quy quy mô tải thực tế của doanh nghiệp.
 

@@ -19,8 +19,9 @@ Instead of using the traditional EC2 virtual machine management architecture, wh
 
 #### Compute Tier Deployment Roadmap:
 1. **Amazon ECR (Elastic Container Registry):** Initialize a secure cloud repository to manage and store the system's Docker Image distributions.
-2. **ECS Cluster & Task Definitions:** Establish logical management groups and define hardware configurations, execution permissions, and environment parameters injected from Secrets Manager.
-3. **Application Load Balancer (ALB):** Establish an application load balancer to act as an intermediate gateway, safely orchestrating traffic from the Internet to the Backend API Containers.
+2. **ECS Backend & Application Load Balancer:** Establish an application load balancer as an intermediate gateway and deploy the public-facing API application on the AWS Fargate platform.
+3. **Background AI Worker:** Deploy a completely isolated background service in the Private Subnet to handle heavy analysis tasks from the SQS queue.
+4. **Auto Scaling:** Configure intelligent resource scale-out and scale-in policies based on CPU metrics to optimize performance and costs.
 
 Completing this chapter will provide the system with flexible computing capacity, absolute security, and automatic optimization according to the enterprise's actual load scale.
 

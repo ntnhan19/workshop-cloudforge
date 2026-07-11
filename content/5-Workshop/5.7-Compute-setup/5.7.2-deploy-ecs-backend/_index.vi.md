@@ -1,4 +1,4 @@
-﻿---
+---
 title : "Triển khai ECS Backend"
 date : 2026-07-10
 weight : 2
@@ -42,6 +42,8 @@ Do các Container của ứng dụng Backend sẽ được cô lập hoàn toàn
 5. **VPC:** Chọn đúng `cloudforge-vpc`.
 6. Phần **Health checks** giữ nguyên cấu hình mặc định và bấm **Next** → **Create target group** (Bỏ qua bước đăng ký IP thủ công vì ECS Service sẽ tự động quản lý luồng này).
 
+![Target Group Created](/images/5-Workshop/5.7-Compute-setup/5.7.2-deploy-ecs-backend/target_group_created.png)
+
 **Bước 2: Cấu hình Load Balancer**
 1. Tại menu trái EC2, chọn **Load Balancers** → Bấm **Create load balancer** → Chọn **Application Load Balancer**.
 2. **Load balancer name:** Nhập `cloudforge-backend-alb`.
@@ -49,8 +51,12 @@ Do các Container của ứng dụng Backend sẽ được cô lập hoàn toàn
 4. **Network mapping:**
    - Chọn VPC của dự án (`cloudforge-vpc`).
    - Tại mục Mappings, tích chọn cả 2 vùng Availability Zone (`ap-southeast-1a` và `ap-southeast-1b`), đồng thời ánh xạ chính xác vào các **Public Subnets** tương ứng của từng Zone.
-5. **Security groups:** Chọn Security Group đã cấu hình từ trước cho phép mở cổng 80 (HTTP) và cổng 443 (HTTPS) từ mọi nguồn (`0.0.0.0/0`).
+5. **Security groups:** Chọn Security Group **`cloudforge-alb-sg`** (Đây là SG đã cấu hình từ trước cho phép tiếp nhận lưu lượng HTTP/HTTPS từ mọi nguồn Internet).
 6. **Listeners and routing:** Tại giao thức HTTP Port 80, mục Default action chọn chuyển tiếp (Forward to) về Target Group `cloudforge-backend-tg` vừa tạo ở Bước 1.
+
+![ALB Routing Config](/images/5-Workshop/5.7-Compute-setup/5.7.2-deploy-ecs-backend/alb_routing_config1.png)
+
+![ALB Routing Config](/images/5-Workshop/5.7-Compute-setup/5.7.2-deploy-ecs-backend/alb_routing_config2.png)
 7. Bấm **Create load balancer**.
 
 ![ALB Created](/images/5-Workshop/5.7-Compute-setup/5.7.2-deploy-ecs-backend/alb_created.png)
@@ -63,13 +69,23 @@ Task Definition đóng vai trò là một bản thiết kế kiến trúc (Bluep
 3. **Infrastructure requirements:**
    - **Launch type:** Chọn **AWS Fargate**.
    - **Task size:** Chỉ định tài nguyên tối ưu chi phí bao gồm `0.5 vCPU` và `1 GB` Memory.
+   - **Task role:** Chọn IAM Role dành riêng cho ứng dụng Backend (ví dụ: `ECS-Backend-TaskRole`) để cấp quyền cho ứng dụng gọi các API của dịch vụ AWS khác.
    - **Task execution role:** Chọn tạo mới hoặc chỉ định `ecsTaskExecutionRole` (Cấp quyền cho tác vụ kéo ảnh từ ECR và đẩy logs về CloudWatch).
 4. **Container configuration:**
    - **Container name:** `backend-container`.
    - **Image URI:** Dán chuỗi liên kết ECR chính xác: `236320489525.dkr.ecr.ap-southeast-1.amazonaws.com/cloudforge-backend:latest`.
    - **Port mappings:** Cấu hình Cổng Container là `8080`, Giao thức `TCP`, App protocol chọn `HTTP`.
-5. **Environment variables (Best Practice Bảo mật):**
-   - Thay vì mã hóa cứng thông tin kết nối CSDL, tại mục các biến môi trường, tiến hành ánh xạ các biến `DB_HOST`, `DB_PASSWORD` lấy trực tiếp giá trị an toàn từ dịch vụ AWS Secrets Manager bằng cơ chế `ValueFrom`.
+5. **Environment variables (Biến môi trường):**
+   - Khai báo các biến môi trường cấu hình bắt buộc cho Backend hoạt động:
+     - `AWS_DEFAULT_REGION`: `ap-southeast-1`
+     - `AWS_S3_BUCKET`: `cloudforge-media-upload-ntnhan19`
+     - `DATABASE_URL`: `postgresql+psycopg://postgres:<mật-khẩu-của-bạn>@<endpoint-rds-của-bạn>:5432/cloudforge_db`
+     - `REDIS_URL`: `redis://master.cloudforge-redis.5vjnre.apse1.cache.amazonaws.com:6379/0`
+     - `STORAGE_BACKEND`: `s3`
+
+![Task Def Environment 1](/images/5-Workshop/5.7-Compute-setup/5.7.2-deploy-ecs-backend/task_def_environment1.png)
+![Task Def Environment 2](/images/5-Workshop/5.7-Compute-setup/5.7.2-deploy-ecs-backend/task_def_environment2.png)
+![Task Def Environment 3](/images/5-Workshop/5.7-Compute-setup/5.7.2-deploy-ecs-backend/task_def_environment3.png)
 6. Bấm **Create**.
 
 ![Task Definition Created](/images/5-Workshop/5.7-Compute-setup/5.7.2-deploy-ecs-backend/task_definition_created.png)
@@ -79,22 +95,35 @@ Service đóng vai trò giữ điều phối, đảm bảo duy trì liên tục 
 
 1. Tại bảng điều khiển **Amazon ECS**, chọn Cluster `cloudforge-compute-cluster`.
 2. Chuyển sang tab **Services** → Bấm **Create**.
-3. **Environment:** Chọn tính năng Launch type và chỉ định **FARGATE**.
-4. **Deployment configuration:**
-   - **Application type:** Chọn **Service**.
-   - **Task definition:** Chọn Family `cloudforge-backend-task` với phiên bản mới nhất (`latest`).
-   - **Service name:** Nhập tên định danh `cloudforge-backend-service`.
-   - **Desired tasks:** Nhập giá trị là `2` (Cấu hình chạy song song 2 containers đồng thời trên 2 AZs khác nhau nhằm đảm bảo tính sẵn sàng cao - High Availability cho hệ thống API).
-5. **Networking:**
+3. **Service details:**
+   - **Task definition family:** Chọn `cloudforge-backend-task`.
+   - **Task definition revision:** Để trống (Hệ thống sẽ tự động sử dụng phiên bản mới nhất - LATEST).
+   - **Service name:** Đặt tên `cloudforge-backend-service`.
+
+   ![ECS Service Details](/images/5-Workshop/5.7-Compute-setup/5.7.2-deploy-ecs-backend/ecs_service_details.png)
+4. **Environment:**
+   - **Compute options:** Chọn **Capacity provider strategy** với nhà cung cấp là **FARGATE** (hoặc cứ để nguyên mặc định của Cluster).
+
+   ![ECS Service Environment](/images/5-Workshop/5.7-Compute-setup/5.7.2-deploy-ecs-backend/ecs_service_environment.png)
+5. **Deployment configuration:**
+   - **Desired tasks:** Nhập `2` (Khởi chạy 2 container đồng thời để dự phòng và chia tải).
+   ![ECS Service Configuration](/images/5-Workshop/5.7-Compute-setup/5.7.2-deploy-ecs-backend/ecs_service_configuration.png)
+6. **Networking:**
    - **VPC:** Chọn `cloudforge-vpc`.
-   - **Subnets:** Chỉ định chính xác 2 vùng mạng biệt lập **Private Subnets**. (Tuyệt đối không chọn Public Subnet để tuân thủ quy chuẩn an toàn Zero-Trust).
-   - **Security group:** Chọn SG cho phép tiếp nhận lưu lượng Inbound duy nhất từ Security Group của ALB chạy qua cổng `8080`.
-6. **Load balancing:**
-   - **Load balancer type:** Chọn **Application Load Balancer**.
-   - **Load balancer:** Chọn `cloudforge-backend-alb`.
-   - **Container to load balance:** Hệ thống tự động nhận diện `backend-container:8080:8080`. Bấm **Add to load balancer**.
-   - **Target group:** Chọn `cloudforge-backend-tg` đã thiết lập sẵn.
-7. Cuộn xuống cuối và bấm **Create**.
+   - **Subnets:** Bắt buộc chọn 2 **Private Subnets** (Bảo mật: Backend không nên tiếp xúc trực tiếp với Internet).
+   - **Security group:** Chọn **Use an existing security group** và TÌM CHỌN CHÍNH XÁC **`cloudforge-ecs-app-sg`** (Đây là SG dành riêng cho ứng dụng, chỉ cho phép nhận traffic từ Load Balancer ở cổng 8080).
+
+   ![ECS Service Networking](/images/5-Workshop/5.7-Compute-setup/5.7.2-deploy-ecs-backend/ecs_service_networking.png)
+7. **Load balancing:**
+   - Chọn loại **Application Load Balancer**.
+   - **Application Load Balancer:** Chọn **Use an existing load balancer** và trỏ vào `cloudforge-backend-alb` (ALB vừa tạo ở Bước 2).
+   - **Listener:** Chọn **Use an existing listener** và trỏ vào Listener cổng `80:HTTP` đã cấu hình.
+   - **Target group:** Chọn **Use an existing target group** và trỏ vào `cloudforge-backend-tg`.
+
+   ![ECS Service Load Balancing 1](/images/5-Workshop/5.7-Compute-setup/5.7.2-deploy-ecs-backend/ecs_service_loadbalancing1.png)
+
+   ![ECS Service Load Balancing 2](/images/5-Workshop/5.7-Compute-setup/5.7.2-deploy-ecs-backend/ecs_service_loadbalancing2.png)
+8. Bấm **Create** để tiến hành triển khai. Quá trình này có thể mất 2-3 phút để trạng thái Service chuyển sang `Running`.
 
 ![ECS Service Success](/images/5-Workshop/5.7-Compute-setup/5.7.2-deploy-ecs-backend/ecs_service_success.png)
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title : "Create ECS Cluster"
 date : 2026-07-10
 weight : 1
@@ -18,7 +18,9 @@ We will initialize two separate repositories to completely isolate the source co
    - **Repository name:** Enter the name `cloudforge-backend`.
    - **Image tag mutability:** Select **Immutable** *(Best Practice to prevent overwriting old builds with the same tag, ensuring the consistency of deployment history).*
    - **Encryption settings:** Keep the default **AES-256**.
-   - **Image scanning settings:** This option has now been marked by AWS as *deprecated* to shift towards centralized vulnerability scanning architecture using Amazon Inspector. Skip this configuration.
+   - **Image scanning settings:** This option is currently marked as *deprecated* by AWS in favor of centralized vulnerability scanning with Amazon Inspector. Skip this configuration.
+
+![ECR Config](/images/5-Workshop/5.7-Compute-setup/5.7.1-create-ecs-cluster/ecr_config.png)
 3. Scroll to the bottom of the page and click **Create repository**.
 4. Repeat the entire cycle above to create a second repository named `cloudforge-ai-worker`.
 
@@ -30,7 +32,9 @@ Once complete, record the **URI** paths of both repositories (e.g., `23632048952
 1. Access the **Amazon ECS** service on the AWS Console → Select **Clusters** in the left navigation bar → Click **Create cluster**.
 2. **Cluster configuration:** Enter the centralized identifier `cloudforge-compute-cluster` into the Cluster name field.
 3. **Infrastructure:** Ensure the **AWS Fargate (serverless)** option is selected by default. The system completely avoids using EC2 instance entities to eliminate operating system operational tasks.
-4. **Monitoring (Advanced Option):** Select **Use Container Insights** to activate the automatic pushing of in-depth hardware performance metrics (vCPU, Memory Utilization) to the Amazon CloudWatch monitoring system.
+4. **Monitoring (Advanced option):** Select **Use Container Insights** to enable automatically pushing in-depth hardware performance metrics (vCPU, Memory Utilization) to the Amazon CloudWatch monitoring system.
+
+![ECS Cluster Config](/images/5-Workshop/5.7-Compute-setup/5.7.1-create-ecs-cluster/ecs_cluster_config.png)
 5. Click **Create** and wait a few seconds for the system to approve the initialization cycle.
 
 ![ECS Cluster Created](/images/5-Workshop/5.7-Compute-setup/5.7.1-create-ecs-cluster/ecs_cluster_created.png)

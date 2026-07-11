@@ -1,4 +1,4 @@
-﻿---
+---
 title : "Configure Auto Scaling"
 date : 2026-07-10
 weight : 4
@@ -20,6 +20,9 @@ User traffic often fluctuates in real-time. Configuring Auto Scaling based on CP
 5. In the **Scaling policies** section, select Policy type as **Target tracking** and set the Policy name to `backend-cpu-scaling-policy`.
 6. Set the **ECS service metric** to **ECSServiceAverageCPUUtilization** with a Target value of `70` (When the average CPU exceeds 70%, the system automatically creates additional Containers).
 7. Enter `60` for the Scale-out cooldown period and `300` for the Scale-in cooldown period.
+
+![Backend Scaling Config](/images/5-Workshop/5.7-Compute-setup/5.7.4-configure-auto-scaling/backend_scaling_config.png)
+
 8. Scroll to the bottom of the page and click **Update**.
 
 ![Backend Auto Scaling](/images/5-Workshop/5.7-Compute-setup/5.7.4-configure-auto-scaling/backend_auto_scaling.png)
@@ -34,6 +37,9 @@ The AI Worker's workload depends entirely on the number of messages backlogged i
 5. In the **Scaling policies** section, select Policy type as **Target tracking** and set the Policy name to `worker-cpu-scaling-policy`.
 6. Set the **ECS service metric** to **ECSServiceAverageCPUUtilization** with a Target value of `75`.
 7. Enter `60` for the Scale-out cooldown period and `300` for the Scale-in cooldown period.
+
+![Worker Scaling Config](/images/5-Workshop/5.7-Compute-setup/5.7.4-configure-auto-scaling/worker_scaling_config.png)
+
 8. Scroll to the bottom of the page and click **Update**.
 
 ![Worker Auto Scaling](/images/5-Workshop/5.7-Compute-setup/5.7.4-configure-auto-scaling/worker_auto_scaling.png)

@@ -1,4 +1,4 @@
-﻿---
+---
 title : "Deploy ECS AI Worker"
 date : 2026-07-10
 weight : 3
@@ -42,13 +42,22 @@ Due to the specific requirement of executing computational tasks related to Medi
    - **Launch type:** Select **AWS Fargate**.
    - **Task size:** Allocate optimal processing resources including `1 vCPU` for the processor and `2 GB` for RAM capacity.
    - **Task execution role:** Specify the `ecsTaskExecutionRole` role, which possesses attached policies for Secrets Manager access to load system environment variables.
-   - **Task role (Crucial):** Click to select the dedicated IAM Role for background applications (e.g., `cloudforge-ecs-app-role`) that has been pre-granted core security permissions including: Read/delete message permissions from Amazon SQS (`sqs:ReceiveMessage`, `sqs:DeleteMessage`), read/write permissions for digital resources from Amazon S3, and database state update permissions.
+   - **Task role (Crucial):** Select EXACTLY the IAM Role **`ECS-Worker-TaskRole`** which has been pre-granted core security permissions including: Interacting with Amazon SQS queues, processing files on Amazon S3, updating the Database, and crucially, calling AI services like Amazon Bedrock and Transcribe.
+
+![Worker Task Role](/images/5-Workshop/5.7-Compute-setup/5.7.3-deploy-ecs-ai-worker/worker_task_role.png)
 4. **Container configuration:**
    - **Container name:** Define the name `worker-container`.
    - **Image URI:** Paste the exact link from ECR: `236320489525.dkr.ecr.ap-southeast-1.amazonaws.com/cloudforge-ai-worker:latest`.
    - **Port mappings:** LEAVE COMPLETELY BLANK. Because the Worker operates specifically on an Outbound model (Actively calling out of the system to fetch jobs), not opening an Inbound port helps completely eliminate the network Attack Surface.
 5. **Environment variables:**
-   - Proceed to load dynamic links including the SQS queue path `SQS_QUEUE_URL` and the S3 storage resource name `S3_BUCKET_NAME` so the application source code can automatically identify the destinations.
+   - Declare the mandatory environment variables for the AI Worker to operate:
+     - `AWS_DEFAULT_REGION`: `ap-southeast-1`
+     - `AWS_S3_BUCKET`: `cloudforge-media-upload-ntnhan19`
+     - `DATABASE_URL`: `postgresql+psycopg://postgres:<your-password>@<your-rds-endpoint>:5432/cloudforge_db`
+     - `PYTHONPATH`: `/app`
+     - `STORAGE_BACKEND`: `s3`
+
+![Worker Environment](/images/5-Workshop/5.7-Compute-setup/5.7.3-deploy-ecs-ai-worker/worker_environment.png)
 6. Click **Create** to save the V1 configuration.
 
 ![Worker Task Definition](/images/5-Workshop/5.7-Compute-setup/5.7.3-deploy-ecs-ai-worker/worker_task_definition.png)
@@ -69,6 +78,8 @@ Because the AI Worker does not use a Load Balancer to receive Traffic, the Servi
    - **Subnets:** Accurately check the system of closed **Private Subnets** zones.
    - **Security group:** Click to select the centralized security group `cloudforge-ecs-app-sg` (This group blocks all incoming data from the outside but allows free Outbound calls to the Internet via the NAT Gateway network to connect to SQS and S3).
    - **Public IP:** Switch the mandatory state to **Turned off**.
+
+![Worker Service Networking](/images/5-Workshop/5.7-Compute-setup/5.7.3-deploy-ecs-ai-worker/worker_service_networking.png)
 6. **Load balancing:** In this module, select the **None** state (Do not apply a load balancer).
 7. Scroll to the bottom of the dashboard and click the orange **Create** button.
 

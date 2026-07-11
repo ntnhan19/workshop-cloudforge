@@ -1,4 +1,4 @@
-﻿---
+---
 title : "Deploy ECS Backend"
 date : 2026-07-10
 weight : 2
@@ -40,7 +40,9 @@ Since the Backend application's Containers will be completely isolated within th
 3. **Target group name:** Enter `cloudforge-backend-tg`.
 4. **Protocol & Port:** Select HTTP and configure port `8080`.
 5. **VPC:** Select the correct `cloudforge-vpc`.
-6. For **Health checks**, keep the default configuration and click **Next** → **Create target group** (Skip the manual IP registration step as the ECS Service will automatically manage this flow).
+6. Keep the default configuration for the **Health checks** section and click **Next** → **Create target group** (Skip the manual IP registration step because the ECS Service will manage this flow automatically).
+
+![Target Group Created](/images/5-Workshop/5.7-Compute-setup/5.7.2-deploy-ecs-backend/target_group_created.png)
 
 **Step 2: Configure Load Balancer**
 1. On the left EC2 menu, select **Load Balancers** → Click **Create load balancer** → Select **Application Load Balancer**.
@@ -49,8 +51,13 @@ Since the Backend application's Containers will be completely isolated within th
 4. **Network mapping:**
    - Select the project's VPC (`cloudforge-vpc`).
    - In the Mappings section, check both Availability Zones (`ap-southeast-1a` and `ap-southeast-1b`), while mapping them accurately to the corresponding **Public Subnets** of each Zone.
-5. **Security groups:** Select a pre-configured Security Group that allows opening port 80 (HTTP) and port 443 (HTTPS) from any source (`0.0.0.0/0`).
-6. **Listeners and routing:** For HTTP Protocol Port 80, set the Default action to forward (Forward to) the `cloudforge-backend-tg` Target Group just created in Step 1.
+5. **Security groups:** Select the **`cloudforge-alb-sg`** Security Group (This SG was pre-configured to allow receiving HTTP/HTTPS traffic from any Internet source).
+6. **Listeners and routing:** Under HTTP Port 80, for the Default action, select Forward to the `cloudforge-backend-tg` Target Group created in Step 1.
+
+![ALB Routing Config](/images/5-Workshop/5.7-Compute-setup/5.7.2-deploy-ecs-backend/alb_routing_config1.png)
+
+![ALB Routing Config](/images/5-Workshop/5.7-Compute-setup/5.7.2-deploy-ecs-backend/alb_routing_config2.png)
+
 7. Click **Create load balancer**.
 
 ![ALB Created](/images/5-Workshop/5.7-Compute-setup/5.7.2-deploy-ecs-backend/alb_created.png)
@@ -63,13 +70,23 @@ The Task Definition acts as an architectural blueprint detailing the hardware li
 3. **Infrastructure requirements:**
    - **Launch type:** Select **AWS Fargate**.
    - **Task size:** Specify cost-optimized resources including `0.5 vCPU` and `1 GB` Memory.
-   - **Task execution role:** Choose to create a new one or designate `ecsTaskExecutionRole` (Grants the task permissions to pull images from ECR and push logs to CloudWatch).
+   - **Task role:** Select the dedicated IAM Role for the Backend application (e.g., `ECS-Backend-TaskRole`) to grant the application permissions to call APIs of other AWS services.
+   - **Task execution role:** Select to create new or specify `ecsTaskExecutionRole` (Grants the task permissions to pull images from ECR and push logs to CloudWatch).
 4. **Container configuration:**
    - **Container name:** `backend-container`.
    - **Image URI:** Paste the exact ECR link string: `236320489525.dkr.ecr.ap-southeast-1.amazonaws.com/cloudforge-backend:latest`.
    - **Port mappings:** Configure Container Port as `8080`, Protocol `TCP`, App protocol select `HTTP`.
-5. **Environment variables (Security Best Practice):**
-   - Instead of hardcoding database connection information, in the environment variables section, map the `DB_HOST`, `DB_PASSWORD` variables to retrieve secure values directly from the AWS Secrets Manager service using the `ValueFrom` mechanism.
+5. **Environment variables:**
+   - Declare the mandatory environment variables for the Backend to operate:
+     - `AWS_DEFAULT_REGION`: `ap-southeast-1`
+     - `AWS_S3_BUCKET`: `cloudforge-media-upload-ntnhan19`
+     - `DATABASE_URL`: `postgresql+psycopg://postgres:<your-password>@<your-rds-endpoint>:5432/cloudforge_db`
+     - `REDIS_URL`: `redis://master.cloudforge-redis.5vjnre.apse1.cache.amazonaws.com:6379/0`
+     - `STORAGE_BACKEND`: `s3`
+
+![Task Def Environment 1](/images/5-Workshop/5.7-Compute-setup/5.7.2-deploy-ecs-backend/task_def_environment1.png)
+![Task Def Environment 2](/images/5-Workshop/5.7-Compute-setup/5.7.2-deploy-ecs-backend/task_def_environment2.png)
+![Task Def Environment 3](/images/5-Workshop/5.7-Compute-setup/5.7.2-deploy-ecs-backend/task_def_environment3.png)
 6. Click **Create**.
 
 ![Task Definition Created](/images/5-Workshop/5.7-Compute-setup/5.7.2-deploy-ecs-backend/task_definition_created.png)
@@ -79,22 +96,26 @@ The Service plays a coordinating role, ensuring the continuous maintenance of a 
 
 1. At the **Amazon ECS** dashboard, select the `cloudforge-compute-cluster` Cluster.
 2. Switch to the **Services** tab → Click **Create**.
-3. **Environment:** Select the Launch type feature and designate **FARGATE**.
-4. **Deployment configuration:**
-   - **Application type:** Select **Service**.
-   - **Task definition:** Select the `cloudforge-backend-task` Family with the newest version (`latest`).
-   - **Service name:** Enter the identifier name `cloudforge-backend-service`.
-   - **Desired tasks:** Enter the value `2` (Configure to run 2 containers concurrently in parallel across 2 different AZs to ensure High Availability for the API system).
-5. **Networking:**
+3. **Service details:**
+   - **Task definition family:** Select `cloudforge-backend-task`.
+   - **Task definition revision:** Leave blank (The system will automatically use the latest revision - LATEST).
+   - **Service name:** Name it `cloudforge-backend-service`.
+4. **Environment:**
+   - **Compute options:** Select **Capacity provider strategy** with **FARGATE** (or just leave the Cluster default).
+5. **Deployment configuration:**
+   - **Desired tasks:** Enter `2` (Launch 2 containers simultaneously for redundancy and load balancing).
+6. **Networking:**
    - **VPC:** Select `cloudforge-vpc`.
-   - **Subnets:** Accurately designate the 2 isolated **Private Subnets** network zones. (Absolutely do not select a Public Subnet to comply with Zero-Trust safety standards).
-   - **Security group:** Select an SG that allows receiving Inbound traffic solely from the ALB's Security Group running through port `8080`.
-6. **Load balancing:**
-   - **Load balancer type:** Select **Application Load Balancer**.
-   - **Load balancer:** Select `cloudforge-backend-alb`.
-   - **Container to load balance:** The system automatically recognizes `backend-container:8080:8080`. Click **Add to load balancer**.
-   - **Target group:** Select the pre-established `cloudforge-backend-tg`.
-7. Scroll to the bottom and click **Create**.
+   - **Subnets:** You must select the 2 **Private Subnets** (Security: Backend should not be directly exposed to the Internet).
+   - **Security group:** Select **Use an existing security group** and EXACTLY CHOOSE **`cloudforge-ecs-app-sg`** (This is the SG dedicated to the application, only allowing traffic from the Load Balancer on port 8080).
+7. **Load balancing:**
+   - Select the **Application Load Balancer** type.
+   - **Application Load Balancer:** Select **Use an existing load balancer** and point to `cloudforge-backend-alb` (created in Step 2).
+   - **Listener:** Select **Use an existing listener** and point to the configured `80:HTTP` Listener.
+   - **Target group:** Select **Use an existing target group** and point to `cloudforge-backend-tg`.
+8. Click **Create** to proceed with deployment. This process may take 2-3 minutes for the Service status to change to `Running`.
+
+![ECS Service Networking](/images/5-Workshop/5.7-Compute-setup/5.7.2-deploy-ecs-backend/ecs_service_networking.png)
 
 ![ECS Service Success](/images/5-Workshop/5.7-Compute-setup/5.7.2-deploy-ecs-backend/ecs_service_success.png)
 

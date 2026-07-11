@@ -1,4 +1,4 @@
-﻿---
+---
 title : "Thiết lập Auto Scaling"
 date : 2026-07-10
 weight : 4
@@ -20,6 +20,9 @@ Lưu lượng truy cập người dùng thường biến động theo thời gia
 5. Tại mục **Scaling policies**, chọn Policy type là **Target tracking** và đặt Policy name là `backend-cpu-scaling-policy`.
 6. Thiết lập **ECS service metric** là **ECSServiceAverageCPUUtilization** với Target value là `70` (Khi CPU trung bình vượt 70%, hệ thống tự động tạo thêm Container).
 7. Điền Scale-out cooldown period là `60` và Scale-in cooldown period là `300`.
+
+![Backend Scaling Config](/images/5-Workshop/5.7-Compute-setup/5.7.4-configure-auto-scaling/backend_scaling_config.png)
+
 8. Cuộn xuống cuối trang và bấm **Update**.
 
 ![Backend Auto Scaling](/images/5-Workshop/5.7-Compute-setup/5.7.4-configure-auto-scaling/backend_auto_scaling.png)
@@ -34,6 +37,9 @@ Lưu lượng công việc của AI Worker phụ thuộc hoàn toàn vào số l
 5. Tại mục **Scaling policies**, chọn Policy type là **Target tracking** và đặt Policy name là `worker-cpu-scaling-policy`.
 6. Thiết lập **ECS service metric** là **ECSServiceAverageCPUUtilization** với Target value là `75`.
 7. Điền Scale-out cooldown period là `60` và Scale-in cooldown period là `300`.
+
+![Worker Scaling Config](/images/5-Workshop/5.7-Compute-setup/5.7.4-configure-auto-scaling/worker_scaling_config.png)
+
 8. Cuộn xuống cuối trang và bấm **Update**.
 
 ![Worker Auto Scaling](/images/5-Workshop/5.7-Compute-setup/5.7.4-configure-auto-scaling/worker_auto_scaling.png)

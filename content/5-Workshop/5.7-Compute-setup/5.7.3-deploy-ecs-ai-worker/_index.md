@@ -62,32 +62,15 @@ Due to the specific requirement of executing computational tasks related to Medi
 
 ![Worker Task Definition](/images/5-Workshop/5.7-Compute-setup/5.7.3-deploy-ecs-ai-worker/worker_task_definition.png)
 
-#### 3. Deploy ECS Service Operations (Background Worker)
-Because the AI Worker does not use a Load Balancer to receive Traffic, the Service configuration initialization cycle on the network will be streamlined as much as possible, focusing on infrastructure isolation.
+#### 3. AI Worker Execution (Event-Driven)
 
-1. Return to the **Amazon ECS** dashboard, access the `cloudforge-compute-cluster` data Cluster.
-2. In the **Services** module, click the **Create** action.
-3. **Environment:** Ensure the infrastructure option is Launch type combined with **FARGATE**.
-4. **Deployment configuration:**
-   - **Application type:** Select **Service**.
-   - **Task definition:** Select the `cloudforge-ai-worker-task` Family task just established with the newest version (`latest`).
-   - **Service name:** Enter the identifier service name `cloudforge-ai-worker-service`.
-   - **Desired tasks:** Set the initial default launch configuration to `1` (The system can automatically scale - Auto Scaling based on the number of backlogged messages in the SQS queue during peak operational periods).
-5. **Networking (Core Network Setup):**
-   - **VPC:** Select the correct internal network `cloudforge-vpc`.
-   - **Subnets:** Accurately check the system of closed **Private Subnets** zones.
-   - **Security group:** Click to select the centralized security group `cloudforge-ecs-app-sg` (This group blocks all incoming data from the outside but allows free Outbound calls to the Internet via the NAT Gateway network to connect to SQS and S3).
-   - **Public IP:** Switch the mandatory state to **Turned off**.
+Unlike the Backend, the **AI Worker** in this architecture is designed following the **Event-Driven Architecture** model. We will **NOT CREATE AN ECS SERVICE** for the AI Worker.
 
-![Worker Service Networking](/images/5-Workshop/5.7-Compute-setup/5.7.3-deploy-ecs-ai-worker/worker_service_networking.png)
-6. **Load balancing:** In this module, select the **None** state (Do not apply a load balancer).
-7. Scroll to the bottom of the dashboard and click the orange **Create** button.
+Reason: The AI Worker is a script-based task that will automatically shut down immediately after processing a video (run once and exit). If you intentionally create an ECS Service, the system will try to keep it running continuously, leading to constant restart loops (Task exited with code 1 or 0) and triggering the AWS **Service deployment circuit breaker**.
 
-![Worker Service Success](/images/5-Workshop/5.7-Compute-setup/5.7.3-deploy-ecs-ai-worker/worker_service_success.png)
+Instead of running continuously in the background, the AI Worker will be invoked automatically as independent tasks via **AWS Step Functions** (`ecs:RunTask`) whenever a new video is uploaded to S3 (as configured in step 5.6).
 
-{{% notice tip %}}
-**Architectural Note (Decoupled Architecture):** This design model reflects the characteristics of Event-Driven Architecture with its Loosely Coupled nature. The Ingestion receiving system (S3/EventBridge) and the computational processing system (AI Worker) do not have a direct connection in terms of network infrastructure. Amazon SQS acts as an intermediary Buffer. If the system receives thousands of uploaded multimedia files at the same time, SQS will safely store them in the queue for the AI Worker to fetch and process sequentially, eliminating the risk of network congestion or system crashes due to resource overload.
-{{% /notice %}}
+You have successfully created the **Task Definition** for the AI Worker. The infrastructure for the Worker is now fully ready!
 
 ***
 

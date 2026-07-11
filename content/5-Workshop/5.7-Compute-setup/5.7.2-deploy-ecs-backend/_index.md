@@ -16,13 +16,10 @@ To transfer the local source code to the Cloud infrastructure, we compile the ap
    ```bash
    aws ecr get-login-password --region ap-southeast-1 | docker login --username AWS --password-stdin 236320489525.dkr.ecr.ap-southeast-1.amazonaws.com
    ```
-3. Navigate to the exact directory containing the Backend source code (where the Dockerfile is located):
+3. DO NOT change directories to `backend`. Stay in the root directory of the project (where you can see both `backend` and `ai_pipeline` folders).
+4. Compile (Build) the Docker Image by specifying the Dockerfile path and setting the build context to the root directory:
    ```bash
-   cd backend
-   ```
-4. Proceed to compile (Build) the Docker Image and directly attach an identifier tag (Tag) mapping it to the remote repository on AWS:
-   ```bash
-   docker build -t 236320489525.dkr.ecr.ap-southeast-1.amazonaws.com/cloudforge-backend:latest .
+   docker build -t 236320489525.dkr.ecr.ap-southeast-1.amazonaws.com/cloudforge-backend:latest -f backend/Dockerfile .
    ```
 5. Push the packaged product to the cloud:
    ```bash
@@ -38,9 +35,9 @@ Since the Backend application's Containers will be completely isolated within th
 1. Access the **EC2** service → **Target Groups** → **Create target group**.
 2. **Choose a target type:** Select **IP addresses** (This is mandatory for the AWS Fargate architecture because each Task will possess a separate internal IP address belonging to an Elastic Network Interface - ENI).
 3. **Target group name:** Enter `cloudforge-backend-tg`.
-4. **Protocol & Port:** Select HTTP and configure port `8080`.
+4. **Protocol & Port:** Select HTTP and configure port `8000`.
 5. **VPC:** Select the correct `cloudforge-vpc`.
-6. Keep the default configuration for the **Health checks** section and click **Next** → **Create target group** (Skip the manual IP registration step because the ECS Service will manage this flow automatically).
+6. In the **Health checks** section, change the **Health check path** from `/` to `/health` (because the Backend exposes its health status there). Click **Next** → **Create target group** (Skip the manual IP registration step because the ECS Service will manage this flow automatically).
 
 ![Target Group Created](/images/5-Workshop/5.7-Compute-setup/5.7.2-deploy-ecs-backend/target_group_created.png)
 
@@ -75,7 +72,7 @@ The Task Definition acts as an architectural blueprint detailing the hardware li
 4. **Container configuration:**
    - **Container name:** `backend-container`.
    - **Image URI:** Paste the exact ECR link string: `236320489525.dkr.ecr.ap-southeast-1.amazonaws.com/cloudforge-backend:latest`.
-   - **Port mappings:** Configure Container Port as `8080`, Protocol `TCP`, App protocol select `HTTP`.
+   - **Port mappings:** Configure Container Port as `8000`, Protocol `TCP`, App protocol select `HTTP`.
 5. **Environment variables:**
    - Declare the mandatory environment variables for the Backend to operate:
      - `AWS_DEFAULT_REGION`: `ap-southeast-1`
@@ -113,7 +110,7 @@ The Service plays a coordinating role, ensuring the continuous maintenance of a 
    - **Application Load Balancer:** Select **Use an existing load balancer** and point to `cloudforge-backend-alb` (created in Step 2).
    - **Listener:** Select **Use an existing listener** and point to the configured `80:HTTP` Listener.
    - **Target group:** Select **Use an existing target group** and point to `cloudforge-backend-tg`.
-8. Click **Create** to proceed with deployment. This process may take 2-3 minutes for the Service status to change to `Running`.
+8. Click **Create** to proceed with the deployment. This process may take 2-3 minutes for the Service status to transition to `Running`.
 
 ![ECS Service Networking](/images/5-Workshop/5.7-Compute-setup/5.7.2-deploy-ecs-backend/ecs_service_networking.png)
 

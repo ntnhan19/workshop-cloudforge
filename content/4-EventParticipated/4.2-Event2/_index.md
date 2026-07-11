@@ -25,25 +25,25 @@ pre: " <b> 4.2. </b> "
 ### Key Highlights
 
 #### 1. Context Is Everything: Making AI Actually Work for You (Tinh Truong)
-![Session 1](../../images/4-EventParticipated/4.2-Event2/session1.jpg)
+![Session 1](/images/4-EventParticipated/4.2-Event2/session1.jpg)
 - **Common Mistakes:** AI giving poor answers is often due to weak input (context) rather than the model itself. Cramming too much garbage information (Internet Puller) reduces accuracy and wastes tokens.
 - **Context Building Formula:** A good context needs 4 essential elements: Goal, Relevant info, Constraints, and Success criteria.
 - **The Evolution of AI:** How we interact with AI is shifting from simply using Prompts -> Building Context -> Forming Memory (A second AI brain) to support long-term personalization.
 
 #### 2. Friendly AI Assistant with Amazon Q (Anh Pham)
-![Session 2](../../images/4-EventParticipated/4.2-Event2/session2.jpg)
+![Session 2](/images/4-EventParticipated/4.2-Event2/session2.jpg)
 - **Q Chat Agent:** AI assistants for exploring data, analyzing insights, and automating PM tasks like summarizing meeting minutes, sending emails, and scheduling.
 - **Q Flows:** Create intelligent workflows with natural language — no coding required.
 - **Q Spaces & Sight:** Shared collaborative spaces that turn individual insights into team knowledge, and build dashboards/reports from raw data using natural language.
 
 #### 3. From Edge To Origin: CloudFront as Your Foundation (Thuan Nguyen)
-![Session 3](../../images/4-EventParticipated/4.2-Event2/session3.jpg)
+![Session 3](/images/4-EventParticipated/4.2-Event2/session3.jpg)
 - **Cost and Security Issues:** The pay-as-you-go model can sometimes result in unexpected CDN bills. Routing and protection packages are needed to mitigate financial risks.
 - **Origin Cloaking:** Utilizing Origin Access Control (OAC) to lock direct access to S3 and Lambda ensures that traffic must route through CloudFront.
 - **High Availability:** CloudFront supports Failover configuration when the primary origin fails, maintaining an uninterrupted user experience and boosting speed with HTTP Compression (reducing load times by up to 81%).
 
 #### 4. 36 hrs with LotusHacks – Building UTMorpho from Idea to Reality (Thao Nguyen & Mai Nguyen & Uyen Le)
-![Session 4](../../images/4-EventParticipated/4.2-Event2/session4.jpg)
+![Session 4](/images/4-EventParticipated/4.2-Event2/session4.jpg)
 - **From Zero to Idea:** The brainstorming journey of defining the problem and shaping UTMorpho.
 - **Building Under Pressure:** A 36-hour development sprint facing challenges, failures, and turning points.
 - **Key Learnings:** The best ideas stem from real-world frustrations. In teamwork, synchronization is paramount, and one must avoid "scope creep" (overloading features).
@@ -54,7 +54,7 @@ pre: " <b> 4.2. </b> "
 - **Mitigation Strategies:** Build systems with an "accept variability" mindset using majority voting (running multiple times and picking the most common result), enforcing output types (JSON, YAML), and using temp=0.1 to prevent the model from getting stuck in repetitive loops.
 
 #### 6. Enterprise-Grade Multi-Agent System: The Case of Startup Credit Scoring (Vy Lam)
-![Session 6](../../images/4-EventParticipated/4.2-Event2/session6.jpg)
+![Session 6](/images/4-EventParticipated/4.2-Event2/session6.jpg)
 - **Limitations of a Single Agent:** Using a single AI Agent for credit approvals often encounters context limits, diluted expertise, a lack of cross-checking, and becoming a single point of failure.
 - **The Power of Multi-Agent:** An architecture simulating a virtual credit committee comprised of specialized Agents (Financial Analysis, Market, Team, Risk, and Compliance) helps make more accurate decisions.
 - **Enterprise-Grade Mindset:** To transition from POC to Production, the system must be equipped with Guardrails (input/output protection), security (MFA, encryption), Data Governance (handling PII), and compliance with frameworks like SOC 2 and GDPR.
@@ -82,6 +82,6 @@ The event didn't just impart technical knowledge but also reminded me of product
 
 ### Event Photos
 
-![Event Photo 1](../../images/4-EventParticipated/4.2-Event2/event_23_05%281%29.jpg)
+![Event Photo 1](/images/4-EventParticipated/4.2-Event2/event_23_05%281%29.jpg)
 
-![Event Photo 2](../../images/4-EventParticipated/4.2-Event2/event_23_05%282%29.jpg)
+![Event Photo 2](/images/4-EventParticipated/4.2-Event2/event_23_05%282%29.jpg)

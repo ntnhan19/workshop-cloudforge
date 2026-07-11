@@ -23,7 +23,7 @@ Similar to RDS, we will place this Redis cluster into the Private Subnet to ensu
 8. Click **Create**.
 
 *📸 Illustration: Creating the Subnet Group for Redis*
-![Redis Subnet Group](../../../../images/5-Workshop/5.4-Database-setup/5.4.4-create-elasticache-redis/redis_subnet_group.png)
+![Redis Subnet Group](/images/5-Workshop/5.4-Database-setup/5.4.4-create-elasticache-redis/redis_subnet_group.png)
 
 #### 2. Provision the Redis Cluster
 Since the new AWS ElastiCache interface uses a step-by-step wizard, follow these configurations:
@@ -47,7 +47,7 @@ Since the new AWS ElastiCache interface uses a step-by-step wizard, follow these
    * Review your parameters and click **Create** at the bottom of the page. *(This process will take about 3-5 minutes).*
 
 *📸 Illustration: Setting up Security groups for Redis ensuring Zero-Trust compliance (Taken at Step 2).*
-![Redis Connectivity](../../../../images/5-Workshop/5.4-Database-setup/5.4.4-create-elasticache-redis/redis_connectivity.png)
+![Redis Connectivity](/images/5-Workshop/5.4-Database-setup/5.4.4-create-elasticache-redis/redis_connectivity.png)
 
 #### 3. Retrieve Endpoint Information
 After the Redis cluster's status changes to **Available**, click on the name `cloudforge-redis`.

@@ -23,7 +23,7 @@ User traffic often fluctuates in real-time. Configuring Auto Scaling based on CP
 8. Scroll to the bottom of the page and click **Update**.
 
 *Illustration: Setting up a Target Tracking Policy based on CPU for the Backend API.*
-![Backend Auto Scaling](../../../../images/5-Workshop/5.7-Compute-setup/5.7.4-configure-auto-scaling/backend_auto_scaling.png)
+![Backend Auto Scaling](/images/5-Workshop/5.7-Compute-setup/5.7.4-configure-auto-scaling/backend_auto_scaling.png)
 
 #### 2. Configure Auto Scaling for AI Worker
 The AI Worker's workload depends entirely on the number of messages backlogged in the queue. Within the scope of this Workshop, we will use CPU Utilization to get familiar with the basic Auto Scaling mechanism.
@@ -38,7 +38,7 @@ The AI Worker's workload depends entirely on the number of messages backlogged i
 8. Scroll to the bottom of the page and click **Update**.
 
 *Illustration: Flexible Auto Scaling configuration for the AI Worker helps optimize background analysis costs.*
-![Worker Auto Scaling](../../../../images/5-Workshop/5.7-Compute-setup/5.7.4-configure-auto-scaling/worker_auto_scaling.png)
+![Worker Auto Scaling](/images/5-Workshop/5.7-Compute-setup/5.7.4-configure-auto-scaling/worker_auto_scaling.png)
 
 {{% notice tip %}}
 **Best Practice for Background Worker:** In large-scale Production systems, scaling AI Workers should be based on the **`ApproximateNumberOfMessagesVisible`** metric of Amazon SQS via a CloudWatch Custom Metric. This ensures the system reacts accurately to the backlogged workload (Queue Depth) rather than mere hardware metrics.

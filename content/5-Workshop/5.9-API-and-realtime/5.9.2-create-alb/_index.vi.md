@@ -27,7 +27,7 @@ Sau khi đã khởi tạo xong cổng API Gateway công cộng, thách thức ti
 4. Nhấn **Create** và đợi khoảng 1-2 phút để trạng thái chuyển sang **Available**.
 
 *Ảnh minh họa: Thiết lập tạo mới VPC Link kết nối an toàn vào mạng riêng ảo.*
-![Create VPC Link](../../../../images/5-Workshop/5.9-API-and-realtime/5.9.2-create-alb/create_vpc_link.png)
+![Create VPC Link](/images/5-Workshop/5.9-API-and-realtime/5.9.2-create-alb/create_vpc_link.png)
 
 #### Bước 2: Cấu hình định tuyến (Routes & Integration) cho API
 Khi đã có cây cầu VPC Link, chúng ta cần cấu hình cho API biết khi nào thì cần sử dụng cây cầu này để đẩy dữ liệu vào Backend.
@@ -46,7 +46,7 @@ Khi đã có cây cầu VPC Link, chúng ta cần cấu hình cho API biết khi
 5. Cuộn xuống dưới cùng và nhấn **Create**.
 
 *Ảnh minh họa: Cấu hình ánh xạ Proxy Route thành công kết nối API Gateway thẳng vào ALB.*
-![Attach ALB Integration](../../../../images/5-Workshop/5.9-API-and-realtime/5.9.2-create-alb/attach_alb_integration.png)
+![Attach ALB Integration](/images/5-Workshop/5.9-API-and-realtime/5.9.2-create-alb/attach_alb_integration.png)
 
 {{% notice tip %}}
 **Cốt lõi Vận hành:** Kể từ thời điểm này, luồng giao tiếp chuẩn (REST API HTTP) đã thông suốt. Bất kỳ yêu cầu nào gửi tới `https://[API-Gateway-URL]/api/v1/...` sẽ được tự động đâm xuyên qua VPC Link, đi qua ALB và phân phối thẳng tới các Container Backend chạy trong ECS Fargate.

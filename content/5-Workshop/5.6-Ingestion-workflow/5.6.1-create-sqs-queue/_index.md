@@ -48,7 +48,7 @@ Finally, double-check all configuration information and click the **Create queue
 Upon successful initialization, the system will allocate a unique URL identifier for each queue. This URL string will be recorded to be configured into the environment variables of the application tier.
 
 *Illustration: The SQS Queue has been successfully initialized with optimized Visibility Timeout and DLQ error handling mechanisms.*
-![SQS Queue Created](../../../../images/5-Workshop/5.6-Ingestion-workflow/5.6.1-create-sqs-queue/sqs_queue_created.png)
+![SQS Queue Created](/images/5-Workshop/5.6-Ingestion-workflow/5.6.1-create-sqs-queue/sqs_queue_created.png)
 
 ***
 

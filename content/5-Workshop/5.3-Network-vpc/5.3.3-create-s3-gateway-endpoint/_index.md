@@ -15,7 +15,7 @@ If data from the Private Subnet follows the default routing path (`Private Subne
 2. Check the list and select the Endpoint whose name contains the S3 service code for the Singapore region: `com.amazonaws.ap-southeast-1.s3`.
 3. Ensure the **Status** column displays in green as **Available**.
 
-   ![S3 Endpoint Verification](../../../../images/5-Workshop/5.3-Network-vpc/5.3.3-create-s3-gateway-endpoint/s3_endpoint_verify.png)
+   ![S3 Endpoint Verification](/images/5-Workshop/5.3-Network-vpc/5.3.3-create-s3-gateway-endpoint/s3_endpoint_verify.png)
 
 #### 2. Analyze Route Table Configurations
 The secret to this shortcut is that AWS automatically injects a special routing rule into both groups of route tables (Public and Private) in our project. This keeps all traffic destined for S3 within the AWS internal bandwidth network instead of looping out to the Internet.
@@ -27,14 +27,14 @@ The secret to this shortcut is that AWS automatically injects a special routing 
    - **Target:** Points directly to the S3 Endpoint ID (`vpce-xxxxxx`).
    - **Meaning:** Any upload/download operations from the AI Worker application (Private) to S3 will go directly through this gateway, **completely bypassing the NAT Gateway**. This maximizes speed and reduces data processing costs through NAT to **$0**.
 
-   ![S3 Endpoint Routes Private](../../../../images/5-Workshop/5.3-Network-vpc/5.3.3-create-s3-gateway-endpoint/s3_endpoint_routes_private.png)
+   ![S3 Endpoint Routes Private](/images/5-Workshop/5.3-Network-vpc/5.3.3-create-s3-gateway-endpoint/s3_endpoint_routes_private.png)
 
 ##### B. For Public Route Table (Optimizing Public Bandwidth)
 1. Switch to select the public route table `cloudforge-rtb-public`.
 2. On the **Routes** tab, you will also see the rule pointing the `pl-6fa54006` IP range to `vpce-xxxxxx`, appearing independently of the Internet Gateway (`igw-xxxx`).
    - **Meaning:** Even resources in the Public zone (like a Load Balancer or Bastion Host, if any), when interacting with S3, will go through this internal Endpoint. This reduces the load on the Internet Gateway and increases the security of the data flow.
 
-   ![S3 Endpoint Routes Public](../../../../images/5-Workshop/5.3-Network-vpc/5.3.3-create-s3-gateway-endpoint/s3_endpoint_routes_public.png)
+   ![S3 Endpoint Routes Public](/images/5-Workshop/5.3-Network-vpc/5.3.3-create-s3-gateway-endpoint/s3_endpoint_routes_public.png)
 
 ***
 

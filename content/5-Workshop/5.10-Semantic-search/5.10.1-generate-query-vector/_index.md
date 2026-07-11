@@ -17,7 +17,7 @@ When a user submits a search phrase on the Frontend, the data processing flow is
 4. The API Pod receives the search string and initiates a call to the Amazon Bedrock service.
 
 *Illustration: Search data processing flow.*
-![Semantic Search Flow](../../../../images/5-Workshop/5.10-semantic-search/5.10.1-query-flow.png)
+![Semantic Search Flow](/images/5-Workshop/5.10-semantic-search/5.10.1-query-flow.png)
 
 #### Amazon Bedrock Interaction Setup
 The project team configures the API Pod using the AWS SDK (`boto3`) to interact with Amazon Bedrock. Consistent with the Ingestion phase, the designated model is **Amazon Titan Text Embeddings v2** (`amazon.titan-embed-text-v2:0`).

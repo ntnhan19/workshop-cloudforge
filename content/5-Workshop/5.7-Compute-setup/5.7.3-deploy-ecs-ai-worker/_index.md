@@ -32,7 +32,7 @@ This packaging and compilation process is executed directly at the AI Worker's d
    ```
 
 *Illustration: The AI Worker's Docker Image file has been successfully pushed to the Amazon ECR Private Registry.*
-![ECR Worker Image Pushed](../../../../images/5-Workshop/5.7-Compute-setup/5.7.3-deploy-ecs-ai-worker/ecr_worker_image_pushed.png)
+![ECR Worker Image Pushed](/images/5-Workshop/5.7-Compute-setup/5.7.3-deploy-ecs-ai-worker/ecr_worker_image_pushed.png)
 
 #### 2. Establish Task Definition
 Due to the specific requirement of executing computational tasks related to Media data stream processing and running machine learning model algorithms, the AI Worker's virtual hardware configuration will be set higher than the standard API tier.
@@ -53,7 +53,7 @@ Due to the specific requirement of executing computational tasks related to Medi
 6. Click **Create** to save the V1 configuration.
 
 *Illustration: Task Definition configuration completed with Port Mappings removed to maximize information security.*
-![Worker Task Definition](../../../../images/5-Workshop/5.7-Compute-setup/5.7.3-deploy-ecs-ai-worker/worker_task_definition.png)
+![Worker Task Definition](/images/5-Workshop/5.7-Compute-setup/5.7.3-deploy-ecs-ai-worker/worker_task_definition.png)
 
 #### 3. Deploy ECS Service Operations (Background Worker)
 Because the AI Worker does not use a Load Balancer to receive Traffic, the Service configuration initialization cycle on the network will be streamlined as much as possible, focusing on infrastructure isolation.
@@ -75,7 +75,7 @@ Because the AI Worker does not use a Load Balancer to receive Traffic, the Servi
 7. Scroll to the bottom of the dashboard and click the orange **Create** button.
 
 *Illustration: The AI Worker application successfully launched, automatically connecting to the network queue with a stable RUNNING state.*
-![Worker Service Success](../../../../images/5-Workshop/5.7-Compute-setup/5.7.3-deploy-ecs-ai-worker/worker_service_success.png)
+![Worker Service Success](/images/5-Workshop/5.7-Compute-setup/5.7.3-deploy-ecs-ai-worker/worker_service_success.png)
 
 {{% notice tip %}}
 **Architectural Note (Decoupled Architecture):** This design model reflects the characteristics of Event-Driven Architecture with its Loosely Coupled nature. The Ingestion receiving system (S3/EventBridge) and the computational processing system (AI Worker) do not have a direct connection in terms of network infrastructure. Amazon SQS acts as an intermediary Buffer. If the system receives thousands of uploaded multimedia files at the same time, SQS will safely store them in the queue for the AI Worker to fetch and process sequentially, eliminating the risk of network congestion or system crashes due to resource overload.

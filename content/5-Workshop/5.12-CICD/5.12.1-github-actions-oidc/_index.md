@@ -22,7 +22,7 @@ The project team configures AWS IAM to recognize GitHub as a legitimate identity
 5. Click **Add provider** to finalize.
 
 *Illustration: Add GitHub OpenID Connect configuration to AWS IAM.*
-![Configure OIDC Provider](../../../../images/5-Workshop/5.12-cicd/5.12.1-oidc-provider.png)
+![Configure OIDC Provider](/images/5-Workshop/5.12-cicd/5.12.1-oidc-provider.png)
 *(Screenshot Guide: Capture the screen filling the Provider URL and Audience before clicking the Add provider button).*
 
 #### Step 2: Provision an IAM Role for GitHub Actions
@@ -68,7 +68,7 @@ To unequivocally prevent any extraneous GitHub repository from assuming this Rol
 Governed by this configuration, the IAM Role will summarily reject all authorization requests unless the CI/CD pipeline is executed precisely from the `main` branch of the project repository.
 
 *Illustration: Trust relationships configuration restricting Assume Role privileges exclusively to the project Repository.*
-![IAM Trust Relationship](../../../../images/5-Workshop/5.12-cicd/5.12.1-trust-policy.png)
+![IAM Trust Relationship](/images/5-Workshop/5.12-cicd/5.12.1-trust-policy.png)
 *(Screenshot Guide: Capture the "Trust relationships" tab of the newly created Role, clearly displaying the JSON snippet with the repo name smart_media_analytics_cloudforge).*
 
 ***

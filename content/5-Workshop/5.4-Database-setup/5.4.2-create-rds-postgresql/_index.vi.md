@@ -20,7 +20,7 @@ Trước khi tạo database, RDS yêu cầu chúng ta phải định nghĩa mộ
 7. Bấm **Create**.
 
 *📸 Ảnh minh họa: Tạo Subnet Group cho Database*
-![DB Subnet Group](../../../../images/5-Workshop/5.4-Database-setup/5.4.2-create-rds-postgresql/db_subnet_group.png)
+![DB Subnet Group](/images/5-Workshop/5.4-Database-setup/5.4.2-create-rds-postgresql/db_subnet_group.png)
 
 #### 2. Khởi tạo Database PostgreSQL
 1. Chuyển sang menu **Databases**, bấm nút màu cam **Create database**.
@@ -49,7 +49,7 @@ Trước khi tạo database, RDS yêu cầu chúng ta phải định nghĩa mộ
 9. Cuộn xuống dưới cùng và bấm **Create database**. *(Quá trình khởi tạo máy chủ thực tế mất từ 3-5 phút).*
 
 *📸 Ảnh minh họa: Thiết lập phần Connectivity khóa chặt DB trong Private Subnet và sử dụng Security Group chuẩn Zero-Trust.*
-![RDS Connectivity Setup](../../../../images/5-Workshop/5.4-Database-setup/5.4.2-create-rds-postgresql/rds_connectivity.png)
+![RDS Connectivity Setup](/images/5-Workshop/5.4-Database-setup/5.4.2-create-rds-postgresql/rds_connectivity.png)
 
 ***
 

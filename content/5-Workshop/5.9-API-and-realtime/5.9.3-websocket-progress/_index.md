@@ -29,7 +29,7 @@ During practical deployment, the project confronts an AWS architectural characte
 5. **Deployment:** Create a Stage named `production` and proceed to **Create and deploy**.
 
 *Illustration: The route structure and Mock Integration diagram of the WebSocket API.*
-![WebSocket Routes](../../../../images/5-Workshop/5.9-API-and-realtime/5.9.3-websocket-progress/websocket_routes.png)
+![WebSocket Routes](/images/5-Workshop/5.9-API-and-realtime/5.9.3-websocket-progress/websocket_routes.png)
 
 #### Push Notification Mechanism
 The subtlety of this architecture lies here: Although the entry port is "Mock", the real-time data flow operates flawlessly:

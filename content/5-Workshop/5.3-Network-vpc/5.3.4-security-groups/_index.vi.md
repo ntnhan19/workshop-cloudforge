@@ -24,7 +24,7 @@ Trong phần này, chúng ta sẽ tiến hành tạo 3 Security Groups cốt lõ
 8. Bấm **Create security group**.
 
 *📸 Ảnh minh họa: Cấu hình Inbound rules cho ALB-SG*
-![ALB Security Group](../../../../images/5-Workshop/5.3-Network-vpc/5.3.4-security-groups/alb_sg.png)
+![ALB Security Group](/images/5-Workshop/5.3-Network-vpc/5.3.4-security-groups/alb_sg.png)
 
 #### 2. ECS-App-SG (Tường lửa cho Backend & AI Worker)
 **Mục đích:** Chỉ cho phép nhận requests đã được lọc qua Load Balancer và cho phép các containers giao tiếp nội bộ với nhau.
@@ -34,7 +34,7 @@ Trong phần này, chúng ta sẽ tiến hành tạo 3 Security Groups cốt lõ
    - Type: `All TCP` | Port: `0-65535` | Source: Gắn ID của chính `cloudforge-ecs-app-sg`. *(Cho phép các container nội bộ gọi chéo nhau)*.
 
 *📸 Ảnh minh họa: Cấu hình ECS-App-SG bảo vệ máy chủ ứng dụng*
-![ECS App Security Group](../../../../images/5-Workshop/5.3-Network-vpc/5.3.4-security-groups/ecs_app_sg.png)
+![ECS App Security Group](/images/5-Workshop/5.3-Network-vpc/5.3.4-security-groups/ecs_app_sg.png)
 
 #### 3. DB-Redis-SG (Tường lửa cho Database & Cache)
 **Mục đích:** Khóa chặt lớp Dữ liệu (Data tier), chỉ cho phép các máy chủ xử lý (ECS containers) truy cập vào để đọc/ghi dữ liệu.
@@ -44,7 +44,7 @@ Trong phần này, chúng ta sẽ tiến hành tạo 3 Security Groups cốt lõ
    - Type: `Custom TCP` | Port: `6379` (Cổng của Redis) | Source: Gắn ID của `cloudforge-ecs-app-sg`.
 
 *📸 Ảnh minh họa: Thiết lập Inbound rules khóa chặt quyền truy cập của DB-Redis-SG, chỉ nhận traffic an toàn từ ECS-App-SG.*
-![DB Security Group](../../../../images/5-Workshop/5.3-Network-vpc/5.3.4-security-groups/sg_db_redis.png)
+![DB Security Group](/images/5-Workshop/5.3-Network-vpc/5.3.4-security-groups/sg_db_redis.png)
 
 ***
 

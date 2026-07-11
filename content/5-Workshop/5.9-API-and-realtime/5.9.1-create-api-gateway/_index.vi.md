@@ -24,7 +24,7 @@ Amazon API Gateway hỗ trợ nhiều giao thức khác nhau (REST, HTTP, WebSoc
 5. Ở bước cuối cùng, kiểm tra lại thông tin và nhấn **Create** để hệ thống khởi tạo cổng API.
 
 *Ảnh minh họa: Giao diện chi tiết của HTTP API sau khi được khởi tạo thành công trên Amazon API Gateway.*
-![Create HTTP API](../../../../images/5-Workshop/5.9-API-and-realtime/5.9.1-create-api-gateway/create_http_api.png)
+![Create HTTP API](/images/5-Workshop/5.9-API-and-realtime/5.9.1-create-api-gateway/create_http_api.png)
 
 #### Cấu hình chia sẻ tài nguyên chéo (CORS)
 Do API của chúng ta sẽ được gọi từ một trình duyệt Frontend nằm ở tên miền (Domain) khác, trình duyệt sẽ tự động chặn các yêu cầu này vì lý do an ninh (lỗi CORS) nếu chúng ta không thiết lập rõ ràng.

@@ -27,7 +27,7 @@ For the HTTP API family, a VPC Link acts as a "virtual network bridge" directly 
 4. Click **Create** and wait about 1-2 minutes for the status to change to **Available**.
 
 *Illustration: Setting up a new VPC Link for secure connection into the virtual private network.*
-![Create VPC Link](../../../../images/5-Workshop/5.9-API-and-realtime/5.9.2-create-alb/create_vpc_link.png)
+![Create VPC Link](/images/5-Workshop/5.9-API-and-realtime/5.9.2-create-alb/create_vpc_link.png)
 
 #### Step 2: Configure Routing (Routes & Integration) for the API
 Once the VPC Link bridge is in place, we need to configure the API to know when to utilize this bridge to push data to the Backend.
@@ -46,7 +46,7 @@ Once the VPC Link bridge is in place, we need to configure the API to know when 
 5. Scroll to the very bottom and click **Create**.
 
 *Illustration: Successfully configuring the Proxy Route mapping to connect the API Gateway straight into the ALB.*
-![Attach ALB Integration](../../../../images/5-Workshop/5.9-API-and-realtime/5.9.2-create-alb/attach_alb_integration.png)
+![Attach ALB Integration](/images/5-Workshop/5.9-API-and-realtime/5.9.2-create-alb/attach_alb_integration.png)
 
 {{% notice tip %}}
 **Operational Core:** From this moment on, the standard communication flow (REST API HTTP) is unobstructed. Any request sent to `https://[API-Gateway-URL]/api/v1/...` will be automatically funneled through the VPC Link, pass through the ALB, and be distributed straight to the Backend Containers running in ECS Fargate.

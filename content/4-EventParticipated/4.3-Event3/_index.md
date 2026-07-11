@@ -27,34 +27,34 @@ pre: " <b> 4.3. </b> "
 ### Key Highlights
 
 #### 1. Deep Response Engine: From Detection to Autonomous Resolution (Steve Tran)
-![Session 1](../../images/4-EventParticipated/4.3-Event3/session1.jpg)
+![Session 1](/images/4-EventParticipated/4.3-Event3/session1.jpg)
 
 - **From PoC to Production:** Do not spend too much time overthinking theories. Start executing and look for "champion customers" (like F88, FPT) to ensure your idea solves real-world enterprise problems.
 - **Agentic Platform for Cloud Infrastructure:** Applying AI Agents to assist engineering teams in operating complex Cloud infrastructures, automating Incident resolution, optimizing costs (FinOps), and performing security checks before Production. AI will not replace humans, but highly skilled AI users will be needed.
 
 #### 2. Voice Agents: Building Human-Like AI Conversations at Scale (Trung Vu - Hieu Nghi - Kiet Tran)
-![Session 2](../../images/4-EventParticipated/4.3-Event3/session2.jpg)
+![Session 2](/images/4-EventParticipated/4.3-Event3/session2.jpg)
 
 - **Limitations of Speech-to-Speech models:** Currently, they do not well support Vietnamese (a low-resource language), and it's hard to control whether the AI says inappropriate things (Guardrails).
 - **Optimal 3-step architecture:** Use *Speech-to-Text -> LLM (Text) -> Text-to-Speech*. This architecture handles Vietnamese well, accurately performs Tool Calling (like locking a bank card), and easily passes the call to a human agent naturally when the AI cannot handle it.
 - **Language challenges:** The model must be trained to understand barge-in contexts, distinguish genders (anh/chị) via voice, and handle regional accents.
 
 #### 3. AWS DevOps Agent: Your Always-Available Operations Teammate (Bao Phan - Nguyen Nguyen)
-![Session 3](../../images/4-EventParticipated/4.3-Event3/session3.jpg)
+![Session 3](/images/4-EventParticipated/4.3-Event3/session3.jpg)
 
 - **Pain points of operations engineers:** Having to manually retrieve scattered logs/traces from multiple places, which wastes time and easily disrupts context during troubleshooting.
 - **DevOps Agent Solution:** An automated system that categorizes, investigates Root Causes, and draws the system Topology diagram.
 - **Optimal 4-step process:** Categorize -> Investigate -> Propose Mitigation Plan -> Improve the system, aiming to minimize Mean Time To Detect (MTTD) and Mean Time To Recovery (MTTR).
 
 #### 4. AI-Powered Productivity: Workforce Planning For Enterprise (Truong Tran - Minh Anh)
-![Session 4](../../images/4-EventParticipated/4.3-Event3/session4.jpg)
+![Session 4](/images/4-EventParticipated/4.3-Event3/session4.jpg)
 
 - **Manual recruitment problems:** HR spends too much time filtering CVs, makes subjective evaluations, and often loses Key Talent.
 - **Amazon Q AI Assistant:** Capable of reading Job Descriptions (JD), automatically extracting data from PDF/Image CVs, and matching them.
 - **Visual evaluation:** AI scores candidates based on standard benchmarks and creates a Talent Review Report indicating clear reasons for passing/failing, helping HR make quick decisions and reduce workload.
 
 #### 5. Building Secure Private MCP Connection with Amazon Quick (Hieu Nghi - Toan Nguyen)
-![Session 5](../../images/4-EventParticipated/4.3-Event3/session5.jpg)
+![Session 5](/images/4-EventParticipated/4.3-Event3/session5.jpg)
 
 - **Public Endpoint Risks:** When Amazon Q (on Cloud) needs to retrieve data from an MCP Server (containing third-party APIs like Jira, Zalo, HR System), routing through the Public Internet can lead to data leaks or Man-in-the-Middle attacks.
 - **Private VPC Connection Solution:** Integrate Amazon Q into the internal VPC via an Interface Endpoint, combined with an Application Load Balancer (ALB) and Route 53 Resolver.
@@ -82,8 +82,8 @@ The most impressive aspect was how the speakers shared very "real-life" barriers
 
 ### Event Photos
 
-![Audience Photo 1](../../images/4-EventParticipated/4.3-Event3/event_27_06%281%29.jpg)
+![Audience Photo 1](/images/4-EventParticipated/4.3-Event3/event_27_06%281%29.jpg)
 
-![Audience Photo 2](../../images/4-EventParticipated/4.3-Event3/event_27_06%282%29.jpg)
+![Audience Photo 2](/images/4-EventParticipated/4.3-Event3/event_27_06%282%29.jpg)
 
-![Audience Photo 3](../../images/4-EventParticipated/4.3-Event3/event_27_06%283%29.jpg)
+![Audience Photo 3](/images/4-EventParticipated/4.3-Event3/event_27_06%283%29.jpg)

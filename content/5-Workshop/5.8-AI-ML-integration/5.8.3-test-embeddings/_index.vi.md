@@ -22,7 +22,7 @@ Trong thế giới của Trí tuệ Nhân tạo, "Embedding" là quá trình mã
 4. **Lưu trữ tri thức:** Mảng Vector này sau đó sẽ được đưa vào Cơ sở dữ liệu Vector (PostgreSQL kết hợp `pgvector`) cùng với các siêu dữ liệu (Metadata) như ID của video và mốc thời gian.
 
 *Ảnh minh họa: Cơ chế chuyển đổi từ Văn bản tự nhiên sang không gian Vector đa chiều.*
-![Embeddings Flow](../../../../images/5-Workshop/5.8-AI-ML-integration/5.8.3-test-embeddings/embeddings_flow.png)
+![Embeddings Flow](/images/5-Workshop/5.8-AI-ML-integration/5.8.3-test-embeddings/embeddings_flow.png)
 
 #### Yêu cầu quyền hạn hạ tầng (IAM Role Permissions)
 Để tiến trình giao tiếp với Amazon Bedrock diễn ra trơn tru mà không bị chặn, **ECS Task Role** của AI Worker đã được cấp sẵn chính sách quyền hạn:

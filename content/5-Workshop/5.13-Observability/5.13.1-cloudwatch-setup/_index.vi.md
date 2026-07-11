@@ -22,7 +22,7 @@ Nhóm dự án tạo một Log Group chuyên biệt để phân loại và gom t
 5. Bấm **Create** để hoàn tất.
 
 *Ảnh minh họa: Khởi tạo thành công không gian lưu trữ nhật ký tập trung trên Amazon CloudWatch.*
-![Create Log Group](../../../../images/5-Workshop/5.13-observability/5.13.1-create-log-group.png)
+![Create Log Group](/images/5-Workshop/5.13-observability/5.13.1-create-log-group.png)
 *(Hướng dẫn chụp: Chụp lại màn hình danh sách Log groups hiển thị rõ bản ghi /ecs/cloudforge-backend với cột Retention tương ứng là 14 days).*
 
 #### Bước 2: Cập nhật ECS Task Definition sử dụng awslogs driver
@@ -44,7 +44,7 @@ Khối cấu hình `logConfiguration` được khai báo cụ thể trong địn
 Sau khi ứng dụng được cập nhật thông qua luồng CI/CD, mã nguồn Backend chạy trong container sẽ tự động chuyển hướng toàn bộ dữ liệu log ra ngoài. Khi truy cập vào Log Group `/ecs/cloudforge-backend`, quản trị viên có thể mở các **Log streams** để theo dõi toàn bộ tiến trình khởi chạy ứng dụng theo thời gian thực (Real-time).
 
 *Ảnh minh họa: Dòng dữ liệu nhật ký hệ thống Backend hiển thị chi tiết trên giao diện CloudWatch Log Stream.*
-![CloudWatch Log Stream](../../../../images/5-Workshop/5.13-observability/5.13.1-log-stream.png)
+![CloudWatch Log Stream](/images/5-Workshop/5.13-observability/5.13.1-log-stream.png)
 *(Hướng dẫn chụp: Click chọn vào Log group /ecs/cloudforge-backend, chọn một log stream mới nhất và chụp lại màn hình hiển thị các dòng log chạy của ứng dụng như khởi chạy server, kết nối Database).*
 
 #### Bước 3: Thiết lập CloudWatch Alarm cảnh báo CPU
@@ -63,7 +63,7 @@ Sau khi ứng dụng được cập nhật thông qua luồng CI/CD, mã nguồn
 7. Đặt tên cho Alarm là `ECS-High-CPU-Alert` và nhấn **Create alarm**.
 
 *Ảnh minh họa: Cấu hình ngưỡng cảnh báo tài nguyên vượt hạn mức an toàn trên CloudWatch.*
-![CloudWatch CPU Alarm](../../../../images/5-Workshop/5.13-observability/5.13.1-cpu-alarm.png)
+![CloudWatch CPU Alarm](/images/5-Workshop/5.13-observability/5.13.1-cpu-alarm.png)
 *(Hướng dẫn chụp: Chụp lại giao diện bước thiết lập điều kiện của CloudWatch Alarm hiển thị biểu đồ đo lường đính kèm đường kẻ ngang đứt nét màu đỏ biểu thị ngưỡng quy chuẩn Threshold ở mức 80%).*
 
 ***

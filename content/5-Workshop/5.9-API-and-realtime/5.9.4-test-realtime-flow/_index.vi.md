@@ -49,7 +49,7 @@ Kết quả trả về không yêu cầu thao tác Polling từ phía Client:
 ```
 
 *Ảnh minh họa: Giao diện Terminal nhận thông báo Push Notification thành công từ hệ thống Backend thông qua WebSocket.*
-![Realtime Test](../../../../images/5-Workshop/5.9-API-and-realtime/5.9.4-test-realtime-flow/realtime_test.png)
+![Realtime Test](/images/5-Workshop/5.9-API-and-realtime/5.9.4-test-realtime-flow/realtime_test.png)
 
 {{% notice tip %}}
 **Đánh giá Kiến trúc:** Kết quả kiểm thử xác nhận kiến trúc Hướng sự kiện (Event-Driven) và Real-time API đang hoạt động đúng thiết kế. Quá trình xử lý diễn ra hoàn toàn bất đồng bộ, loại bỏ tình trạng thắt nút cổ chai (bottleneck) hay lãng phí tài nguyên kết nối do cơ chế Polling truyền thống.

@@ -49,7 +49,7 @@ The returned result requires no Polling action from the Client:
 ```
 
 *Illustration: Terminal interface successfully receiving a Push Notification from the Backend system via WebSocket.*
-![Realtime Test](../../../../images/5-Workshop/5.9-API-and-realtime/5.9.4-test-realtime-flow/realtime_test.png)
+![Realtime Test](/images/5-Workshop/5.9-API-and-realtime/5.9.4-test-realtime-flow/realtime_test.png)
 
 {{% notice tip %}}
 **Architectural Evaluation:** The test results confirm that the Event-Driven architecture and Real-time API are functioning as designed. The processing occurs completely asynchronously, eliminating bottlenecks or wasted connection resources caused by traditional Polling mechanisms.

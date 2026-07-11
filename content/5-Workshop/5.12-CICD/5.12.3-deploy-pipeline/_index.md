@@ -96,7 +96,7 @@ Here, the Rolling Update mechanism will transpire autonomously and intuitively:
 - The new Tasks autonomously register into the Application Load Balancer (ALB) Target Group and execute the initial health check sequence.
 - Upon the new Tasks attaining the RUNNING and HEALTHY status, ECS systematically directs the entirety of user traffic to the novel version whilst concurrently draining and deregistering the obsolete Tasks. This assures the system sustains 100% continuous operation devoid of interruption errors.
 
-![ECS Rolling Update](../../../../images/5-Workshop/5.12-cicd/5.12.3-ecs-deploy.png)
+![ECS Rolling Update](/images/5-Workshop/5.12-cicd/5.12.3-ecs-deploy.png)
 
 ***
 

@@ -21,7 +21,7 @@ The AI Worker application is programmed to execute a fully automated cycle in Py
 5. **Synchronize Results:** As soon as the status switches to the `COMPLETED` label, Amazon Transcribe outputs a JSON file containing the entire extracted text (Transcript), accompanied by detailed Timestamps for each word.
 
 *Illustration: Flowchart of interaction between AI Worker, Amazon S3, and Amazon Transcribe.*
-![Transcribe Flow](../../../../images/5-Workshop/5.8-AI-ML-integration/5.8.2-setup-transcribe/transcribe_flow.png)
+![Transcribe Flow](/images/5-Workshop/5.8-AI-ML-integration/5.8.2-setup-transcribe/transcribe_flow.png)
 
 #### Infrastructure Role Permissions (IAM Role)
 For the automated process above to run smoothly without permission errors, the **ECS Task Role** of the AI Worker service must be attached with the following authorization policies:

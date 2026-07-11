@@ -51,7 +51,7 @@ Here, you need to note down the following extremely important parameter:
 {{% /notice %}}
 
 *📸 Illustration: Successfully configuring a Secret to centrally store sensitive parameters on the AWS Console.*
-![Secrets Manager Created](../../../../images/5-Workshop/5.5-Security-setup/5.5.2-secrets-manager/secrets_manager_created.png)
+![Secrets Manager Created](/images/5-Workshop/5.5-Security-setup/5.5.2-secrets-manager/secrets_manager_created.png)
 
 ***
 

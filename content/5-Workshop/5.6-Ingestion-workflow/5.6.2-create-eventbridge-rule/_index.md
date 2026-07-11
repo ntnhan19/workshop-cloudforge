@@ -32,7 +32,7 @@ Finally, double-check the routing diagram and click **Create** in the top right 
 When the rule is successfully created and activated, the Asynchronous Data Pipeline is officially established and flows seamlessly from S3 Storage through EventBridge, securely congregating at the SQS Queue.
 
 *Illustration: The EventBridge event routing rule is successfully configured via the visual interface.*
-![EventBridge Rule Created](../../../../images/5-Workshop/5.6-Ingestion-workflow/5.6.2-create-eventbridge-rule/eventbridge_rule_created.png)
+![EventBridge Rule Created](/images/5-Workshop/5.6-Ingestion-workflow/5.6.2-create-eventbridge-rule/eventbridge_rule_created.png)
 
 {{% notice tip %}}
 **System Design Note (Decoupling Architecture):** Decoupling components using EventBridge means the Frontend layer does not need to care about the Backend system's state. Users simply upload files to S3 and receive a success response immediately. All heavy backend tasks are orchestrated by EventBridge and SQS, completely eliminating the risk of bottlenecks or timeouts at the API gateway.

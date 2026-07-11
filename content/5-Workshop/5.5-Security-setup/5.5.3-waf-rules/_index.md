@@ -42,7 +42,7 @@ Finally, scroll to the bottom of the main screen and click the **Create protecti
 Once the system successfully initializes, the Web ACL is ready in an active state with optimal rule sets.
 
 *Illustration: The WAF firewall (Web ACL) has been successfully initialized with a cost-optimized configuration.*
-![WAF Rules Created](../../../../images/5-Workshop/5.5-Security-setup/5.5.3-waf-rules/waf_rules_created.png)
+![WAF Rules Created](/images/5-Workshop/5.5-Security-setup/5.5.3-waf-rules/waf_rules_created.png)
 
 {{% notice tip %}}
 **Cost Optimization:** Proactively choosing to build your own rule set (Build your own pack) instead of using the Recommended pack helps reduce WAF maintenance costs from ~$55/month down to only ~$5/month (basic Web ACL maintenance fee). This setup is the most appropriate and optimal for a proof-of-concept (PoC) environment while still ensuring critical risks are blocked.

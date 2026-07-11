@@ -20,7 +20,7 @@ Before launching the database, RDS requires us to define a **Subnet Group** to s
 7. Click **Create**.
 
 *📸 Illustration: Creating the DB Subnet Group*
-![DB Subnet Group](../../../../images/5-Workshop/5.4-Database-setup/5.4.2-create-rds-postgresql/db_subnet_group.png)
+![DB Subnet Group](/images/5-Workshop/5.4-Database-setup/5.4.2-create-rds-postgresql/db_subnet_group.png)
 
 #### 2. Provision the PostgreSQL Database
 1. Switch to the **Databases** menu on the left and click **Create database**.
@@ -49,7 +49,7 @@ Before launching the database, RDS requires us to define a **Subnet Group** to s
 9. Scroll to the bottom and click **Create database**. *(The actual provisioning process usually takes 3-5 minutes).*
 
 *📸 Illustration: Setting up Connectivity to lock the DB inside the Private Subnet using the Zero-Trust Security Group.*
-![RDS Connectivity Setup](../../../../images/5-Workshop/5.4-Database-setup/5.4.2-create-rds-postgresql/rds_connectivity.png)
+![RDS Connectivity Setup](/images/5-Workshop/5.4-Database-setup/5.4.2-create-rds-postgresql/rds_connectivity.png)
 
 ***
 

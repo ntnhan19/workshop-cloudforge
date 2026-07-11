@@ -29,7 +29,7 @@ Trong quá trình triển khai thực tế, dự án đối mặt với một đ
 5. **Triển khai:** Tạo Stage tên là `production` và tiến hành **Create and deploy**.
 
 *Ảnh minh họa: Cấu trúc tuyến đường và sơ đồ Mock Integration của WebSocket API.*
-![WebSocket Routes](../../../../images/5-Workshop/5.9-API-and-realtime/5.9.3-websocket-progress/websocket_routes.png)
+![WebSocket Routes](/images/5-Workshop/5.9-API-and-realtime/5.9.3-websocket-progress/websocket_routes.png)
 
 #### Cơ chế đẩy thông báo (Push Notification)
 Điểm tinh tế của kiến trúc này nằm ở chỗ: Mặc dù cổng vào là "Mock", nhưng luồng dữ liệu thời gian thực vẫn hoạt động hoàn hảo:

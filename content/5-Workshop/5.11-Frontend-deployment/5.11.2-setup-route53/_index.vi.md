@@ -27,7 +27,7 @@ Hệ thống Amplify sẽ tự động truy xuất danh sách các Hosted Zones 
 3. Nhấn **Save** để lưu cấu hình.
 
 *Ảnh minh họa: Cấu hình ánh xạ tên miền Route 53 trong Amplify.*
-![Amplify Custom Domain](../../../../images/5-Workshop/5.11-frontend/5.11.2-amplify-domain.png)
+![Amplify Custom Domain](/images/5-Workshop/5.11-frontend/5.11.2-amplify-domain.png)
 
 #### Bước 3: Xác thực SSL/TLS tự động (ACM)
 Khác với kiến trúc truyền thống yêu cầu người quản trị phải tự cấp phát và cấu hình chứng chỉ bảo mật, AWS Amplify xử lý toàn bộ quy trình này một cách hoàn toàn tự động.

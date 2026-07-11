@@ -24,7 +24,7 @@ Amazon API Gateway supports various protocols (REST, HTTP, WebSocket). For the s
 5. In the final step, review the information and click **Create** to let the system provision the API gateway.
 
 *Illustration: Detailed interface of the HTTP API after successful creation on Amazon API Gateway.*
-![Create HTTP API](../../../../images/5-Workshop/5.9-API-and-realtime/5.9.1-create-api-gateway/create_http_api.png)
+![Create HTTP API](/images/5-Workshop/5.9-API-and-realtime/5.9.1-create-api-gateway/create_http_api.png)
 
 #### Configuring Cross-Origin Resource Sharing (CORS)
 Because our API will be invoked by a Frontend browser residing on a different Domain, the browser will automatically block these requests for security reasons (CORS error) unless we explicitly configure it.

@@ -18,7 +18,7 @@ The objective of this phase is to confirm that Amazon EventBridge correctly catc
 - Click **Add files**, select a sample multimedia file (e.g., `sample-audio.mp3` or `demo-video.mp4`) from your computer, and click **Upload**.
 
 *Illustration: Successfully uploading a sample file to the Amazon S3 Bucket.*
-![S3 Upload Success](../../../../images/5-Workshop/5.6-Ingestion-workflow/5.6.4-test-ingestion-flow/s3_upload_success.png)
+![S3 Upload Success](/images/5-Workshop/5.6-Ingestion-workflow/5.6.4-test-ingestion-flow/s3_upload_success.png)
 
 **Step 2: Verify and validate the message in the SQS queue**
 - Access the **Amazon SQS** service → Select the main task queue `cloudforge-media-task-queue`.
@@ -28,7 +28,7 @@ The objective of this phase is to confirm that Amazon EventBridge correctly catc
   - The original file name located in the `object.key` field.
 
 *Illustration: Inspecting the Payload of the message successfully routed by EventBridge into SQS.*
-![SQS Message Received](../../../../images/5-Workshop/5.6-Ingestion-workflow/5.6.4-test-ingestion-flow/sqs_message_received.png)
+![SQS Message Received](/images/5-Workshop/5.6-Ingestion-workflow/5.6.4-test-ingestion-flow/sqs_message_received.png)
 
 #### 2. Validate Orchestration Process (Step Functions Workflow)
 The objective of this phase is to verify the validity and business logic branching capabilities of the state machine upon receiving an orchestration request.
@@ -42,7 +42,7 @@ The objective of this phase is to verify the validity and business logic branchi
 - The overall status bar displays green with a **Succeeded** label.
 
 *Illustration: Graph View diagram of Step Functions successfully executing the branching orchestration cycle.*
-![Step Functions Success](../../../../images/5-Workshop/5.6-Ingestion-workflow/5.6.4-test-ingestion-flow/step_functions_success.png)
+![Step Functions Success](/images/5-Workshop/5.6-Ingestion-workflow/5.6.4-test-ingestion-flow/step_functions_success.png)
 
 #### 3. Conclusion of the Workflow Orchestration Tier
 The experimental results demonstrate that the entire Ingestion Workflow pipeline operates exactly as per the initial architectural design. Data from the storage tier has been routed and securely isolated in the queue buffer, and the orchestration scenario is ready to connect with actual computing applications.

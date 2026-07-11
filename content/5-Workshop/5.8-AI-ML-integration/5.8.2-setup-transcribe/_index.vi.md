@@ -21,7 +21,7 @@ Không giống như Amazon Bedrock yêu cầu cơ chế tự động kích hoạ
 5. **Đồng bộ kết quả:** Ngay khi trạng thái chuyển sang nhãn `COMPLETED`, Amazon Transcribe sẽ xuất ra một tệp JSON chứa toàn bộ văn bản (Transcript) đã được bóc tách, đi kèm mốc thời gian chi tiết (Timestamps) của từng từ ngữ.
 
 *Ảnh minh họa: Biểu đồ luồng xử lý tương tác giữa AI Worker, Amazon S3 và Amazon Transcribe.*
-![Transcribe Flow](../../../../images/5-Workshop/5.8-AI-ML-integration/5.8.2-setup-transcribe/transcribe_flow.png)
+![Transcribe Flow](/images/5-Workshop/5.8-AI-ML-integration/5.8.2-setup-transcribe/transcribe_flow.png)
 
 #### Yêu cầu quyền hạn hạ tầng (IAM Role Permissions)
 Để quy trình tự động hóa trên chạy trôi chảy không gặp lỗi phân quyền, **ECS Task Role** của dịch vụ AI Worker bắt buộc phải được đính kèm các chính sách quyền hạn sau:

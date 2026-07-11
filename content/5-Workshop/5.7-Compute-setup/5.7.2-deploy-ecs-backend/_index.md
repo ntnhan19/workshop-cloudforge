@@ -30,7 +30,7 @@ To transfer the local source code to the Cloud infrastructure, we compile the ap
    ```
 
 *Illustration: The Backend application's Image has been successfully pushed to Amazon ECR with the latest tag.*
-![ECR Image Pushed](../../../../images/5-Workshop/5.7-Compute-setup/5.7.2-deploy-ecs-backend/ecr_image_pushed.png)
+![ECR Image Pushed](/images/5-Workshop/5.7-Compute-setup/5.7.2-deploy-ecs-backend/ecr_image_pushed.png)
 
 #### 2. Initialize Application Load Balancer (ALB)
 Since the Backend application's Containers will be completely isolated within the Private Subnet zone for security, we need to establish an Application Load Balancer (ALB) situated in the Public Subnets zone to act as an intermediary shield receiving and distributing traffic from the Internet.
@@ -55,7 +55,7 @@ Since the Backend application's Containers will be completely isolated within th
 7. Click **Create load balancer**.
 
 *Illustration: Application Load Balancer (ALB) successfully initialized in Active state.*
-![ALB Created](../../../../images/5-Workshop/5.7-Compute-setup/5.7.2-deploy-ecs-backend/alb_created.png)
+![ALB Created](/images/5-Workshop/5.7-Compute-setup/5.7.2-deploy-ecs-backend/alb_created.png)
 
 #### 3. Establish Task Definition
 The Task Definition acts as an architectural blueprint detailing the hardware limits, the Docker image used, and the security parameters of the application.
@@ -75,7 +75,7 @@ The Task Definition acts as an architectural blueprint detailing the hardware li
 6. Click **Create**.
 
 *Illustration: Task Definition initialization complete with full hardware configuration parameters and Image URI.*
-![Task Definition Created](../../../../images/5-Workshop/5.7-Compute-setup/5.7.2-deploy-ecs-backend/task_definition_created.png)
+![Task Definition Created](/images/5-Workshop/5.7-Compute-setup/5.7.2-deploy-ecs-backend/task_definition_created.png)
 
 #### 4. Deploy ECS Service Operations
 The Service plays a coordinating role, ensuring the continuous maintenance of a stable number of active Containers and automatically connecting them to the ALB load balancer.
@@ -100,7 +100,7 @@ The Service plays a coordinating role, ensuring the continuous maintenance of a 
 7. Scroll to the bottom and click **Create**.
 
 *Illustration: Backend API tier successfully deployed with Tasks reaching the RUNNING state.*
-![ECS Service Success](../../../../images/5-Workshop/5.7-Compute-setup/5.7.2-deploy-ecs-backend/ecs_service_success.png)
+![ECS Service Success](/images/5-Workshop/5.7-Compute-setup/5.7.2-deploy-ecs-backend/ecs_service_success.png)
 
 {{% notice tip %}}
 **Architectural Note (Isolate by Design):** With this decoupled design model, the Backend API system possesses two strict layers of protection. All potential attack traffic from the Internet will be blocked or filtered at the ALB load balancer located in the Public Subnet zone (Can be additionally wrapped with AWS WAF). The clean data stream is then silently routed through the internal network to enter the Containers nestled deep within the Private Subnet network zone, completely eliminating the risk of direct vulnerability exploitation from the external environment.

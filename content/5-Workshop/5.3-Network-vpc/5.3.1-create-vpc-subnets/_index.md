@@ -27,9 +27,9 @@ Instead of manually creating each component, we will use the **VPC and more** wi
 
 5. On the right side of the screen, review the **Preview** panel. It will display a beautiful, auto-generated logical map of your new network infrastructure.
 
-   ![VPC Preview Map](../../../../images/5-Workshop/5.3-Network-vpc/5.3.1-create-vpc-subnets/vpc_preview_map.png)
+   ![VPC Preview Map](/images/5-Workshop/5.3-Network-vpc/5.3.1-create-vpc-subnets/vpc_preview_map.png)
 
 6. Click **Create VPC** at the bottom of the page.
 7. Wait a few minutes for AWS to provision all the resources (VPC, Subnets, Internet Gateway, NAT Gateway, Route Tables, and S3 Endpoint). Once complete, you will see a "Success" screen.
 
-   ![VPC Success](../../../../images/5-Workshop/5.3-Network-vpc/5.3.1-create-vpc-subnets/vpc_success_creation.png)
+   ![VPC Success](/images/5-Workshop/5.3-Network-vpc/5.3.1-create-vpc-subnets/vpc_success_creation.png)

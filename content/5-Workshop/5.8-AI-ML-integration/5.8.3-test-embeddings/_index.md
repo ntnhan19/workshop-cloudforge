@@ -22,7 +22,7 @@ The AI Worker application utilizes the **Amazon Titan Text Embeddings v2** model
 4. **Knowledge Storage:** This Vector array is subsequently inserted into the Vector Database (PostgreSQL paired with `pgvector`) alongside its Metadata, such as the video ID and timestamps.
 
 *Illustration: The mechanism of converting Natural Language into a multi-dimensional Vector space.*
-![Embeddings Flow](../../../../images/5-Workshop/5.8-AI-ML-integration/5.8.3-test-embeddings/embeddings_flow.png)
+![Embeddings Flow](/images/5-Workshop/5.8-AI-ML-integration/5.8.3-test-embeddings/embeddings_flow.png)
 
 #### Infrastructure Role Permissions (IAM Role)
 For the communication process with Amazon Bedrock to function smoothly without being blocked, the **ECS Task Role** of the AI Worker has been pre-granted the following authorization policy:

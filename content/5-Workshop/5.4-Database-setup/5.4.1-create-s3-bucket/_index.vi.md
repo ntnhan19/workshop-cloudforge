@@ -39,7 +39,7 @@ Theo mặc định hệ thống, Amazon S3 sẽ không chủ động phát tán 
 Hạ tầng lưu trữ phi cấu trúc (Object Storage) đã được thiết lập thành công và sẵn sàng đóng vai trò là nguồn cấp phát công việc cho toàn bộ pipeline xử lý tự động phía sau.
 
 *Ảnh minh họa: Kích hoạt thành công tính năng EventBridge Notification tại thẻ Properties của Bucket.*
-![S3 EventBridge Config](../../../../images/5-Workshop/5.4-Database-setup/5.4.1-s3/s3_eventbridge_enabled.png)
+![S3 EventBridge Config](/images/5-Workshop/5.4-Database-setup/5.4.1-s3/s3_eventbridge_enabled.png)
 
 ***
 

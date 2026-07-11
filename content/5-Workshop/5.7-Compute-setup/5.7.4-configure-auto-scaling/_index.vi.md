@@ -23,7 +23,7 @@ Lưu lượng truy cập người dùng thường biến động theo thời gia
 8. Cuộn xuống cuối trang và bấm **Update**.
 
 *Ảnh minh họa: Thiết lập Target Tracking Policy dựa trên CPU cho Backend API.*
-![Backend Auto Scaling](../../../../images/5-Workshop/5.7-Compute-setup/5.7.4-configure-auto-scaling/backend_auto_scaling.png)
+![Backend Auto Scaling](/images/5-Workshop/5.7-Compute-setup/5.7.4-configure-auto-scaling/backend_auto_scaling.png)
 
 #### 2. Cấu hình Auto Scaling cho AI Worker
 Lưu lượng công việc của AI Worker phụ thuộc hoàn toàn vào số lượng thông điệp tồn đọng trong hàng đợi. Trong phạm vi Workshop này, chúng ta sẽ sử dụng CPU Utilization để làm quen với cơ chế Auto Scaling cơ bản.
@@ -38,7 +38,7 @@ Lưu lượng công việc của AI Worker phụ thuộc hoàn toàn vào số l
 8. Cuộn xuống cuối trang và bấm **Update**.
 
 *Ảnh minh họa: Cấu hình Auto Scaling linh hoạt cho AI Worker giúp tối ưu hóa chi phí phân tích nền.*
-![Worker Auto Scaling](../../../../images/5-Workshop/5.7-Compute-setup/5.7.4-configure-auto-scaling/worker_auto_scaling.png)
+![Worker Auto Scaling](/images/5-Workshop/5.7-Compute-setup/5.7.4-configure-auto-scaling/worker_auto_scaling.png)
 
 {{% notice tip %}}
 **Best Practice cho Background Worker:** Trong các hệ thống Production quy mô lớn, việc mở rộng AI Worker nên dựa vào chỉ số **`ApproximateNumberOfMessagesVisible`** của Amazon SQS thông qua CloudWatch Custom Metric. Điều này đảm bảo hệ thống phản ứng chính xác với khối lượng công việc tồn đọng (Queue Depth) thay vì chỉ số phần cứng đơn thuần.

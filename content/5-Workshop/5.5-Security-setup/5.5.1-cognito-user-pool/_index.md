@@ -34,7 +34,7 @@ Once successfully created, the system will take you to the management page of th
 2. **App Client ID:** Switch to the **App integration** tab, scroll down to the *App clients and analytics* section, and copy the ID string for `cloudforge-app` (e.g., `3abc123xyz...`).
 
 *📸 Illustration: App Client ID information of the Cognito User Pool ready to be integrated into the source code.*
-![Cognito App Client](../../../../images/5-Workshop/5.5-Security-setup/5.5.1-cognito-user-pool/cognito_app_client.png)
+![Cognito App Client](/images/5-Workshop/5.5-Security-setup/5.5.1-cognito-user-pool/cognito_app_client.png)
 
 ***
 

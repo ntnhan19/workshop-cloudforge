@@ -51,7 +51,7 @@ Tại đây, bạn cần lưu ý thông số cực kỳ quan trọng sau:
 {{% /notice %}}
 
 *📸 Ảnh minh họa: Cấu hình Secret lưu trữ tập trung các thông số nhạy cảm thành công trên AWS Console.*
-![Secrets Manager Created](../../../../images/5-Workshop/5.5-Security-setup/5.5.2-secrets-manager/secrets_manager_created.png)
+![Secrets Manager Created](/images/5-Workshop/5.5-Security-setup/5.5.2-secrets-manager/secrets_manager_created.png)
 
 ***
 

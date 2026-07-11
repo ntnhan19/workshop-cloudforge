@@ -34,7 +34,7 @@ Sau khi tạo thành công, hệ thống sẽ đưa bạn vào trang quản lý 
 2. **App Client ID:** Chuyển sang tab **App integration** (Tích hợp ứng dụng), cuộn xuống phần *App clients and analytics*, copy chuỗi ID của `cloudforge-app` (Ví dụ: `3abc123xyz...`).
 
 *📸 Ảnh minh họa: Thông tin App Client ID của Cognito User Pool sẵn sàng để tích hợp vào mã nguồn.*
-![Cognito App Client](../../../../images/5-Workshop/5.5-Security-setup/5.5.1-cognito-user-pool/cognito_app_client.png)
+![Cognito App Client](/images/5-Workshop/5.5-Security-setup/5.5.1-cognito-user-pool/cognito_app_client.png)
 
 ***
 

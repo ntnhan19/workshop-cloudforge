@@ -26,18 +26,6 @@ Nhờ sự hỗ trợ nguyên bản của ALB, luồng dữ liệu thời gian t
 **Lợi thế Kiến trúc:** Giải pháp sử dụng Native WebSockets qua ALB giúp đơn giản hóa cực độ hạ tầng AWS (loại bỏ hoàn toàn API Gateway WebSocket rườm rà), giảm thiểu độ trễ mạng (Network Hop), và tiết kiệm tối đa chi phí vận hành cho doanh nghiệp.
 {{% /notice %}}
 
-#### Kiểm thử kết nối WebSocket trực tiếp qua ALB
-Để chứng minh kết nối WebSocket đã thông suốt qua Application Load Balancer, bạn có thể sử dụng công cụ `wscat` từ terminal của mình để giả lập việc Frontend kết nối tới Backend.
-
-Chạy lệnh sau (Thay đổi domain ALB tương ứng với hệ thống của bạn):
-```bash
-wscat -c ws://[ALB-DNS-NAME]/api/v1/ingest/ws/12345
-```
-
-Kết quả mong đợi là thông báo `Connected (press CTRL+C to quit)`, chứng tỏ ALB đã nâng cấp giao thức (Upgrade Protocol) thành công và kết nối thẳng vào Container trên ECS:
-
-![WebSocket Connection Success](../../../../static/images/5-Workshop/5.9/websocket-success.png)
-
 ***
 
 **Bước tiếp theo:** Hệ thống giao tiếp thời gian thực đã sẵn sàng. Chúng ta sẽ tiến tới bài học cuối cùng của chương: **Kiểm thử luồng dữ liệu toàn vẹn (End-to-End)** để xác nhận sự phối hợp nhịp nhàng giữa HTTP API và WebSocket.

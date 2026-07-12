@@ -100,7 +100,7 @@ app.add_middleware(CustomXRayMiddleware)
 #### Bước 4: Quan sát Trace Map và Trace details
 Sau khi cập nhật ECS Service thành công, hãy thử gửi vài Request (ví dụ gọi API `/health` hoặc API `/search`) thông qua Postman hoặc trình duyệt.
 
-Truy cập **AWS CloudWatch Console**, nhìn sang menu bên trái, dưới mục **Application Signals (APM)**, chọn **Trace Map** (hoặc Application Map). Bạn sẽ nhìn thấy một biểu đồ mạng lưới trực quan mô phỏng đường đi của dữ liệu (Client gọi vào Backend, Backend giao tiếp với Database).
+Truy cập **AWS CloudWatch Console**, nhìn sang menu bên trái, dưới mục **Application Signals (APM)**, chọn **Trace Map** (hoặc Application Map). Bạn sẽ nhìn thấy một biểu đồ mạng lưới trực quan mô phỏng đường đi của dữ liệu (các luồng Client gọi vào hệ thống Backend).
 
 Tiếp tục chọn mục **Traces** ở menu trái, quản trị viên có thể click vào từng Request cụ thể để xem biểu đồ phân tích chính xác thời gian thi hành của mỗi tác vụ con tính bằng mili-giây, giúp dễ dàng khoanh vùng các truy vấn SQL chậm hoặc các logic xử lý đang ngốn nhiều tài nguyên.
 

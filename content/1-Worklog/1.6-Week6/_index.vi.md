@@ -6,27 +6,23 @@ chapter: false
 pre: " <b> 1.6. </b> "
 ---
 
-*Lưu ý: Tiến độ chung của nhóm dự án (4 thành viên).*
+### Mục tiêu cá nhân tuần 6 (Team Lead & Deployer):
+- Trực tiếp cấu hình hạ tầng AWS, thiết kế kiến trúc và hệ thống CI/CD.
+- Giao task cho các thành viên, hỗ trợ fix bug và giải quyết blocker.
+- Review Code (Frontend, Backend, AI Pipeline) đảm bảo chất lượng dự án.
 
-### Mục tiêu tuần 6:
-- Tiếp tục triển khai dự án nhóm sử dụng Docker và các dịch vụ AI tích hợp.
-- Xử lý các vấn đề tương thích phiên bản và tối ưu môi trường phát triển giữa các thành viên.
-- Thực hiện kiểm thử backend FastAPI, database và các pipeline xử lý dữ liệu.
-- Hoàn thiện cấu hình hệ thống và chuẩn hóa quy trình triển khai dự án.
-- Chuẩn bị cho giai đoạn tích hợp và phát triển các tính năng tiếp theo của dự án nhóm.
+### Các công việc trực tiếp triển khai trong tuần:
 
-### Các công việc cần triển khai trong tuần này:
-
-| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
-| --- | --------- | ------------ | --------------- | -------------- |
-| Thứ Hai | | 25/05/2026 | 25/05/2026 | |
-| Thứ Ba  | | 26/05/2026 | 26/05/2026 | |
-| Thứ Tư  | | 27/05/2026 | 27/05/2026 | |
-| Thứ Năm | | 28/05/2026 | 28/05/2026 | |
-| Thứ Sáu | | 29/05/2026 | 29/05/2026 | |
-| Thứ Bảy | | 30/05/2026 | 30/05/2026 | |
-| Chủ Nhật| | 31/05/2026 | 31/05/2026 | |
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành |
+| --- | --------- | ------------ | --------------- |
+| Thứ Hai | Giao task Sprint 2, hỗ trợ team sửa lỗi tương thích Docker. | 25/05/2026 | 25/05/2026 |
+| Thứ Ba | Review code các tính năng tích hợp AI và tối ưu hiệu suất. | 26/05/2026 | 26/05/2026 |
+| Thứ Tư | Trực tiếp kiểm thử hệ thống Backend FastAPI và Database. | 27/05/2026 | 27/05/2026 |
+| Thứ Năm | Hỗ trợ fix bug liên quan đến luồng dữ liệu pipeline AI. | 28/05/2026 | 28/05/2026 |
+| Thứ Sáu | Thiết kế và chuẩn hóa quy trình deploy (CI/CD cơ bản). | 29/05/2026 | 29/05/2026 |
+| Thứ Bảy | Hoàn thiện cấu hình hạ tầng môi trường phát triển (Dev). | 30/05/2026 | 30/05/2026 |
+| Chủ Nhật | Lên kế hoạch và chia task cho giai đoạn tích hợp tiếp theo. | 31/05/2026 | 31/05/2026 |
 
 ### Kết quả đạt được tuần 6:
-- Hoàn thành cấu hình hệ thống, kiểm thử backend và pipeline dữ liệu.
-- **Vai trò cá nhân (Team Lead & Deployer):** Giải quyết conflict/tương thích môi trường giữa các thành viên, review cấu hình hệ thống và chuẩn hóa quy trình deploy.
+- Giải quyết dứt điểm lỗi tương thích môi trường cho team.
+- Chuẩn hóa thành công quy trình làm việc và deploy nội bộ.

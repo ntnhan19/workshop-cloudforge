@@ -6,29 +6,23 @@ chapter: false
 pre: " <b> 1.10. </b> "
 ---
 
-*Lưu ý: Tiến độ chung của nhóm dự án (4 thành viên).*
+### Mục tiêu cá nhân tuần 10 (Team Lead & Deployer):
+- Trực tiếp cấu hình hạ tầng AWS, thiết kế kiến trúc và hệ thống CI/CD.
+- Giao task cho các thành viên, hỗ trợ fix bug và giải quyết blocker.
+- Review Code (Frontend, Backend, AI Pipeline) đảm bảo chất lượng dự án.
 
-### Mục tiêu tuần 10:
-- Tích hợp Dashboard với API Backend và đồng bộ trạng thái Asset theo thời gian thực.
-- Kết nối Asset Detail với API, Video Streaming và In-Video Search.
-- Tích hợp Audio Waveform và đồng bộ phát video bằng WaveSurfer.js.
-- Nâng cấp luồng Upload, WebSocket và In-Video Search trên Backend.
-- Cải thiện luồng Upload, quản lý WebSocket và xử lý đa tiến trình trên Frontend.
-- Hoàn thiện kiến trúc hệ thống và điều chỉnh phương án sử dụng các AWS Services.
-- Họp nhóm, trao đổi với admin FCAJ và tiếp nhận feedback để tối ưu kiến trúc hệ thống.
+### Các công việc trực tiếp triển khai trong tuần:
 
-### Các công việc cần triển khai trong tuần này:
-
-| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
-| --- | --------- | ------------ | --------------- | -------------- |
-| Thứ Hai | | 22/06/2026 | 22/06/2026 | |
-| Thứ Ba  | | 23/06/2026 | 23/06/2026 | |
-| Thứ Tư  | | 24/06/2026 | 24/06/2026 | |
-| Thứ Năm | | 25/06/2026 | 25/06/2026 | |
-| Thứ Sáu | | 26/06/2026 | 26/06/2026 | |
-| Thứ Bảy | | 27/06/2026 | 27/06/2026 | |
-| Chủ Nhật| | 28/06/2026 | 28/06/2026 | |
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành |
+| --- | --------- | ------------ | --------------- |
+| Thứ Hai | Giao task tích hợp Dashboard và theo dõi việc đồng bộ realtime. | 22/06/2026 | 22/06/2026 |
+| Thứ Ba | Hỗ trợ Frontend tích hợp WaveSurfer.js và fix bug đồng bộ video. | 23/06/2026 | 23/06/2026 |
+| Thứ Tư | Trực tiếp tối ưu hóa và nâng cấp luồng WebSocket trên Backend. | 24/06/2026 | 24/06/2026 |
+| Thứ Năm | Review code Frontend trong việc cải thiện luồng đa tiến trình. | 25/06/2026 | 25/06/2026 |
+| Thứ Sáu | Họp với admin FCAJ, tiếp nhận feedback hệ thống. | 26/06/2026 | 26/06/2026 |
+| Thứ Bảy | Chỉnh sửa và tối ưu hóa kiến trúc AWS dựa trên feedback. | 27/06/2026 | 27/06/2026 |
+| Chủ Nhật | Chuẩn bị kịch bản triển khai tự động và cấu hình mạng nội bộ. | 28/06/2026 | 28/06/2026 |
 
 ### Kết quả đạt được tuần 10:
-- Kết nối Backend với Frontend đồng bộ hóa thời gian thực bằng WebSocket, WaveSurfer.js.
-- **Vai trò cá nhân (Team Lead & Deployer):** Đại diện nhóm họp với admin FCAJ để nhận feedback, điều chỉnh kiến trúc AWS theo góp ý và điều phối tích hợp Frontend - Backend.
+- Điều chỉnh kiến trúc AWS đạt chuẩn sau khi nhận feedback.
+- Hoàn thiện luồng kết nối Realtime tin cậy giữa Frontend và Backend.

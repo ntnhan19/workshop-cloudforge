@@ -6,26 +6,23 @@ chapter: false
 pre: " <b> 1.7. </b> "
 ---
 
-*Lưu ý: Tiến độ chung của nhóm dự án (4 thành viên).*
+### Mục tiêu cá nhân tuần 7 (Team Lead & Deployer):
+- Trực tiếp cấu hình hạ tầng AWS, thiết kế kiến trúc và hệ thống CI/CD.
+- Giao task cho các thành viên, hỗ trợ fix bug và giải quyết blocker.
+- Review Code (Frontend, Backend, AI Pipeline) đảm bảo chất lượng dự án.
 
-### Mục tiêu tuần 7:
-- Hoàn thiện AI Pipeline xử lý video gồm Scene Detection, Audio Transcription và Image Captioning.
-- Tích hợp ChromaDB Vector Store phục vụ lưu trữ và tìm kiếm ngữ nghĩa.
-- Xây dựng API Search và API Ingest trên FastAPI, hỗ trợ xử lý media bất đồng bộ.
-- Thực hiện kiểm thử và tối ưu pipeline AI nhằm đảm bảo tính ổn định của hệ thống.
+### Các công việc trực tiếp triển khai trong tuần:
 
-### Các công việc cần triển khai trong tuần này:
-
-| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
-| --- | --------- | ------------ | --------------- | -------------- |
-| Thứ Hai | | 01/06/2026 | 01/06/2026 | |
-| Thứ Ba  | | 02/06/2026 | 02/06/2026 | |
-| Thứ Tư  | | 03/06/2026 | 03/06/2026 | |
-| Thứ Năm | | 04/06/2026 | 04/06/2026 | |
-| Thứ Sáu | | 05/06/2026 | 05/06/2026 | |
-| Thứ Bảy | | 06/06/2026 | 06/06/2026 | |
-| Chủ Nhật| | 07/06/2026 | 07/06/2026 | |
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành |
+| --- | --------- | ------------ | --------------- |
+| Thứ Hai | Phân chia task hoàn thiện AI Pipeline (Scene, Audio, Caption). | 01/06/2026 | 01/06/2026 |
+| Thứ Ba | Trực tiếp hướng dẫn team tích hợp ChromaDB Vector Store. | 02/06/2026 | 02/06/2026 |
+| Thứ Tư | Review code các API Ingest và Search đảm bảo đúng chuẩn. | 03/06/2026 | 03/06/2026 |
+| Thứ Năm | Hỗ trợ team fix bug xử lý media bất đồng bộ và tối ưu. | 04/06/2026 | 04/06/2026 |
+| Thứ Sáu | Trực tiếp kiểm thử toàn bộ AI pipeline để đảm bảo ổn định. | 05/06/2026 | 05/06/2026 |
+| Thứ Bảy | Đánh giá chất lượng code (Code Quality) của team Backend. | 06/06/2026 | 06/06/2026 |
+| Chủ Nhật | Tổng hợp báo cáo tiến độ tuần và họp review với team. | 07/06/2026 | 07/06/2026 |
 
 ### Kết quả đạt được tuần 7:
-- Tích hợp thành công ChromaDB và hoàn thiện các API Search, Ingest trên FastAPI.
-- **Vai trò cá nhân (Team Lead & Deployer):** Theo dõi tiến độ tích hợp AI Pipeline, hướng dẫn cấu hình ChromaDB và review code các API trên FastAPI.
+- Đảm bảo chất lượng các API quan trọng (Search, Ingest).
+- Tích hợp thành công ChromaDB vào kiến trúc hệ thống.

@@ -6,32 +6,23 @@ chapter: false
 pre: " <b> 1.9. </b> "
 ---
 
-*Lưu ý: Tiến độ chung của nhóm dự án (4 thành viên).*
+### Mục tiêu cá nhân tuần 9 (Team Lead & Deployer):
+- Trực tiếp cấu hình hạ tầng AWS, thiết kế kiến trúc và hệ thống CI/CD.
+- Giao task cho các thành viên, hỗ trợ fix bug và giải quyết blocker.
+- Review Code (Frontend, Backend, AI Pipeline) đảm bảo chất lượng dự án.
 
-### Mục tiêu tuần 9:
-- Hoàn thiện thiết kế giao diện Asset Detail dựa trên thiết kế Figma.
-- Phát triển các component chính của Asset Detail Page.
-- Tích hợp API Asset, Scene và Video Streaming.
-- Xây dựng luồng Upload Video và theo dõi tiến trình bằng WebSocket.
-- Hỗ trợ quản lý nhiều tiến trình xử lý đồng thời và khôi phục trạng thái sau khi refresh.
-- Phát triển API Re-Ingest và Regenerate Insights.
-- Hoàn thiện AI Pipeline và đồng bộ dữ liệu vào PostgreSQL, Redis.
-- Tích hợp Vector Embedding phục vụ Semantic Search.
-- Xây dựng abstraction cho AI Provider phục vụ triển khai AWS Bedrock.
-- Điều chỉnh và hoàn thiện kiến trúc triển khai AWS.
+### Các công việc trực tiếp triển khai trong tuần:
 
-### Các công việc cần triển khai trong tuần này:
-
-| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
-| --- | --------- | ------------ | --------------- | -------------- |
-| Thứ Hai | | 15/06/2026 | 15/06/2026 | |
-| Thứ Ba  | | 16/06/2026 | 16/06/2026 | |
-| Thứ Tư  | | 17/06/2026 | 17/06/2026 | |
-| Thứ Năm | | 18/06/2026 | 18/06/2026 | |
-| Thứ Sáu | | 19/06/2026 | 19/06/2026 | |
-| Thứ Bảy | | 20/06/2026 | 20/06/2026 | |
-| Chủ Nhật| | 21/06/2026 | 21/06/2026 | |
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành |
+| --- | --------- | ------------ | --------------- |
+| Thứ Hai | Phân công task phát triển giao diện Asset Detail và Streaming. | 15/06/2026 | 15/06/2026 |
+| Thứ Ba | Trực tiếp thiết kế luồng Upload Video sử dụng WebSocket. | 16/06/2026 | 16/06/2026 |
+| Thứ Tư | Review code các API phức tạp (Re-Ingest, Regenerate Insights). | 17/06/2026 | 17/06/2026 |
+| Thứ Năm | Hỗ trợ fix bug khôi phục trạng thái upload sau khi refresh. | 18/06/2026 | 18/06/2026 |
+| Thứ Sáu | Trực tiếp cấu hình đồng bộ dữ liệu vào PostgreSQL và Redis. | 19/06/2026 | 19/06/2026 |
+| Thứ Bảy | Review tích hợp Vector Embedding và module AI Provider (Bedrock). | 20/06/2026 | 20/06/2026 |
+| Chủ Nhật | Điều chỉnh và hoàn thiện bản vẽ kiến trúc AWS chuẩn bị Deploy. | 21/06/2026 | 21/06/2026 |
 
 ### Kết quả đạt được tuần 9:
-- Hoàn thiện luồng Upload WebSocket đa tiến trình và đồng bộ dữ liệu PostgreSQL, Redis.
-- **Vai trò cá nhân (Team Lead & Deployer):** Hoàn thiện bản vẽ kiến trúc AWS cuối cùng, review các API phức tạp (WebSocket, đa tiến trình) và đảm bảo chất lượng hệ thống backend.
+- Xây dựng thành công kiến trúc Upload WebSocket đa tiến trình.
+- Review và đảm bảo chất lượng tích hợp Database (PostgreSQL/Redis).

@@ -6,27 +6,23 @@ chapter: false
 pre: " <b> 1.6. </b> "
 ---
 
-*Note: Overall progress of the project team (4 members).*
+### Week 6 Personal Objectives (Team Lead & Deployer):
+- Directly configure AWS infrastructure, architecture design and CI/CD systems.
+- Assign tasks to members, support bug fixing and resolve blockers.
+- Review Code (Frontend, Backend, AI Pipeline) to ensure project quality.
 
-### Week 6 Objectives:
-- Continue developing the group project using Docker and integrated AI services.
-- Resolve version compatibility issues and optimize the development environment among members.
-- Perform testing for the FastAPI backend, database, and data processing pipelines.
-- Finalize system configurations and standardize the project deployment process.
-- Prepare for the integration phase and development of upcoming features.
+### Tasks directly carried out this week:
 
-### Tasks to be carried out this week:
-
-| Day | Task | Start Date | Completion Date | Reference Material |
-| --- | ---- | ---------- | --------------- | ------------------ |
-| Monday | | 25/05/2026 | 25/05/2026 | |
-| Tuesday | | 26/05/2026 | 26/05/2026 | |
-| Wednesday | | 27/05/2026 | 27/05/2026 | |
-| Thursday | | 28/05/2026 | 28/05/2026 | |
-| Friday | | 29/05/2026 | 29/05/2026 | |
-| Saturday | | 30/05/2026 | 30/05/2026 | |
-| Sunday | | 31/05/2026 | 31/05/2026 | |
+| Day | Task | Start Date | Completion Date |
+| --- | ---- | ---------- | --------------- |
+| Mon | Assign Sprint 2 tasks, help team fix Docker compatibility issues. | 25/05/2026 | 25/05/2026 |
+| Tue | Review code for AI integration features and optimize performance. | 26/05/2026 | 26/05/2026 |
+| Wed | Directly test FastAPI Backend system and Database. | 27/05/2026 | 27/05/2026 |
+| Thu | Support bug fixing related to AI pipeline data flow. | 28/05/2026 | 28/05/2026 |
+| Fri | Design and standardize deployment process (basic CI/CD). | 29/05/2026 | 29/05/2026 |
+| Sat | Finalize development environment infrastructure configuration. | 30/05/2026 | 30/05/2026 |
+| Sun | Plan and assign tasks for the next integration phase. | 31/05/2026 | 31/05/2026 |
 
 ### Week 6 Achievements:
-- Finalized system configurations, tested backend and data pipelines.
-- **Personal Role (Team Lead & Deployer):** Troubleshot environment compatibility conflicts, reviewed system configurations, and standardized the deployment workflow.
+- Completely resolved environment compatibility issues for the team.
+- Successfully standardized workflow and internal deployment.

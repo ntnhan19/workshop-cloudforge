@@ -6,26 +6,23 @@ chapter: false
 pre: " <b> 1.7. </b> "
 ---
 
-*Note: Overall progress of the project team (4 members).*
+### Week 7 Personal Objectives (Team Lead & Deployer):
+- Directly configure AWS infrastructure, architecture design and CI/CD systems.
+- Assign tasks to members, support bug fixing and resolve blockers.
+- Review Code (Frontend, Backend, AI Pipeline) to ensure project quality.
 
-### Week 7 Objectives:
-- Finalize the video processing AI Pipeline including Scene Detection, Audio Transcription, and Image Captioning.
-- Integrate ChromaDB Vector Store for semantic storage and search.
-- Build Search API and Ingest API on FastAPI to support asynchronous media processing.
-- Perform testing and optimization on the AI pipeline to ensure system stability.
+### Tasks directly carried out this week:
 
-### Tasks to be carried out this week:
-
-| Day | Task | Start Date | Completion Date | Reference Material |
-| --- | ---- | ---------- | --------------- | ------------------ |
-| Monday | | 01/06/2026 | 01/06/2026 | |
-| Tuesday | | 02/06/2026 | 02/06/2026 | |
-| Wednesday | | 03/06/2026 | 03/06/2026 | |
-| Thursday | | 04/06/2026 | 04/06/2026 | |
-| Friday | | 05/06/2026 | 05/06/2026 | |
-| Saturday | | 06/06/2026 | 06/06/2026 | |
-| Sunday | | 07/06/2026 | 07/06/2026 | |
+| Day | Task | Start Date | Completion Date |
+| --- | ---- | ---------- | --------------- |
+| Mon | Assign tasks to complete AI Pipeline (Scene, Audio, Caption). | 01/06/2026 | 01/06/2026 |
+| Tue | Directly guide team in integrating ChromaDB Vector Store. | 02/06/2026 | 02/06/2026 |
+| Wed | Review code for Ingest and Search APIs to ensure standards. | 03/06/2026 | 03/06/2026 |
+| Thu | Support team in fixing async media processing bugs and optimizing. | 04/06/2026 | 04/06/2026 |
+| Fri | Directly test the entire AI pipeline to ensure stability. | 05/06/2026 | 05/06/2026 |
+| Sat | Evaluate Code Quality of the Backend team. | 06/06/2026 | 06/06/2026 |
+| Sun | Compile weekly progress report and hold review meeting. | 07/06/2026 | 07/06/2026 |
 
 ### Week 7 Achievements:
-- Successfully integrated ChromaDB and finalized Search/Ingest APIs on FastAPI.
-- **Personal Role (Team Lead & Deployer):** Monitored the AI Pipeline integration progress, guided ChromaDB configuration, and reviewed FastAPI code.
+- Ensured quality of critical APIs (Search, Ingest).
+- Successfully integrated ChromaDB into system architecture.

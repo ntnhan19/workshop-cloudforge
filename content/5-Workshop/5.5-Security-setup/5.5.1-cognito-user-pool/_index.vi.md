@@ -10,7 +10,7 @@ Trong kiến trúc của Smart Media Analytics, chúng ta sẽ không tự xây 
 
 Hệ thống Backend (hoặc Frontend) sẽ giao tiếp với Cognito để đăng ký, đăng nhập và nhận về các token chuẩn JWT (JSON Web Token) để xác thực các yêu cầu API.
 
-#### 1. Khởi tạo Cognito User Pool (Giao diện mới)
+#### 1. Khởi tạo Cognito User Pool
 Truy cập vào **Amazon Cognito Console**, đảm bảo bạn đang ở đúng Region `ap-southeast-1` (Singapore) và làm theo giao diện thiết lập nhanh (Set up resources for your application):
 
 **Bước 1: Define your application**

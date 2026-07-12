@@ -20,7 +20,7 @@ Access the **AWS Step Functions** service → **State machines** → select **Cr
 
 Click **Continue** to move to the visual design interface.
 
-#### 2. Build the Orchestration Diagram (Workflow Studio v2)
+#### 2. Build the Orchestration Diagram
 In the Workflow Studio Canvas space, drag and drop logic state blocks to establish the Skeleton Architecture for the processing flow:
 
 1. **Initial State (Pass State - Start Processing):** Drag a `Pass` block and drop it right below the `Start` point, rename it to `Start Processing`.

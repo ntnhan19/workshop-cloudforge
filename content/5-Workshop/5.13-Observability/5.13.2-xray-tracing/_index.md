@@ -1,4 +1,4 @@
-﻿---
+---
 title : "Integrate X-Ray Tracing"
 date : 2026-07-10
 weight : 2
@@ -52,25 +52,40 @@ Once the infrastructure is primed to receive data, the concluding step is to dec
 aws-xray-sdk==2.12.0
 ```
 
-2. Incorporate the X-Ray Middleware into the server initialization file (e.g., `main.py`). This Middleware will automatically measure the processing time of all API Endpoints:
+2. Incorporate a custom X-Ray Middleware into the server initialization file (e.g., `main.py`). This Middleware will automatically measure the processing time of each API Endpoint:
 
 ```python
 from fastapi import FastAPI
 from aws_xray_sdk.core import xray_recorder
-from aws_xray_sdk.ext.starlette.middleware import XRayMiddleware
+from aws_xray_sdk.core.async_context import AsyncContext
+from starlette.types import ASGIApp, Receive, Scope, Send
 
 app = FastAPI()
 
 # Configure the X-Ray Recorder and define the service nomenclature on the Service Map
-xray_recorder.configure(service='SmartMedia-BackendAPI')
+xray_recorder.configure(service='SmartMedia-BackendAPI', context=AsyncContext())
+
+class CustomXRayMiddleware:
+    def __init__(self, app: ASGIApp):
+        self.app = app
+
+    async def __call__(self, scope: Scope, receive: Receive, send: Send) -> None:
+        if scope["type"] != "http":
+            return await self.app(scope, receive, send)
+            
+        segment = xray_recorder.begin_segment('SmartMedia-BackendAPI')
+        try:
+            segment.put_http_meta('url', scope.get('path'))
+            segment.put_http_meta('method', scope.get('method'))
+            await self.app(scope, receive, send)
+        except Exception as e:
+            segment.add_exception(e)
+            raise
+        finally:
+            xray_recorder.end_segment()
 
 # Integrate the measurement Middleware into FastAPI
-app.add_middleware(XRayMiddleware, app=app, recorder=xray_recorder)
-
-# --- Declare your business logic Routes here ---
-@app.get("/api/health")
-def health_check():
-    return {"status": "Healthy"}
+app.add_middleware(CustomXRayMiddleware)
 ```
 
 #### Step 4: Observe the Service Map and Traces

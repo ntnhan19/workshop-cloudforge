@@ -20,7 +20,7 @@ Truy cập dịch vụ **AWS Step Functions** → **State machines** → chọn 
 
 Bấm **Continue** để chuyển sang giao diện thiết kế trực quan.
 
-#### 2. Xây dựng Sơ đồ Điều phối (Workflow Studio v2)
+#### 2. Xây dựng Sơ đồ Điều phối
 Tại không gian Canvas của Workflow Studio, tiến hành kéo thả các khối trạng thái logic để thiết lập bộ khung kiến trúc (Skeleton Architecture) cho luồng xử lý:
 
 1. **Trạng thái Khởi đầu (Pass State - Start Processing):** Kéo khối `Pass` và thả ngay dưới điểm `Start`, đổi tên thành `Start Processing`. 

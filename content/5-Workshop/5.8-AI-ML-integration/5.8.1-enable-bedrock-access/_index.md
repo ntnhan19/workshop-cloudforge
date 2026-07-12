@@ -18,7 +18,7 @@ In this project, we utilize the **Anthropic Claude 3** model family to process d
 
 {{% notice info %}}
 **Important Note:** Starting from this chapter (5.8), the entire communication process with AI services (Amazon Bedrock, Amazon Transcribe) is handled completely automatically by the Python source code inside the `ai_worker` Container that you deployed in the previous chapter. 
-**You DO NOT NEED to manually perform any steps on the AWS Console throughout Chapter 5.8.** Please skim through to understand how the data flow mechanism works!
+**You do not need to manually perform any steps on the AWS Console throughout Chapter 5.8.** Please skim through to understand how the data flow mechanism works!
 {{% /notice %}}
 
 {{% notice tip %}}

@@ -23,7 +23,6 @@ Before GitHub Actions can upload the Image, a vacant repository must be provisio
 Note and copy the **URI** of the newly generated Repository (e.g., `236320489525.dkr.ecr.ap-southeast-1.amazonaws.com/cloudforge-backend`).
 
 ![Create ECR Repository](/images/5-Workshop/5.12-CICD/5.12.2-ecr-push/5.12.2-create-ecr.png)
-*(Screenshot Guide: Capture the Create repository screen with the name cloudforge-backend filled in, before clicking Create).*
 
 #### Step 2: Formulate the GitHub Actions Workflow
 The project team authors a Workflow definition file situated at the project root directory in VS Code: `.github/workflows/deploy.yml`.
@@ -87,7 +86,6 @@ You will observe a process entitled `Deploy Backend to ECR` executing autonomous
 Re-access the `cloudforge-backend` repository on the Amazon ECR Console; a pristine Docker Image will have been pushed, tagged with the commit's SHA string.
 
 ![GitHub Actions Success](/images/5-Workshop/5.12-CICD/5.12.2-ecr-push/5.12.2-actions-success.png)
-*(Screenshot Guide: Capture the Actions tab screen on GitHub showing the green Success checkmark for the Deploy workflow).*
 
 ***
 

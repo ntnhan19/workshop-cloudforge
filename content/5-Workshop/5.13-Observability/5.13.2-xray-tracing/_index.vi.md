@@ -48,7 +48,7 @@ Tại giao diện tạo Revision mới, giữ nguyên các cấu hình của Con
 **Log collection:**
 *   Đánh dấu chọn **Use log collection** để đẩy log của X-Ray Daemon lên CloudWatch, giúp dễ dàng debug nếu Daemon gặp lỗi khởi động.
 
-![X-Ray Log Collection](/images/5-Workshop/5.13-Observability/5.13.2-xray-tracing/![alt text](image.png).png)
+![X-Ray Log Collection](/images/5-Workshop/5.13-Observability/5.13.2-xray-tracing/xray_log_collection.png)
 
 Sau khi điền đủ thông tin, cuộn xuống cuối trang và bấm **Create**. ECS sẽ tạo ra một phiên bản Task Definition mới (chứa 2 containers). Tiếp theo, bạn chỉ việc cập nhật ECS Service để sử dụng Revision mới này.
 

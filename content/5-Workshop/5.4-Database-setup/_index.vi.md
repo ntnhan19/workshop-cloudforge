@@ -24,3 +24,4 @@ Kết thúc chương này, hệ thống dữ liệu không chỉ được kiểm
 - [Kích hoạt pgvector](5.4.3-enable-pgvector/)
 - [Khởi tạo ElastiCache (Redis)](5.4.4-create-elasticache-redis/)
 - [Kiểm tra Kết nối & Tổng hợp Endpoint](5.4.5-test-connection/)
+- [Khởi tạo Database Schema (Auto-Migration)](5.4.6-auto-migration/)

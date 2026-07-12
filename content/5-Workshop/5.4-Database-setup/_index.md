@@ -24,3 +24,4 @@ By the end of this chapter, not only will the data system's secure communication
 - [Enable pgvector](5.4.3-enable-pgvector/)
 - [Create ElastiCache (Redis)](5.4.4-create-elasticache-redis/)
 - [Test Connection & Consolidate Endpoints](5.4.5-test-connection/)
+- [Initialize Database Schema (Auto-Migration)](5.4.6-auto-migration/)

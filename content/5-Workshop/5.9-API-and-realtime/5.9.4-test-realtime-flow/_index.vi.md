@@ -19,32 +19,41 @@ npm install -g wscat
 
 #### Kịch bản Kiểm thử End-to-End (E2E)
 
-**Bước 1: Thiết lập kết nối lắng nghe (Listening)**
-Sử dụng `wscat` để mở kết nối đâm xuyên trực tiếp qua Application Load Balancer (ALB) của Backend. Thay thế `[ALB-DNS]` bằng DNS Name thực tế của ALB, và `[job_id]` bằng một chuỗi định danh ngẫu nhiên (VD: `test-job-123`).
+**Bước 1: Kích hoạt luồng sự kiện và lấy Job ID (Trigger)**
+Trong thiết kế chuẩn của hệ thống, WebSocket route yêu cầu một UUID hợp lệ. Do đó, chúng ta sẽ kích hoạt tiến trình xử lý thông qua REST API để Backend khởi tạo một Job và cấp phát UUID (thay vì upload trực tiếp lên S3 mà không nhận được ID).
+
+Sử dụng cURL (hoặc PowerShell) để gọi API Ingest, thay thế `[ALB-DNS]` bằng DNS của ALB:
+```bash
+curl -X POST http://[ALB-DNS]/api/v1/ingest \
+  -H "Content-Type: application/json" \
+  -d '{"source_path": "s3://cloudforge-media-upload-bucket/sample-video.mp4"}'
+```
+*Kết quả trả về sẽ chứa `job_id` (VD: `14492409-f583-41ac-89c4-c66a9351919c`).*
+
+![Trigger REST API](/images/5-Workshop/5.9-API-and-realtime/5.9.4-test-realtime-flow/trigger_api.png)
+
+**Bước 2: Thiết lập kết nối lắng nghe (Listening)**
+Sử dụng `wscat` để mở kết nối WebSocket đâm xuyên trực tiếp qua Application Load Balancer (ALB). Thay thế `[ALB-DNS]` và `[job_id]` bằng chuỗi UUID bạn vừa nhận được ở Bước 1.
 ```bash
 wscat -c ws://[ALB-DNS]/api/v1/ingest/ws/[job_id]
 ```
 *Trạng thái hệ thống: Terminal chuyển sang trạng thái Connected. Container Backend (FastAPI) trực tiếp ghi nhận và duy trì phiên kết nối này.*
 
-**Bước 2: Kích hoạt luồng sự kiện (Trigger)**
-Sử dụng AWS CLI để tải lên một tệp Video mẫu vào Bucket S3 (đã cấu hình ở Chương 5.6).
-```bash
-aws s3 cp sample-video.mp4 s3://cloudforge-media-upload-bucket/
-```
-*Trạng thái hệ thống: Thao tác tải tệp hoàn tất sẽ kích hoạt EventBridge, gửi Message vào SQS, từ đó kích hoạt AI Worker trên ECS Fargate để gọi các dịch vụ Transcribe và Bedrock.*
-
 **Bước 3: Xác thực luồng dữ liệu thời gian thực**
-Tại màn hình Terminal đang chạy `wscat`, hệ thống sẽ xuất ra một gói tin JSON ngay khi AI Worker hoàn tất vòng đời xử lý (thời gian xử lý thực tế phụ thuộc vào dung lượng Video). 
+Tại màn hình Terminal đang chạy `wscat`, hệ thống sẽ xuất ra các gói tin JSON ngay khi trạng thái của AI Worker thay đổi, và cuối cùng là gói tin hoàn tất (thời gian xử lý thực tế phụ thuộc vào dung lượng Video).
 
 Kết quả trả về không yêu cầu thao tác Polling từ phía Client:
 
 ```json
 < {
-    "action": "ANALYSIS_COMPLETED",
-    "videoId": "sample-video.mp4",
-    "status": "SUCCESS",
-    "summary": "Đoạn video thảo luận về các giải pháp Cloud Native trên AWS...",
-    "timestamp": "2026-07-10T10:00:00Z"
+    "event": "processing",
+    "job_id": "a99b7166-7c59-4787-9120-a4b12bf9ac3e",
+    "asset_id": null,
+    "status": "processing",
+    "progress": 0.0,
+    "assets_queued": 0,
+    "assets_processed": 0,
+    "error_message": null
   }
 ```
 

@@ -19,32 +19,43 @@ npm install -g wscat
 
 #### End-to-End (E2E) Testing Scenario
 
-**Step 1: Establish the Listening Connection**
-Use `wscat` to open a connection piercing directly through the Backend's Application Load Balancer (ALB). Replace `[ALB-DNS]` with the actual DNS Name of your ALB, and `[job_id]` with a random identifier string (e.g., `test-job-123`).
+**Step 1: Trigger the Event Pipeline and Retrieve Job ID**
+In the standard architecture, the WebSocket route strictly requires a valid UUID. Therefore, we will trigger the processing pipeline via the REST API so the Backend initiates a Job and allocates a UUID (instead of uploading directly to S3 which does not return an ID).
+
+Use cURL (or PowerShell) to call the Ingest API, replacing `[ALB-DNS]` with your actual ALB DNS:
+```bash
+curl -X POST http://[ALB-DNS]/api/v1/ingest \
+  -H "Content-Type: application/json" \
+  -d '{"source_path": "s3://cloudforge-media-upload-bucket/sample-video.mp4"}'
+```
+*The returned response will contain a `job_id` (e.g., `14492409-f583-41ac-89c4-c66a9351919c`).*
+
+![Trigger REST API](/images/5-Workshop/5.9-API-and-realtime/5.9.4-test-realtime-flow/trigger_api.png)
+
+**Step 2: Establish the Listening Connection**
+Use `wscat` to open a WebSocket connection piercing directly through the Application Load Balancer (ALB). Replace `[ALB-DNS]` and `[job_id]` with the exact UUID string you received in Step 1.
 ```bash
 wscat -c ws://[ALB-DNS]/api/v1/ingest/ws/[job_id]
 ```
 *System state: The Terminal transitions to a Connected state. The Backend Container (FastAPI) natively records and maintains this connection session.*
 
-**Step 2: Trigger the Event Pipeline**
-Use the AWS CLI to upload a sample Video file into the S3 Bucket (configured in Chapter 5.6).
-```bash
-aws s3 cp sample-video.mp4 s3://cloudforge-media-upload-bucket/
-```
-*System state: The completed upload operation triggers EventBridge, sending a Message to SQS, which subsequently triggers the AI Worker on ECS Fargate to invoke Transcribe and Bedrock services.*
+![Websocket Connection](/images/5-Workshop/5.9-API-and-realtime/5.9.4-test-realtime-flow/websocket_connect.png)
 
 **Step 3: Validate the Real-time Data Flow**
-In the Terminal running `wscat`, the system will output a JSON payload as soon as the AI Worker concludes its processing lifecycle (actual processing time depends on the Video size). 
+In the Terminal running `wscat`, the system will output JSON payloads as soon as the AI Worker's status changes, culminating in the completion payload (actual processing time depends on the Video size).
 
 The returned result requires no Polling action from the Client:
 
 ```json
 < {
-    "action": "ANALYSIS_COMPLETED",
-    "videoId": "sample-video.mp4",
-    "status": "SUCCESS",
-    "summary": "The video discusses Cloud Native solutions on AWS...",
-    "timestamp": "2026-07-10T10:00:00Z"
+    "event": "processing",
+    "job_id": "a99b7166-7c59-4787-9120-a4b12bf9ac3e",
+    "asset_id": null,
+    "status": "processing",
+    "progress": 0.0,
+    "assets_queued": 0,
+    "assets_processed": 0,
+    "error_message": null
   }
 ```
 

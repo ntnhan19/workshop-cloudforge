@@ -16,8 +16,8 @@ Nhóm dự án tiến hành thu thập các giá trị thông số từ API Gate
 1. Truy cập ứng dụng trên bảng điều khiển **AWS Amplify**.
 2. Tại thanh điều hướng bên trái, dưới mục **Hosting**, chọn **Environment variables**.
 3. Nhấn **Manage variables** và thêm các khóa (Key) cốt lõi sau:
-   - `VITE_API_ENDPOINT`: Đường dẫn DNS của Application Load Balancer cộng thêm hậu tố `/api/v1` (Ví dụ: `http://cloudforge-alb-123456.ap-southeast-1.elb.amazonaws.com/api/v1`).
-   - `VITE_WS_URL`: Đường dẫn WebSocket Invoke URL của API Gateway (Ví dụ: `wss://xxxx.execute-api.ap-southeast-1.amazonaws.com/production`).
+   - `VITE_API_ENDPOINT`: Đường dẫn Invoke URL của **API Gateway** cộng thêm hậu tố `/api/v1` (Ví dụ: `https://xxxx.execute-api.ap-southeast-1.amazonaws.com/api/v1`).
+   - `VITE_WS_URL`: Đường dẫn kết nối WebSocket thông qua **Application Load Balancer** (Ví dụ: `ws://cloudforge-alb-123456.ap-southeast-1.elb.amazonaws.com/api/v1/ingest/ws`).
    - `VITE_COGNITO_USER_POOL_ID`: Mã ID của Cognito User Pool (Ví dụ: `ap-southeast-1_xxxxxxxxx`).
    - `VITE_COGNITO_USER_POOL_CLIENT_ID`: Mã ID của App Client tương ứng.
 4. Nhấn **Save** để lưu lại.

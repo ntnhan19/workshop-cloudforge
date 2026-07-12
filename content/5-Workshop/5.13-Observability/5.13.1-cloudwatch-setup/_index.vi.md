@@ -17,7 +17,7 @@ Nhóm dự án tạo một Log Group chuyên biệt để phân loại và gom t
 2. Tại menu bên trái, dưới mục **Logs**, chọn **Log groups**.
 3. Bấm nút **Create log group** ở góc phải trên cùng.
 4. Cấu hình các thông số:
-   - **Log group name:** `/ecs/cloudforge-backend`
+   - **Log group name:** `/ecs/cloudforge-backend-task`
    - **Retention setting:** Chọn **14 days** (Thời gian lưu giữ log 2 tuần nhằm tối ưu hóa chi phí lưu trữ trên AWS, tránh để mặc định `Never expire` gây lãng phí ngân sách dự án).
 5. Bấm **Create** để hoàn tất.
 
@@ -39,7 +39,7 @@ Khối cấu hình `logConfiguration` được khai báo cụ thể trong địn
 }
 ```
 
-Sau khi ứng dụng được cập nhật thông qua luồng CI/CD, mã nguồn Backend chạy trong container sẽ tự động chuyển hướng toàn bộ dữ liệu log ra ngoài. Khi truy cập vào Log Group `/ecs/cloudforge-backend`, quản trị viên có thể mở các **Log streams** để theo dõi toàn bộ tiến trình khởi chạy ứng dụng theo thời gian thực (Real-time).
+Sau khi ứng dụng được cập nhật thông qua luồng CI/CD, mã nguồn Backend chạy trong container sẽ tự động chuyển hướng toàn bộ dữ liệu log ra ngoài. Khi truy cập vào Log Group `/ecs/cloudforge-backend-task`, quản trị viên có thể mở các **Log streams** để theo dõi toàn bộ tiến trình khởi chạy ứng dụng theo thời gian thực (Real-time).
 
 ![CloudWatch Log Stream](/images/5-Workshop/5.13-Observability/5.13.1-cloudwatch-setup/5.13.1-log-stream.png)
 

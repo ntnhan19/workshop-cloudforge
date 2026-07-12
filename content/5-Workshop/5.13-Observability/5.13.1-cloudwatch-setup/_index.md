@@ -17,7 +17,7 @@ The project team provisions a dedicated Log Group to categorize and aggregate th
 2. From the left navigation pane, under the **Logs** section, select **Log groups**.
 3. Click the **Create log group** button located at the top right corner.
 4. Supply the configuration parameters:
-   - **Log group name:** `/ecs/cloudforge-backend`
+   - **Log group name:** `/ecs/cloudforge-backend-task`
    - **Retention setting:** Select **14 days** (A 2-week log retention period to optimize AWS storage costs, averting the default `Never expire` setting which could squander project budget).
 5. Click **Create** to finalize.
 
@@ -39,7 +39,7 @@ The `logConfiguration` block is explicitly declared within the JSON format of th
 }
 ```
 
-Subsequent to the application update via the CI/CD pipeline, the Backend source code executing within the container will autonomously redirect all log data externally. By navigating to the `/ecs/cloudforge-backend` Log Group, administrators can open the **Log streams** to monitor the entire application initialization process in Real-time.
+Subsequent to the application update via the CI/CD pipeline, the Backend source code executing within the container will autonomously redirect all log data externally. By navigating to the `/ecs/cloudforge-backend-task` Log Group, administrators can open the **Log streams** to monitor the entire application initialization process in Real-time.
 
 ![CloudWatch Log Stream](/images/5-Workshop/5.13-Observability/5.13.1-cloudwatch-setup/5.13.1-log-stream.png)
 

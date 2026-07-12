@@ -105,7 +105,6 @@ Truy cập **AWS CloudWatch Console**, nhìn sang menu bên trái, dưới mục
 Tiếp tục chọn mục **Traces** ở menu trái, quản trị viên có thể click vào từng Request cụ thể để xem biểu đồ phân tích chính xác thời gian thi hành của mỗi tác vụ con tính bằng mili-giây, giúp dễ dàng khoanh vùng các truy vấn SQL chậm hoặc các logic xử lý đang ngốn nhiều tài nguyên.
 
 ![AWS X-Ray Service Map](/images/5-Workshop/5.13-Observability/5.13.2-xray-tracing/5.13.2-xray-service-map.png)
-*(Hướng dẫn chụp: Bạn hãy bấm vào menu **Trace Map** ở bên trái, chụp lại bản đồ mạng lưới các node và lưu tên file là `5.13.2-xray-service-map.png` nhé).*
 
 ***
 

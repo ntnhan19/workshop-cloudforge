@@ -1,4 +1,4 @@
-﻿---
+---
 title : "Connect Cognito and Frontend"
 date : 2026-07-10
 weight : 3
@@ -13,20 +13,21 @@ Storing these parameters in AWS Amplify instead of hard-coding them into the sou
 #### Step 1: Configure Environment Variables in Amplify
 The project team proceeds to harvest the parameter values from API Gateway and Amazon Cognito to declare them within Amplify.
 
-1. Access the application on the **AWS Amplify** Console.
-2. In the left navigation pane, under **App settings**, select **Environment variables**.
-3. Click **Manage variables** and append the following core Keys:
-   - `VITE_API_ENDPOINT`: The Invoke URL path of the API Gateway.
-   - `VITE_COGNITO_USER_POOL_ID`: The ID string of the Cognito User Pool (e.g., `ap-southeast-1_xxxxxxxxx`).
-   - `VITE_COGNITO_USER_POOL_CLIENT_ID`: The ID string of the respective App Client.
-4. Click **Save** to persist the variables.
+1. Access the application on the **AWS Amplify** console.
+2. On the left navigation bar, under **App settings**, select **Environment variables**.
+3. Click **Manage variables** and add the following core keys:
+   - `VITE_API_ENDPOINT`: The DNS Name of the Application Load Balancer appended with the `/api/v1` suffix (Example: `http://cloudforge-alb-123456.ap-southeast-1.elb.amazonaws.com/api/v1`).
+   - `VITE_WS_URL`: The WebSocket Invoke URL of API Gateway (Example: `wss://xxxx.execute-api.ap-southeast-1.amazonaws.com/production`).
+   - `VITE_COGNITO_USER_POOL_ID`: The ID of the Cognito User Pool (Example: `ap-southeast-1_xxxxxxxxx`).
+   - `VITE_COGNITO_USER_POOL_CLIENT_ID`: The ID of the corresponding App Client.
+4. Click **Save** to persist the changes.
 
-#### Step 2: Inject Environment Variables into Build Pipeline (amplify.yml)
-For static frameworks such as React/Vite, environment variables only take effect if they are "injected" into the application during the source code compilation. Because the project is designed with a **Monorepo** structure, the file writing commands must be executed precisely at the Frontend application directory.
+#### Step 2: Inject Environment Variables into the Build Pipeline (amplify.yml)
+For static frameworks like React/Vite, environment variables only take effect if they are "injected" into the application during the source code compilation process. Given the project's **Monorepo** architecture, file writing commands must be executed precisely within the Frontend application directory.
 
-1. Navigate to the **Build settings** section under **App settings** on the left menu.
-2. Locate the *App build specification* configuration panel (the contents of the `amplify.yml` file) and click **Edit**.
-3. Modify the `preBuild` phase to automatically generate an internal `.env` file prior to executing the compilation command:
+1. Switch to the **Build settings** section under **App settings** on the left menu.
+2. Locate the *App build specification* configuration (content of the `amplify.yml` file) and click **Edit**.
+3. Modify the `preBuild` phase to auto-generate an internal `.env` file prior to executing the compilation command:
 
 ```yaml
 version: 1
@@ -35,6 +36,7 @@ frontend:
     preBuild:
       commands:
         - echo "VITE_API_ENDPOINT=$VITE_API_ENDPOINT" >> .env
+        - echo "VITE_WS_URL=$VITE_WS_URL" >> .env
         - echo "VITE_COGNITO_USER_POOL_ID=$VITE_COGNITO_USER_POOL_ID" >> .env
         - echo "VITE_COGNITO_USER_POOL_CLIENT_ID=$VITE_COGNITO_USER_POOL_CLIENT_ID" >> .env
         - npm install

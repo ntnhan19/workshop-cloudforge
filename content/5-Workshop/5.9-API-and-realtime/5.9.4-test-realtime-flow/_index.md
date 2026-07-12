@@ -39,8 +39,6 @@ wscat -c ws://[ALB-DNS]/api/v1/ingest/ws/[job_id]
 ```
 *System state: The Terminal transitions to a Connected state. The Backend Container (FastAPI) natively records and maintains this connection session.*
 
-![Websocket Connection](/images/5-Workshop/5.9-API-and-realtime/5.9.4-test-realtime-flow/websocket_connect.png)
-
 **Step 3: Validate the Real-time Data Flow**
 In the Terminal running `wscat`, the system will output JSON payloads as soon as the AI Worker's status changes, culminating in the completion payload (actual processing time depends on the Video size).
 

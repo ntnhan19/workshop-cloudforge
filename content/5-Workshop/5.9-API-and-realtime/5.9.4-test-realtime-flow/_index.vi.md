@@ -39,6 +39,8 @@ wscat -c ws://[ALB-DNS]/api/v1/ingest/ws/[job_id]
 ```
 *Trạng thái hệ thống: Terminal chuyển sang trạng thái Connected. Container Backend (FastAPI) trực tiếp ghi nhận và duy trì phiên kết nối này.*
 
+![Websocket Test](/images/5-Workshop/5.9-API-and-realtime/5.9.4-test-realtime-flow/websocket_test.png)
+
 **Bước 3: Xác thực luồng dữ liệu thời gian thực**
 Tại màn hình Terminal đang chạy `wscat`, hệ thống sẽ xuất ra các gói tin JSON ngay khi trạng thái của AI Worker thay đổi, và cuối cùng là gói tin hoàn tất (thời gian xử lý thực tế phụ thuộc vào dung lượng Video).
 

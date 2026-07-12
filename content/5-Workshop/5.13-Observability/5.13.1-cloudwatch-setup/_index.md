@@ -10,18 +10,14 @@ This article provides detailed instructions on configuring Amazon CloudWatch to 
 
 Within an ephemeral containerized environment such as Amazon ECS Fargate, containers can be continuously provisioned, scaled up, or terminated based on load demands. Consequently, persisting logs locally directly on the container is unviable (log data is permanently obliterated upon container termination). The industry-standard solution is to configure the **awslogs** log driver to intercept the system log data stream and forward it directly to the CloudWatch Logs service.
 
-#### Step 1: Provision a CloudWatch Log Group
-The project team provisions a dedicated Log Group to categorize and aggregate the entirety of the Backend application's logs into a singular storage space.
+#### Step 1: Configure CloudWatch Log Group Retention
+The project team needs to establish the retention setting for the Backend application's default log group to optimize AWS storage costs, averting the default `Never expire` setting which could squander project budget.
 
 1. Access the **Amazon CloudWatch** console.
 2. From the left navigation pane, under the **Logs** section, select **Log groups**.
-3. Click the **Create log group** button located at the top right corner.
-4. Supply the configuration parameters:
-   - **Log group name:** `/ecs/cloudforge-backend-task`
-   - **Retention setting:** Select **14 days** (A 2-week log retention period to optimize AWS storage costs, averting the default `Never expire` setting which could squander project budget).
-5. Click **Create** to finalize.
-
-![Create Log Group](/images/5-Workshop/5.13-Observability/5.13.1-cloudwatch-setup/5.13.1-create-log-group.png)
+3. The ECS system has autonomously generated a default Log Group named `/ecs/cloudforge-backend-task`. Click on this Log Group's name.
+4. Select the **Actions** tab (or directly click on the Retention value displaying `Never expire`), and choose **Edit retention setting**.
+5. Select **14 days** (2 weeks) and click **Save changes**.
 
 #### Step 2: Augment ECS Task Definition with the awslogs driver
 For the ECS server system to discern the destination for log forwarding, the log driver configuration must be tightly integrated within the Task Definition blueprint.

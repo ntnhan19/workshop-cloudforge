@@ -26,7 +26,7 @@ Hệ thống Amplify sẽ tự động truy xuất danh sách các Hosted Zones 
    - Cấu hình chuyển hướng (Redirect) tự động từ `www.cloudforge.com` sang root domain để đảm bảo luồng truy cập của người dùng không bị phân mảnh.
 3. Nhấn **Save** để lưu cấu hình.
 
-![Amplify Custom Domain](/images/5-Workshop/5.11-frontend/5.11.2-amplify-domain.png)
+![Amplify Custom Domain](/images/5-Workshop/5.11-Frontend-deployment/5.11.2-setup-route53/5.11.2-amplify-domain.png)
 
 #### Bước 3: Xác thực SSL/TLS tự động (ACM)
 Khác với kiến trúc truyền thống yêu cầu người quản trị phải tự cấp phát và cấu hình chứng chỉ bảo mật, AWS Amplify xử lý toàn bộ quy trình này một cách hoàn toàn tự động.

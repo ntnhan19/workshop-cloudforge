@@ -103,11 +103,11 @@ For all new environment variable configurations and integrated source code to ta
 3. Looking at the top right corner, click the **Redeploy this version** button to re-trigger the CI/CD process.
 4. Wait for the system to complete all 4 phases and transition the status to a green **Deployed**.
 
-![Amplify Redeploy Success](/images/5-Workshop/5.11-frontend/5.11.3-amplify-success.png)
+![Amplify Redeploy Success](/images/5-Workshop/5.11-Frontend-deployment/5.11.3-connect-cognito-frontend/5.11.3-amplify-success.png)
 
 At this juncture, when accessing the application's domain URL, the entire interface is protected by the authentication system. Users are required to log in or create an account via Cognito's auto-generated UI Form before they can access the primary Dashboard.
 
-![Cognito Login UI](/images/5-Workshop/5.11-frontend/5.11.3-login-ui.png)
+![Cognito Login UI](/images/5-Workshop/5.11-Frontend-deployment/5.11.3-connect-cognito-frontend/5.11.3-login-ui.png)
 
 ***
 

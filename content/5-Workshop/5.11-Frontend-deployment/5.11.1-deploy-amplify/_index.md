@@ -16,7 +16,7 @@ The deployment process commences with the establishment of a static Web App on t
 3. The system requires authorization to connect with the source code repository platform (Version Control System). The project team selects **GitHub** and clicks **Continue**.
 4. Perform the Authorization to grant AWS Amplify permission to read data from the respective GitHub account.
 
-![Amplify Connect GitHub](/images/5-Workshop/5.11-frontend/5.11.1-amplify-github.png)
+![Amplify Connect GitHub](/images/5-Workshop/5.11-Frontend-deployment/5.11.1-deploy-amplify/5.11.1-amplify-github.png)
 
 #### Step 2: Configure Build Settings
 Following a successful connection, AWS Amplify requires the specification of the particular repository and Branch that will serve as the data source.
@@ -36,7 +36,7 @@ Following a successful connection, AWS Amplify requires the specification of the
 - **Deploy:** Pushes the compiled static assets to AWS's underlying CDN system (CloudFront + S3).
 - **Verify:** Checks the operational status of the application.
 
-![Amplify Build Pipeline](/images/5-Workshop/5.11-frontend/5.11.1-amplify-pipeline.png)
+![Amplify Build Pipeline](/images/5-Workshop/5.11-Frontend-deployment/5.11.1-deploy-amplify/5.11.1-amplify-pipeline.png)
 
 When all 4 steps transition to green (Success), AWS Amplify provisions a default URL formatted as `https://[branch-name].[app-id].amplifyapp.com`. 
 

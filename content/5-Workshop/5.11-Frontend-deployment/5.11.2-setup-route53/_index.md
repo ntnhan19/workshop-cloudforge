@@ -26,7 +26,7 @@ The Amplify system automatically retrieves the list of existing Hosted Zones wit
    - Configure automatic Redirects from `www.cloudforge.com` to the root domain to ensure user access flows remain unfragmented.
 3. Click **Save** to persist the configuration.
 
-![Amplify Custom Domain](/images/5-Workshop/5.11-frontend/5.11.2-amplify-domain.png)
+![Amplify Custom Domain](/images/5-Workshop/5.11-Frontend-deployment/5.11.2-setup-route53/5.11.2-amplify-domain.png)
 
 #### Step 3: Automated SSL/TLS Verification (ACM)
 Distinct from traditional architectures demanding administrators to manually provision and configure security certificates, AWS Amplify handles this entire procedure completely autonomously.

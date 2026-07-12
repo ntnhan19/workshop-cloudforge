@@ -103,11 +103,11 @@ export default function App() {
 3. Nhìn lên góc phải trên cùng, nhấn chọn nút **Redeploy this version** để kích hoạt lại tiến trình CI/CD.
 4. Chờ đợi hệ thống hoàn tất cả 4 giai đoạn và chuyển trạng thái sang **Deployed** màu xanh.
 
-![Amplify Redeploy Success](/images/5-Workshop/5.11-frontend/5.11.3-amplify-success.png)
+![Amplify Redeploy Success](/images/5-Workshop/5.11-Frontend-deployment/5.11.3-connect-cognito-frontend/5.11.3-amplify-success.png)
 
 Lúc này, khi truy cập vào đường dẫn tên miền của ứng dụng, toàn bộ giao diện đã được bảo vệ bởi hệ thống xác thực. Người dùng bắt buộc phải đăng nhập hoặc tạo tài khoản thông qua Form UI tự động của Cognito trước khi có thể truy cập vào Dashboard chính.
 
-![Cognito Login UI](/images/5-Workshop/5.11-frontend/5.11.3-login-ui.png)
+![Cognito Login UI](/images/5-Workshop/5.11-Frontend-deployment/5.11.3-connect-cognito-frontend/5.11.3-login-ui.png)
 
 ***
 

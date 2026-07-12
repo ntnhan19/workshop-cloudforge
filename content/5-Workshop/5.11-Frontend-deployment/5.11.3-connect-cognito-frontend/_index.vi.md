@@ -14,7 +14,7 @@ Việc lưu trữ các thông số này trên AWS Amplify thay vì hard-code và
 Nhóm dự án tiến hành thu thập các giá trị thông số từ API Gateway và Amazon Cognito để khai báo vào Amplify.
 
 1. Truy cập ứng dụng trên bảng điều khiển **AWS Amplify**.
-2. Tại thanh điều hướng bên trái, dưới mục **App settings**, chọn **Environment variables**.
+2. Tại thanh điều hướng bên trái, dưới mục **Hosting**, chọn **Environment variables**.
 3. Nhấn **Manage variables** và thêm các khóa (Key) cốt lõi sau:
    - `VITE_API_ENDPOINT`: Đường dẫn DNS của Application Load Balancer cộng thêm hậu tố `/api/v1` (Ví dụ: `http://cloudforge-alb-123456.ap-southeast-1.elb.amazonaws.com/api/v1`).
    - `VITE_WS_URL`: Đường dẫn WebSocket Invoke URL của API Gateway (Ví dụ: `wss://xxxx.execute-api.ap-southeast-1.amazonaws.com/production`).

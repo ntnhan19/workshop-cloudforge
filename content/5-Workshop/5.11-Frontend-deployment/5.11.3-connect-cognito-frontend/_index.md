@@ -14,7 +14,7 @@ Storing these parameters in AWS Amplify instead of hard-coding them into the sou
 The project team proceeds to harvest the parameter values from API Gateway and Amazon Cognito to declare them within Amplify.
 
 1. Access the application on the **AWS Amplify** console.
-2. On the left navigation bar, under **App settings**, select **Environment variables**.
+2. On the left navigation bar, under **Hosting**, select **Environment variables**.
 3. Click **Manage variables** and add the following core keys:
    - `VITE_API_ENDPOINT`: The DNS Name of the Application Load Balancer appended with the `/api/v1` suffix (Example: `http://cloudforge-alb-123456.ap-southeast-1.elb.amazonaws.com/api/v1`).
    - `VITE_WS_URL`: The WebSocket Invoke URL of API Gateway (Example: `wss://xxxx.execute-api.ap-southeast-1.amazonaws.com/production`).

@@ -61,8 +61,38 @@ class PGVectorStore:
             return scenes
 ```
 
+#### Kịch bản Kiểm thử Vector Search (E2E)
+Để chứng minh Backend API đã kết nối thành công với pgvector và trả về kết quả tìm kiếm ngữ nghĩa, chúng ta sẽ thực thi một truy vấn mẫu thông qua cURL (hoặc PowerShell).
+
+Tại màn hình Terminal, chạy lệnh sau (thay thế `[ALB-DNS]` bằng DNS thật của bạn):
+```bash
+curl -X POST http://[ALB-DNS]/api/v1/search \
+  -H "Content-Type: application/json" \
+  -d '{"query": "cloud native", "top_k": 3}'
+```
+
+Kết quả trả về sẽ là danh sách các Scene (phân cảnh video) có nội dung sát nghĩa nhất với từ khóa "cloud native", kèm theo điểm số độ tin cậy (score):
+```json
+{
+  "query": "cloud native",
+  "total_results": 3,
+  "results": [
+    {
+      "asset_id": "848bd1b3-...",
+      "score": 0.82,
+      "scene": {
+        "scene_index": 2,
+        "transcript_snippet": "The video discusses Cloud Native solutions on AWS..."
+      }
+    }
+  ]
+}
+```
+
+![Search API Test](/images/5-Workshop/5.10-Semantic-search/5.10.2-vector-search-pgvector/search_api_test.png)
+
 {{% notice tip %}}
-**Tối ưu hóa hiệu suất (Performance Optimization):** Đối với các tập dữ liệu có quy mô lớn, việc quét toàn bộ bảng (Exact Nearest Neighbor Search) sẽ làm suy giảm hiệu suất nghiêm trọng. Nhóm dự án đã thiết lập chỉ mục **HNSW** (Hierarchical Navigable Small World) trên cột `embedding` ở Chương 5.4, giúp tăng tốc độ tìm kiếm (Approximate Nearest Neighbor) lên gấp nhiều lần với độ chính xác xấp xỉ hoàn hảo, đảm bảo độ trễ truy vấn (Latency) luôn ở mức thấp.
+**Tối ưu hóa Hiệu suất (Performance Optimization):** Đối với các tập dữ liệu có quy mô lớn, việc quét toàn bộ bảng (Exact Nearest Neighbor Search) sẽ làm suy giảm hiệu suất nghiêm trọng. Nhóm dự án đã thiết lập chỉ mục **HNSW** (Hierarchical Navigable Small World) trên cột `embedding` ở Chương 5.4, giúp tăng tốc độ tìm kiếm (Approximate Nearest Neighbor) lên gấp nhiều lần với độ chính xác xấp xỉ hoàn hảo, đảm bảo độ trễ truy vấn (Latency) luôn ở mức thấp.
 {{% /notice %}}
 
 ***

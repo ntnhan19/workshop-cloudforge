@@ -61,6 +61,36 @@ class PGVectorStore:
             return scenes
 ```
 
+#### Vector Search E2E Testing Scenario
+To prove that the Backend API has successfully integrated with pgvector and returns semantic search results, we will execute a sample query via cURL (or PowerShell).
+
+In your Terminal, run the following command (replace `[ALB-DNS]` with your actual ALB DNS):
+```bash
+curl -X POST http://[ALB-DNS]/api/v1/search \
+  -H "Content-Type: application/json" \
+  -d '{"query": "cloud native", "top_k": 3}'
+```
+
+The returned result will be a list of Scenes (video segments) most semantically similar to the keyword "cloud native", along with their confidence scores:
+```json
+{
+  "query": "cloud native",
+  "total_results": 3,
+  "results": [
+    {
+      "asset_id": "848bd1b3-...",
+      "score": 0.82,
+      "scene": {
+        "scene_index": 2,
+        "transcript_snippet": "The video discusses Cloud Native solutions on AWS..."
+      }
+    }
+  ]
+}
+```
+
+![Search API Test](/images/5-Workshop/5.10-Semantic-search/5.10.2-vector-search-pgvector/search_api_test.png)
+
 {{% notice tip %}}
 **Performance Optimization:** For large-scale datasets, performing a full table scan (Exact Nearest Neighbor Search) leads to severe performance degradation. The project team configured an **HNSW** (Hierarchical Navigable Small World) index on the `embedding` column during Chapter 5.4, substantially accelerating search speeds (Approximate Nearest Neighbor) with near-perfect accuracy, ensuring query latency remains consistently low.
 {{% /notice %}}

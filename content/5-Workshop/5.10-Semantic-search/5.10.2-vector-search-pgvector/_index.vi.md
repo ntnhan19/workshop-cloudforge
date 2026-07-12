@@ -71,21 +71,15 @@ curl -X POST http://[ALB-DNS]/api/v1/search \
   -d '{"query": "cloud native", "top_k": 3}'
 ```
 
-Kết quả trả về sẽ là danh sách các Scene (phân cảnh video) có nội dung sát nghĩa nhất với từ khóa "cloud native", kèm theo điểm số độ tin cậy (score):
+Kết quả trả về ở thời điểm hiện tại (khi chưa có video nào được xử lý xong) sẽ là một mảng rỗng. Điều này hoàn toàn bình thường, và nó chứng minh rằng API Search đã kết nối thành công tới Database để thực hiện truy vấn Vector mà không gặp lỗi:
 ```json
 {
-  "query": "cloud native",
-  "total_results": 3,
-  "results": [
-    {
-      "asset_id": "848bd1b3-...",
-      "score": 0.82,
-      "scene": {
-        "scene_index": 2,
-        "transcript_snippet": "The video discusses Cloud Native solutions on AWS..."
-      }
-    }
-  ]
+    "query":  "cloud native",
+    "total_results":  0,
+    "results":  [
+
+                ],
+    "processing_time_ms":  12.32
 }
 ```
 

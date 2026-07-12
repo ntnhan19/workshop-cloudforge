@@ -71,21 +71,15 @@ curl -X POST http://[ALB-DNS]/api/v1/search \
   -d '{"query": "cloud native", "top_k": 3}'
 ```
 
-The returned result will be a list of Scenes (video segments) most semantically similar to the keyword "cloud native", along with their confidence scores:
+The returned result at this stage (since no video has been fully processed yet) will be an empty array. This is perfectly normal and proves that the Search API has successfully connected to the Database to perform the Vector query without encountering any errors:
 ```json
 {
-  "query": "cloud native",
-  "total_results": 3,
-  "results": [
-    {
-      "asset_id": "848bd1b3-...",
-      "score": 0.82,
-      "scene": {
-        "scene_index": 2,
-        "transcript_snippet": "The video discusses Cloud Native solutions on AWS..."
-      }
-    }
-  ]
+    "query":  "cloud native",
+    "total_results":  0,
+    "results":  [
+
+                ],
+    "processing_time_ms":  12.32
 }
 ```
 

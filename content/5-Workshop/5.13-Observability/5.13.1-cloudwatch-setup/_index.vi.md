@@ -1,4 +1,4 @@
-﻿---
+---
 title : "Thiết lập Amazon CloudWatch"
 date : 2026-07-10
 weight : 1
@@ -21,8 +21,7 @@ Nhóm dự án tạo một Log Group chuyên biệt để phân loại và gom t
    - **Retention setting:** Chọn **14 days** (Thời gian lưu giữ log 2 tuần nhằm tối ưu hóa chi phí lưu trữ trên AWS, tránh để mặc định `Never expire` gây lãng phí ngân sách dự án).
 5. Bấm **Create** để hoàn tất.
 
-![Create Log Group](/images/5-Workshop/5.13-observability/5.13.1-create-log-group.png)
-*(Hướng dẫn chụp: Chụp lại màn hình danh sách Log groups hiển thị rõ bản ghi /ecs/cloudforge-backend với cột Retention tương ứng là 14 days).*
+![Create Log Group](/images/5-Workshop/5.13-Observability/5.13.1-cloudwatch-setup/5.13.1-create-log-group.png)
 
 #### Bước 2: Cập nhật ECS Task Definition sử dụng awslogs driver
 Để hệ thống máy chủ ECS biết được cần đẩy log về đâu, cấu hình log driver phải được tích hợp chặt chẽ bên trong bản thiết kế tác vụ (Task Definition).
@@ -42,8 +41,7 @@ Khối cấu hình `logConfiguration` được khai báo cụ thể trong địn
 
 Sau khi ứng dụng được cập nhật thông qua luồng CI/CD, mã nguồn Backend chạy trong container sẽ tự động chuyển hướng toàn bộ dữ liệu log ra ngoài. Khi truy cập vào Log Group `/ecs/cloudforge-backend`, quản trị viên có thể mở các **Log streams** để theo dõi toàn bộ tiến trình khởi chạy ứng dụng theo thời gian thực (Real-time).
 
-![CloudWatch Log Stream](/images/5-Workshop/5.13-observability/5.13.1-log-stream.png)
-*(Hướng dẫn chụp: Click chọn vào Log group /ecs/cloudforge-backend, chọn một log stream mới nhất và chụp lại màn hình hiển thị các dòng log chạy của ứng dụng như khởi chạy server, kết nối Database).*
+![CloudWatch Log Stream](/images/5-Workshop/5.13-Observability/5.13.1-cloudwatch-setup/5.13.1-log-stream.png)
 
 #### Bước 3: Thiết lập CloudWatch Alarm cảnh báo CPU
 Để chủ động xử lý các tình huống nghẽn mạng hoặc quá tải hệ thống trước khi dịch vụ rơi vào trạng thái sập (Crash), nhóm dự án thiết lập một hệ thống cảnh báo (Alarm) đo lường mức độ tiêu thụ CPU của ECS Service.
@@ -60,8 +58,7 @@ Sau khi ứng dụng được cập nhật thông qua luồng CI/CD, mã nguồn
 6. Bấm **Next**. Tại bước Configure actions, chọn gửi thông báo (Send notification) đến một Amazon SNS Topic chuyên trách (Ví dụ: `DevOps-Alerts`) để tự động chuyển tiếp email cảnh báo về hộp thư của đội ngũ vận hành.
 7. Đặt tên cho Alarm là `ECS-High-CPU-Alert` và nhấn **Create alarm**.
 
-![CloudWatch CPU Alarm](/images/5-Workshop/5.13-observability/5.13.1-cpu-alarm.png)
-*(Hướng dẫn chụp: Chụp lại giao diện bước thiết lập điều kiện của CloudWatch Alarm hiển thị biểu đồ đo lường đính kèm đường kẻ ngang đứt nét màu đỏ biểu thị ngưỡng quy chuẩn Threshold ở mức 80%).*
+![CloudWatch CPU Alarm](/images/5-Workshop/5.13-Observability/5.13.1-cloudwatch-setup/5.13.1-cpu-alarm.png)
 
 ***
 

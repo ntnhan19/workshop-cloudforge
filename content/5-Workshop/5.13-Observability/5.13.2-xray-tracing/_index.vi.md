@@ -48,7 +48,7 @@ Tại giao diện tạo Revision mới, giữ nguyên các cấu hình của Con
 **Log collection:**
 *   Đánh dấu chọn **Use log collection** để đẩy log của X-Ray Daemon lên CloudWatch, giúp dễ dàng debug nếu Daemon gặp lỗi khởi động.
 
-![X-Ray Log Collection](/images/5-Workshop/5.13-Observability/5.13.2-xray-tracing/xray_log_collection.png)
+![X-Ray Log Collection](/images/5-Workshop/5.13-Observability/5.13.2-xray-tracing/![alt text](image.png).png)
 
 Sau khi điền đủ thông tin, cuộn xuống cuối trang và bấm **Create**. ECS sẽ tạo ra một phiên bản Task Definition mới (chứa 2 containers). Tiếp theo, bạn chỉ việc cập nhật ECS Service để sử dụng Revision mới này.
 
@@ -97,15 +97,15 @@ class CustomXRayMiddleware:
 app.add_middleware(CustomXRayMiddleware)
 ```
 
-#### Bước 4: Quan sát Service Map và Trace
-Sau khi commit mã nguồn và để luồng CI/CD (GitHub Actions) tự động triển khai phiên bản mới lên ECS, hãy thử gửi vài Request từ trình duyệt/Postman vào API của hệ thống.
+#### Bước 4: Quan sát Trace Map và Trace details
+Sau khi cập nhật ECS Service thành công, hãy thử gửi vài Request (ví dụ gọi API `/health` hoặc API `/search`) thông qua Postman hoặc trình duyệt.
 
-Truy cập **AWS X-Ray Console** -> **Service map**. Bạn sẽ nhìn thấy một biểu đồ mạng lưới trực quan mô phỏng đường đi của dữ liệu (Client gọi vào Backend, Backend truy vấn vào PostgreSQL).
+Truy cập **AWS CloudWatch Console**, nhìn sang menu bên trái, dưới mục **Application Signals (APM)**, chọn **Trace Map** (hoặc Application Map). Bạn sẽ nhìn thấy một biểu đồ mạng lưới trực quan mô phỏng đường đi của dữ liệu (Client gọi vào Backend, Backend giao tiếp với Database).
 
-Chuyển sang tab **Traces**, quản trị viên có thể click vào từng Request cụ thể để xem biểu đồ Gantt phân tích chính xác thời gian thi hành của mỗi tác vụ con tính bằng mili-giây, giúp dễ dàng khoanh vùng các truy vấn SQL chậm hoặc các logic xử lý đang ngốn nhiều CPU.
+Tiếp tục chọn mục **Traces** ở menu trái, quản trị viên có thể click vào từng Request cụ thể để xem biểu đồ phân tích chính xác thời gian thi hành của mỗi tác vụ con tính bằng mili-giây, giúp dễ dàng khoanh vùng các truy vấn SQL chậm hoặc các logic xử lý đang ngốn nhiều tài nguyên.
 
-![AWS X-Ray Service Map](/images/5-Workshop/5.13-observability/5.13.2-xray-service-map.png)
-*(Hướng dẫn chụp: Chụp lại màn hình Service Map trên AWS Console hiển thị các node giao tiếp trực quan từ Client -> Backend -> Database).*
+![AWS X-Ray Service Map](/images/5-Workshop/5.13-Observability/5.13.2-xray-tracing/5.13.2-xray-service-map.png)
+*(Hướng dẫn chụp: Bạn hãy bấm vào menu **Trace Map** ở bên trái, chụp lại bản đồ mạng lưới các node và lưu tên file là `5.13.2-xray-service-map.png` nhé).*
 
 ***
 

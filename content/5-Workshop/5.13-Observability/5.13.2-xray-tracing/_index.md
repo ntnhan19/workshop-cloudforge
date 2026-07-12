@@ -97,15 +97,14 @@ class CustomXRayMiddleware:
 app.add_middleware(CustomXRayMiddleware)
 ```
 
-#### Step 4: Observe the Service Map and Traces
-Following a source code commit and allowing the CI/CD pipeline (GitHub Actions) to autonomously deploy the novel iteration to ECS, try dispatching several Requests from a browser/Postman to the system's API.
+#### Step 4: Observe the Trace Map and Trace details
+After the ECS Service has been successfully updated, try dispatching several Requests (for instance, invoking the `/health` or `/search` API) via Postman or a browser.
 
-Navigate to the **AWS X-Ray Console** -> **Service map**. You will observe an intuitive visual network graph simulating the data trajectory (Client invoking the Backend, Backend querying PostgreSQL).
+Navigate to the **AWS CloudWatch Console**, look at the left-hand menu under **Application Signals (APM)**, and select **Trace Map** (or Application Map). You will observe an intuitive visual network graph simulating the data trajectory (Client invoking the Backend, Backend communicating with the Database).
 
-Transition to the **Traces** tab; administrators can click on individual Requests to scrutinize a Gantt chart analyzing the precise execution duration of each sub-task measured in milliseconds. This facilitates effortless isolation of sluggish SQL queries or processing logic consuming excessive CPU.
+Proceed to select the **Traces** section in the left menu. Administrators can click on individual Requests to scrutinize an analytical chart detailing the precise execution duration of each sub-task measured in milliseconds. This facilitates effortless isolation of sluggish SQL queries or processing logic consuming excessive resources.
 
-![AWS X-Ray Service Map](/images/5-Workshop/5.13-observability/5.13.2-xray-service-map.png)
-*(Screenshot Guide: Capture the Service Map screen on the AWS Console displaying the visual communication nodes from Client -> Backend -> Database).*
+![AWS X-Ray Service Map](/images/5-Workshop/5.13-Observability/5.13.2-xray-tracing/5.13.2-xray-service-map.png)
 
 ***
 

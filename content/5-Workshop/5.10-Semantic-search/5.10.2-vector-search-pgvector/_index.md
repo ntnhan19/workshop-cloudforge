@@ -15,69 +15,50 @@ To measure the degree of similarity between the query and the Transcript segment
 #### SQL Query Structure
 The project team formulates an advanced SQL query on the Backend API to calculate and extract the highly correlated (Top-K) results.
 
-Below is the core Raw SQL command structure:
+Below is the equivalent SQL command structure behind the ORM:
 ```sql
 SELECT 
-    video_id, 
-    transcript_text, 
-    start_time, 
-    end_time,
-    (embedding <=> '[0.013, -0.024, ...]') AS cosine_distance
+    asset_id, 
+    transcript_snippet, 
+    timestamp_start_sec, 
+    timestamp_end_sec
 FROM 
-    video_transcripts
+    scenes
 ORDER BY 
-    cosine_distance ASC
+    embedding <=> '[0.013, -0.024, ...]' ASC
 LIMIT 5;
 ```
-*Technical note: The array `[0.013, -0.024, ...]` represents the Query Embeddings value returned from Amazon Bedrock. The `ORDER BY cosine_distance ASC` command ensures the most semantically adjacent results (smallest distance) are prioritized at the top.*
+*Technical note: The array `[0.013, -0.024, ...]` represents the Query Embeddings value returned from Amazon Bedrock. The `<=>` operator and `ORDER BY` command ensure the most semantically adjacent results (smallest distance) are prioritized at the top.*
 
 #### Backend Query Logic Implementation
-Within the Search Service (running on ECS Fargate), the aforementioned SQL command is encapsulated and executed via a database connection library. To adhere to security standards, Database credentials are dynamically retrieved from AWS Secrets Manager (configured in Chapter 5.4).
+Within the Search Service (running on ECS Fargate), the project team utilizes **SQLAlchemy** and the **pgvector-python** library (`pgvector.sqlalchemy`) to execute the query asynchronously and securely.
 
-Source code simulating the execution flow (`psycopg2` & `boto3`):
+Execution source code from `backend/core/embeddings/pgvector_store.py`:
 
 ```python
-import psycopg2
-import boto3
-import json
-import os
+from sqlalchemy.ext.asyncio import AsyncSession
+from sqlalchemy import select
+from pgvector.sqlalchemy import Vector
+from models.scene import Scene
+from database import SessionLocal
 
-def get_db_credentials():
-    # Securely retrieve DB credentials from Secrets Manager
-    client = boto3.client('secretsmanager', region_name='ap-southeast-1')
-    secret_name = os.environ.get('DB_SECRET_NAME', 'cloudforge-db-credentials')
-    response = client.get_secret_value(SecretId=secret_name)
-    return json.loads(response['SecretString'])
-
-def search_similar_transcripts(query_vector: list, limit: int = 5):
-    creds = get_db_credentials()
-    
-    # Initialize connection to RDS PostgreSQL in the Private Subnet
-    conn = psycopg2.connect(
-        host=creds['host'],
-        database=creds['dbname'],
-        user=creds['username'],
-        password=creds['password']
-    )
-    cursor = conn.cursor()
-    
-    # Convert the vector list into pgvector's standard string format
-    vector_str = '[' + ','.join(map(str, query_vector)) + ']'
-    
-    # Execute the Cosine Distance calculation query
-    query = """
-        SELECT video_id, transcript_text, start_time 
-        FROM video_transcripts 
-        ORDER BY embedding <=> %s ASC 
-        LIMIT %s;
-    """
-    cursor.execute(query, (vector_str, limit))
-    results = cursor.fetchall()
-    
-    cursor.close()
-    conn.close()
-    
-    return results
+class PGVectorStore:
+    # ...
+    async def search(self, query_embedding: list[float], n_results: int = 10):
+        """
+        Execute Vector Similarity Search using Cosine Distance (<=>).
+        """
+        async with SessionLocal() as db:
+            # Query the scenes table, order by cosine distance
+            stmt = select(Scene).order_by(
+                Scene.embedding.cosine_distance(query_embedding)
+            ).limit(n_results)
+            
+            result = await db.execute(stmt)
+            scenes = result.scalars().all()
+            
+            # Map ORM objects to response dictionary...
+            return scenes
 ```
 
 {{% notice tip %}}

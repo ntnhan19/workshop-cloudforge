@@ -15,69 +15,50 @@ Dự án sử dụng extension `pgvector` đã được kích hoạt trên Postg
 #### Cấu trúc truy vấn SQL (SQL Query Structure)
 Nhóm dự án thiết lập truy vấn SQL nâng cao trên Backend API để tính toán và trích xuất các kết quả (Top-K) có độ tương đồng cao nhất.
 
-Dưới đây là cấu trúc lệnh SQL thô (Raw SQL) cốt lõi:
+Dưới đây là cấu trúc lệnh SQL tương đương đằng sau ORM:
 ```sql
 SELECT 
-    video_id, 
-    transcript_text, 
-    start_time, 
-    end_time,
-    (embedding <=> '[0.013, -0.024, ...]') AS cosine_distance
+    asset_id, 
+    transcript_snippet, 
+    timestamp_start_sec, 
+    timestamp_end_sec
 FROM 
-    video_transcripts
+    scenes
 ORDER BY 
-    cosine_distance ASC
+    embedding <=> '[0.013, -0.024, ...]' ASC
 LIMIT 5;
 ```
-*Ghi chú kỹ thuật: Mảng `[0.013, -0.024, ...]` là giá trị Query Embeddings được trả về từ Amazon Bedrock. Lệnh `ORDER BY cosine_distance ASC` đảm bảo các kết quả gần gũi nhất về mặt ngữ nghĩa (khoảng cách nhỏ nhất) sẽ được xếp lên đầu.*
+*Ghi chú kỹ thuật: Mảng `[0.013, -0.024, ...]` là giá trị Query Embeddings được trả về từ Amazon Bedrock. Toán tử `<=>` và lệnh `ORDER BY` đảm bảo các kết quả gần gũi nhất về mặt ngữ nghĩa (khoảng cách nhỏ nhất) sẽ được xếp lên đầu.*
 
 #### Triển khai Logic Truy vấn trên Backend
-Tại Search Service (chạy trên ECS Fargate), đoạn lệnh SQL trên được đóng gói và thực thi thông qua thư viện kết nối cơ sở dữ liệu. Để đảm bảo chuẩn bảo mật, thông tin xác thực Database được truy xuất động từ AWS Secrets Manager (đã thiết lập ở Chương 5.5.2).
+Tại Search Service (chạy trên ECS Fargate), nhóm dự án sử dụng **SQLAlchemy** và thư viện **pgvector-python** (`pgvector.sqlalchemy`) để thực thi câu truy vấn một cách bất đồng bộ và an toàn.
 
-Mã nguồn mô phỏng luồng thực thi (`psycopg2` & `boto3`):
+Mã nguồn thực thi từ file `backend/core/embeddings/pgvector_store.py`:
 
 ```python
-import psycopg2
-import boto3
-import json
-import os
+from sqlalchemy.ext.asyncio import AsyncSession
+from sqlalchemy import select
+from pgvector.sqlalchemy import Vector
+from models.scene import Scene
+from database import SessionLocal
 
-def get_db_credentials():
-    # Lấy thông tin đăng nhập DB an toàn từ Secrets Manager
-    client = boto3.client('secretsmanager', region_name='ap-southeast-1')
-    secret_name = os.environ.get('DB_SECRET_NAME', 'cloudforge-db-credentials')
-    response = client.get_secret_value(SecretId=secret_name)
-    return json.loads(response['SecretString'])
-
-def search_similar_transcripts(query_vector: list, limit: int = 5):
-    creds = get_db_credentials()
-    
-    # Khởi tạo kết nối tới RDS PostgreSQL trong Private Subnet
-    conn = psycopg2.connect(
-        host=creds['host'],
-        database=creds['dbname'],
-        user=creds['username'],
-        password=creds['password']
-    )
-    cursor = conn.cursor()
-    
-    # Chuyển đổi list vector thành định dạng string chuẩn của pgvector
-    vector_str = '[' + ','.join(map(str, query_vector)) + ']'
-    
-    # Thực thi truy vấn tính toán Cosine Distance
-    query = """
-        SELECT video_id, transcript_text, start_time 
-        FROM video_transcripts 
-        ORDER BY embedding <=> %s ASC 
-        LIMIT %s;
-    """
-    cursor.execute(query, (vector_str, limit))
-    results = cursor.fetchall()
-    
-    cursor.close()
-    conn.close()
-    
-    return results
+class PGVectorStore:
+    # ...
+    async def search(self, query_embedding: list[float], n_results: int = 10):
+        """
+        Thực thi Vector Similarity Search sử dụng Cosine Distance (<=>).
+        """
+        async with SessionLocal() as db:
+            # Query the scenes table, order by cosine distance
+            stmt = select(Scene).order_by(
+                Scene.embedding.cosine_distance(query_embedding)
+            ).limit(n_results)
+            
+            result = await db.execute(stmt)
+            scenes = result.scalars().all()
+            
+            # Map ORM objects to response dictionary...
+            return scenes
 ```
 
 {{% notice tip %}}

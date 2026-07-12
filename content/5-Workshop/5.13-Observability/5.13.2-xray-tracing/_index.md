@@ -21,27 +21,36 @@ For the containers within the ECS Task to legitimately transmit trace data back 
 4. Search for and check the **`AWSXRayDaemonWriteAccess`** policy.
 5. Click **Add permissions**.
 
+![IAM Task Role](/images/5-Workshop/5.13-Observability/5.13.2-xray-tracing/iam_task_role.png)
+
 #### Step 2: Incorporate the X-Ray Daemon Sidecar into Task Definition
 On the ECS Fargate environment, the industry-standard methodology for running X-Ray is the **Sidecar** pattern: Executing a secondary container (Daemon) concurrently with the primary container (Backend) within the same Task. This Daemon will listen for, harvest Trace data packets from the application, and propel them to AWS via the UDP protocol.
 
-Access the **Amazon ECS Console** -> **Task Definitions**, opt to create a new revision, and append a secondary container definition block:
+Access the **Amazon ECS Console** -> **Task Definitions**, select the Task Definition of your Backend API, and click **Create new revision** -> **Create new revision**.
 
-```json
-{
-    "name": "xray-daemon",
-    "image": "public.ecr.aws/xray/aws-xray-daemon:latest",
-    "cpu": 32,
-    "memoryReservation": 256,
-    "portMappings": [
-        {
-            "containerPort": 2000,
-            "protocol": "udp"
-        }
-    ]
-}
-```
+In the new Revision creation interface, retain the configurations for Container 1 (Backend API) and Task size. Scroll down and click **Add more containers** to add the secondary container with the following parameters:
 
-*Note: Opening UDP port 2000 is mandatory to permit the Backend container to communicate internally with the X-Ray Daemon Container.*
+*   **Name**: `xray-daemon`
+*   **Image URI**: `public.ecr.aws/xray/aws-xray-daemon:latest`
+*   **Essential container**: Yes
+
+![X-Ray Container Setup](/images/5-Workshop/5.13-Observability/5.13.2-xray-tracing/xray_container_setup.png)
+
+**Port mappings:**
+*   **Container port**: `2000`
+*   **Protocol**: `UDP` *(Choosing UDP is mandatory to permit the Backend container to communicate internally with the X-Ray Daemon)*.
+
+**Resource allocation limits:**
+*   **Memory hard limit**: `256` *(Allocate 256 MB RAM for the Daemon to operate)*.
+
+![X-Ray Port & Resource Setup](/images/5-Workshop/5.13-Observability/5.13.2-xray-tracing/xray_port_resource.png)
+
+**Log collection:**
+*   Check **Use log collection** to push the X-Ray Daemon logs to CloudWatch, simplifying debugging if the Daemon encounters startup issues.
+
+![X-Ray Log Collection](/images/5-Workshop/5.13-Observability/5.13.2-xray-tracing/xray_log_collection.png)
+
+Once all information is filled out, scroll to the bottom of the page and click **Create**. ECS will generate a new Task Definition revision (containing 2 containers). Next, simply update your ECS Service to deploy this new Revision.
 
 #### Step 3: Integrate X-Ray SDK into Application Source Code (FastAPI)
 Once the infrastructure is primed to receive data, the concluding step is to declare the library within the Backend source code (Python/FastAPI) to enable the system to autonomously generate Trace packets for every Request.

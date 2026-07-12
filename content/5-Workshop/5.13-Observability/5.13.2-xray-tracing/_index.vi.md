@@ -21,27 +21,36 @@ Bài viết này hướng dẫn cách cấu hình chạy X-Ray Daemon theo mô h
 4. Tìm kiếm và tick chọn chính sách **`AWSXRayDaemonWriteAccess`**.
 5. Bấm **Add permissions**.
 
+![IAM Task Role](/images/5-Workshop/5.13-Observability/5.13.2-xray-tracing/iam_task_role.png)
+
 #### Bước 2: Thêm X-Ray Daemon Sidecar vào Task Definition
 Trên môi trường ECS Fargate, phương pháp chuẩn nhất để chạy X-Ray là mô hình **Sidecar**: Chạy một container phụ (Daemon) song song với container chính (Backend) bên trong cùng một Task. Daemon này sẽ lắng nghe, thu thập các gói dữ liệu Trace từ ứng dụng và đẩy lên AWS thông qua giao thức UDP.
 
-Truy cập **Amazon ECS Console** -> **Task Definitions**, chọn tạo một bản cập nhật mới (Create new revision) và thêm khối định nghĩa container thứ hai:
+Truy cập **Amazon ECS Console** -> **Task Definitions**, chọn Task Definition của Backend API và bấm **Create new revision** -> **Create new revision**.
 
-```json
-{
-    "name": "xray-daemon",
-    "image": "public.ecr.aws/xray/aws-xray-daemon:latest",
-    "cpu": 32,
-    "memoryReservation": 256,
-    "portMappings": [
-        {
-            "containerPort": 2000,
-            "protocol": "udp"
-        }
-    ]
-}
-```
+Tại giao diện tạo Revision mới, giữ nguyên các cấu hình của Container 1 (Backend API) và Task size. Kéo xuống dưới, bấm **Add more containers** để thêm container thứ hai với các thông số sau:
 
-*Lưu ý: Bắt buộc mở cổng UDP 2000 để container Backend có thể giao tiếp nội bộ với X-Ray Daemon Container.*
+*   **Name**: `xray-daemon`
+*   **Image URI**: `public.ecr.aws/xray/aws-xray-daemon:latest`
+*   **Essential container**: Yes
+
+![X-Ray Container Setup](/images/5-Workshop/5.13-Observability/5.13.2-xray-tracing/xray_container_setup.png)
+
+**Port mappings:**
+*   **Container port**: `2000`
+*   **Protocol**: `UDP` *(Bắt buộc chọn UDP để container Backend có thể giao tiếp nội bộ với X-Ray Daemon)*.
+
+**Resource allocation limits:**
+*   **Memory hard limit**: `256` *(Cấp 256 MB RAM cho Daemon hoạt động)*.
+
+![X-Ray Port & Resource Setup](/images/5-Workshop/5.13-Observability/5.13.2-xray-tracing/xray_port_resource.png)
+
+**Log collection:**
+*   Đánh dấu chọn **Use log collection** để đẩy log của X-Ray Daemon lên CloudWatch, giúp dễ dàng debug nếu Daemon gặp lỗi khởi động.
+
+![X-Ray Log Collection](/images/5-Workshop/5.13-Observability/5.13.2-xray-tracing/xray_log_collection.png)
+
+Sau khi điền đủ thông tin, cuộn xuống cuối trang và bấm **Create**. ECS sẽ tạo ra một phiên bản Task Definition mới (chứa 2 containers). Tiếp theo, bạn chỉ việc cập nhật ECS Service để sử dụng Revision mới này.
 
 #### Bước 3: Tích hợp X-Ray SDK vào Mã nguồn ứng dụng (FastAPI)
 Sau khi hạ tầng đã sẵn sàng đón nhận dữ liệu, bước cuối cùng là khai báo thư viện trong mã nguồn Backend (Python/FastAPI) để hệ thống tự động sinh ra các gói Trace cho mọi Request.

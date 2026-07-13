@@ -1,115 +1,108 @@
 ---
 title: "Proposal"
-date: 2026-01-01
+date: 2026-04-17
 weight: 2
 chapter: false
 pre: " <b> 2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
 
-In this section, you need to summarize the contents of the workshop that you **plan** to conduct.
-
-# IoT Weather Platform for Lab Research
-## A Unified AWS Serverless Solution for Real-Time Weather Monitoring
+# Smart Media Analytics
+## Building an AI-powered Video Analysis (Semantic Search System)
 
 ### 1. Executive Summary
-The IoT Weather Platform is designed for the ITea Lab team in Ho Chi Minh City to enhance weather data collection and analysis. It supports up to 5 weather stations, with potential scalability to 10-15, utilizing Raspberry Pi edge devices with ESP32 sensors to transmit data via MQTT. The platform leverages AWS Serverless services to deliver real-time monitoring, predictive analytics, and cost efficiency, with access restricted to 5 lab members via Amazon Cognito.
+Smart Media Analytics (SMA) is a local-first media management and search system designed for video editors, designers, and research teams needing rapid retrieval of media content. The system automates media ingestion, scene splitting, transcription, and AI-powered contextual description, enabling natural language search.
+Initially, SMA runs entirely on local machines (via Docker) to ensure privacy and cut experimental costs. For production scaling, it offers a seamless upgrade path to AWS (S3, Bedrock, RDS).
 
 ### 2. Problem Statement
-### What’s the Problem?
-Current weather stations require manual data collection, becoming unmanageable with multiple units. There is no centralized system for real-time data or analytics, and third-party platforms are costly and overly complex.
+**What’s the Problem?**
+Current media libraries are scattered, and meaningless file names make manual scene searching incredibly time-consuming. Relying directly on cloud AI services for the entire pipeline from day one incurs high costs and potential data privacy risks.
 
-### The Solution
-The platform uses AWS IoT Core to ingest MQTT data, AWS Lambda and API Gateway for processing, Amazon S3 for storage (including a data lake), and AWS Glue Crawlers and ETL jobs to extract, transform, and load data from the S3 data lake to another S3 bucket for analysis. AWS Amplify with Next.js provides the web interface, and Amazon Cognito ensures secure access. Similar to Thingsboard and CoreIoT, users can register new devices and manage connections, though this platform operates on a smaller scale and is designed for private use. Key features include real-time dashboards, trend analysis, and low operational costs.
+**The Solution**
+SMA addresses this with an automated pipeline utilizing a React dashboard, FastAPI, ChromaDB, PostgreSQL, MinIO, and local AI models (Ollama, faster-whisper). Users simply type "beach sunset" to jump exactly to the desired video timestamp. When scaling to production, it seamlessly transitions to AWS services like Amazon S3, AWS Bedrock, Amazon Transcribe, and Amazon RDS PostgreSQL, managed and deployed via AWS Amplify and orchestrated by Step Functions and ECS Fargate.
 
-### Benefits and Return on Investment
-The solution establishes a foundational resource for lab members to develop a larger IoT platform, serving as a study resource, and provides a data foundation for AI enthusiasts for model training or analysis. It reduces manual reporting for each station via a centralized platform, simplifying management and maintenance, and improves data reliability. Monthly costs are $0.66 USD per the AWS Pricing Calculator, with a 12-month total of $7.92 USD. All IoT equipment costs are covered by the existing weather station setup, eliminating additional development expenses. The break-even period of 6-12 months is achieved through significant time savings from reduced manual work.
+**Benefits and Return on Investment**
+The solution significantly shortens the time required to search for footage, read transcripts, and identify needed scenes, boosting the creative team's efficiency. Users can query in natural language and get precise timestamps instead of manually reviewing files. The initial local-first approach saves cloud AI costs during development, while the clear AWS migration path ensures long-term scalability.
 
 ### 3. Solution Architecture
-The platform employs a serverless AWS architecture to manage data from 5 Raspberry Pi-based stations, scalable to 15. Data is ingested via AWS IoT Core, stored in an S3 data lake, and processed by AWS Glue Crawlers and ETL jobs to transform and load it into another S3 bucket for analysis. Lambda and API Gateway handle additional processing, while Amplify with Next.js hosts the dashboard, secured by Cognito. The architecture is detailed below:
+The platform employs a hybrid local-to-cloud approach. In the local phase, the media ingest workflow runs in Docker Compose. When deployed to AWS, the architecture uses a serverless and managed services model. 
 
-![IoT Weather Station Architecture](/images/2-Proposal/edge_architecture.jpeg)
+![SMA Architecture](/images/2-Proposal/SMA_architecture.png)
 
-![IoT Weather Platform Architecture](/images/2-Proposal/platform_architecture.jpeg)
+**AWS Services Used**
+- **1. Networking & Routing:** Amazon Route 53, AWS Amplify, Amazon API Gateway, AWS ALB (Application Load Balancer), Amazon VPC (including Internet Gateway, NAT Gateway, and S3 Gateway Endpoint).
+- **2. Compute & CI/CD:** Amazon ECS on Fargate (Divided into 2 services: Backend and AI Worker), Amazon ECR (Elastic Container Registry).
+- **3. Storage & Database:** Amazon S3, Amazon RDS (PostgreSQL), Amazon ElastiCache (Redis).
+- **4. AI & ML:** Amazon Bedrock (Nova Lite & Titan Embeddings), Amazon Transcribe.
+- **5. Orchestration & Events:** Amazon SQS, Amazon EventBridge, AWS Step Functions.
+- **6. Security & Observability:** Amazon Cognito, AWS Secrets Manager, Amazon CloudWatch, AWS X-Ray.
 
-### AWS Services Used
-- **AWS IoT Core**: Ingests MQTT data from 5 stations, scalable to 15.
-- **AWS Lambda**: Processes data and triggers Glue jobs (two functions).
-- **Amazon API Gateway**: Facilitates web app communication.
-- **Amazon S3**: Stores raw data in a data lake and processed outputs (two buckets).
-- **AWS Glue**: Crawlers catalog data, and ETL jobs transform and load it.
-- **AWS Amplify**: Hosts the Next.js web interface.
-- **Amazon Cognito**: Secures access for lab users.
-
-### Component Design
-- **Edge Devices**: Raspberry Pi collects and filters sensor data, sending it to IoT Core.
-- **Data Ingestion**: AWS IoT Core receives MQTT messages from the edge devices.
-- **Data Storage**: Raw data is stored in an S3 data lake; processed data is stored in another S3 bucket.
-- **Data Processing**: AWS Glue Crawlers catalog the data, and ETL jobs transform it for analysis.
-- **Web Interface**: AWS Amplify hosts a Next.js app for real-time dashboards and analytics.
-- **User Management**: Amazon Cognito manages user access, allowing up to 5 active accounts.
+**Component Design**
+- **Frontend Layer:** React app managed and distributed by AWS Amplify with Route 53, authenticated via Cognito.
+- **API & Routing Layer:** API Gateway or ALB routes traffic to the Backend running on Amazon ECS Fargate.
+- **Processing & AI Layer:** Step Functions coordinates AI Worker (ECS Fargate) tasks for video processing, followed by Bedrock (Nova Lite & Titan) & Transcribe for AI extraction.
+- **Data Layer:** Metadata is persisted in RDS PostgreSQL, cached in ElastiCache. Secured within a VPC with a NAT Gateway and S3 Gateway Endpoint.
 
 ### 4. Technical Implementation
 **Implementation Phases**
-This project has two parts—setting up weather edge stations and building the weather platform—each following 4 phases:
-- Build Theory and Draw Architecture: Research Raspberry Pi setup with ESP32 sensors and design the AWS serverless architecture (1 month pre-internship)
-- Calculate Price and Check Practicality: Use AWS Pricing Calculator to estimate costs and adjust if needed (Month 1).
-- Fix Architecture for Cost or Solution Fit: Tweak the design (e.g., optimize Lambda with Next.js) to stay cost-effective and usable (Month 2).
-- Develop, Test, and Deploy: Code the Raspberry Pi setup, AWS services with CDK/SDK, and Next.js app, then test and release to production (Months 2-3).
+1. **Architectural Research:** Design the local architecture and map the data flow to the AWS services list (1 month pre-internship).
+2. **Local-first Build:** Develop and refine the core logic locally using Docker Compose, integrating Ollama and faster-whisper (Month 1).
+3. **AWS Cloud-ready Integration:** Incrementally replace local containers with AWS managed services like ECS Fargate, Bedrock, and RDS (Month 2).
+4. **Develop, Test, and Deploy:** Finalize the cloud infrastructure using CI/CD, set up CloudWatch monitoring, and release to production (Month 3).
 
 **Technical Requirements**
-- Weather Edge Station: Sensors (temperature, humidity, rainfall, wind speed), a microcontroller (ESP32), and a Raspberry Pi as the edge device. Raspberry Pi runs Raspbian, handles Docker for filtering, and sends 1 MB/day per station via MQTT over Wi-Fi.
-- Weather Platform: Practical knowledge of AWS Amplify (hosting Next.js), Lambda (minimal use due to Next.js), AWS Glue (ETL), S3 (two buckets), IoT Core (gateway and rules), and Cognito (5 users). Use AWS CDK/SDK to code interactions (e.g., IoT Core rules to S3). Next.js reduces Lambda workload for the fullstack web app.
+- **Media Processing:** Containerized processing tasks utilizing FFMPEG for scene splitting.
+- **Cloud Infrastructure:** Practical knowledge of AWS Amplify, ECS Fargate, Step Functions, Bedrock, and RDS. Use AWS SDK to code interactions (e.g., S3 uploads, Bedrock invocations).
 
 ### 5. Timeline & Milestones
 **Project Timeline**
-- Pre-Internship (Month 0): 1 month for planning and old station review.
-- Internship (Months 1-3): 3 months.
-    - Month 1: Study AWS and upgrade hardware.
-    - Month 2: Design and adjust architecture.
-    - Month 3: Implement, test, and launch.
-- Post-Launch: Up to 1 year for research.
+- **Pre-Internship (Month 0):** 1 month for planning and architectural research.
+- **Internship (Months 1-3):** 3 months.
+  - **Month 1:** Build the local-first pipeline and test local AI models.
+  - **Month 2:** Design and adapt the architecture for AWS, setting up core services (S3, RDS, ECS).
+  - **Month 3:** Implement Step Functions orchestration, test full flow, and launch.
+- **Post-Launch:** Up to 1 year for further model tuning and scaling.
 
 ### 6. Budget Estimation
-You can find the budget estimation on the [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=621f38b12a1ef026842ba2ddfe46ff936ed4ab01).  
-Or you can download the [Budget Estimation File](../attachments/budget_estimation.pdf).
+Deploying this comprehensive production architecture with over 20 AWS services, the budget for a small-scale or lab environment is estimated as follows:
 
-### Infrastructure Costs
-- AWS Services:
-    - AWS Lambda: $0.00/month (1,000 requests, 512 MB storage).
-    - S3 Standard: $0.15/month (6 GB, 2,100 requests, 1 GB scanned).
-    - Data Transfer: $0.02/month (1 GB inbound, 1 GB outbound).
-    - AWS Amplify: $0.35/month (256 MB, 500 ms requests).
-    - Amazon API Gateway: $0.01/month (2,000 requests).
-    - AWS Glue ETL Jobs: $0.02/month (2 DPUs).
-    - AWS Glue Crawlers: $0.07/month (1 crawler).
-    - MQTT (IoT Core): $0.08/month (5 devices, 45,000 messages).
-
-Total: $0.7/month, $8.40/12 months
-
-- Hardware: $265 one-time (Raspberry Pi 5 and sensors).
+| AWS Service | Use Case | Estimated Cost/Month (USD) |
+| --- | --- | --- |
+| **Amazon RDS (PostgreSQL)** | Primary Database (Multi-AZ, `db.t4g.medium`, 20GB) | $68.00 |
+| **AWS NAT Gateway** | Allows Private Subnet internet access (1 NAT, 24/7) | $32.40 |
+| **Amazon ElastiCache** | Cache (Multi-AZ, `cache.t4g.micro`, 2 nodes) | $32.00 |
+| **Amazon ECS (Fargate)** | Auto Scaling Task for Video Processing (~1 vCPU, 2GB RAM) | $15.00 |
+| **Amazon Bedrock & Transcribe** | AI, Speech-to-Text, Embeddings (Base estimate) | $15.00 |
+| **AWS ALB** | Application Load Balancer routing to ECS Backend | $16.00 |
+| **Amazon CloudWatch & X-Ray** | Logs, Metrics, Alarms, Distributed Tracing | $5.00 |
+| **Amazon S3** | Media & Keyframe Storage (Est. ~50GB) | $2.00 |
+| **AWS Secrets Manager** | Keys & Credentials Management (5 secrets) | $2.00 |
+| **Amazon API Gateway** | REST API & WSS Push (Request-based) | $1.00 |
+| **AWS Amplify** | Hosting & CDN for Frontend | $1.00 |
+| **Amazon SQS, EventBridge, Step Functions** | Workflow Orchestration, Event Bus, Queues | $1.00 |
+| **Amazon Route 53** | DNS Management (1 Hosted Zone) | $0.50 |
+| **Amazon Cognito** | User Authentication (JWT) | $0.00 (Free Tier) |
+| **Estimated Total** | **Entire System** | **~$181.90** |
 
 ### 7. Risk Assessment
-#### Risk Matrix
-- Network Outages: Medium impact, medium probability.
-- Sensor Failures: High impact, low probability.
-- Cost Overruns: Medium impact, low probability.
+**Risk Matrix**
+- **Large Media Volumes:** High impact, medium probability.
+- **Local AI Inference Speed:** Medium impact, high probability.
+- **Cloud Scaling Costs:** High impact, low to medium probability.
 
-#### Mitigation Strategies
-- Network: Local storage on Raspberry Pi with Docker.
-- Sensors: Regular checks and spares.
-- Cost: AWS budget alerts and optimization.
+**Mitigation Strategies**
+- **Media Volumes:** Limit batch ingests, optimize FFMPEG processing.
+- **AI Inference:** Cache results aggressively, move to AWS Bedrock if local models are too slow.
+- **Costs:** Use AWS budget alerts and monitor resource utilization closely.
 
-#### Contingency Plans
-- Revert to manual methods if AWS fails.
-- Use CloudFormation for cost-related rollbacks.
+**Contingency Plans**
+- If local vector search is a bottleneck, migrate to OpenSearch Serverless earlier than planned.
+- Retain basic metadata even if full media processing fails, avoiding total library loss.
 
 ### 8. Expected Outcomes
-#### Technical Improvements: 
-Real-time data and analytics replace manual processes.  
-Scalable to 10-15 stations.
-#### Long-term Value
-1-year data foundation for AI research.  
-Reusable for future projects.
+**Technical Improvements:**
+- SMA enables users to ingest media, automatically generate semantic indices, search via natural language, and jump directly to the exact video timestamp.
+- Replaces manual tagging and searching with an automated AI pipeline.
+
+**Long-term Value:**
+- Serves as a highly efficient Media Intelligence system for creative teams.
+- The local-first architecture ensures quick development, while AWS mapping provides a clear upgrade path to production infrastructure.

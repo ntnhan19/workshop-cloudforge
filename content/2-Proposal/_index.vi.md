@@ -1,108 +1,106 @@
 ---
 title: "Bản đề xuất"
-date: 2024-01-01
+date: 2026-04-17
 weight: 2
 chapter: false
 pre: " <b> 2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
-Tại phần này, bạn cần tóm tắt các nội dung trong workshop mà bạn **dự tính** sẽ làm.
+# Smart Media Analytics
+## Xây dựng hệ thống phân tích và tìm kiếm video bằng AI (Video Semantic Search)
 
-# IoT Weather Platform for Lab Research  
-## Giải pháp AWS Serverless hợp nhất cho giám sát thời tiết thời gian thực  
+### 1. Tổng quan dự án
+Smart Media Analytics (SMA) là hệ thống local-first tự động nạp, tách cảnh, phiên âm và tìm kiếm ngữ nghĩa media. Người dùng chỉ cần gõ yêu cầu tự nhiên (VD: "hoàng hôn trên biển") để tìm đúng timestamp video, tiết kiệm thời gian xem thủ công.
+Ban đầu, hệ thống chạy 100% nội bộ qua Docker giúp bảo mật và tối ưu chi phí thử nghiệm, sau đó có thể dễ dàng nâng cấp cấu trúc tương ứng lên AWS (S3, Bedrock, RDS) khi cần.
 
-### 1. Tóm tắt điều hành  
-IoT Weather Platform được thiết kế dành cho nhóm *ITea Lab* tại TP. Hồ Chí Minh nhằm nâng cao khả năng thu thập và phân tích dữ liệu thời tiết. Nền tảng hỗ trợ tối đa 5 trạm thời tiết, có khả năng mở rộng lên 10–15 trạm, sử dụng thiết bị biên Raspberry Pi kết hợp cảm biến ESP32 để truyền dữ liệu qua MQTT. Nền tảng tận dụng các dịch vụ AWS Serverless để cung cấp giám sát thời gian thực, phân tích dự đoán và tiết kiệm chi phí, với quyền truy cập giới hạn cho 5 thành viên phòng lab thông qua Amazon Cognito.  
+### 2. Vấn đề cần giải quyết
+**Vấn đề hiện tại**
+Thư viện media phân tán, tên file vô nghĩa khiến việc tìm cảnh quay thủ công tốn rất nhiều thời gian. Nếu xử lý toàn bộ qua AI Cloud ngay từ đầu sẽ tốn kém và có nguy cơ rò rỉ dữ liệu.
 
-### 2. Tuyên bố vấn đề  
-*Vấn đề hiện tại*  
-Các trạm thời tiết hiện tại yêu cầu thu thập dữ liệu thủ công, khó quản lý khi có nhiều trạm. Không có hệ thống tập trung cho dữ liệu hoặc phân tích thời gian thực, và các nền tảng bên thứ ba thường tốn kém và quá phức tạp.  
+**Giải pháp**
+SMA giải quyết bài toán này bằng một pipeline xử lý media tự động. Hệ thống sử dụng React dashboard để duyệt asset, FastAPI, ChromaDB, PostgreSQL, MinIO, cùng các mô hình AI nội bộ (Ollama, faster-whisper). Khi triển khai trên AWS, các thành phần này được ánh xạ sang kiến trúc production sử dụng Amazon S3, AWS Bedrock, Amazon Transcribe, Amazon RDS PostgreSQL, điều phối bởi Step Functions và ECS Fargate, và quản lý Frontend qua AWS Amplify.
 
-*Giải pháp*  
-Nền tảng sử dụng AWS IoT Core để tiếp nhận dữ liệu MQTT, AWS Lambda và API Gateway để xử lý, Amazon S3 để lưu trữ (bao gồm data lake), và AWS Glue Crawlers cùng các tác vụ ETL để trích xuất, chuyển đổi, tải dữ liệu từ S3 data lake sang một S3 bucket khác để phân tích. AWS Amplify với Next.js cung cấp giao diện web, và Amazon Cognito đảm bảo quyền truy cập an toàn. Tương tự như Thingsboard và CoreIoT, người dùng có thể đăng ký thiết bị mới và quản lý kết nối, nhưng nền tảng này hoạt động ở quy mô nhỏ hơn và phục vụ mục đích sử dụng nội bộ. Các tính năng chính bao gồm bảng điều khiển thời gian thực, phân tích xu hướng và chi phí vận hành thấp.  
+**Lợi ích và ROI**
+Giải pháp giúp rút ngắn đáng kể thời gian tìm kiếm footage, đọc transcript và xác định cảnh cần dùng. Người dùng có thể nhập truy vấn tự nhiên và nhận kết quả đúng đoạn video thay vì phải xem thủ công toàn bộ file. Kiến trúc local-first giúp tiết kiệm chi phí ban đầu, trong khi bản đồ lên AWS đảm bảo khả năng mở rộng lâu dài.
 
-*Lợi ích và hoàn vốn đầu tư (ROI)*  
-Giải pháp tạo nền tảng cơ bản để các thành viên phòng lab phát triển một nền tảng IoT lớn hơn, đồng thời cung cấp nguồn dữ liệu cho những người nghiên cứu AI phục vụ huấn luyện mô hình hoặc phân tích. Nền tảng giảm bớt báo cáo thủ công cho từng trạm thông qua hệ thống tập trung, đơn giản hóa quản lý và bảo trì, đồng thời cải thiện độ tin cậy dữ liệu. Chi phí hàng tháng ước tính 0,66 USD (theo AWS Pricing Calculator), tổng cộng 7,92 USD cho 12 tháng. Tất cả thiết bị IoT đã được trang bị từ hệ thống trạm thời tiết hiện tại, không phát sinh chi phí phát triển thêm. Thời gian hoàn vốn 6–12 tháng nhờ tiết kiệm đáng kể thời gian thao tác thủ công.  
+### 3. Kiến trúc giải pháp
+SMA được thiết kế theo hướng hybrid local-to-cloud. Ở giai đoạn local, toàn bộ quy trình chạy trong Docker Compose. Khi lên AWS, kiến trúc tận dụng các dịch vụ serverless.
 
-### 3. Kiến trúc giải pháp  
-Nền tảng áp dụng kiến trúc AWS Serverless để quản lý dữ liệu từ 5 trạm dựa trên Raspberry Pi, có thể mở rộng lên 15 trạm. Dữ liệu được tiếp nhận qua AWS IoT Core, lưu trữ trong S3 data lake và xử lý bởi AWS Glue Crawlers và ETL jobs để chuyển đổi và tải vào một S3 bucket khác cho mục đích phân tích. Lambda và API Gateway xử lý bổ sung, trong khi Amplify với Next.js cung cấp bảng điều khiển được bảo mật bởi Cognito.  
+![SMA Architecture](/images/2-Proposal/SMA_architecture.png)
 
-![IoT Weather Station Architecture](/images/2-Proposal/edge_architecture.jpeg)
+**Danh sách dịch vụ AWS sử dụng**
+- **1. Mạng & Tiếp nhận Request (Networking & Routing):** Amazon Route 53, AWS Amplify, Amazon API Gateway, AWS ALB (Application Load Balancer), Amazon VPC (bao gồm Internet Gateway, NAT Gateway và S3 Gateway Endpoint).
+- **2. Tính toán & CI/CD (Compute & CI/CD):** Amazon ECS trên Fargate (Được chia làm 2 service: Backend và AI Worker), Amazon ECR (Elastic Container Registry).
+- **3. Lưu trữ & Cơ sở dữ liệu (Storage & Database):** Amazon S3, Amazon RDS (PostgreSQL), Amazon ElastiCache (Redis).
+- **4. Trí tuệ nhân tạo (AI & ML):** Amazon Bedrock (Nova Lite & Titan Embeddings), Amazon Transcribe.
+- **5. Điều phối luồng công việc (Orchestration & Events):** Amazon SQS, Amazon EventBridge, AWS Step Functions.
+- **6. Bảo mật & Quan sát hệ thống (Security & Observability):** Amazon Cognito, AWS Secrets Manager, Amazon CloudWatch, AWS X-Ray.
 
-![IoT Weather Platform Architecture](/images/2-Proposal/platform_architecture.jpeg)
+**Thiết kế thành phần**
+- **Lớp Giao diện (Frontend):** Ứng dụng React quản lý và phân phối qua AWS Amplify kết hợp Route 53, xác thực bằng Cognito.
+- **Lớp Ứng dụng (API):** Nhận request từ API Gateway hoặc ALB và định tuyến đến Backend chạy trên Amazon ECS Fargate.
+- **Lớp Xử lý (Pipeline):** Step Functions gọi các AI Worker (ECS Fargate) xử lý video, sau đó dùng Bedrock (Nova Lite & Titan) & Transcribe trích xuất ngữ nghĩa.
+- **Lớp Dữ liệu (Data):** RDS lưu siêu dữ liệu, S3 lưu file tĩnh, ElastiCache lưu đệm. Tất cả nằm trong VPC bảo mật với NAT Gateway và S3 Gateway Endpoint.
 
-*Dịch vụ AWS sử dụng*  
-- *AWS IoT Core*: Tiếp nhận dữ liệu MQTT từ 5 trạm, mở rộng lên 15.  
-- *AWS Lambda*: Xử lý dữ liệu và kích hoạt Glue jobs (2 hàm).  
-- *Amazon API Gateway*: Giao tiếp với ứng dụng web.  
-- *Amazon S3*: Lưu trữ dữ liệu thô (data lake) và dữ liệu đã xử lý (2 bucket).  
-- *AWS Glue*: Crawlers lập chỉ mục dữ liệu, ETL jobs chuyển đổi và tải dữ liệu.  
-- *AWS Amplify*: Lưu trữ giao diện web Next.js.  
-- *Amazon Cognito*: Quản lý quyền truy cập cho người dùng phòng lab.  
+### 4. Triển khai kỹ thuật
+**Các giai đoạn triển khai**
+1. **Nghiên cứu kiến trúc:** Thiết kế luồng dữ liệu khớp với danh sách dịch vụ AWS (1 tháng trước thực tập).
+2. **Xây dựng bản Local-first:** Hoàn thiện pipeline nội bộ với Docker Compose (Tháng 1).
+3. **Chuẩn hóa Cloud-ready:** Bắt đầu thay thế các container bằng AWS Services như ECS Fargate, Bedrock, RDS (Tháng 2).
+4. **Triển khai & Kiểm thử:** Sử dụng CI/CD để build đẩy lên ECR, cấu hình giám sát CloudWatch và ra mắt hệ thống (Tháng 3).
 
-*Thiết kế thành phần*  
-- *Thiết bị biên*: Raspberry Pi thu thập và lọc dữ liệu cảm biến, gửi tới IoT Core.  
-- *Tiếp nhận dữ liệu*: AWS IoT Core nhận tin nhắn MQTT từ thiết bị biên.  
-- *Lưu trữ dữ liệu*: Dữ liệu thô lưu trong S3 data lake; dữ liệu đã xử lý lưu ở một S3 bucket khác.  
-- *Xử lý dữ liệu*: AWS Glue Crawlers lập chỉ mục dữ liệu; ETL jobs chuyển đổi để phân tích.  
-- *Giao diện web*: AWS Amplify lưu trữ ứng dụng Next.js cho bảng điều khiển và phân tích thời gian thực.  
-- *Quản lý người dùng*: Amazon Cognito giới hạn 5 tài khoản hoạt động.  
+**Yêu cầu kỹ thuật**
+- **Xử lý Media:** Tách cảnh bằng FFMPEG chạy trong môi trường container.
+- **Hệ thống Cloud:** Nắm vững AWS Amplify, ECS Fargate, Step Functions, Bedrock, và RDS. Sử dụng AWS SDK để lập trình tích hợp giữa các dịch vụ.
 
-### 4. Triển khai kỹ thuật  
-*Các giai đoạn triển khai*  
-Dự án gồm 2 phần — thiết lập trạm thời tiết biên và xây dựng nền tảng thời tiết — mỗi phần trải qua 4 giai đoạn:  
-1. *Nghiên cứu và vẽ kiến trúc*: Nghiên cứu Raspberry Pi với cảm biến ESP32 và thiết kế kiến trúc AWS Serverless (1 tháng trước kỳ thực tập).  
-2. *Tính toán chi phí và kiểm tra tính khả thi*: Sử dụng AWS Pricing Calculator để ước tính và điều chỉnh (Tháng 1).  
-3. *Điều chỉnh kiến trúc để tối ưu chi phí/giải pháp*: Tinh chỉnh (ví dụ tối ưu Lambda với Next.js) để đảm bảo hiệu quả (Tháng 2).  
-4. *Phát triển, kiểm thử, triển khai*: Lập trình Raspberry Pi, AWS services với CDK/SDK và ứng dụng Next.js, sau đó kiểm thử và đưa vào vận hành (Tháng 2–3).  
+### 5. Timeline (Tiến độ)
+**Project Timeline**
+- **Pre-Internship (Tháng 0):** 1 tháng nghiên cứu và lên kế hoạch kiến trúc.
+- **Internship (Tháng 1-3):** 3 tháng triển khai.
+  - **Tháng 1:** Xây dựng luồng local-first, kiểm thử các model AI.
+  - **Tháng 2:** Thiết kế và đưa các thành phần lưu trữ, database (S3, RDS) lên AWS.
+  - **Tháng 3:** Hoàn thiện Step Functions, kiểm thử toàn bộ luồng pipeline và Launch.
+- **Post-Launch:** Tối đa 1 năm để tinh chỉnh AI và tối ưu.
 
-*Yêu cầu kỹ thuật*  
-- *Trạm thời tiết biên*: Cảm biến (nhiệt độ, độ ẩm, lượng mưa, tốc độ gió), vi điều khiển ESP32, Raspberry Pi làm thiết bị biên. Raspberry Pi chạy Raspbian, sử dụng Docker để lọc dữ liệu và gửi 1 MB/ngày/trạm qua MQTT qua Wi-Fi.  
-- *Nền tảng thời tiết*: Kiến thức thực tế về AWS Amplify (lưu trữ Next.js), Lambda (giảm thiểu do Next.js xử lý), AWS Glue (ETL), S3 (2 bucket), IoT Core (gateway và rules), và Cognito (5 người dùng). Sử dụng AWS CDK/SDK để lập trình (ví dụ IoT Core rules tới S3). Next.js giúp giảm tải Lambda cho ứng dụng web fullstack.  
+### 6. Ngân sách
+Với quy mô kiến trúc production sử dụng hơn 20 dịch vụ AWS, ước tính chi phí cơ bản cho một môi trường nhỏ/vừa như sau:
 
-### 5. Lộ trình & Mốc triển khai  
-- *Trước thực tập (Tháng 0)*: 1 tháng lên kế hoạch và đánh giá trạm cũ.  
-- *Thực tập (Tháng 1–3)*:  
-    - Tháng 1: Học AWS và nâng cấp phần cứng.  
-    - Tháng 2: Thiết kế và điều chỉnh kiến trúc.  
-    - Tháng 3: Triển khai, kiểm thử, đưa vào sử dụng.  
-- *Sau triển khai*: Nghiên cứu thêm trong vòng 1 năm.  
+| Dịch vụ AWS | Mục đích sử dụng | Ước tính chi phí / Tháng (USD) |
+| --- | --- | --- |
+| **Amazon RDS (PostgreSQL)** | Database chính (Multi-AZ, `db.t4g.small` - `db.t4g.micro`, 20GB) | $25.00 - $45.00 |
+| **AWS NAT Gateway** | Cho phép Private Subnet ra Internet (1 NAT, 24/7) | $32.40 |
+| **Amazon ElastiCache** | Cache (Multi-AZ, `cache.t4g.small`, 2 nodes) | $32.00 |
+| **Amazon ECS (Fargate)** | Chạy Auto Scaling Task xử lý Video (~1 vCPU, 2GB RAM) | $15.00 |
+| **Amazon Bedrock & Transcribe** | Xử lý AI, Speech-to-Text, Embeddings | $15.00 |
+| **AWS ALB** | Application Load Balancer để định tuyến đến ECS Backend | $16.00 |
+| **Amazon CloudWatch & X-Ray** | Logs, Metrics, Alarms, Distributed Tracing | $5.00 |
+| **Amazon S3** | Lưu trữ Media & Keyframes (Ước tính ~50GB) | $2.00 |
+| **AWS Secrets Manager** | Quản lý Keys, Credentials (5 secrets) | $2.00 |
+| **Amazon API Gateway** | REST API & WSS Push (Theo request) | $1.00 |
+| **AWS Amplify** | Hosting & CDN phân phối Frontend | $1.00 |
+| **Amazon SQS, EventBridge, Step Functions** | Điều phối Workflow, Event Bus, Hàng đợi | $1.00 |
+| **Amazon Route 53** | Quản lý DNS (1 Hosted Zone) | $0.50 |
+| **Amazon Cognito** | Xác thực người dùng (JWT) | $0.00 (Free Tier) |
+| **Tổng cộng ước tính** | **Toàn bộ hệ thống** | **~$181.90** |
 
-### 6. Ước tính ngân sách  
-Có thể xem chi phí trên [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=621f38b12a1ef026842ba2ddfe46ff936ed4ab01)  
-Hoặc tải [tệp ước tính ngân sách](../attachments/budget_estimation.pdf).  
+### 7. Rủi ro
+**Ma trận rủi ro**
+- **Khối lượng media lớn:** Ảnh hưởng cao, xác suất trung bình.
+- **Mô hình AI chạy chậm trên máy local:** Ảnh hưởng trung bình, xác suất cao.
+- **Chi phí cloud tăng khi scale:** Ảnh hưởng cao, xác suất thấp đến trung bình.
 
-*Chi phí hạ tầng*  
-- AWS Lambda: 0,00 USD/tháng (1.000 request, 512 MB lưu trữ).  
-- S3 Standard: 0,15 USD/tháng (6 GB, 2.100 request, 1 GB quét).  
-- Truyền dữ liệu: 0,02 USD/tháng (1 GB vào, 1 GB ra).  
-- AWS Amplify: 0,35 USD/tháng (256 MB, request 500 ms).  
-- Amazon API Gateway: 0,01 USD/tháng (2.000 request).  
-- AWS Glue ETL Jobs: 0,02 USD/tháng (2 DPU).  
-- AWS Glue Crawlers: 0,07 USD/tháng (1 crawler).  
-- MQTT (IoT Core): 0,08 USD/tháng (5 thiết bị, 45.000 tin nhắn).  
+**Chiến lược giảm thiểu**
+- Giới hạn ingest theo đợt và tối ưu batch processing.
+- Cache model và kết quả, nếu quá chậm sẽ chuyển hẳn sang AWS Bedrock.
+- Đặt cảnh báo AWS budget và theo dõi sát log/metrics.
 
-*Tổng*: 0,7 USD/tháng, 8,40 USD/12 tháng  
-- *Phần cứng*: 265 USD một lần (Raspberry Pi 5 và cảm biến).  
+**Kế hoạch dự phòng**
+- Nếu pipeline ingest lỗi, hệ thống vẫn giữ metadata cơ bản để tránh mất toàn bộ thư viện media.
+- Chỉ đưa các thành phần cần scale lên cloud thay vì chuyển toàn bộ ngay từ đầu.
 
-### 7. Đánh giá rủi ro  
-*Ma trận rủi ro*  
-- Mất mạng: Ảnh hưởng trung bình, xác suất trung bình.  
-- Hỏng cảm biến: Ảnh hưởng cao, xác suất thấp.  
-- Vượt ngân sách: Ảnh hưởng trung bình, xác suất thấp.  
+### 8. Kết quả kỳ vọng
+**Cải tiến kỹ thuật:**
+- SMA cho phép người dùng nạp media, tự động tạo chỉ mục ngữ nghĩa, tìm kiếm bằng ngôn ngữ tự nhiên và nhảy trực tiếp tới đúng timestamp.
 
-*Chiến lược giảm thiểu*  
-- Mạng: Lưu trữ cục bộ trên Raspberry Pi với Docker.  
-- Cảm biến: Kiểm tra định kỳ, dự phòng linh kiện.  
-- Chi phí: Cảnh báo ngân sách AWS, tối ưu dịch vụ.  
-
-*Kế hoạch dự phòng*  
-- Quay lại thu thập thủ công nếu AWS gặp sự cố.  
-- Sử dụng CloudFormation để khôi phục cấu hình liên quan đến chi phí.  
-
-### 8. Kết quả kỳ vọng  
-*Cải tiến kỹ thuật*: Dữ liệu và phân tích thời gian thực thay thế quy trình thủ công. Có thể mở rộng tới 10–15 trạm.  
-*Giá trị dài hạn*: Nền tảng dữ liệu 1 năm cho nghiên cứu AI, có thể tái sử dụng cho các dự án tương lai.
+**Giá trị dài hạn:**
+- Phù hợp cho nhóm thiết kế, dựng phim cần quản lý media nội bộ an toàn và hiệu quả. Kiến trúc local-first giúp phát triển nhanh, kèm đường nâng cấp rõ ràng lên AWS khi cần.

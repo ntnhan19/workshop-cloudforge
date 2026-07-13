@@ -1,4 +1,4 @@
-﻿---
+---
 title : "Create ElastiCache (Redis)"
 date : 2026-07-10
 weight : 4
@@ -39,7 +39,8 @@ Since the new AWS ElastiCache interface uses a step-by-step wizard, follow these
    * **Connectivity:** Under the *Subnet groups* section, select **Choose existing subnet group** → Select the `cloudforge-redis-subnet-group` you just created.
    * Click **Next** to proceed to step 2.
 3. **Step 2: Advanced settings (Extremely Important):**
-   * **Security groups:** Click **Manage** → Uncheck the `default` group, select only the **`cloudforge-db-redis-sg`** group → Click **Save**.
+   * **Security groups:** Click **Manage** → Uncheck the `default` group, select only the **`cloudforge-db-redis-sg`** group → Click **Save**. *(Common Pitfall: Forgetting to attach this SG will cause ECS tasks to fail to connect)*.
+   * **Encryption in transit:** By default, AWS might **Enable** this. If it is enabled, you MUST use `rediss://` instead of `redis://` in your application connection string. Otherwise, your app will experience a connection timeout (Hang) because the server expects a TLS handshake.
    * **Backup:** Scroll down and **uncheck** *Enable automatic backups* to shorten the creation time.
    * Click **Next**.
 4. **Step 3: Review and create:**

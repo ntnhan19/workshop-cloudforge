@@ -66,7 +66,7 @@ Task Definition đóng vai trò là một bản thiết kế kiến trúc (Bluep
 3. **Infrastructure requirements:**
    - **Launch type:** Chọn **AWS Fargate**.
    - **Task size:** Chỉ định tài nguyên tối ưu chi phí bao gồm `0.5 vCPU` và `1 GB` Memory.
-   - **Task role:** Chọn IAM Role dành riêng cho ứng dụng Backend (ví dụ: `ECS-Backend-TaskRole`) để cấp quyền cho ứng dụng gọi các API của dịch vụ AWS khác.
+   - **Task role:** Chọn IAM Role dành riêng cho ứng dụng Backend (ví dụ: `ECS-Backend-TaskRole`). *(Lưu ý cực kỳ quan trọng: Đảm bảo IAM Role này đã được đính kèm Policy cấp quyền `s3:PutObject`, `s3:DeleteObject` vào đúng bucket của bạn. Nếu thiếu, tiến trình upload file sẽ báo lỗi AccessDenied)*.
    - **Task execution role:** Chọn tạo mới hoặc chỉ định `ecsTaskExecutionRole` (Cấp quyền cho tác vụ kéo ảnh từ ECR và đẩy logs về CloudWatch).
 4. **Container configuration:**
    - **Container name:** `backend-container`.
@@ -77,7 +77,7 @@ Task Definition đóng vai trò là một bản thiết kế kiến trúc (Bluep
      - `AWS_DEFAULT_REGION`: `ap-southeast-1`
      - `AWS_S3_BUCKET`: `cloudforge-media-upload-ntnhan19`
      - `DATABASE_URL`: `postgresql+psycopg://postgres:<mật-khẩu-của-bạn>@<endpoint-rds-của-bạn>:5432/cloudforge_db`
-     - `REDIS_URL`: `redis://master.cloudforge-redis.5vjnre.apse1.cache.amazonaws.com:6379/0`
+     - `REDIS_URL`: `redis://master.cloudforge-redis...` *(Hoặc `rediss://` nếu bạn đang bật In-Transit Encryption ở Redis)*.
      - `STORAGE_BACKEND`: `s3`
 
 ![Task Def Environment 1](/images/5-Workshop/5.7-Compute-setup/5.7.2-deploy-ecs-backend/task_def_environment1.png)

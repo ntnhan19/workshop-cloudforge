@@ -15,12 +15,12 @@ pre: " <b> 1.1. </b> "
 
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | --- | --------- | ------------ | --------------- | -------------- |
-| Thứ Hai | Tìm hiểu tổng quan về AWS và các khái niệm cơ bản của cloud computing. | 20/04/2026 | 20/04/2026 | AWS Overview Whitepaper |
-| Thứ Ba | Làm quen với giao diện quản trị AWS Management Console. | 21/04/2026 | 21/04/2026 | AWS Management Console Docs |
-| Thứ Tư | Thực hành lab cơ bản: thiết lập quyền truy cập bằng IAM. | 22/04/2026 | 22/04/2026 | AWS IAM User Guide |
-| Thứ Năm | Khởi tạo EC2 instance đầu tiên trên AWS. | 23/04/2026 | 23/04/2026 | AWS EC2 Getting Started |
-| Thứ Sáu | Cấu hình Security Group và kết nối SSH vào EC2 instance. | 24/04/2026 | 24/04/2026 | AWS EC2 Security Groups |
-| Thứ Bảy | Ôn tập lại kiến thức về EC2 và IAM thông qua tài liệu. | 25/04/2026 | 25/04/2026 | AWS Skill Builder |
+| Thứ Hai | Tìm hiểu tổng quan về AWS và các khái niệm cơ bản của cloud computing. | 20/04/2026 | 20/04/2026 | [AWS Overview Whitepaper](https://aws.amazon.com/whitepapers/) <br> [Tìm hiểu các khái niệm Region, Policies, Availability Zone, Data Center](https://www.youtube.com/watch?v=fVhBPuI54o8) <br> [Understand what is VPC](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) |
+| Thứ Ba | Làm quen với giao diện quản trị AWS Management Console. | 21/04/2026 | 21/04/2026 | [AWS Management Console Docs](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/learn-whats-new.html) <br> [Explore the AWS Management Console](https://www.youtube.com/watch?v=95quNuhvMT0) <br> [Day 2 Week 1 (Part 1)](https://www.youtube.com/watch?v=j_StCjwpfmk&t=127s) <br> [Day 2 Week 1 (Part 2)](https://www.youtube.com/watch?v=qVCF7UjYC5s) |
+| Thứ Tư | Thực hành lab cơ bản: thiết lập quyền truy cập bằng IAM. | 22/04/2026 | 22/04/2026 | [AWS IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) |
+| Thứ Năm | Khởi tạo EC2 instance đầu tiên trên AWS. | 23/04/2026 | 23/04/2026 | [AWS EC2 Getting Started](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html) <br> [Understand what Amazon EC2 is and how it works](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html) |
+| Thứ Sáu | Cấu hình Security Group và kết nối SSH vào EC2 instance. | 24/04/2026 | 24/04/2026 | [AWS EC2 Security Groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-security-groups.html) |
+| Thứ Bảy | Ôn tập lại kiến thức về EC2 và IAM thông qua tài liệu. | 25/04/2026 | 25/04/2026 | [AWS Skill Builder](https://explore.skillbuilder.aws/) <br> [Understand Amazon EC2 fundamentals and its core components (Lab)](https://skillbuilder.aws/learn/9VNGAHHAUU/introduction-to-amazon-ec2/AJZEJRN2BQ) |
 | Chủ Nhật | Tự học thêm tài liệu AWS và họp nhóm online chốt ý tưởng đề tài dự án. | 26/04/2026 | 26/04/2026 | FCAJ Shared Resources |
 
 ### Kết quả đạt được tuần 1:

@@ -10,26 +10,26 @@ Phần này ghi lại chi tiết tiến độ công việc hàng tuần trong su
 
 ### Tiến độ hàng tuần
 
-**Tuần 1:** [Onboarding và Các khái niệm cơ bản về AWS](1.1-Week1/)
+**Tuần 1:** [Tổng quan AWS và Kiến thức cơ bản](1.1-Week1/)
 
-**Tuần 2:** [Tìm hiểu các dịch vụ Compute và Storage](1.2-Week2/)
+**Tuần 2:** [Dịch vụ lưu trữ Amazon S3](1.2-Week2/)
 
-**Tuần 3:** [Kiến thức cơ bản về Networking và Security](1.3-Week3/)
+**Tuần 3:** [DynamoDB và Cơ sở dữ liệu NoSQL](1.3-Week3/)
 
-**Tuần 4:** [Các dịch vụ Cơ sở dữ liệu và Data Migration](1.4-Week4/)
+**Tuần 4:** [API Gateway và Kiến trúc Serverless](1.4-Week4/)
 
-**Tuần 5:** [Kiến trúc Serverless và AWS Lambda](1.5-Week5/)
+**Tuần 5:** [Khởi động dự án và Thiết lập Backend](1.5-Week5/)
 
-**Tuần 6:** [Tìm hiểu về IoT và Data Streaming](1.6-Week6/)
+**Tuần 6:** [Tích hợp Docker và CI/CD cơ bản](1.6-Week6/)
 
-**Tuần 7:** [Lên kế hoạch dự án và Thiết kế Kiến trúc](1.7-Week7/)
+**Tuần 7:** [Phát triển AI Pipeline (Scene, Audio, Caption)](1.7-Week7/)
 
-**Tuần 8:** [Triển khai hệ thống Backend Pipeline](1.8-Week8/)
+**Tuần 8:** [Nâng cấp AI Pipeline với OpenAI Whisper](1.8-Week8/)
 
-**Tuần 9:** [Phát triển giao diện Frontend Dashboard](1.9-Week9/)
+**Tuần 9:** [Phát triển Frontend Dashboard và Streaming](1.9-Week9/)
 
-**Tuần 10:** [Tích hợp Xác thực (Auth) và API Gateway](1.10-Week10/)
+**Tuần 10:** [Tích hợp Frontend và Trạng thái Realtime](1.10-Week10/)
 
-**Tuần 11:** [Kiểm thử, Tối ưu hoá và CI/CD](1.11-Week11/)
+**Tuần 11:** [Đóng gói Docker và chuẩn bị lên Fargate](1.11-Week11/)
 
-**Tuần 12:** [Tổng kết và Chuẩn bị thuyết trình dự án](1.12-Week12/)
+**Tuần 12:** [Triển khai hạ tầng Production trên AWS](1.12-Week12/)

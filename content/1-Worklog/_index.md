@@ -10,26 +10,26 @@ This section documents the detailed weekly progress of my internship at the Firs
 
 ### Weekly Progress
 
-**Week 1:** [Week 1 Worklog](1.1-Week1/)
+**Week 1:** [Onboarding and AWS Cloud Fundamentals](1.1-Week1/)
 
-**Week 2:** [Week 2 Worklog](1.2-Week2/)
+**Week 2:** [Exploring Compute and Storage Services](1.2-Week2/)
 
-**Week 3:** [Week 3 Worklog](1.3-Week3/)
+**Week 3:** [Networking and Security Basics](1.3-Week3/)
 
-**Week 4:** [Week 4 Worklog](1.4-Week4/)
+**Week 4:** [Database Services and Migration](1.4-Week4/)
 
-**Week 5:** [Week 5 Worklog](1.5-Week5/)
+**Week 5:** [Serverless Architecture and Lambda](1.5-Week5/)
 
-**Week 6:** [Week 6 Worklog](1.6-Week6/)
+**Week 6:** [IoT and Data Streaming Concepts](1.6-Week6/)
 
-**Week 7:** [Week 7 Worklog](1.7-Week7/)
+**Week 7:** [Project Planning and Architecture Design](1.7-Week7/)
 
-**Week 8:** [Week 8 Worklog](1.8-Week8/)
+**Week 8:** [Implementing the Backend Pipeline](1.8-Week8/)
 
-**Week 9:** [Week 9 Worklog](1.9-Week9/)
+**Week 9:** [Developing the Frontend Dashboard](1.9-Week9/)
 
-**Week 10:** [Week 10 Worklog](1.10-Week10/)
+**Week 10:** [Integrating Auth and API Gateway](1.10-Week10/)
 
-**Week 11:** [Week 11 Worklog](1.11-Week11/)
+**Week 11:** [Testing, Optimization, and CI/CD](1.11-Week11/)
 
-**Week 12:** [Week 12 Worklog](1.12-Week12/)
+**Week 12:** [Final Review and Project Presentation](1.12-Week12/)

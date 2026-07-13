@@ -9,15 +9,15 @@ pre: " <b> 3.4. </b> "
 
 Chào mọi người trong cộng đồng AWS Study Group VN.
 
-Từ một người trước giờ chỉ quen cắm mặt vào code các luồng xử lý Backend truyền thống bằng Java hay Node.js, dạo gần đây khi bắt đầu tìm hiểu sâu hơn về Cloud AI và kiến trúc RAG (Retrieval-Augmented Generation) cũng như làm 1 dự án thật sự phải tối ưu hóa kiến trúc này, mình nhận ra một sự thật khá thú vị: AI thực chất không hề biết đọc chính xác chữ nghĩa user cung cấp!
+Từ góc độ của những thành viên trước giờ chỉ quen cắm mặt vào code các luồng xử lý Backend truyền thống bằng Java hay Node.js, dạo gần đây khi bắt đầu tìm hiểu sâu hơn về Cloud AI và kiến trúc RAG (Retrieval-Augmented Generation) cũng như làm 1 dự án thật sự phải tối ưu hóa kiến trúc này, nhóm chúng mình nhận ra một sự thật khá thú vị: AI thực chất không hề biết đọc chính xác chữ nghĩa user cung cấp!
 
 Chúng ta thường nghe về việc đưa file tài liệu cho AI đọc rồi hỏi đáp. Nhưng đằng sau đó, hệ thống không hề đọc chuỗi String như cách con người đọc sách. Nó yêu cầu một bước chuyển đổi cực kỳ quan trọng gọi là Embedding (Nhúng).
 
-Hôm nay, mình muốn mổ xẻ quá trình sử dụng Amazon Bedrock để biến dữ liệu thô thành các Vector – cốt lõi của mọi hệ thống AI hiện đại.
+Hôm nay, nhóm muốn mổ xẻ quá trình sử dụng Amazon Bedrock để biến dữ liệu thô thành các Vector – cốt lõi của mọi hệ thống AI hiện đại.
 
 ![AWS Bedrock Embedding](/images/3-BlogsPosted/3.4-Blog4/blog4.jpg)
 
-Để xây dựng một hệ thống RAG hoàn chỉnh trên AWS, dữ liệu của bạn sẽ đi qua một luồng xử lý (pipeline) mà dân làm Backend tụi mình rất quen thuộc:
+Để xây dựng một hệ thống RAG hoàn chỉnh trên AWS, dữ liệu của bạn sẽ đi qua một luồng xử lý (pipeline) mà dân làm Backend chúng mình rất quen thuộc:
 
 ### 1. Chunking (Băm nhỏ dữ liệu)
 Bạn không thể ném nguyên một file PDF 100 trang vào Bedrock và bảo nó "Nhúng đi". Nó giống như việc bạn cố nhét nguyên một con gà vào miệng vậy. Chúng ta phải dùng code tách tài liệu ra thành từng đoạn nhỏ (chunk) khoảng vài ba câu hoặc 1 đoạn văn. Việc cắt nhỏ này giúp AI sau này tìm kiếm thông tin chính xác hơn thay vì bị loãng ngữ cảnh.

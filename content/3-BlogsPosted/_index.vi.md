@@ -18,4 +18,4 @@ Bài viết này chia sẻ một kiến trúc thú vị từ AWS dành cho lĩnh
 Bài viết này giới thiệu cách Aigen - một công ty phát triển robot nông nghiệp tự hành - đã hiện đại hóa toàn bộ pipeline AI bằng Amazon SageMaker AI để xây dựng hệ thống canh tác thông minh và bền vững.
 
 ### [Blog 4 - Deep Dive vào AWS Bedrock & Vector Embedding – Cái gì biến văn bản thô thành "Tọa độ" cho AI?](3.4-Blog4/)
-Từ một người quen làm Backend, mình nhận ra AI thực chất không hề "đọc" chữ. Bài viết này sẽ mổ xẻ quá trình sử dụng Amazon Bedrock để biến dữ liệu thô thành các Vector (Tọa độ) – cốt lõi của kiến trúc RAG hiện đại.
+Từ góc độ của những lập trình viên Backend, nhóm chúng mình nhận ra AI thực chất không hề "đọc" chữ. Bài viết này sẽ mổ xẻ quá trình sử dụng Amazon Bedrock để biến dữ liệu thô thành các Vector (Tọa độ) – cốt lõi của kiến trúc RAG hiện đại.

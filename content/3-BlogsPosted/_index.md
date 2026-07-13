@@ -18,4 +18,4 @@ This blog shares a fascinating architecture from AWS for the healthcare sector: 
 This blog introduces how Aigen - an autonomous agricultural robotics company - modernized its entire AI pipeline using Amazon SageMaker AI to build a smart and sustainable farming system.
 
 ### [Blog 4 - Deep Dive into AWS Bedrock & Vector Embedding – What Turns Raw Text into "Coordinates" for AI?](3.4-Blog4/)
-From a backend developer's perspective, this blog dissects the process of using Amazon Bedrock to convert raw data into Vectors (Coordinates) – the core of any modern RAG architecture.
+From the perspective of backend developers, our team dissects the process of using Amazon Bedrock to convert raw data into Vectors (Coordinates) – the core of any modern RAG architecture.

@@ -9,11 +9,11 @@ pre: " <b> 3.4. </b> "
 
 Hello everyone in the AWS Study Group VN community.
 
-Coming from a background of strictly coding traditional Backend workflows in Java or Node.js, recently as I dove deeper into Cloud AI and RAG (Retrieval-Augmented Generation) architectures—and actively optimized this architecture for a real-world project—I realized a fascinating truth: AI doesn't actually read the exact text provided by users!
+Coming from a team of developers strictly coding traditional Backend workflows in Java or Node.js, recently as we dove deeper into Cloud AI and RAG (Retrieval-Augmented Generation) architectures—and actively optimized this architecture for a real-world project—we realized a fascinating truth: AI doesn't actually read the exact text provided by users!
 
 We often hear about feeding documents to an AI for Q&A. However, behind the scenes, the system doesn't read Strings the way humans read books. It requires a crucial transformation step called Embedding.
 
-Today, I want to dissect the process of using Amazon Bedrock to convert raw data into Vectors – the core of any modern AI system.
+Today, we want to dissect the process of using Amazon Bedrock to convert raw data into Vectors – the core of any modern AI system.
 
 ![AWS Bedrock Embedding](/images/3-BlogsPosted/3.4-Blog4/blog4.jpg)
 

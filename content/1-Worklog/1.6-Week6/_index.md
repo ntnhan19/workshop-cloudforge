@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 1.6. </b> "
 ---
 
-### Week 6 Personal Objectives (Deployer):
+### Week 6 Objectives:
 - Directly configure AWS infrastructure, architecture design and CI/CD systems.
 - Assign tasks to members, support bug fixing and resolve blockers.
 - Review Code (Frontend, Backend, AI Pipeline) to ensure project quality.

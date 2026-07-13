@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 1.3. </b> "
 ---
 
-### Mục tiêu cá nhân tuần 3 (Giai đoạn tự tìm hiểu AWS):
+### Mục tiêu tuần 3:
 - Tự nghiên cứu, tìm hiểu các dịch vụ cốt lõi của AWS.
 - Tự thực hành các bài lab cơ bản để làm quen hệ thống.
 - Họp nhóm online để chốt đề tài dự án muốn làm và chuẩn bị triển khai.

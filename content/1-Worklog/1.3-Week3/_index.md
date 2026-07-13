@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 1.3. </b> "
 ---
 
-### Week 3 Personal Objectives (AWS Self-study Phase):
+### Week 3 Objectives:
 - Self-study and research core AWS services.
 - Practice basic labs to get familiar with the system.
 - Online team meetings to finalize project topics and prepare for deployment.

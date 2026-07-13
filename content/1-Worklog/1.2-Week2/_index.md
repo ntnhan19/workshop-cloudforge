@@ -13,15 +13,15 @@ pre: " <b> 1.2. </b> "
 
 ### Detailed tasks this week:
 
-| Day | Task | Start Date | Completion Date |
-| --- | ---- | ---------- | --------------- |
-| Mon | Learn about Amazon S3 storage service. | 27/04/2026 | 27/04/2026 |
-| Tue | Learn about Serverless Compute with AWS Lambda. | 28/04/2026 | 28/04/2026 |
-| Wed | Research Amazon VPC virtual network architecture. | 29/04/2026 | 29/04/2026 |
-| Thu | Overview study on combining AWS architectures. | 30/04/2026 | 30/04/2026 |
-| Fri | Practice basic S3 lab exercises to get familiar with the service. | 01/05/2026 | 01/05/2026 |
-| Sat | Practice Lambda lab exercises to get familiar with Serverless. | 02/05/2026 | 02/05/2026 |
-| Sun | Review week 2 knowledge and continue online discussions about project architecture. | 03/05/2026 | 03/05/2026 |
+| Day | Task | Start Date | Completion Date | Source/Resource |
+| --- | ---- | ---------- | --------------- | --------------- |
+| Mon | Learn about Amazon S3 storage service. | 27/04/2026 | 27/04/2026 | Amazon S3 Documentation |
+| Tue | Learn about Serverless Compute with AWS Lambda. | 28/04/2026 | 28/04/2026 | AWS Lambda Developer Guide |
+| Wed | Research Amazon VPC virtual network architecture. | 29/04/2026 | 29/04/2026 | Amazon VPC User Guide |
+| Thu | Overview study on combining AWS architectures. | 30/04/2026 | 30/04/2026 | AWS Architecture Center |
+| Fri | Practice basic S3 lab exercises to get familiar with the service. | 01/05/2026 | 01/05/2026 | AWS Training Labs |
+| Sat | Practice Lambda lab exercises to get familiar with Serverless. | 02/05/2026 | 02/05/2026 | AWS Training Labs |
+| Sun | Review week 2 knowledge and continue online discussions about project architecture. | 03/05/2026 | 03/05/2026 | FCAJ Shared Resources |
 
 ### Week 2 Achievements:
 - Mastered the theory of S3, Lambda, VPC and AWS architecture.

@@ -13,15 +13,15 @@ pre: " <b> 1.1. </b> "
 
 ### Các công việc chi tiết trong tuần:
 
-| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành |
-| --- | --------- | ------------ | --------------- |
-| Thứ Hai | Tìm hiểu tổng quan về AWS và các khái niệm cơ bản của cloud computing. | 20/04/2026 | 20/04/2026 |
-| Thứ Ba | Làm quen với giao diện quản trị AWS Management Console. | 21/04/2026 | 21/04/2026 |
-| Thứ Tư | Thực hành lab cơ bản: thiết lập quyền truy cập bằng IAM. | 22/04/2026 | 22/04/2026 |
-| Thứ Năm | Khởi tạo EC2 instance đầu tiên trên AWS. | 23/04/2026 | 23/04/2026 |
-| Thứ Sáu | Cấu hình Security Group và kết nối SSH vào EC2 instance. | 24/04/2026 | 24/04/2026 |
-| Thứ Bảy | Ôn tập lại kiến thức về EC2 và IAM thông qua tài liệu. | 25/04/2026 | 25/04/2026 |
-| Chủ Nhật | Tự học thêm tài liệu AWS và họp nhóm online chốt ý tưởng đề tài dự án. | 26/04/2026 | 26/04/2026 |
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --------- | ------------ | --------------- | -------------- |
+| Thứ Hai | Tìm hiểu tổng quan về AWS và các khái niệm cơ bản của cloud computing. | 20/04/2026 | 20/04/2026 | AWS Overview Whitepaper |
+| Thứ Ba | Làm quen với giao diện quản trị AWS Management Console. | 21/04/2026 | 21/04/2026 | AWS Management Console Docs |
+| Thứ Tư | Thực hành lab cơ bản: thiết lập quyền truy cập bằng IAM. | 22/04/2026 | 22/04/2026 | AWS IAM User Guide |
+| Thứ Năm | Khởi tạo EC2 instance đầu tiên trên AWS. | 23/04/2026 | 23/04/2026 | AWS EC2 Getting Started |
+| Thứ Sáu | Cấu hình Security Group và kết nối SSH vào EC2 instance. | 24/04/2026 | 24/04/2026 | AWS EC2 Security Groups |
+| Thứ Bảy | Ôn tập lại kiến thức về EC2 và IAM thông qua tài liệu. | 25/04/2026 | 25/04/2026 | AWS Skill Builder |
+| Chủ Nhật | Tự học thêm tài liệu AWS và họp nhóm online chốt ý tưởng đề tài dự án. | 26/04/2026 | 26/04/2026 | FCAJ Shared Resources |
 
 ### Kết quả đạt được tuần 1:
 - Nắm bắt tổng quan về AWS, cloud computing và quen thuộc với AWS Console.

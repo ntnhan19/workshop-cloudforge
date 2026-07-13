@@ -13,15 +13,15 @@ pre: " <b> 1.2. </b> "
 
 ### Các công việc chi tiết trong tuần:
 
-| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành |
-| --- | --------- | ------------ | --------------- |
-| Thứ Hai | Tìm hiểu về dịch vụ lưu trữ Amazon S3. | 27/04/2026 | 27/04/2026 |
-| Thứ Ba | Tìm hiểu về Serverless Compute với AWS Lambda. | 28/04/2026 | 28/04/2026 |
-| Thứ Tư | Nghiên cứu kiến trúc mạng ảo Amazon VPC. | 29/04/2026 | 29/04/2026 |
-| Thứ Năm | Tìm hiểu tổng quan về cách kết hợp kiến trúc của AWS. | 30/04/2026 | 30/04/2026 |
-| Thứ Sáu | Thực hành bài tập lab cơ bản về S3 để làm quen dịch vụ. | 01/05/2026 | 01/05/2026 |
-| Thứ Bảy | Thực hành bài tập lab về Lambda để làm quen với Serverless. | 02/05/2026 | 02/05/2026 |
-| Chủ Nhật | Ôn tập kiến thức tuần 2 và tiếp tục thảo luận online về kiến trúc dự án. | 03/05/2026 | 03/05/2026 |
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --------- | ------------ | --------------- | -------------- |
+| Thứ Hai | Tìm hiểu về dịch vụ lưu trữ Amazon S3. | 27/04/2026 | 27/04/2026 | Amazon S3 Documentation |
+| Thứ Ba | Tìm hiểu về Serverless Compute với AWS Lambda. | 28/04/2026 | 28/04/2026 | AWS Lambda Developer Guide |
+| Thứ Tư | Nghiên cứu kiến trúc mạng ảo Amazon VPC. | 29/04/2026 | 29/04/2026 | Amazon VPC User Guide |
+| Thứ Năm | Tìm hiểu tổng quan về cách kết hợp kiến trúc của AWS. | 30/04/2026 | 30/04/2026 | AWS Architecture Center |
+| Thứ Sáu | Thực hành bài tập lab cơ bản về S3 để làm quen dịch vụ. | 01/05/2026 | 01/05/2026 | AWS Training Labs |
+| Thứ Bảy | Thực hành bài tập lab về Lambda để làm quen với Serverless. | 02/05/2026 | 02/05/2026 | AWS Training Labs |
+| Chủ Nhật | Ôn tập kiến thức tuần 2 và tiếp tục thảo luận online về kiến trúc dự án. | 03/05/2026 | 03/05/2026 | FCAJ Shared Resources |
 
 ### Kết quả đạt được tuần 2:
 - Nắm vững lý thuyết về S3, Lambda, VPC và kiến trúc của AWS.

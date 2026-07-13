@@ -13,15 +13,15 @@ pre: " <b> 1.3. </b> "
 
 ### Các công việc chi tiết trong tuần:
 
-| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành |
-| --- | --------- | ------------ | --------------- |
-| Thứ Hai | Tìm hiểu về DynamoDB và cơ sở dữ liệu NoSQL trên AWS. | 04/05/2026 | 04/05/2026 |
-| Thứ Ba | Nghiên cứu sự khác nhau giữa Query và Scan trong DynamoDB. | 05/05/2026 | 05/05/2026 |
-| Thứ Tư | Tìm hiểu nguyên tắc thiết kế dữ liệu NoSQL. | 06/05/2026 | 06/05/2026 |
-| Thứ Năm | Thực hành thiết kế bảng dữ liệu, partition key và sort key. | 07/05/2026 | 07/05/2026 |
-| Thứ Sáu | Cài đặt và làm quen với AWS SDK. | 08/05/2026 | 08/05/2026 |
-| Thứ Bảy | Thực hành thao tác CRUD cơ bản với DynamoDB thông qua AWS SDK. | 09/05/2026 | 09/05/2026 |
-| Chủ Nhật | Hoàn thiện bài lab DynamoDB và tổng hợp tài liệu tự học. | 10/05/2026 | 10/05/2026 |
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --------- | ------------ | --------------- | -------------- |
+| Thứ Hai | Tìm hiểu về DynamoDB và cơ sở dữ liệu NoSQL trên AWS. | 04/05/2026 | 04/05/2026 | Amazon DynamoDB Developer Guide |
+| Thứ Ba | Nghiên cứu sự khác nhau giữa Query và Scan trong DynamoDB. | 05/05/2026 | 05/05/2026 | DynamoDB Query/Scan Docs |
+| Thứ Tư | Tìm hiểu nguyên tắc thiết kế dữ liệu NoSQL. | 06/05/2026 | 06/05/2026 | NoSQL Design Patterns |
+| Thứ Năm | Thực hành thiết kế bảng dữ liệu, partition key và sort key. | 07/05/2026 | 07/05/2026 | AWS DynamoDB Labs |
+| Thứ Sáu | Cài đặt và làm quen với AWS SDK. | 08/05/2026 | 08/05/2026 | AWS SDK for Python (Boto3) |
+| Thứ Bảy | Thực hành thao tác CRUD cơ bản với DynamoDB thông qua AWS SDK. | 09/05/2026 | 09/05/2026 | AWS SDK Documentation |
+| Chủ Nhật | Hoàn thiện bài lab DynamoDB và tổng hợp tài liệu tự học. | 10/05/2026 | 10/05/2026 | FCAJ Shared Resources |
 
 ### Kết quả đạt được tuần 3:
 - Nắm vững kiến thức về DynamoDB, NoSQL, Query vs Scan.

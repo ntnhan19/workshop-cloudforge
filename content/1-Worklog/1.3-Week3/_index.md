@@ -13,15 +13,15 @@ pre: " <b> 1.3. </b> "
 
 ### Detailed tasks this week:
 
-| Day | Task | Start Date | Completion Date |
-| --- | ---- | ---------- | --------------- |
-| Mon | Learn about DynamoDB and NoSQL databases on AWS. | 04/05/2026 | 04/05/2026 |
-| Tue | Research the differences between Query and Scan in DynamoDB. | 05/05/2026 | 05/05/2026 |
-| Wed | Study NoSQL data design principles. | 06/05/2026 | 06/05/2026 |
-| Thu | Practice designing data tables, partition keys, and sort keys. | 07/05/2026 | 07/05/2026 |
-| Fri | Install and get familiar with the AWS SDK. | 08/05/2026 | 08/05/2026 |
-| Sat | Practice basic CRUD operations with DynamoDB using AWS SDK. | 09/05/2026 | 09/05/2026 |
-| Sun | Complete DynamoDB lab and consolidate self-study materials. | 10/05/2026 | 10/05/2026 |
+| Day | Task | Start Date | Completion Date | Source/Resource |
+| --- | ---- | ---------- | --------------- | --------------- |
+| Mon | Learn about DynamoDB and NoSQL databases on AWS. | 04/05/2026 | 04/05/2026 | Amazon DynamoDB Developer Guide |
+| Tue | Research the differences between Query and Scan in DynamoDB. | 05/05/2026 | 05/05/2026 | DynamoDB Query/Scan Docs |
+| Wed | Study NoSQL data design principles. | 06/05/2026 | 06/05/2026 | NoSQL Design Patterns |
+| Thu | Practice designing data tables, partition keys, and sort keys. | 07/05/2026 | 07/05/2026 | AWS DynamoDB Labs |
+| Fri | Install and get familiar with the AWS SDK. | 08/05/2026 | 08/05/2026 | AWS SDK for Python (Boto3) |
+| Sat | Practice basic CRUD operations with DynamoDB using AWS SDK. | 09/05/2026 | 09/05/2026 | AWS SDK Documentation |
+| Sun | Complete DynamoDB lab and consolidate self-study materials. | 10/05/2026 | 10/05/2026 | FCAJ Shared Resources |
 
 ### Week 3 Achievements:
 - Mastered DynamoDB, NoSQL, Query vs Scan knowledge.

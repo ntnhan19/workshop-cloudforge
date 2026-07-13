@@ -6,25 +6,23 @@ chapter: false
 pre: " <b> 1.3. </b> "
 ---
 
-### Week 3 Objectives:
-- Learn about DynamoDB and NoSQL databases on AWS.
-- Research the differences between Query and Scan operations in DynamoDB.
-- Practice designing data tables, partition keys, and sort keys.
-- Get familiar with AWS SDK and perform basic CRUD operations with DynamoDB.
+### Week 3 Personal Objectives (Team Lead):
+- Focus on researching and deeply understanding core AWS services (Preparation Phase).
+- Assign research exercises to the team, guide lab practices.
+- Prepare a solid knowledge foundation to architect the upcoming project.
 
-### Tasks to be carried out this week:
+### Learning and research tasks this week:
 
-| Day | Task | Start Date | Completion Date | Reference Material |
-| --- | ---- | ---------- | --------------- | ------------------ |
-| Monday | | 04/05/2026 | 04/05/2026 | |
-| Tuesday | | 05/05/2026 | 05/05/2026 | |
-| Wednesday | | 06/05/2026 | 06/05/2026 | |
-| Thursday | | 07/05/2026 | 07/05/2026 | |
-| Friday | | 08/05/2026 | 08/05/2026 | |
-| Saturday | | 09/05/2026 | 09/05/2026 | |
-| Sunday | | 10/05/2026 | 10/05/2026 | |
+| Day | Task | Start Date | Completion Date |
+| --- | ---- | ---------- | --------------- |
+| Mon | Study NoSQL databases and the Amazon DynamoDB service. | 04/05/2026 | 04/05/2026 |
+| Tue | Practice designing data tables, Partition Keys, and Sort Keys. | 05/05/2026 | 05/05/2026 |
+| Wed | Deep dive into performance differences between Query and Scan operations. | 06/05/2026 | 06/05/2026 |
+| Thu | Get familiar with AWS SDK (Boto3/JavaScript SDK) for DB interaction. | 07/05/2026 | 07/05/2026 |
+| Fri | Write scripts to perform basic CRUD operations on DynamoDB. | 08/05/2026 | 08/05/2026 |
+| Sat | Assign tasks to the team to write data manipulation code via SDK. | 09/05/2026 | 09/05/2026 |
+| Sun | Review team's code, optimize Query statements. | 10/05/2026 | 10/05/2026 |
 
 ### Week 3 Achievements:
-- Mastered DynamoDB concepts and the differences between Query and Scan.
-- Successfully designed data tables, partition keys, and sort keys.
-- Performed basic CRUD operations using AWS SDK.
+- Grasped how to design optimized NoSQL data models.
+- Proficiently manipulated DynamoDB through the AWS SDK.

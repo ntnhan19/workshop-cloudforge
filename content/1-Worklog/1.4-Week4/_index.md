@@ -6,24 +6,23 @@ chapter: false
 pre: " <b> 1.4. </b> "
 ---
 
-### Week 4 Objectives:
-- Learn about API Gateway and how to integrate it with AWS Lambda.
-- Build a basic serverless API using Lambda and DynamoDB.
-- Understand serverless architecture and data processing flows on AWS.
-- Practice deploying and testing APIs using Postman/AWS Console.
+### Week 4 Personal Objectives (Team Lead):
+- Focus on researching and deeply understanding core AWS services (Preparation Phase).
+- Assign research exercises to the team, guide lab practices.
+- Prepare a solid knowledge foundation to architect the upcoming project.
 
-### Tasks to be carried out this week:
+### Learning and research tasks this week:
 
-| Day | Task | Start Date | Completion Date | Reference Material |
-| --- | ---- | ---------- | --------------- | ------------------ |
-| Monday | | 11/05/2026 | 11/05/2026 | |
-| Tuesday | | 12/05/2026 | 12/05/2026 | |
-| Wednesday | | 13/05/2026 | 13/05/2026 | |
-| Thursday | | 14/05/2026 | 14/05/2026 | |
-| Friday | | 15/05/2026 | 15/05/2026 | |
-| Saturday | | 16/05/2026 | 16/05/2026 | |
-| Sunday | | 17/05/2026 | 17/05/2026 | |
+| Day | Task | Start Date | Completion Date |
+| --- | ---- | ---------- | --------------- |
+| Mon | Study Amazon API Gateway (REST API vs HTTP API). | 11/05/2026 | 11/05/2026 |
+| Tue | Practice creating basic API Gateway integrated with Lambda functions. | 12/05/2026 | 12/05/2026 |
+| Wed | Research API authorization mechanisms using IAM and basic Cognito. | 13/05/2026 | 13/05/2026 |
+| Thu | Build a complete Serverless API (CRUD with DynamoDB). | 14/05/2026 | 14/05/2026 |
+| Fri | Test API performance using Postman, handle CORS issues. | 15/05/2026 | 15/05/2026 |
+| Sat | Hold team meeting to summarize all AWS knowledge learned in 4 weeks. | 16/05/2026 | 16/05/2026 |
+| Sun | Begin brainstorming the overall architecture for the upcoming CloudForge project. | 17/05/2026 | 17/05/2026 |
 
 ### Week 4 Achievements:
-- Successfully integrated API Gateway with AWS Lambda.
-- Built, deployed, and tested a serverless API using Lambda and DynamoDB.
+- Perfected skills for building basic Serverless applications.
+- Ready with foundational knowledge to enter the project implementation phase.

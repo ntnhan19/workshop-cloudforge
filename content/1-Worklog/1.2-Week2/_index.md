@@ -6,22 +6,23 @@ chapter: false
 pre: " <b> 1.2. </b> "
 ---
 
-### Week 2 Objectives:
-- Learn about S3, Lambda, VPC, and AWS cloud architecture.
-- Practice hands-on labs to get familiar with various AWS services.
+### Week 2 Personal Objectives (Team Lead):
+- Focus on researching and deeply understanding core AWS services (Preparation Phase).
+- Assign research exercises to the team, guide lab practices.
+- Prepare a solid knowledge foundation to architect the upcoming project.
 
-### Tasks to be carried out this week:
+### Learning and research tasks this week:
 
-| Day | Task | Start Date | Completion Date | Reference Material |
-| --- | ---- | ---------- | --------------- | ------------------ |
-| Monday | | 27/04/2026 | 27/04/2026 | |
-| Tuesday | | 28/04/2026 | 28/04/2026 | |
-| Wednesday | | 29/04/2026 | 29/04/2026 | |
-| Thursday | | 30/04/2026 | 30/04/2026 | |
-| Friday | | 01/05/2026 | 01/05/2026 | |
-| Saturday | | 02/05/2026 | 02/05/2026 | |
-| Sunday | | 03/05/2026 | 03/05/2026 | |
+| Day | Task | Start Date | Completion Date |
+| --- | ---- | ---------- | --------------- |
+| Mon | Study Amazon VPC virtual network architecture (Subnets, Route Tables). | 27/04/2026 | 27/04/2026 |
+| Tue | Design Public and Private Subnet models on paper. | 28/04/2026 | 28/04/2026 |
+| Wed | Practice creating a complete VPC with Internet/NAT Gateways. | 29/04/2026 | 29/04/2026 |
+| Thu | Research Amazon S3 object storage and its Storage Classes. | 30/04/2026 | 30/04/2026 |
+| Fri | Learn about Serverless Compute with AWS Lambda. | 01/05/2026 | 01/05/2026 |
+| Sat | Write basic Lambda functions (Hello World) using Python/Node.js. | 02/05/2026 | 02/05/2026 |
+| Sun | Review team's learning progress, answer questions regarding VPC. | 03/05/2026 | 03/05/2026 |
 
 ### Week 2 Achievements:
-- Learned about S3, Lambda, VPC, and AWS cloud architecture.
-- Completed hands-on labs for familiarization.
+- Understood the operating principles of VPC virtual networks on AWS.
+- Successfully wrote the first Lambda function and managed files on S3.

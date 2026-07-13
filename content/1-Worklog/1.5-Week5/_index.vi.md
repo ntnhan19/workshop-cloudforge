@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 1.5. </b> "
 ---
 
-### Mục tiêu cá nhân tuần 5 (Team Lead & Deployer):
+### Mục tiêu cá nhân tuần 5 (Deployer):
 - Trực tiếp cấu hình hạ tầng AWS, thiết kế kiến trúc và hệ thống CI/CD.
 - Giao task cho các thành viên, hỗ trợ fix bug và giải quyết blocker.
 - Review Code (Frontend, Backend, AI Pipeline) đảm bảo chất lượng dự án.

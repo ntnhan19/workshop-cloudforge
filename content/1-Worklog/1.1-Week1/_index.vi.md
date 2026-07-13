@@ -6,22 +6,23 @@ chapter: false
 pre: " <b> 1.1. </b> "
 ---
 
-### Mục tiêu tuần 1:
-- Tìm hiểu tổng quan về AWS, cloud computing và làm quen với AWS Console.
-- Thực hành các lab cơ bản: tạo EC2 instance, cấu hình SSH và thiết lập quyền truy cập bằng IAM.
+### Mục tiêu cá nhân tuần 1 (Team Lead):
+- Tập trung nghiên cứu, tìm hiểu sâu các dịch vụ cốt lõi của AWS (Giai đoạn Preparation).
+- Giao bài tập nghiên cứu cho team, hướng dẫn thực hành lab.
+- Chuẩn bị nền tảng kiến thức vững chắc để chuẩn bị kiến trúc cho dự án sắp tới.
 
-### Các công việc cần triển khai trong tuần này:
+### Các công việc học tập và nghiên cứu trong tuần:
 
-| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
-| --- | --------- | ------------ | --------------- | -------------- |
-| Thứ Hai | - Overview of AWS and AWS Cloud. | 20/04/2026 | 20/04/2026 | Module 01-01 - Introduction to AWS - YouTube AWS Cloud Engineer Full Course for Beginners - YouTube |
-| Thứ Ba  | - Explore the AWS Management Console. | 21/04/2026 | 21/04/2026 | Module 01-02 Management Console - YouTube |
-| Thứ Tư  | - Understand what Amazon EC2 is and how it works. | 22/04/2026 | 22/04/2026 | What is Amazon EC2? - Amazon Elastic Compute Cloud |
-| Thứ Năm | - Understand Amazon EC2 fundamentals and its core components. | 23/04/2026 | 23/04/2026 | Lab: Introduction to Amazon EC2 |
-| Thứ Sáu | | 24/04/2026 | 24/04/2026 | https://cloudjourney.awsstudygroup.com/ |
-| Thứ Bảy | | 25/04/2026 | 25/04/2026 | |
-| Chủ Nhật| | 26/04/2026 | 26/04/2026 | |
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành |
+| --- | --------- | ------------ | --------------- |
+| Thứ Hai | Tìm hiểu tổng quan về điện toán đám mây và hệ sinh thái AWS. | 20/04/2026 | 20/04/2026 |
+| Thứ Ba | Làm quen với AWS Management Console và các Region/AZ. | 21/04/2026 | 21/04/2026 |
+| Thứ Tư | Nghiên cứu về AWS IAM, tạo các User, Group và phân quyền cơ bản. | 22/04/2026 | 22/04/2026 |
+| Thứ Năm | Giao bài tập thực hành IAM cho các thành viên trong nhóm. | 23/04/2026 | 23/04/2026 |
+| Thứ Sáu | Tạo thử nghiệm máy chủ ảo EC2 instance đầu tiên. | 24/04/2026 | 24/04/2026 |
+| Thứ Bảy | Cấu hình Security Group và kết nối SSH vào EC2 instance. | 25/04/2026 | 25/04/2026 |
+| Chủ Nhật | Tổng kết kiến thức tuần 1, định hướng lộ trình học tập tiếp theo. | 26/04/2026 | 26/04/2026 |
 
 ### Kết quả đạt được tuần 1:
-- Nắm vững tổng quan về AWS, cloud computing và làm quen với AWS Console.
-- Hoàn thành các lab cơ bản về EC2, SSH và IAM.
+- Nắm vững các khái niệm cơ bản về Cloud Computing và AWS.
+- Thực hành thành công tạo IAM User và khởi chạy EC2 an toàn.

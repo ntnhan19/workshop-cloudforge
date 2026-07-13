@@ -6,23 +6,23 @@ chapter: false
 pre: " <b> 1.4. </b> "
 ---
 
-### Mục tiêu cá nhân tuần 4 (Team Lead):
-- Tập trung nghiên cứu, tìm hiểu sâu các dịch vụ cốt lõi của AWS (Giai đoạn Preparation).
-- Giao bài tập nghiên cứu cho team, hướng dẫn thực hành lab.
-- Chuẩn bị nền tảng kiến thức vững chắc để chuẩn bị kiến trúc cho dự án sắp tới.
+### Mục tiêu cá nhân tuần 4 (Giai đoạn tự tìm hiểu AWS):
+- Tự nghiên cứu, tìm hiểu các dịch vụ cốt lõi của AWS.
+- Tự thực hành các bài lab cơ bản để làm quen hệ thống.
+- Họp nhóm online để chốt đề tài dự án muốn làm và chuẩn bị triển khai.
 
-### Các công việc học tập và nghiên cứu trong tuần:
+### Các công việc chi tiết trong tuần:
 
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành |
 | --- | --------- | ------------ | --------------- |
-| Thứ Hai | Tìm hiểu về Amazon API Gateway (REST API vs HTTP API). | 11/05/2026 | 11/05/2026 |
-| Thứ Ba | Thực hành tạo API Gateway cơ bản tích hợp với hàm Lambda. | 12/05/2026 | 12/05/2026 |
-| Thứ Tư | Nghiên cứu cơ chế phân quyền API bằng IAM và Cognito cơ bản. | 13/05/2026 | 13/05/2026 |
-| Thứ Năm | Xây dựng một API Serverless hoàn chỉnh (CRUD với DynamoDB). | 14/05/2026 | 14/05/2026 |
-| Thứ Sáu | Test hiệu năng API bằng Postman, xử lý lỗi CORS. | 15/05/2026 | 15/05/2026 |
-| Thứ Bảy | Họp team chốt lại toàn bộ kiến thức AWS đã học trong 4 tuần. | 16/05/2026 | 16/05/2026 |
-| Chủ Nhật | Bắt đầu lên ý tưởng kiến trúc tổng thể cho dự án CloudForge sắp tới. | 17/05/2026 | 17/05/2026 |
+| Thứ Hai | Tìm hiểu về API Gateway và kiến trúc serverless trên AWS. | 11/05/2026 | 11/05/2026 |
+| Thứ Ba | Tìm hiểu cách tích hợp API Gateway với AWS Lambda. | 12/05/2026 | 12/05/2026 |
+| Thứ Tư | Tìm hiểu luồng xử lý dữ liệu chuẩn trên môi trường AWS. | 13/05/2026 | 13/05/2026 |
+| Thứ Năm | Xây dựng API serverless cơ bản sử dụng Lambda và DynamoDB. | 14/05/2026 | 14/05/2026 |
+| Thứ Sáu | Thực hành deploy API Gateway lên môi trường test. | 15/05/2026 | 15/05/2026 |
+| Thứ Bảy | Thực hành test API serverless bằng Postman và AWS Console. | 16/05/2026 | 16/05/2026 |
+| Chủ Nhật | Họp nhóm online chốt phương án và chuẩn bị triển khai dự án tuần 5. | 17/05/2026 | 17/05/2026 |
 
 ### Kết quả đạt được tuần 4:
-- Hoàn thiện kỹ năng xây dựng ứng dụng Serverless cơ bản.
-- Sẵn sàng kiến thức nền tảng để bước vào giai đoạn triển khai dự án.
+- Hiểu rõ kiến trúc serverless và luồng xử lý dữ liệu.
+- Tự xây dựng và test thành công API serverless cơ bản (API Gateway + Lambda + DynamoDB).

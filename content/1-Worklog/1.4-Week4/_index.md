@@ -6,23 +6,23 @@ chapter: false
 pre: " <b> 1.4. </b> "
 ---
 
-### Week 4 Personal Objectives (Team Lead):
-- Focus on researching and deeply understanding core AWS services (Preparation Phase).
-- Assign research exercises to the team, guide lab practices.
-- Prepare a solid knowledge foundation to architect the upcoming project.
+### Week 4 Personal Objectives (AWS Self-study Phase):
+- Self-study and research core AWS services.
+- Practice basic labs to get familiar with the system.
+- Online team meetings to finalize project topics and prepare for deployment.
 
-### Learning and research tasks this week:
+### Detailed tasks this week:
 
 | Day | Task | Start Date | Completion Date |
 | --- | ---- | ---------- | --------------- |
-| Mon | Study Amazon API Gateway (REST API vs HTTP API). | 11/05/2026 | 11/05/2026 |
-| Tue | Practice creating basic API Gateway integrated with Lambda functions. | 12/05/2026 | 12/05/2026 |
-| Wed | Research API authorization mechanisms using IAM and basic Cognito. | 13/05/2026 | 13/05/2026 |
-| Thu | Build a complete Serverless API (CRUD with DynamoDB). | 14/05/2026 | 14/05/2026 |
-| Fri | Test API performance using Postman, handle CORS issues. | 15/05/2026 | 15/05/2026 |
-| Sat | Hold team meeting to summarize all AWS knowledge learned in 4 weeks. | 16/05/2026 | 16/05/2026 |
-| Sun | Begin brainstorming the overall architecture for the upcoming CloudForge project. | 17/05/2026 | 17/05/2026 |
+| Mon | Learn about API Gateway and serverless architecture on AWS. | 11/05/2026 | 11/05/2026 |
+| Tue | Learn how to integrate API Gateway with AWS Lambda. | 12/05/2026 | 12/05/2026 |
+| Wed | Study standard data processing flows on AWS environments. | 13/05/2026 | 13/05/2026 |
+| Thu | Build basic serverless APIs using Lambda and DynamoDB. | 14/05/2026 | 14/05/2026 |
+| Fri | Practice deploying API Gateway to the test environment. | 15/05/2026 | 15/05/2026 |
+| Sat | Practice testing serverless APIs using Postman and AWS Console. | 16/05/2026 | 16/05/2026 |
+| Sun | Hold an online team meeting to finalize plans and prepare for project deployment in week 5. | 17/05/2026 | 17/05/2026 |
 
 ### Week 4 Achievements:
-- Perfected skills for building basic Serverless applications.
-- Ready with foundational knowledge to enter the project implementation phase.
+- Clearly understood serverless architecture and data processing flows.
+- Successfully built and tested basic serverless APIs (API Gateway + Lambda + DynamoDB).

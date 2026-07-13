@@ -6,23 +6,23 @@ chapter: false
 pre: " <b> 1.1. </b> "
 ---
 
-### Week 1 Personal Objectives (Team Lead):
-- Focus on researching and deeply understanding core AWS services (Preparation Phase).
-- Assign research exercises to the team, guide lab practices.
-- Prepare a solid knowledge foundation to architect the upcoming project.
+### Week 1 Personal Objectives (AWS Self-study Phase):
+- Self-study and research core AWS services.
+- Practice basic labs to get familiar with the system.
+- Online team meetings to finalize project topics and prepare for deployment.
 
-### Learning and research tasks this week:
+### Detailed tasks this week:
 
 | Day | Task | Start Date | Completion Date |
 | --- | ---- | ---------- | --------------- |
-| Mon | Overview study of cloud computing and the AWS ecosystem. | 20/04/2026 | 20/04/2026 |
-| Tue | Familiarization with AWS Management Console, Regions, and AZs. | 21/04/2026 | 21/04/2026 |
-| Wed | Research AWS IAM, create Users, Groups and assign basic permissions. | 22/04/2026 | 22/04/2026 |
-| Thu | Assign IAM practice exercises to team members. | 23/04/2026 | 23/04/2026 |
-| Fri | Launch the first experimental EC2 virtual server. | 24/04/2026 | 24/04/2026 |
-| Sat | Configure Security Group and connect via SSH to EC2 instance. | 25/04/2026 | 25/04/2026 |
-| Sun | Summarize Week 1 knowledge, outline the upcoming learning path. | 26/04/2026 | 26/04/2026 |
+| Mon | Learn the overview of AWS and basic concepts of cloud computing. | 20/04/2026 | 20/04/2026 |
+| Tue | Familiarize with the AWS Management Console interface. | 21/04/2026 | 21/04/2026 |
+| Wed | Basic lab practice: setup access permissions using IAM. | 22/04/2026 | 22/04/2026 |
+| Thu | Launch the first EC2 instance on AWS. | 23/04/2026 | 23/04/2026 |
+| Fri | Configure Security Group and connect via SSH to the EC2 instance. | 24/04/2026 | 24/04/2026 |
+| Sat | Review EC2 and IAM knowledge through documentation. | 25/04/2026 | 25/04/2026 |
+| Sun | Self-study AWS materials and have an online meeting to finalize project ideas. | 26/04/2026 | 26/04/2026 |
 
 ### Week 1 Achievements:
-- Mastered basic concepts of Cloud Computing and AWS.
-- Successfully practiced creating IAM Users and securely launching EC2.
+- Grasped an overview of AWS, cloud computing and AWS Console.
+- Completed lab on creating EC2 instance, configuring SSH and IAM.

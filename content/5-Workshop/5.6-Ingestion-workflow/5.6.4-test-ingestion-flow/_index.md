@@ -43,7 +43,8 @@ The objective of this phase is to verify that EventBridge successfully triggered
 ![Step Functions Executions](/images/5-Workshop/5.6-Ingestion-workflow/5.6.4-test-ingestion-flow/step_functions_executions.png)
 
 **Step 2: Visually Monitor the Workflow (Graph View)**
-- The execution flow will transition to the `Launch AI Worker` state.
+- The Graph View will now display our complete orchestration logic: `Launch AI Worker` followed by `Call Backend Webhook`.
+- The execution flow will transition to the `Launch AI Worker` state and intentionally fail (since we have not deployed the ECS Compute Cluster yet).
 
 ![Step Functions Graph View](/images/5-Workshop/5.6-Ingestion-workflow/5.6.4-test-ingestion-flow/step_functions_graph.png)
 

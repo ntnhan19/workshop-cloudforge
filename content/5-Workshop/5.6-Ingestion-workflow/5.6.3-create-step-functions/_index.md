@@ -61,7 +61,13 @@ In the Workflow Studio Canvas space, drag and drop logic state blocks to establi
   }
 }
 ```
-   - *(Note: Remember to replace `<YOUR_SUBNET_ID>` and `<YOUR_SECURITY_GROUP_ID>` with your actual VPC Subnet and Security Group IDs. The `{% $string(...) %}` syntax is a powerful JSONata feature that automatically extracts the S3 event metadata and converts it to a JSON string for the Worker's entrypoint).*
+   - *(Note: Remember to replace `<YOUR_SUBNET_ID>` and `<YOUR_SECURITY_GROUP_ID>` with the actual VPC Subnet and Security Group IDs configured for the system. The `{% $string(...) %}` syntax is a powerful JSONata feature that automatically extracts the S3 event metadata and converts it to a JSON string for the Worker's entrypoint).*
+
+3. **Backend Webhook Invocation Block (HTTP - Invoke):** To complete the Event-Driven architecture, after the AI Worker finishes scene extraction, the system needs to notify the Backend to continue running heavy AI Models (Whisper, Bedrock) on the same `job_id`. 
+   - We dragged the **HTTP Invoke** block right below `Launch AI Worker` and renamed it `Call Backend Webhook`.
+   - In the **API Endpoint** configuration, we entered the Backend Webhook URL: `http://<SYSTEM-ALB-DNS>/api/v1/ingest/webhook` with Method `POST`.
+   - **RequestBody:** We defined the payload to report a success status along with `job_id` and `asset_id` extracted from the output of the preceding ECS block.
+   - **Authentication:** To integrate HTTP Invoke natively in Step Functions, our team configured an **EventBridge Connection** (using API Key or No Auth) to securely manage access between Step Functions and the ALB.
 
 ![Workflow Studio Setup](/images/5-Workshop/5.6-Ingestion-workflow/5.6.3-create-step-functions/workflow_studio_setup.png)
 
@@ -109,7 +115,7 @@ The asynchronous orchestration process is successfully configured, creating a du
 ![Step Functions Workflow](/images/5-Workshop/5.6-Ingestion-workflow/5.6.3-create-step-functions/step_functions_diagram.png)
 
 {{% notice tip %}}
-**System Design Note (Business Logic Separation):** Moving all branching and orchestration flows to the Step Functions tier completely isolates Business Logic from the application servers' (Workers) source code. When the system needs additional features (e.g., adding a video compression step or sending an SMS), engineers only need to reconfigure the diagram on Step Functions without having to recompile or redeploy the source code of the entire processing server cluster.
+**System Design Note (Business Logic Separation):** Moving all branching and orchestration flows to the Step Functions tier completely isolates Business Logic from the application servers' (Workers) source code. By configuring Step Functions to invoke a Webhook, the system ensures that the AI Worker exclusively handles Video processing, while the Backend is solely responsible for aggregating AI results and updating the database.
 {{% /notice %}}
 
 ***

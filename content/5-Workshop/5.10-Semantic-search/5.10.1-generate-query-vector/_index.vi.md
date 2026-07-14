@@ -1,4 +1,4 @@
-﻿---
+---
 title : "Tạo Vector Truy vấn"
 date : 2026-07-10
 weight : 1
@@ -16,7 +16,7 @@ Khi người dùng nhập một câu lệnh tìm kiếm trên Frontend, luồng 
 3. ALB phân phối yêu cầu tới một API Pod (chạy trên ECS Fargate) phụ trách xử lý tác vụ tìm kiếm (Search Service).
 4. API Pod tiếp nhận chuỗi tìm kiếm và khởi tạo lệnh gọi tới dịch vụ Amazon Bedrock.
 
-![Semantic Search Flow](/images/5-Workshop/5.10-semantic-search/5.10.1-query-flow.png)
+![Query Flow](/images/5-Workshop/5.10-Semantic-search/5.10.1-generate-query-vector/5.10.1-query-flow.png)
 
 #### Thiết lập tương tác Amazon Bedrock
 Nhóm dự án cấu hình API Pod sử dụng AWS SDK (`boto3`) để tương tác với Amazon Bedrock. Tương tự như quá trình Ingestion, mô hình được cấu hình sử dụng là **Amazon Titan Text Embeddings v2** (`amazon.titan-embed-text-v2:0`).

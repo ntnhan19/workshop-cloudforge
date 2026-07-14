@@ -25,30 +25,46 @@ Trước khi tạo database, RDS yêu cầu chúng ta phải định nghĩa mộ
 1. Chuyển sang menu **Databases**, bấm nút màu cam **Create database**.
 2. Tại menu lựa chọn xổ xuống, click chọn **Full configuration** để mở toàn bộ cấu hình sâu hệ thống.
 3. **Engine options:** Chọn **PostgreSQL** (chọn phiên bản mặc định hệ thống tự chọn).
+
+![RDS Engine Setup](/images/5-Workshop/5.4-Database-setup/5.4.2-create-rds-postgresql/rds_engine.png)
+
 4. **Templates & Durability:**
    - **Templates:** Chọn **Sandbox** (hoặc *Dev/Test*) để tối ưu chi phí tối đa cho môi trường workshop.
    - **Deployment options:** Đảm bảo hệ thống tự chuyển về **Single-AZ DB instance deployment**.
+
+![RDS Template Setup](/images/5-Workshop/5.4-Database-setup/5.4.2-create-rds-postgresql/rds_template.png)
+
 5. **Settings:**
    - **DB instance identifier:** Đổi tên mặc định thành `cloudforge-db`.
    - **Credentials management:** Tích chọn **Self managed** để tự quản lý mật khẩu.
    - **Master username:** Giữ nguyên `postgres`.
    - **Master password / Confirm password:** Nhập mật khẩu bảo mật của bạn (ví dụ: `CloudForge2026!`).
+
+![RDS Settings](/images/5-Workshop/5.4-Database-setup/5.4.2-create-rds-postgresql/rds_settings.png)
+
 6. **Instance configuration & Storage (Cấu hình phần cứng):**
    - **DB instance class:** Giữ nguyên dòng burstable nhỏ nhất hệ thống tự gợi ý (ví dụ: `db.t3.micro`).
    - **Allocated storage:** Giảm từ dung lượng lớn mặc định xuống còn **20 GiB** (mức tối thiểu tiết kiệm).
    - **Storage autoscaling:** Bỏ tích chọn *Enable storage autoscaling*.
+
+![RDS Instance Configuration](/images/5-Workshop/5.4-Database-setup/5.4.2-create-rds-postgresql/rds_instance.png)
+
 7. **Connectivity (Kết nối mạng nội bộ - Cực kỳ quan trọng):**
    - **Virtual private cloud (VPC):** Chọn đúng `cloudforge-vpc`.
    - **DB Subnet group:** Chọn đúng `cloudforge-db-subnet-group` vừa tạo ở bước 1.
    - **Public access:** Chọn **No** *(Đảm bảo Database tuyệt đối không bị phơi ra Internet)*.
    - **VPC security group:** Chọn **Choose existing** → Xóa nhóm `default` đi và chọn duy nhất **`cloudforge-db-redis-sg`** (Tường lửa bạn vừa tạo ở bài 5.3.4).
-8. Mở rộng phần **Additional configuration** ở cuối trang:
-   - **Initial database name:** Nhập `cloudforge_db` (để tự động tạo sẵn database trống).
-   - **Backup:** Bỏ tích chọn *Enable automated backups* để rút ngắn thời gian khởi tạo trong workshop.
-9. Cuộn xuống dưới cùng và bấm **Create database**. *(Quá trình khởi tạo máy chủ thực tế mất từ 3-5 phút).*
 
 ![RDS Connectivity Setup](/images/5-Workshop/5.4-Database-setup/5.4.2-create-rds-postgresql/rds_connectivity.png)
 
+8. Mở rộng phần **Additional configuration** ở cuối trang:
+   - **Initial database name:** Nhập `cloudforge_db` (để tự động tạo sẵn database trống).
+   - **Backup:** Bỏ tích chọn *Enable automated backups* để rút ngắn thời gian khởi tạo trong workshop.
+
+![RDS Additional Configuration](/images/5-Workshop/5.4-Database-setup/5.4.2-create-rds-postgresql/rds_additional_configuration.png)
+
+9. Cuộn xuống dưới cùng và bấm **Create database**. *(Quá trình khởi tạo máy chủ thực tế mất từ 3-5 phút).*
+
 ***
 
-**Bước tiếp theo:** Trong thời gian chờ máy chủ RDS khởi tạo hoàn tất, chúng ta sẽ chuyển sang phần [**5.4.3**](../5.4.3-enable-pgvector/) để kích hoạt extension `pgvector`, chuẩn bị sẵn sàng cho việc lưu trữ embeddings.
+**Bước tiếp theo:** Sau khi máy chủ RDS khởi tạo xong (trạng thái **Available**), chúng ta sẽ chuyển sang phần [**5.4.3**](../5.4.3-enable-pgvector/) để kích hoạt extension `pgvector`, chuẩn bị sẵn sàng cho việc lưu trữ embeddings.

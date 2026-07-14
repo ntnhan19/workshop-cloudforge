@@ -129,4 +129,4 @@ Service đóng vai trò giữ điều phối, đảm bảo duy trì liên tục 
 
 ***
 
-**Bước tiếp theo:** Hệ thống Backend API đã được triển khai hoàn tất và có thể tiếp nhận yêu cầu điều phối thông qua endpoint của ALB. Chúng ta sẽ tiếp tục thiết lập thành phần "não bộ" phân tích của dự án tại bài **5.7.3: Triển khai ECS AI Worker** để cấu hình cụm máy chủ chuyên trách xử lý các tác vụ xử lý ngầm từ hàng đợi SQS.
+**Bước tiếp theo:** Hệ thống Backend API đã được triển khai hoàn tất và có thể tiếp nhận yêu cầu điều phối thông qua endpoint của ALB. Chúng ta sẽ tiếp tục thiết lập thành phần "não bộ" phân tích của dự án tại bài [**5.7.3: Triển khai ECS AI Worker**](../5.7.3-deploy-ecs-ai-worker/) để cấu hình cụm máy chủ chuyên trách xử lý các tác vụ xử lý ngầm từ hàng đợi SQS.

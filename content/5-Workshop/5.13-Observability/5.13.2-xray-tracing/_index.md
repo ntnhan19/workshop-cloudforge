@@ -110,4 +110,4 @@ Proceed to select the **Traces** section in the left menu. Administrators can cl
 
 **Chapter 5.13 Summary:** Furnished with the synergistic combination of Amazon CloudWatch and AWS X-Ray, the Smart Media Analytics system has attained the zenith of operational maturity (Operational Excellence). Administrators now wield total dominion over centralized logging, automated alerts during overload, and intuitive tracing of every distributed data flow.
 
-**Next Step:** Congratulations! You have superlatively finalized the construction of the entire core architecture for the CloudForge project. In **Chapter 5.14: Resource Cleanup**, we will execute the infrastructure decommissioning procedures to avert unintended incidental AWS expenditures following the Workshop's conclusion.
+**Next Step:** Congratulations! You have superlatively finalized the construction of the entire core architecture for the CloudForge project. In [**Chapter 5.14: Resource Cleanup**](../../5.14-Cleanup/), we will execute the infrastructure decommissioning procedures to avert unintended incidental AWS expenditures following the Workshop's conclusion.

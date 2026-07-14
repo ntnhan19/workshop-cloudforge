@@ -38,4 +38,4 @@ Route Table (Bảng định tuyến) chứa các quy tắc mạng quyết địn
 
 ***
 
-**Bước tiếp theo:** Sau khi đã thông suốt luồng mạng ra Internet, ở bài **5.3.3**, chúng ta sẽ kiểm tra một thành phần tối ưu chi phí cực kỳ quan trọng: **S3 Gateway Endpoint** để đảm bảo quá trình truyền tải dữ liệu lớn (Video) không bị tính phí "oan" qua NAT Gateway.
+**Bước tiếp theo:** Sau khi đã thông suốt luồng mạng ra Internet, ở bài **5.3.3**, chúng ta sẽ kiểm tra một thành phần tối ưu chi phí cực kỳ quan trọng: [**S3 Gateway Endpoint**](../5.3.3-create-s3-gateway-endpoint/) để đảm bảo quá trình truyền tải dữ liệu lớn (Video) không bị tính phí "oan" qua NAT Gateway.

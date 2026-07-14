@@ -62,4 +62,4 @@ Khi quy tắc được tạo thành công và kích hoạt, đường ống dữ
 
 ***
 
-**Bước tiếp theo:** Dòng chảy dữ liệu từ khi người dùng Upload (S3) → Nhận diện sự kiện (EventBridge) → Chờ xử lý (SQS) đã được khơi thông. Tiếp theo, chúng ta sẽ làm quen với một khái niệm nâng cao trong kiến trúc điều phối tại bài **5.6.3: Khởi tạo Step Functions (Tùy chọn)**.
+**Bước tiếp theo:** Dòng chảy dữ liệu từ khi người dùng Upload (S3) → Nhận diện sự kiện (EventBridge) → Chờ xử lý (SQS) đã được khơi thông. Tiếp theo, chúng ta sẽ làm quen với một khái niệm nâng cao trong kiến trúc điều phối tại bài [**5.6.3: Khởi tạo Step Functions (Tùy chọn)**](../5.6.3-create-step-functions/).

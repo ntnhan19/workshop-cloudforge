@@ -37,4 +37,4 @@ Sau khi tạo thành công, hệ thống sẽ đưa bạn vào trang quản lý 
 
 ***
 
-**Bước tiếp theo:** Hệ thống định danh người dùng đã hoàn tất. Chúng ta sẽ tiến tới phần **5.5.2: Quản lý cấu hình với Secrets Manager** để thiết lập kho lưu trữ siêu bảo mật, giải quyết bài toán cất giấu `DB_PASSWORD` một cách triệt để!
+**Bước tiếp theo:** Hệ thống định danh người dùng đã hoàn tất. Chúng ta sẽ tiến tới phần [**5.5.2: Quản lý cấu hình với Secrets Manager**](../5.5.2-secrets-manager/) để thiết lập kho lưu trữ siêu bảo mật, giải quyết bài toán cất giấu `DB_PASSWORD` một cách triệt để!

@@ -52,4 +52,4 @@ Khi đã có cây cầu VPC Link, chúng ta cần cấu hình cho API biết khi
 
 ***
 
-**Bước tiếp theo:** Hệ thống đã thông suốt luồng gọi API chuẩn. Tuy nhiên, để đáp ứng tính năng thông báo trạng thái phân tích video tức thì, chúng ta cần thiết lập thêm một kênh kết nối hai chiều song song. Hãy cùng bước sang bài tiếp theo để xây dựng hạ tầng **API Gateway WebSocket**!
+**Bước tiếp theo:** Hệ thống đã thông suốt luồng gọi API chuẩn. Tuy nhiên, để đáp ứng tính năng thông báo trạng thái phân tích video tức thì, chúng ta cần thiết lập thêm một kênh kết nối hai chiều song song. Hãy cùng bước sang bài tiếp theo để xây dựng hạ tầng [**API Gateway WebSocket**](../5.9.3-websocket-progress/)!

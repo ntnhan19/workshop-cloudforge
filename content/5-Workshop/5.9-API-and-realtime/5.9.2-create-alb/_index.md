@@ -52,4 +52,4 @@ Once the VPC Link bridge is in place, we need to configure the API to know when 
 
 ***
 
-**Next Step:** The system now has an unobstructed standard API call flow. However, to fulfill the instant video analysis status notification feature, we need to establish an additional parallel two-way connection channel. Let's move on to the next lesson to build the **API Gateway WebSocket** infrastructure!
+**Next Step:** The system now has an unobstructed standard API call flow. However, to fulfill the instant video analysis status notification feature, we need to establish an additional parallel two-way connection channel. Let's move on to the next lesson to build the [**API Gateway WebSocket**](../5.9.3-websocket-progress/) infrastructure!

@@ -57,4 +57,4 @@ Sau khi khởi tạo thành công, hệ thống sẽ cấp phát một định d
 
 ***
 
-**Bước tiếp theo:** Sau khi hoàn tất phân lớp lưu trữ và điều phối tin nhắn (SQS), chúng ta sẽ tiến hành cấu hình bộ định tuyến tại bài **5.6.2: Cấu hình EventBridge** để tự động bắt các sự kiện thay đổi dữ liệu từ S3 và đẩy vào hàng đợi này.
+**Bước tiếp theo:** Sau khi hoàn tất phân lớp lưu trữ và điều phối tin nhắn (SQS), chúng ta sẽ tiến hành cấu hình bộ định tuyến tại bài [**5.6.2: Cấu hình EventBridge**](../5.6.2-create-eventbridge-rule/) để tự động bắt các sự kiện thay đổi dữ liệu từ S3 và đẩy vào hàng đợi này.

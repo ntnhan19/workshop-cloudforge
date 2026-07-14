@@ -72,4 +72,4 @@ The unstructured storage infrastructure (Object Storage) has been successfully e
 
 ***
 
-**Next Step:** The File Storage system is now ready. We will continue setting up the structured data memory in **5.4.2: Create RDS PostgreSQL** to serve metadata and search vector storage for AI.
+**Next Step:** The File Storage system is now ready. We will continue setting up the structured data memory in [**5.4.2: Create RDS PostgreSQL**](../5.4.2-create-rds-postgresql/) to serve metadata and search vector storage for AI.

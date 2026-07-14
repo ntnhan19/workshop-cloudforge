@@ -49,4 +49,4 @@ Once the system successfully initializes, the Web ACL is ready in an active stat
 
 ***
 
-**Next Step:** The Smart Media Analytics system is now deployed with foundational security layers (Cognito, Secrets Manager, AWS WAF), meeting core safety standards. Get ready to move on to **Chapter 5.6: Ingestion Workflow** to begin setting up the asynchronous event orchestration architecture!
+**Next Step:** The Smart Media Analytics system is now deployed with foundational security layers (Cognito, Secrets Manager, AWS WAF), meeting core safety standards. Get ready to move on to [**Chapter 5.6: Ingestion Workflow**](../../5.6-Ingestion-workflow/) to begin setting up the asynchronous event orchestration architecture!

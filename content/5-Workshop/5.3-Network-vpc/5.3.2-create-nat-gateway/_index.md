@@ -38,4 +38,4 @@ A Route Table contains network rules that dictate where packets from a subnet ar
 
 ***
 
-**Next Step:** Now that our outbound internet routing is clear, in section **5.3.3**, we will inspect a crucial cost-optimization component: the **S3 Gateway Endpoint**. This ensures that heavy data transfers (like Videos) do not incur unnecessary NAT Gateway data processing fees.
+**Next Step:** Now that our outbound internet routing is clear, in section **5.3.3**, we will inspect a crucial cost-optimization component: the [**S3 Gateway Endpoint**](../5.3.3-create-s3-gateway-endpoint/). This ensures that heavy data transfers (like Videos) do not incur unnecessary NAT Gateway data processing fees.

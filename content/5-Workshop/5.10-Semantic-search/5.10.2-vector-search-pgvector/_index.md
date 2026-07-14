@@ -91,4 +91,4 @@ The returned result at this stage (since no video has been fully processed yet) 
 
 ***
 
-**Next Step:** The Backend system and core AI data processing pipelines are fully finalized. In the next chapter (**Chapter 5.11: Frontend Deployment**), the project team will deploy the static user interface to Amazon S3 and CloudFront to interact directly with the Cloud architecture we have just constructed.
+**Next Step:** The Backend system and core AI data processing pipelines are fully finalized. In the next chapter ([**Chapter 5.11: Frontend Deployment**](../../5.11-Frontend-deployment/)), the project team will deploy the static user interface to Amazon S3 and CloudFront to interact directly with the Cloud architecture we have just constructed.

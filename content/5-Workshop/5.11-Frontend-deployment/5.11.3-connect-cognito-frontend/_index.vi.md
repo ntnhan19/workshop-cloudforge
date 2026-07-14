@@ -117,4 +117,4 @@ Lúc này, khi truy cập vào đường dẫn tên miền của ứng dụng, t
 
 ***
 
-**Bước tiếp theo:** Hệ thống Frontend đã kết nối thành công với Backend. Tuy nhiên, quy trình Build CI/CD hiện tại đang phụ thuộc hoàn toàn vào luồng cơ bản của Amplify. Ở chương tiếp theo (**Chương 5.12: CI/CD Pipeline**), nhóm dự án sẽ chuẩn hóa quy trình phân phối liên tục (Continuous Delivery) cho toàn bộ hệ thống bằng AWS CodePipeline.
+**Bước tiếp theo:** Hệ thống Frontend đã kết nối thành công với Backend. Tuy nhiên, quy trình Build CI/CD hiện tại đang phụ thuộc hoàn toàn vào luồng cơ bản của Amplify. Ở chương tiếp theo ([**Chương 5.12: CI/CD Pipeline**](../../5.12-CICD/)), nhóm dự án sẽ chuẩn hóa quy trình phân phối liên tục (Continuous Delivery) cho toàn bộ hệ thống bằng AWS CodePipeline.

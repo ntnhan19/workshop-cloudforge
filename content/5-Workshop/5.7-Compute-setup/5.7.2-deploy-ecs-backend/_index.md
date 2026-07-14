@@ -122,4 +122,4 @@ The Service plays a coordinating role, ensuring the continuous maintenance of a 
 
 ***
 
-**Next Step:** The Backend API system has been fully deployed and can receive orchestration requests via the ALB endpoint. We will continue setting up the project's analytical "brain" component in lesson **5.7.3: Deploy ECS AI Worker** to configure the dedicated server cluster processing background tasks from the SQS queue.
+**Next Step:** The Backend API system has been fully deployed and can receive orchestration requests via the ALB endpoint. We will continue setting up the project's analytical "brain" component in lesson [**5.7.3: Deploy ECS AI Worker**](../5.7.3-deploy-ecs-ai-worker/) to configure the dedicated server cluster processing background tasks from the SQS queue.

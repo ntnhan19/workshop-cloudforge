@@ -91,4 +91,4 @@ Kết quả trả về ở thời điểm hiện tại (khi chưa có video nào
 
 ***
 
-**Bước tiếp theo:** Hệ thống Backend và các luồng xử lý dữ liệu AI cốt lõi đã hoàn thiện toàn vẹn. Ở chương tiếp theo (**Chương 5.11: Frontend Deployment**), nhóm dự án sẽ triển khai giao diện người dùng tĩnh lên Amazon S3 và CloudFront để tương tác trực tiếp với kiến trúc Cloud mà chúng ta vừa xây dựng.
+**Bước tiếp theo:** Hệ thống Backend và các luồng xử lý dữ liệu AI cốt lõi đã hoàn thiện toàn vẹn. Ở chương tiếp theo ([**Chương 5.11: Frontend Deployment**](../../5.11-Frontend-deployment/)), nhóm dự án sẽ triển khai giao diện người dùng tĩnh lên Amazon S3 và CloudFront để tương tác trực tiếp với kiến trúc Cloud mà chúng ta vừa xây dựng.

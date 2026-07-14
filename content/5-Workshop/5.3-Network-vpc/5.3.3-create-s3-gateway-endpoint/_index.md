@@ -38,4 +38,4 @@ The secret to this shortcut is that AWS automatically injects a special routing 
 
 ***
 
-**Next Step:** Now that our core network, routing, and cost-optimized shortcuts have been verified to work perfectly, we will move on to section **5.3.4: Configure Security Groups** to establish strict firewall locks for each specific service.
+**Next Step:** Now that our core network, routing, and cost-optimized shortcuts have been verified to work perfectly, we will move on to section [**5.3.4: Configure Security Groups**](../5.3.4-security-groups/) to establish strict firewall locks for each specific service.

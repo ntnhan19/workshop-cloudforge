@@ -62,4 +62,4 @@ Tại đây, bạn cần lưu ý thông số cực kỳ quan trọng sau:
 
 ***
 
-**Bước tiếp theo:** Kho lưu trữ cấu hình bảo mật đã thiết lập xong. Chúng ta sẽ tiến tới phân lớp phòng thủ ngoài cùng tại **5.5.3: Cấu hình WAF Rules bảo vệ API** để thiết lập tường lửa ngăn chặn các cuộc tấn công mạng phá hoại từ Internet!
+**Bước tiếp theo:** Kho lưu trữ cấu hình bảo mật đã thiết lập xong. Chúng ta sẽ tiến tới phân lớp phòng thủ ngoài cùng tại [**5.5.3: Cấu hình WAF Rules bảo vệ API**](../5.5.3-waf-rules/) để thiết lập tường lửa ngăn chặn các cuộc tấn công mạng phá hoại từ Internet!

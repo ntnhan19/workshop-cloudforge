@@ -33,4 +33,4 @@ Trong thế giới của Trí tuệ Nhân tạo, "Embedding" là quá trình mã
 
 ***
 
-**Bước tiếp theo:** Với toàn bộ dữ liệu Vector đã được định hình cấu trúc, luồng xử lý nền (Background Processing) của chúng ta coi như đã hoàn thiện. Ở chương tiếp theo (**Chương 5.9: API & Real-time**), chúng ta sẽ quay trở lại với tầng Backend để cấu hình các luồng giao tiếp thời gian thực, giúp thông báo cho người dùng ngay khi AI Worker phân tích xong!
+**Bước tiếp theo:** Với toàn bộ dữ liệu Vector đã được định hình cấu trúc, luồng xử lý nền (Background Processing) của chúng ta coi như đã hoàn thiện. Ở chương tiếp theo ([**Chương 5.9: API & Real-time**](../../5.9-API-and-realtime/)), chúng ta sẽ quay trở lại với tầng Backend để cấu hình các luồng giao tiếp thời gian thực, giúp thông báo cho người dùng ngay khi AI Worker phân tích xong!

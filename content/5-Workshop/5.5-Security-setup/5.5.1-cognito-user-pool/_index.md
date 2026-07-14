@@ -37,4 +37,4 @@ Once successfully created, the system will take you to the management page of th
 
 ***
 
-**Next Step:** The user identity system is complete. We will proceed to section **5.5.2: Manage configuration with Secrets Manager** to set up an ultra-secure vault, definitively solving the problem of hiding the `DB_PASSWORD`!
+**Next Step:** The user identity system is complete. We will proceed to section [**5.5.2: Manage configuration with Secrets Manager**](../5.5.2-secrets-manager/) to set up an ultra-secure vault, definitively solving the problem of hiding the `DB_PASSWORD`!

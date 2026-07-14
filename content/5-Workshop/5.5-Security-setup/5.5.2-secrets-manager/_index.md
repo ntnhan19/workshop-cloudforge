@@ -60,4 +60,4 @@ Here, you need to note down the following extremely important parameter:
 
 ***
 
-**Next Step:** The secure configuration vault has been fully set up. We will proceed to the outermost defensive layer in **5.5.3: Configure WAF Rules to protect API** to establish a firewall that blocks destructive network attacks from the Internet!
+**Next Step:** The secure configuration vault has been fully set up. We will proceed to the outermost defensive layer in [**5.5.3: Configure WAF Rules to protect API**](../5.5.3-waf-rules/) to establish a firewall that blocks destructive network attacks from the Internet!

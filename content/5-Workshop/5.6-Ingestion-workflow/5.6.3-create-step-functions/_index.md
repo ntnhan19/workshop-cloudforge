@@ -152,4 +152,4 @@ The asynchronous orchestration process is successfully configured, creating a du
 
 ***
 
-**Next Step:** The three core components of the Ingestion Workflow tier (SQS, EventBridge, Step Functions) have been successfully initialized. We will move to section **5.6.4: Test Ingestion Flow** to perform end-to-end testing of the message routing system before moving to the Compute tier.
+**Next Step:** The three core components of the Ingestion Workflow tier (SQS, EventBridge, Step Functions) have been successfully initialized. We will move to section [**5.6.4: Test Ingestion Flow**](../5.6.4-test-ingestion-flow/) to perform end-to-end testing of the message routing system before moving to the Compute tier.

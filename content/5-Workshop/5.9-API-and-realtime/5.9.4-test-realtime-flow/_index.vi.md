@@ -67,4 +67,4 @@ Kết quả trả về không yêu cầu thao tác Polling từ phía Client:
 
 ***
 
-**Bước tiếp theo:** Hệ thống giao tiếp API và xử lý dữ liệu nền đã được nghiệm thu. Ở chương tiếp theo (**Chương 5.10: Semantic Search**), nhóm dự án sẽ tiến hành khai thác kho dữ liệu Vector Embeddings để thiết lập công cụ tìm kiếm ngữ nghĩa.
+**Bước tiếp theo:** Hệ thống giao tiếp API và xử lý dữ liệu nền đã được nghiệm thu. Ở chương tiếp theo ([**Chương 5.10: Semantic Search**](../../5.10-Semantic-search/)), nhóm dự án sẽ tiến hành khai thác kho dữ liệu Vector Embeddings để thiết lập công cụ tìm kiếm ngữ nghĩa.

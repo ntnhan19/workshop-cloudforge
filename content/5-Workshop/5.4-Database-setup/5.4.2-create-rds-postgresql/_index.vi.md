@@ -51,4 +51,4 @@ Trước khi tạo database, RDS yêu cầu chúng ta phải định nghĩa mộ
 
 ***
 
-**Bước tiếp theo:** Trong thời gian chờ máy chủ RDS khởi tạo hoàn tất, chúng ta sẽ chuyển sang phần **5.4.3** để kích hoạt extension `pgvector`, chuẩn bị sẵn sàng cho việc lưu trữ embeddings.
+**Bước tiếp theo:** Trong thời gian chờ máy chủ RDS khởi tạo hoàn tất, chúng ta sẽ chuyển sang phần [**5.4.3**](../5.4.3-enable-pgvector/) để kích hoạt extension `pgvector`, chuẩn bị sẵn sàng cho việc lưu trữ embeddings.

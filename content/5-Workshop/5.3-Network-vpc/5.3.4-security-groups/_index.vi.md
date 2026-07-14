@@ -45,4 +45,4 @@ Trong phần này, chúng ta sẽ tiến hành tạo 3 Security Groups cốt lõ
 
 ***
 
-**Bước tiếp theo:** Với hệ thống mạng nền tảng và các lớp khóa bảo mật Zero-Trust đã hoàn tất, chúng ta sẽ chuyển sang phần **5.4: Database Setup** để khởi tạo các cụm cơ sở dữ liệu.
+**Bước tiếp theo:** Với hệ thống mạng nền tảng và các lớp khóa bảo mật Zero-Trust đã hoàn tất, chúng ta sẽ chuyển sang phần [**5.4: Database Setup**](../../5.4-Database-setup/) để khởi tạo các cụm cơ sở dữ liệu.

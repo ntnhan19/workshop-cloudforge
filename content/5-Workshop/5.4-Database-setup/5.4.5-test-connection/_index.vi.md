@@ -67,4 +67,4 @@ REDIS_PORT=6379
 
 ***
 
-**Bước tiếp theo:** Hệ thống mạng và cơ sở dữ liệu nền tảng đã sẵn sàng. Chúng ta sẽ chuyển sang phần **5.5: Security Setup** để thiết lập kho quản lý Secrets an toàn, đưa cảnh báo bảo mật ở trên vào thực tế!
+**Bước tiếp theo:** Hệ thống mạng và cơ sở dữ liệu nền tảng đã sẵn sàng. Chúng ta sẽ chuyển sang phần [**5.5: Security Setup**](../5.4.6-auto-migration/) để thiết lập kho quản lý Secrets an toàn, đưa cảnh báo bảo mật ở trên vào thực tế!

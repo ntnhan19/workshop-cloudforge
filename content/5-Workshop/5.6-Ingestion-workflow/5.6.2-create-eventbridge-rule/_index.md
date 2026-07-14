@@ -62,4 +62,4 @@ When the rule is successfully created and activated, the Asynchronous Data Pipel
 
 ***
 
-**Next Step:** The data flow from User Upload (S3) → Event Detection (EventBridge) → Waiting for Processing (SQS) is now fully connected. Next, we will introduce an advanced orchestration concept in section **5.6.3: Step Functions Setup (Optional)**.
+**Next Step:** The data flow from User Upload (S3) → Event Detection (EventBridge) → Waiting for Processing (SQS) is now fully connected. Next, we will introduce an advanced orchestration concept in section [**5.6.3: Step Functions Setup (Optional)**](../5.6.3-create-step-functions/).

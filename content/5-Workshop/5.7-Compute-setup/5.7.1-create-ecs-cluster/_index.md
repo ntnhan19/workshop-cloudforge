@@ -45,4 +45,4 @@ Once complete, record the **URI** paths of both repositories (e.g., `23632048952
 
 ***
 
-**Next Step:** The management infrastructure and Docker image repository are ready. Let's move on to lesson **5.7.2: Deploy ECS Backend** to explore the method of setting up the Application Load Balancer (ALB) connected to the application API source code.
+**Next Step:** The management infrastructure and Docker image repository are ready. Let's move on to lesson [**5.7.2: Deploy ECS Backend**](../5.7.2-deploy-ecs-backend/) to explore the method of setting up the Application Load Balancer (ALB) connected to the application API source code.

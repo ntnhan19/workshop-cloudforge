@@ -57,4 +57,4 @@ Upon successful initialization, the system will allocate a unique URL identifier
 
 ***
 
-**Next Step:** After completing the storage and message orchestration (SQS) tiers, we will proceed to configure the router in **5.6.2: EventBridge Setup** to automatically capture data change events from S3 and push them into this queue.
+**Next Step:** After completing the storage and message orchestration (SQS) tiers, we will proceed to configure the router in [**5.6.2: EventBridge Setup**](../5.6.2-create-eventbridge-rule/) to automatically capture data change events from S3 and push them into this queue.

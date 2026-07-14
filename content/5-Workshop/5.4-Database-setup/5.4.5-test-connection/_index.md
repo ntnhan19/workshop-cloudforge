@@ -67,4 +67,4 @@ REDIS_PORT=6379
 
 ***
 
-**Next Step:** The foundational network and database systems are ready. We will move to section **5.5: Security Setup** to establish a secure Secrets management vault, putting the security warning above into practice!
+**Next Step:** The foundational network and database systems are ready. We will move to section [**5.5: Security Setup**](../5.4.6-auto-migration/) to establish a secure Secrets management vault, putting the security warning above into practice!

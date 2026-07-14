@@ -35,4 +35,4 @@ Instead of manually creating each component, we will use the **VPC and more** wi
    ![VPC Success](/images/5-Workshop/5.3-Network-vpc/5.3.1-create-vpc-subnets/vpc_success_creation.png)
 
 ---
-**Next Step:** Click here to [Verify NAT Gateway & Routing](../5.3.2-create-nat-gateway/)
+**Next Step:** The multi-tier network infrastructure (VPC and Subnets) has been successfully provisioned. We will proceed to [**Verify NAT Gateway & Routing**](../5.3.2-create-nat-gateway/) to ensure that our internal services can securely access the Internet through the route tables.

@@ -47,4 +47,4 @@ Bất cứ khi nào ECS Task bắt đầu chạy (khi bạn triển khai ứng d
 
 ***
 
-**Bước tiếp theo:** Hệ thống mạng và cơ sở dữ liệu nền tảng đã sẵn sàng hoàn toàn (Bảng sẽ được tự động tạo khi Backend khởi chạy). Chúng ta sẽ chuyển sang phần **5.5: Security Setup** để thiết lập kho quản lý Secrets an toàn.
+**Bước tiếp theo:** Hệ thống mạng và cơ sở dữ liệu nền tảng đã sẵn sàng hoàn toàn (Bảng sẽ được tự động tạo khi Backend khởi chạy). Chúng ta sẽ chuyển sang phần [**5.5: Security Setup**](../../5.5-Security-setup/) để thiết lập kho quản lý Secrets an toàn.

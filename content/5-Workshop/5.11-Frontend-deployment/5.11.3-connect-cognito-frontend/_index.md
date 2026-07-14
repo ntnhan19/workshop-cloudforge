@@ -117,4 +117,4 @@ At this juncture, when accessing the application's domain URL, the entire interf
 
 ***
 
-**Next Step:** The Frontend system has successfully interconnected with the Backend. However, the current CI/CD Build procedure relies entirely on Amplify's rudimentary flow. In the subsequent chapter (**Chapter 5.12: CI/CD Pipeline**), the project team will standardize the Continuous Delivery pipeline for the entire ecosystem utilizing AWS CodePipeline.
+**Next Step:** The Frontend system has successfully interconnected with the Backend. However, the current CI/CD Build procedure relies entirely on Amplify's rudimentary flow. In the subsequent chapter ([**Chapter 5.12: CI/CD Pipeline**](../../5.12-CICD/)), the project team will standardize the Continuous Delivery pipeline for the entire ecosystem utilizing AWS CodePipeline.

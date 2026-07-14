@@ -28,4 +28,4 @@ Thanks to the native support of the ALB, the real-time data flow operates incred
 
 ***
 
-**Next Step:** The real-time communication system is ready. We will advance to the final lesson of the chapter: **End-to-End data flow testing** to confirm the seamless coordination between the HTTP API and WebSocket.
+**Next Step:** The real-time communication system is ready. We will advance to the final lesson of the chapter: [**End-to-End data flow testing**](../5.9.4-test-realtime-flow/) to confirm the seamless coordination between the HTTP API and WebSocket.

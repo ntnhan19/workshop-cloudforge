@@ -58,4 +58,4 @@ To proactively mitigate network congestion or system overload scenarios before t
 
 ***
 
-**Next Step:** The infrastructure is now equipped with centralized log monitoring capabilities and proactive hardware resource incident detection. In the subsequent article (**Lesson 5.13.2: Integrate X-Ray Tracing**), the project team will tackle a significantly more complex challenge: configuring the AWS X-Ray tool for in-depth tracing of data traversing Serverless service layers.
+**Next Step:** The infrastructure is now equipped with centralized log monitoring capabilities and proactive hardware resource incident detection. In the subsequent article ([**Lesson 5.13.2: Integrate X-Ray Tracing**](../5.13.2-xray-tracing/)), the project team will tackle a significantly more complex challenge: configuring the AWS X-Ray tool for in-depth tracing of data traversing Serverless service layers.

@@ -56,4 +56,4 @@ Kết quả thực nghiệm cho thấy toàn bộ đường ống Ingestion Work
 
 ***
 
-**Bước tiếp theo:** Hệ thống điều phối và đường ống tin nhắn hướng sự kiện của Chương 5.6 đã hoàn thành trọn vẹn. Chúng ta đã có đầy đủ nền tảng vững chắc để bước sang **Chương 5.7: Triển khai Compute (ECS)** nhằm cấu hình các Container thực thi mô hình AI thật sự.
+**Bước tiếp theo:** Hệ thống điều phối và đường ống tin nhắn hướng sự kiện của Chương 5.6 đã hoàn thành trọn vẹn. Chúng ta đã có đầy đủ nền tảng vững chắc để bước sang [**Chương 5.7: Triển khai Compute (ECS)**](../../5.7-Compute-setup/) nhằm cấu hình các Container thực thi mô hình AI thật sự.

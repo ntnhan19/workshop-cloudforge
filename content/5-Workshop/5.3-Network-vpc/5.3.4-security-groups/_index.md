@@ -45,4 +45,4 @@ In this section, we will create 3 core Security Groups within the `cloudforge-vp
 
 ***
 
-**Next Step:** With our solid network foundation and Zero-Trust security layers completed, we will proceed to section **5.4: Database Setup** to provision the database clusters.
+**Next Step:** With our solid network foundation and Zero-Trust security layers completed, we will proceed to section [**5.4: Database Setup**](../../5.4-Database-setup/) to provision the database clusters.

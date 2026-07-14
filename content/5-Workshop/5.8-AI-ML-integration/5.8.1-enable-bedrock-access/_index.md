@@ -27,4 +27,4 @@ In this project, we utilize the **Anthropic Claude 3** model family to process d
 
 ***
 
-**Next Step:** With Amazon Bedrock ready in an auto-enabled state, we will move on to setting up the **Amazon Transcribe** service to process the audio data stream in the next section.
+**Next Step:** With Amazon Bedrock ready in an auto-enabled state, we will move on to setting up the [**Amazon Transcribe**](../5.8.2-setup-transcribe/) service to process the audio data stream in the next section.

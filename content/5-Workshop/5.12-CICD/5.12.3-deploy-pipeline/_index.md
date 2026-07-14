@@ -102,4 +102,4 @@ Here, the Rolling Update mechanism will transpire autonomously and intuitively:
 
 **Chapter 5.12 Summary:** The project team has triumphantly established a CI/CD Pipeline adhering to Enterprise security paradigms. Henceforth, any modification to the Backend source code will autonomously traverse a closed loop: **Secure OIDC Authentication -> Automated Image Build & Push -> Zero-downtime Rolling Update Deployment**. The Software Development Life Cycle (SDLC) has been wholly optimized and automated.
 
-**Next Step:** The system operates flawlessly on autopilot, but how can administrators monitor system health and trace errors if an incident transpires? In the concluding chapter (**Chapter 5.13: Observability**), we will explore comprehensive application monitoring with AWS CloudWatch and AWS X-Ray.
+**Next Step:** The system operates flawlessly on autopilot, but how can administrators monitor system health and trace errors if an incident transpires? In the concluding chapter ([**Chapter 5.13: Observability**](../../5.13-Observability/)), we will explore comprehensive application monitoring with AWS CloudWatch and AWS X-Ray.

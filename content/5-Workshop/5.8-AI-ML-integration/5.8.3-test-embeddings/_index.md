@@ -33,4 +33,4 @@ For the communication process with Amazon Bedrock to function smoothly without b
 
 ***
 
-**Next Step:** With all Vector data successfully structured, our Background Processing flow is now considered complete. In the next chapter (**Chapter 5.9: API & Real-time**), we will return to the Backend layer to configure real-time communication flows, instantly notifying the user as soon as the AI Worker finishes its analysis!
+**Next Step:** With all Vector data successfully structured, our Background Processing flow is now considered complete. In the next chapter ([**Chapter 5.9: API & Real-time**](../../5.9-API-and-realtime/)), we will return to the Backend layer to configure real-time communication flows, instantly notifying the user as soon as the AI Worker finishes its analysis!

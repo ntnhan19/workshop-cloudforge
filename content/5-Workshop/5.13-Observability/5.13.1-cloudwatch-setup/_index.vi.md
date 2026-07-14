@@ -58,4 +58,4 @@ Sau khi ứng dụng được cập nhật thông qua luồng CI/CD, mã nguồn
 
 ***
 
-**Bước tiếp theo:** Hệ thống đã được trang bị năng lực giám sát nhật ký tập trung và chủ động phát hiện sự cố tài nguyên phần cứng. Ở bài viết tiếp theo (**Bài 5.13.2: Tích hợp Truy vết X-Ray**), nhóm dự án sẽ tiếp tục giải quyết bài toán phức tạp hơn: cấu hình công cụ AWS X-Ray để theo dõi chuyên sâu đường đi của dữ liệu xuyên qua các lớp dịch vụ Serverless.
+**Bước tiếp theo:** Hệ thống đã được trang bị năng lực giám sát nhật ký tập trung và chủ động phát hiện sự cố tài nguyên phần cứng. Ở bài viết tiếp theo ([**Bài 5.13.2: Tích hợp Truy vết X-Ray**](../5.13.2-xray-tracing/)), nhóm dự án sẽ tiếp tục giải quyết bài toán phức tạp hơn: cấu hình công cụ AWS X-Ray để theo dõi chuyên sâu đường đi của dữ liệu xuyên qua các lớp dịch vụ Serverless.

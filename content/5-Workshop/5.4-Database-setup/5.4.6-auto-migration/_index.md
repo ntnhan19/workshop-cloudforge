@@ -47,4 +47,4 @@ Whenever the ECS Task starts (when you deploy the application in the next chapte
 
 ***
 
-**Next Step:** The network and foundational database are fully ready (Tables will be automatically created when the Backend runs). We will move on to **5.5: Security Setup** to configure a secure Secrets management vault.
+**Next Step:** The network and foundational database are fully ready (Tables will be automatically created when the Backend runs). We will move on to [**5.5: Security Setup**](../../5.5-Security-setup/) to configure a secure Secrets management vault.

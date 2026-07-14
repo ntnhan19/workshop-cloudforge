@@ -28,4 +28,4 @@ Nhờ sự hỗ trợ nguyên bản của ALB, luồng dữ liệu thời gian t
 
 ***
 
-**Bước tiếp theo:** Hệ thống giao tiếp thời gian thực đã sẵn sàng. Chúng ta sẽ tiến tới bài học cuối cùng của chương: **Kiểm thử luồng dữ liệu toàn vẹn (End-to-End)** để xác nhận sự phối hợp nhịp nhàng giữa HTTP API và WebSocket.
+**Bước tiếp theo:** Hệ thống giao tiếp thời gian thực đã sẵn sàng. Chúng ta sẽ tiến tới bài học cuối cùng của chương: [**Kiểm thử luồng dữ liệu toàn vẹn (End-to-End)**](../5.9.4-test-realtime-flow/) để xác nhận sự phối hợp nhịp nhàng giữa HTTP API và WebSocket.

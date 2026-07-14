@@ -56,4 +56,4 @@ The experimental results demonstrate that the entire Ingestion Workflow pipeline
 
 ***
 
-**Next Step:** The orchestration system and event-driven message pipeline of Chapter 5.6 are fully complete. We now have a solid foundation to move on to **Chapter 5.7: Compute Setup (ECS)** to configure the actual AI Worker containers to execute the business logic.
+**Next Step:** The orchestration system and event-driven message pipeline of Chapter 5.6 are fully complete. We now have a solid foundation to move on to [**Chapter 5.7: Compute Setup (ECS)**](../../5.7-Compute-setup/) to configure the actual AI Worker containers to execute the business logic.

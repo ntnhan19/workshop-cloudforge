@@ -67,4 +67,4 @@ The returned result requires no Polling action from the Client:
 
 ***
 
-**Next Step:** The API communication system and background data processing have been validated. In the next chapter (**Chapter 5.10: Semantic Search**), the project team will exploit the Vector Embeddings data repository to establish the semantic search engine.
+**Next Step:** The API communication system and background data processing have been validated. In the next chapter ([**Chapter 5.10: Semantic Search**](../../5.10-Semantic-search/)), the project team will exploit the Vector Embeddings data repository to establish the semantic search engine.

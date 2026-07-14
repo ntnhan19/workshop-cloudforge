@@ -45,4 +45,4 @@ Sau khi hoàn tất, ghi nhận lại chuỗi đường dẫn **URI** của cả
 
 ***
 
-**Bước tiếp theo:** Hạ tầng quản lý và kho lưu trữ hình ảnh Docker đã sẵn sàng. Hãy chuyển sang bài học **5.7.2: Triển khai ECS Backend** để tiến hành tìm hiểu phương thức thiết lập bộ cân bằng tải Application Load Balancer (ALB) kết nối với mã nguồn API ứng dụng.
+**Bước tiếp theo:** Hạ tầng quản lý và kho lưu trữ hình ảnh Docker đã sẵn sàng. Hãy chuyển sang bài học [**5.7.2: Triển khai ECS Backend**](../5.7.2-deploy-ecs-backend/) để tiến hành tìm hiểu phương thức thiết lập bộ cân bằng tải Application Load Balancer (ALB) kết nối với mã nguồn API ứng dụng.

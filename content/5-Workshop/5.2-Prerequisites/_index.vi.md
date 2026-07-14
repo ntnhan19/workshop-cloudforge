@@ -6,7 +6,7 @@ chapter : false
 pre : " <b> 5.2. </b> "
 ---
 
-Để tuân thủ nguyên tắc **Đặc quyền tối thiểu (Least Privilege)** và đảm bảo giao tiếp an toàn giữa các Microservices, chúng ta sẽ thiết lập các Nhóm người dùng (IAM Groups) và các Roles (JSON-based) cực kỳ chi tiết cho các container chạy trên ECS Fargate cũng như Step Functions.
+Để tuân thủ nguyên tắc **Đặc quyền tối thiểu (Least Privilege)** và đảm bảo giao tiếp an toàn giữa các Microservices, tiến hành thiết lập các Nhóm người dùng (IAM Groups) và các Roles (JSON-based) cực kỳ chi tiết cho các container chạy trên ECS Fargate cũng như Step Functions.
 
 #### 0. Tạo IAM Groups & Users (Môi trường làm việc)
 
@@ -147,13 +147,13 @@ Role này cho phép Step Functions State Machine kích hoạt (trigger) ECS AI W
 ![Final IAM Roles](/images/5-Workshop/5.2-Prerequisites/iam_final_roles.png)
 
 #### 2. Cài đặt môi trường Local
-Trước khi triển khai lên Cloud, hãy chắc chắn máy tính của bạn đã được cài đặt các công cụ sau:
+Trước khi triển khai lên Cloud, hãy chắc chắn máy tính của hệ thống đã được cài đặt các công cụ sau:
 
 - **Git:** Để clone mã nguồn dự án.
 - **Docker:** Để build các image cho Frontend và Backend trước khi đẩy lên Amazon ECR.
 - **AWS CLI:** Đã cấu hình xác thực để gọi API đến AWS.
 
-Kiểm tra cấu hình AWS CLI của bạn:
+Kiểm tra cấu hình AWS CLI của hệ thống:
 ```bash
 aws configure
 aws sts get-caller-identity
@@ -164,7 +164,7 @@ aws sts get-caller-identity
 
 Trước đây, Amazon Bedrock yêu cầu người dùng phải kích hoạt thủ công cho các mô hình nền tảng (foundation models) cụ thể. Tuy nhiên, theo bản cập nhật mới nhất từ AWS, trang Model Access đã chính thức bị loại bỏ.
 
-Các mô hình nền tảng Serverless (bao gồm **Nova Lite** và **Titan Embeddings** được sử dụng trong dự án của chúng ta) giờ đây sẽ được **tự động kích hoạt (automatically enabled)** trên tất cả các khu vực AWS thương mại ngay trong lần gọi API đầu tiên của tài khoản. Do đó, bạn không cần phải thực hiện bất kỳ thao tác thủ công nào trên AWS Console ở bước này nữa.
+Các mô hình nền tảng Serverless (bao gồm **Nova Lite** và **Titan Embeddings** được sử dụng trong dự án của hệ thống) giờ đây sẽ được **tự động kích hoạt (automatically enabled)** trên tất cả các khu vực AWS thương mại ngay trong lần gọi API đầu tiên của tài khoản. Do đó, bạn không cần phải thực hiện bất kỳ thao tác thủ công nào trên AWS Console ở bước này nữa.
 
 ![Bedrock Model Access Auto](/images/5-Workshop/5.2-Prerequisites/bedrock_access_retired.png)
 

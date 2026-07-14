@@ -11,7 +11,7 @@ Sau khi đã thiết lập thành công luồng xác thực bảo mật OIDC ở
 Amazon ECR đóng vai trò là một kho lưu trữ an toàn (Private Registry) chứa các phiên bản Docker Image của ứng dụng Backend, sẵn sàng để triển khai lên hạ tầng máy chủ.
 
 #### Bước 1: Khởi tạo Repository trên Amazon ECR
-Trước khi GitHub Actions có thể đẩy Image lên, chúng ta cần tạo một kho lưu trữ trống trên AWS.
+Trước khi GitHub Actions có thể đẩy Image lên, cần tạo một kho lưu trữ trống trên AWS.
 
 1. Truy cập **Amazon ECR** Console.
 2. Tại menu bên trái, chọn **Repositories** và nhấn **Create repository**.
@@ -79,14 +79,14 @@ jobs:
 - **Build & Push:** Đóng gói Docker Image dựa trên `Dockerfile` trong thư mục `backend`, sau đó dán nhãn (tag) bằng mã SHA của commit (`github.sha`) để dễ dàng quản lý phiên bản (Versioning) và đẩy lên ECR.
 
 #### Bước 3: Kiểm tra quá trình tự động Build & Push
-Sau khi tạo tệp `.github/workflows/deploy.yml` trên VS Code, lưu lại và thực hiện lệnh `git push` lên nhánh `main`. Tiếp theo, điều hướng tới thẻ **Actions** trên giao diện kho lưu trữ GitHub của bạn.
+Sau khi tạo tệp `.github/workflows/deploy.yml` trên VS Code, lưu lại và thực hiện lệnh `git push` lên nhánh `main`. Tiếp theo, điều hướng tới thẻ **Actions** trên giao diện kho lưu trữ GitHub của hệ thống.
 
-Bạn sẽ thấy một tiến trình mang tên `Deploy Backend to ECR` đang được chạy tự động. Nếu toàn bộ cấu hình OIDC và mã nguồn hợp lệ, quy trình sẽ kết thúc với một dấu tích xanh (Success).
+Sẽ thấy một tiến trình mang tên `Deploy Backend to ECR` đang được chạy tự động. Nếu toàn bộ cấu hình OIDC và mã nguồn hợp lệ, quy trình sẽ kết thúc với một dấu tích xanh (Success).
 
-Truy cập lại vào kho lưu trữ `cloudforge-backend` trên Amazon ECR Console, bạn sẽ thấy một Docker Image mới tinh vừa được đẩy lên, gắn nhãn (tag) bằng chuỗi mã SHA của commit.
+Truy cập lại vào kho lưu trữ `cloudforge-backend` trên Amazon ECR Console, sẽ thấy một Docker Image mới tinh vừa được đẩy lên, gắn nhãn (tag) bằng chuỗi mã SHA của commit.
 
 ![GitHub Actions Success](/images/5-Workshop/5.12-CICD/5.12.2-ecr-push/5.12.2-actions-success.png)
 
 ***
 
-**Bước tiếp theo:** Docker Image đã được chuẩn bị sẵn sàng trên lưu trữ riêng tư. Trong bài 5.12.3 cuối cùng, nhóm dự án sẽ nối thêm một Step vào Workflow hiện tại để kích hoạt lệnh triển khai Image mới lên Amazon ECS theo chiến lược Rolling Update (Không gián đoạn).
+**Bước tiếp theo:** Docker Image đã được chuẩn bị sẵn sàng trên lưu trữ riêng tư. Trong [bài 5.12.3](../5.12.3-deploy-pipeline/) cuối cùng, nhóm dự án sẽ nối thêm một Step vào Workflow hiện tại để kích hoạt lệnh triển khai Image mới lên Amazon ECS theo chiến lược Rolling Update (Không gián đoạn).

@@ -69,4 +69,4 @@ Với cấu hình này, IAM Role sẽ từ chối mọi yêu cầu cấp quyền
 
 ***
 
-**Bước tiếp theo:** Nền tảng xác thực bảo mật OIDC đã được thiết lập vững chắc. Ở bài 5.12.2, nhóm dự án sẽ tiến hành viết tệp workflow cho GitHub Actions để biên dịch mã nguồn và đẩy Docker Image lên Amazon ECR.
+**Bước tiếp theo:** Nền tảng xác thực bảo mật OIDC đã được thiết lập vững chắc. Ở [bài 5.12.2](../5.12.2-ecr-push/), nhóm dự án sẽ tiến hành viết tệp workflow cho GitHub Actions để biên dịch mã nguồn và đẩy Docker Image lên Amazon ECR.

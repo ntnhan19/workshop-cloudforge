@@ -27,4 +27,4 @@ Trong dự án này, chúng ta sử dụng dòng mô hình **Anthropic Claude 3*
 
 ***
 
-**Bước tiếp theo:** Với việc Amazon Bedrock đã sẵn sàng ở trạng thái tự động kích hoạt, chúng ta sẽ tiếp tục thiết lập dịch vụ [**Amazon Transcribe**](../5.8.2-setup-transcribe/) để xử lý luồng dữ liệu âm thanh ở phần tiếp theo.
+**Bước tiếp theo:** Với việc Amazon Bedrock đã sẵn sàng ở trạng thái tự động kích hoạt, tiến hành tiếp tục thiết lập dịch vụ [**Amazon Transcribe**](../5.8.2-setup-transcribe/) để xử lý luồng dữ liệu âm thanh ở phần tiếp theo.

@@ -8,7 +8,7 @@ pre : " <b> 5.8.2. </b> "
 
 Để hiểu và bóc tách được nội dung của một tệp Video hay Audio, bước đầu tiên và quan trọng nhất trong đường ống xử lý (Pipeline) là phải trích xuất được luồng hội thoại thành văn bản thô. Trong kiến trúc tổng thể của Smart Media Analytics, chúng ta sử dụng dịch vụ **Amazon Transcribe** - giải pháp nhận dạng tiếng nói tự động (Automatic Speech Recognition - ASR) dựa trên công nghệ học máy chuyên sâu của AWS.
 
-Không giống như Amazon Bedrock yêu cầu cơ chế tự động kích hoạt hoặc khai báo Use Case từ phía người dùng, Amazon Transcribe được AWS mở khóa sẵn mặc định trên mọi tài khoản. Trong phân đoạn này, chúng ta sẽ tìm hiểu sâu về cơ chế tương tác tự động giữa AI Worker và dịch vụ xử lý âm thanh này.
+Không giống như Amazon Bedrock yêu cầu cơ chế tự động kích hoạt hoặc khai báo Use Case từ phía người dùng, Amazon Transcribe được AWS mở khóa sẵn mặc định trên mọi tài khoản. Trong phân đoạn này, tiến hành tìm hiểu sâu về cơ chế tương tác tự động giữa AI Worker và dịch vụ xử lý âm thanh này.
 
 #### Luồng xử lý âm thanh tự động (Audio Processing Flow)
 
@@ -33,4 +33,4 @@ Không giống như Amazon Bedrock yêu cầu cơ chế tự động kích hoạ
 
 ***
 
-**Bước tiếp theo:** Sau khi đã sở hữu toàn bộ dữ liệu văn bản thô được trích xuất từ Video/Audio, chúng ta sẽ chuyển sang phân đoạn cuối cùng của luồng phân tích tri thức: Sử dụng mô hình nhúng toán học nhằm tạo lập các Vector (Embeddings), phục vụ trực tiếp cho tính năng tìm kiếm ngữ nghĩa chuyên sâu (Semantic Search).
+**Bước tiếp theo:** Sau khi đã sở hữu toàn bộ dữ liệu văn bản thô được trích xuất từ Video/Audio, tiến hành chuyển sang phân đoạn cuối cùng của luồng phân tích tri thức: Sử dụng mô hình nhúng toán học nhằm tạo lập các Vector (Embeddings), phục vụ trực tiếp cho tính năng tìm kiếm ngữ nghĩa chuyên sâu (Semantic Search).

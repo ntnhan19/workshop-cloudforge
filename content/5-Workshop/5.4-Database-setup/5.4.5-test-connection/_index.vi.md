@@ -8,7 +8,7 @@ pre : " <b> 5.4.5. </b> "
 
 Sau khi khởi tạo thành công RDS PostgreSQL và ElastiCache Redis, bước cuối cùng của phần Database Setup là **kiểm tra và xác thực kết nối**. Bước này nhằm đảm bảo hệ thống tường lửa (Security Groups) và cấu hình định tuyến trong mạng nội bộ (Private Subnets) đang hoạt động chính xác theo đúng thiết kế.
 
-Đồng thời, chúng ta sẽ tổng hợp lại toàn bộ thông số kết nối để đóng gói thành các biến môi trường (`.env`) sẵn sàng nạp cho ứng dụng Backend ở các chương sau.
+Đồng thời, tiến hành tổng hợp lại toàn bộ thông số kết nối để đóng gói thành các biến môi trường (`.env`) sẵn sàng nạp cho ứng dụng Backend ở các chương sau.
 
 #### 1. Kiểm tra kết nối Redis từ EC2
 Do cụm Redis được cô lập hoàn toàn trong vùng Private Subnet, chúng ta bắt buộc phải sử dụng máy chủ trung gian EC2 (Bastion Host) nằm trong cùng mạng VPC để thực hiện kiểm thử.
@@ -67,4 +67,4 @@ REDIS_PORT=6379
 
 ***
 
-**Bước tiếp theo:** Hệ thống mạng và cơ sở dữ liệu nền tảng đã sẵn sàng. Chúng ta sẽ chuyển sang phần [**5.4.6: Khởi tạo Database Schema (Auto-Migration)**](../5.4.6-auto-migration/) để hiểu cách mà các bảng trong Database sẽ được tự động tạo ra như thế nào khi triển khai ứng dụng.
+**Bước tiếp theo:** Hệ thống mạng và cơ sở dữ liệu nền tảng đã sẵn sàng. Tiến hành chuyển sang phần [**5.4.6: Khởi tạo Database Schema (Auto-Migration)**](../5.4.6-auto-migration/) để hiểu cách mà các bảng trong Database sẽ được tự động tạo ra như thế nào khi triển khai ứng dụng.

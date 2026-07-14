@@ -15,10 +15,10 @@ Từ AWS Console, truy cập dịch vụ **WAF & Shield** → **Protection packs
 
 **Bước 1: Tell us about your app**
 - **App category:** Chọn **API & integration services** (Hoặc **Other**).
-- **App focus:** Hệ thống sẽ tự động chọn **API** (Phù hợp với kiến trúc Backend API của chúng ta).
+- **App focus:** Hệ thống sẽ tự động chọn **API** (Phù hợp với kiến trúc Backend API của hệ thống).
 
 **Bước 2: Select resources to protect**
-- Chọn **Skip for now** (Tạm thời bỏ qua). Chúng ta sẽ đính kèm Web ACL này vào Application Load Balancer ở chương sau.
+- Chọn **Skip for now** (Tạm thời bỏ qua). Tiến hành đính kèm Web ACL này vào Application Load Balancer ở chương sau.
 
 **Bước 3: Choose protection pack (web ACL) resource types**
 - Tích chọn loại tài nguyên khu vực: **Amazon API Gateway REST API, Application Load Balancer...**

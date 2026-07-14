@@ -8,7 +8,7 @@ pre : " <b> 5.4.3. </b> "
 
 Sau khi Amazon RDS PostgreSQL đã khởi tạo thành công, bước tiếp theo là kết nối vào cơ sở dữ liệu và kích hoạt `pgvector` - extension cốt lõi biến PostgreSQL truyền thống thành một Vector Database phục vụ lưu trữ embeddings cho AI.
 
-Vì cụm RDS của chúng ta được đặt an toàn trong **Private Subnet** (tuân thủ mô hình Zero-Trust), chúng ta không thể kết nối trực tiếp từ Internet. Thay vào đó, thao tác này cần được thực hiện thông qua một máy chủ trung gian (Bastion Host / EC2) nằm bên trong mạng VPC.
+Vì cụm RDS của hệ thống được đặt an toàn trong **Private Subnet** (tuân thủ mô hình Zero-Trust), chúng ta không thể kết nối trực tiếp từ Internet. Thay vào đó, thao tác này cần được thực hiện thông qua một máy chủ trung gian (Bastion Host / EC2) nằm bên trong mạng VPC.
 
 #### 1. Lấy thông tin kết nối (Endpoint)
 1. Truy cập **RDS Console** → **Databases**.
@@ -16,7 +16,7 @@ Vì cụm RDS của chúng ta được đặt an toàn trong **Private Subnet** 
 3. Trong tab **Connectivity & security**, hãy copy đường dẫn ở mục **Endpoint** (ví dụ: `cloudforge-db.xxxxxx.ap-southeast-1.rds.amazonaws.com`).
 
 #### 2. Kết nối và Kích hoạt extension
-Chúng ta sẽ sử dụng một máy chủ EC2 (Bastion Host) được gán Security Group `cloudforge-ecs-app-sg` để đi xuyên qua tường lửa của Database. Từ Terminal của EC2, hãy thực hiện lần lượt các lệnh sau:
+Tiến hành sử dụng một máy chủ EC2 (Bastion Host) được gán Security Group `cloudforge-ecs-app-sg` để đi xuyên qua tường lửa của Database. Từ Terminal của EC2, hãy thực hiện lần lượt các lệnh sau:
 
 **Cài đặt công cụ PostgreSQL Client:**
 ```bash
@@ -42,10 +42,10 @@ CREATE EXTENSION IF NOT EXISTS vector;
 SELECT extname, extversion FROM pg_extension WHERE extname = 'vector';
 ```
 
-Nếu kết quả trả về hiển thị `vector` kèm theo phiên bản (ví dụ: `0.8.1`), xin chúc mừng! Cơ sở dữ liệu của bạn đã hoàn toàn sẵn sàng để lưu trữ các chuỗi đa chiều do Amazon Titan tạo ra.
+Nếu kết quả trả về hiển thị `vector` kèm theo phiên bản (ví dụ: `0.8.1`), xin chúc mừng! Cơ sở dữ liệu của hệ thống đã hoàn toàn sẵn sàng để lưu trữ các chuỗi đa chiều do Amazon Titan tạo ra.
 
 ![Enable pgvector](/images/5-Workshop/5.4-Database-setup/5.4.3-enable-pgvector/enable_pgvector.png)
 
 ***
 
-**Bước tiếp theo:** Với lớp lưu trữ dữ liệu bền vững đã hoàn thiện, chúng ta sẽ chuyển sang phần [**5.4.4: Khởi tạo ElastiCache (Redis)**](../5.4.4-create-elasticache-redis/) để xây dựng lớp Caching tốc độ cao và Message Queue cho các AI Worker.
+**Bước tiếp theo:** Với lớp lưu trữ dữ liệu bền vững đã hoàn thiện, tiến hành chuyển sang phần [**5.4.4: Khởi tạo ElastiCache (Redis)**](../5.4.4-create-elasticache-redis/) để xây dựng lớp Caching tốc độ cao và Message Queue cho các AI Worker.

@@ -6,7 +6,7 @@ chapter : false
 pre : " <b> 5.5.1. </b> "
 ---
 
-Trong kiến trúc của Smart Media Analytics, chúng ta sẽ không tự xây dựng hệ thống quản lý tài khoản từ đầu (vì rất tốn thời gian và rủi ro bảo mật cao). Thay vào đó, chúng ta sẽ ủy quyền toàn bộ việc định danh và xác thực (Authentication) cho **Amazon Cognito**.
+Trong kiến trúc của Smart Media Analytics, tiến hành không tự xây dựng hệ thống quản lý tài khoản từ đầu (vì rất tốn thời gian và rủi ro bảo mật cao). Thay vào đó, tiến hành ủy quyền toàn bộ việc định danh và xác thực (Authentication) cho **Amazon Cognito**.
 
 Hệ thống Backend (hoặc Frontend) sẽ giao tiếp với Cognito để đăng ký, đăng nhập và nhận về các token chuẩn JWT (JSON Web Token) để xác thực các yêu cầu API.
 
@@ -23,12 +23,12 @@ Truy cập vào **Amazon Cognito Console**, đảm bảo bạn đang ở đúng 
 - **Required attributes for sign-up:** Click vào ô và chọn thuộc tính **name** (Yêu cầu người dùng phải nhập tên khi đăng ký).
 
 **Bước 3: Add a return URL (Optional)**
-- **Return URL:** Mặc dù ghi là tùy chọn, nhưng AWS khuyến nghị nhập. Bạn có thể nhập một địa chỉ tạm thời để phục vụ việc test ở Localhost: `https://localhost`
+- **Return URL:** Mặc dù ghi là tùy chọn, nhưng AWS khuyến nghị nhập. Có thể nhập một địa chỉ tạm thời để phục vụ việc test ở Localhost: `https://localhost`
 
 Cuối cùng, cuộn xuống dưới cùng và bấm nút **Create user directory** để AWS tự động thiết lập toàn bộ tài nguyên.
 
 #### 2. Lấy thông tin tích hợp (App Client ID)
-Sau khi tạo thành công, hệ thống sẽ đưa bạn vào trang quản lý của thư mục người dùng vừa tạo. Bạn cần ghi chú lại 2 thông số cực kỳ quan trọng để chuẩn bị nạp vào biến môi trường (`.env`) cho ứng dụng:
+Sau khi tạo thành công, hệ thống sẽ đưa bạn vào trang quản lý của thư mục người dùng vừa tạo. Cần ghi chú lại 2 thông số cực kỳ quan trọng để chuẩn bị nạp vào biến môi trường (`.env`) cho ứng dụng:
 
 1. **User Pool ID:** Nằm ngay trên cùng của trang tổng quan (Có dạng `ap-southeast-1_xxxxxxxxx`).
 2. **App Client ID:** Chuyển sang tab **App integration** (Tích hợp ứng dụng), cuộn xuống phần *App clients and analytics*, copy chuỗi ID của `cloudforge-app` (Ví dụ: `3abc123xyz...`).
@@ -37,4 +37,4 @@ Sau khi tạo thành công, hệ thống sẽ đưa bạn vào trang quản lý 
 
 ***
 
-**Bước tiếp theo:** Hệ thống định danh người dùng đã hoàn tất. Chúng ta sẽ tiến tới phần [**5.5.2: Quản lý cấu hình với Secrets Manager**](../5.5.2-secrets-manager/) để thiết lập kho lưu trữ siêu bảo mật, giải quyết bài toán cất giấu `DB_PASSWORD` một cách triệt để!
+**Bước tiếp theo:** Hệ thống định danh người dùng đã hoàn tất. Tiến hành tiến tới phần [**5.5.2: Quản lý cấu hình với Secrets Manager**](../5.5.2-secrets-manager/) để thiết lập kho lưu trữ siêu bảo mật, giải quyết bài toán cất giấu `DB_PASSWORD` một cách triệt để!

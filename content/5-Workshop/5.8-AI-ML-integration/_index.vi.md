@@ -22,7 +22,7 @@ Thay vì tự xây dựng, tối ưu và huấn luyện các mô hình học má
 2. **Amazon Transcribe:** Tích hợp dịch vụ chuyển đổi giọng nói thành văn bản (Speech-to-Text) bất đồng bộ với độ chính xác cao, đóng vai trò trích xuất dữ liệu hội thoại thô từ các tệp tin âm thanh và video.
 3. **Mô hình nhúng (Embeddings):** Sử dụng dòng mô hình Amazon Titan Text Embeddings để chuyển đổi văn bản thành các Vector toán học, phục vụ trực tiếp cho tính năng tìm kiếm ngữ nghĩa (Semantic Search) chuyên sâu.
 
-Hoàn thành chương này, AI Worker của bạn sẽ sở hữu "trí thông minh" thực sự, có khả năng bóc tách, hiểu sâu và chuyển đổi các tệp đa phương tiện phi cấu trúc thành các khối dữ liệu tri thức có cấu trúc rõ ràng.
+Hoàn thành chương này, AI Worker của sẽ sở hữu "trí thông minh" thực sự, có khả năng bóc tách, hiểu sâu và chuyển đổi các tệp đa phương tiện phi cấu trúc thành các khối dữ liệu tri thức có cấu trúc rõ ràng.
 
 ### Nội dung thực hành
 

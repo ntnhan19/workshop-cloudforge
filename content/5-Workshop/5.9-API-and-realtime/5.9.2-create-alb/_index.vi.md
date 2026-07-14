@@ -8,10 +8,10 @@ pre : " <b> 5.9.2. </b> "
 
 Sau khi đã khởi tạo xong cổng API Gateway công cộng, thách thức tiếp theo là làm sao để chuyển tiếp (Forward) các yêu cầu từ cổng này đâm xuyên qua ranh giới mạng riêng để đến trúng đích **Application Load Balancer (ALB)** của Backend đang nằm trong Private Subnets. 
 
-Để giải quyết bài toán này mà vẫn đảm bảo tính bảo mật nghiêm ngặt, AWS cung cấp một giải pháp kết nối chuyên dụng gọi là **VPC Link**. Trong phân đoạn này, chúng ta sẽ thiết lập VPC Link và cấu hình định tuyến tích hợp cho HTTP API.
+Để giải quyết bài toán này mà vẫn đảm bảo tính bảo mật nghiêm ngặt, AWS cung cấp một giải pháp kết nối chuyên dụng gọi là **VPC Link**. Trong phân đoạn này, tiến hành thiết lập VPC Link và cấu hình định tuyến tích hợp cho HTTP API.
 
 #### Khái niệm VPC Link trong HTTP API
-Đối với dòng HTTP API, VPC Link hoạt động như một "cây cầu mạng ảo" kết nối trực tiếp tài nguyên của API Gateway (vốn nằm ngoài VPC) với một điểm cuối bên trong mạng Private của bạn. Cơ chế này mang lại các lợi điểm:
+Đối với dòng HTTP API, VPC Link hoạt động như một "cây cầu mạng ảo" kết nối trực tiếp tài nguyên của API Gateway (vốn nằm ngoài VPC) với một điểm cuối bên trong mạng Private của hệ thống. Cơ chế này mang lại các lợi điểm:
 - **Bảo mật tuyệt đối:** Lưu lượng từ API Gateway đi vào ALB hoàn toàn thông qua đường truyền nội bộ của AWS, không cần mở public ALB ra Internet.
 - **Tách biệt hạ tầng:** Khách hàng chỉ nhìn thấy Endpoint của API Gateway, toàn bộ cấu trúc định tuyến ALB và ECS phía sau được ẩn giấu hoàn toàn.
 
@@ -29,7 +29,7 @@ Sau khi đã khởi tạo xong cổng API Gateway công cộng, thách thức ti
 ![Create VPC Link](/images/5-Workshop/5.9-API-and-realtime/5.9.2-create-alb/create_vpc_link.png)
 
 #### Bước 2: Cấu hình định tuyến (Routes & Integration) cho API
-Khi đã có cây cầu VPC Link, chúng ta cần cấu hình cho API biết khi nào thì cần sử dụng cây cầu này để đẩy dữ liệu vào Backend.
+Khi đã có cây cầu VPC Link, cần cấu hình cho API biết khi nào thì cần sử dụng cây cầu này để đẩy dữ liệu vào Backend.
 
 1. Quay lại trang chi tiết của API `CloudForge-Media-API`. Nhìn menu bên trái, chọn mục **Routes**.
 2. Nhấn **Create** để tạo một tuyến đường mới. Ở ô **Path**, nhập đường dẫn bắt tất cả (catch-all) là `/{proxy+}` và chọn phương thức là **ANY** (Điều này giúp API hứng toàn bộ các requests như `/api/v1/auth`, `/api/v1/videos`... và chuyển tiếp nguyên vẹn sang Backend). Nhấn **Create**.
@@ -52,4 +52,4 @@ Khi đã có cây cầu VPC Link, chúng ta cần cấu hình cho API biết khi
 
 ***
 
-**Bước tiếp theo:** Hệ thống đã thông suốt luồng gọi API chuẩn. Tuy nhiên, để đáp ứng tính năng thông báo trạng thái phân tích video tức thì, chúng ta cần thiết lập thêm một kênh kết nối hai chiều song song. Hãy cùng bước sang bài tiếp theo để xây dựng hạ tầng [**API Gateway WebSocket**](../5.9.3-websocket-progress/)!
+**Bước tiếp theo:** Hệ thống đã thông suốt luồng gọi API chuẩn. Tuy nhiên, để đáp ứng tính năng thông báo trạng thái phân tích video tức thì, cần thiết lập thêm một kênh kết nối hai chiều song song. Hãy cùng bước sang bài tiếp theo để xây dựng hạ tầng [**API Gateway WebSocket**](../5.9.3-websocket-progress/)!

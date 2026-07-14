@@ -100,14 +100,12 @@ app.add_middleware(CustomXRayMiddleware)
 #### Bước 4: Quan sát Trace Map và Trace details
 Sau khi cập nhật ECS Service thành công, hãy thử gửi vài Request (ví dụ gọi API `/health` hoặc API `/search`) thông qua Postman hoặc trình duyệt.
 
-Truy cập **AWS CloudWatch Console**, nhìn sang menu bên trái, dưới mục **Application Signals (APM)**, chọn **Trace Map** (hoặc Application Map). Bạn sẽ nhìn thấy một biểu đồ mạng lưới trực quan mô phỏng đường đi của dữ liệu (các luồng Client gọi vào hệ thống Backend).
+Truy cập **AWS CloudWatch Console**, nhìn sang menu bên trái, dưới mục **Application Signals (APM)**, chọn **Trace Map** (hoặc Application Map). Sẽ nhìn thấy một biểu đồ mạng lưới trực quan mô phỏng đường đi của dữ liệu (các luồng Client gọi vào hệ thống Backend).
 
 Tiếp tục chọn mục **Traces** ở menu trái, quản trị viên có thể click vào từng Request cụ thể để xem biểu đồ phân tích chính xác thời gian thi hành của mỗi tác vụ con tính bằng mili-giây, giúp dễ dàng khoanh vùng các truy vấn SQL chậm hoặc các logic xử lý đang ngốn nhiều tài nguyên.
 
 ![AWS X-Ray Service Map](/images/5-Workshop/5.13-Observability/5.13.2-xray-tracing/5.13.2-xray-service-map.png)
 
 ***
-
-**Tổng kết Chương 5.13:** Với bộ đôi Amazon CloudWatch và AWS X-Ray, hệ thống Smart Media Analytics đã đạt mức độ trưởng thành cao nhất về năng lực vận hành (Operational Excellence). Quản trị viên giờ đây có toàn quyền kiểm soát log tập trung, nhận cảnh báo tự động khi quá tải, và truy vết trực quan từng luồng dữ liệu phân tán.
 
 **Bước tiếp theo:** Toàn bộ kiến trúc lõi của dự án Smart Media Analytics đã được xây dựng và giám sát thành công. [**Chương 5.14: Trải nghiệm Hệ thống (System Walkthrough)**](../../5.14-User-guide/) sẽ trình diễn cách người dùng cuối tương tác với giao diện, tải lên video và trải nghiệm tính năng tìm kiếm theo thời gian thực.

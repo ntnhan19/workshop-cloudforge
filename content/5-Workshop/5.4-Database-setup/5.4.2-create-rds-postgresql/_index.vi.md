@@ -6,7 +6,7 @@ chapter : false
 pre : " <b> 5.4.2. </b> "
 ---
 
-Amazon RDS (Relational Database Service) giúp đơn giản hóa việc thiết lập, vận hành và mở rộng quy mô cơ sở dữ liệu quan hệ trên đám mây. Trong dự án này, chúng ta sẽ sử dụng engine **PostgreSQL** vì nó hỗ trợ cực kỳ tốt cho extension `pgvector` – thành phần cốt lõi để lưu trữ vector embeddings phục vụ tính năng tìm kiếm AI ngữ nghĩa.
+Amazon RDS (Relational Database Service) giúp đơn giản hóa việc thiết lập, vận hành và mở rộng quy mô cơ sở dữ liệu quan hệ trên đám mây. Trong dự án này, tiến hành sử dụng engine **PostgreSQL** vì nó hỗ trợ cực kỳ tốt cho extension `pgvector` – thành phần cốt lõi để lưu trữ vector embeddings phục vụ tính năng tìm kiếm AI ngữ nghĩa.
 
 #### 1. Tạo Subnet Group cho Database
 Trước khi tạo database, RDS yêu cầu chúng ta phải định nghĩa một **Subnet Group** để xác định dải mạng nội bộ (Private Subnets) nào trong VPC được phép đặt máy chủ dữ liệu.
@@ -38,7 +38,7 @@ Trước khi tạo database, RDS yêu cầu chúng ta phải định nghĩa mộ
    - **DB instance identifier:** Đổi tên mặc định thành `cloudforge-db`.
    - **Credentials management:** Tích chọn **Self managed** để tự quản lý mật khẩu.
    - **Master username:** Giữ nguyên `postgres`.
-   - **Master password / Confirm password:** Nhập mật khẩu bảo mật của bạn (ví dụ: `CloudForge2026!`).
+   - **Master password / Confirm password:** Nhập mật khẩu bảo mật của hệ thống (ví dụ: `CloudForge2026!`).
 
 ![RDS Settings](/images/5-Workshop/5.4-Database-setup/5.4.2-create-rds-postgresql/rds_settings.png)
 
@@ -67,4 +67,4 @@ Trước khi tạo database, RDS yêu cầu chúng ta phải định nghĩa mộ
 
 ***
 
-**Bước tiếp theo:** Sau khi máy chủ RDS khởi tạo xong (trạng thái **Available**), chúng ta sẽ chuyển sang phần [**5.4.3**](../5.4.3-enable-pgvector/) để kích hoạt extension `pgvector`, chuẩn bị sẵn sàng cho việc lưu trữ embeddings.
+**Bước tiếp theo:** Sau khi máy chủ RDS khởi tạo xong (trạng thái **Available**), tiến hành chuyển sang phần [**5.4.3**](../5.4.3-enable-pgvector/) để kích hoạt extension `pgvector`, chuẩn bị sẵn sàng cho việc lưu trữ embeddings.

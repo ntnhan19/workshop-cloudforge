@@ -6,9 +6,9 @@ chapter : false
 pre : " <b> 5.3.4. </b> "
 ---
 
-Security Groups đóng vai trò như những bức tường lửa ảo (virtual firewalls) ở cấp độ tài nguyên. Để hệ thống đạt chuẩn bảo mật cao nhất, chúng ta sẽ áp dụng mô hình **Zero-Trust**: các thành phần trong hệ thống chỉ chấp nhận lưu lượng truy cập (traffic) từ những nguồn được ủy quyền cụ thể, tuyệt đối không mở cổng tràn lan ra Internet.
+Security Groups đóng vai trò như những bức tường lửa ảo (virtual firewalls) ở cấp độ tài nguyên. Để hệ thống đạt chuẩn bảo mật cao nhất, tiến hành áp dụng mô hình **Zero-Trust**: các thành phần trong hệ thống chỉ chấp nhận lưu lượng truy cập (traffic) từ những nguồn được ủy quyền cụ thể, tuyệt đối không mở cổng tràn lan ra Internet.
 
-Trong phần này, chúng ta sẽ tiến hành tạo 3 Security Groups cốt lõi bên trong `cloudforge-vpc`:
+Trong phần này, tiến hành tiến hành tạo 3 Security Groups cốt lõi bên trong `cloudforge-vpc`:
 
 #### 1. ALB-SG (Tường lửa cho Application Load Balancer)
 **Mục đích:** Đây là cánh cửa duy nhất mở ra Internet để đón lưu lượng người dùng.
@@ -45,4 +45,4 @@ Trong phần này, chúng ta sẽ tiến hành tạo 3 Security Groups cốt lõ
 
 ***
 
-**Bước tiếp theo:** Với hệ thống mạng nền tảng và các lớp khóa bảo mật Zero-Trust đã hoàn tất, chúng ta sẽ chuyển sang phần [**5.4: Database Setup**](../../5.4-Database-setup/) để khởi tạo các cụm cơ sở dữ liệu.
+**Bước tiếp theo:** Với hệ thống mạng nền tảng và các lớp khóa bảo mật Zero-Trust đã hoàn tất, tiến hành chuyển sang phần [**5.4: Database Setup**](../../5.4-Database-setup/) để khởi tạo các cụm cơ sở dữ liệu.

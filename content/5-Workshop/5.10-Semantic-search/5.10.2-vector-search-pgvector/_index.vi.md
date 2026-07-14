@@ -62,9 +62,9 @@ class PGVectorStore:
 ```
 
 #### Kịch bản Kiểm thử Vector Search (E2E)
-Để chứng minh Backend API đã kết nối thành công với pgvector và trả về kết quả tìm kiếm ngữ nghĩa, chúng ta sẽ thực thi một truy vấn mẫu thông qua cURL (hoặc PowerShell).
+Để chứng minh Backend API đã kết nối thành công với pgvector và trả về kết quả tìm kiếm ngữ nghĩa, tiến hành thực thi một truy vấn mẫu thông qua cURL (hoặc PowerShell).
 
-Tại màn hình Terminal, chạy lệnh sau (thay thế `[ALB-DNS]` bằng DNS thật của bạn):
+Tại màn hình Terminal, chạy lệnh sau (thay thế `[ALB-DNS]` bằng DNS thật của hệ thống):
 ```bash
 curl -X POST http://[ALB-DNS]/api/v1/search \
   -H "Content-Type: application/json" \

@@ -6,7 +6,7 @@ chapter : false
 pre : " <b> 5.7.1. </b> "
 ---
 
-Trước khi tiến hành cấu hình chi tiết cho các tác vụ xử lý (Task Definitions), chúng ta cần chuẩn bị không gian lưu trữ mã nguồn đóng gói và thiết lập nhóm quản lý logic tài nguyên. Phân đoạn này sẽ tập trung vào việc cấu hình kho lưu trữ **Amazon ECR** và khởi tạo cụm **Amazon ECS Cluster**.
+Trước khi tiến hành cấu hình chi tiết cho các tác vụ xử lý (Task Definitions), cần chuẩn bị không gian lưu trữ mã nguồn đóng gói và thiết lập nhóm quản lý logic tài nguyên. Phân đoạn này sẽ tập trung vào việc cấu hình kho lưu trữ **Amazon ECR** và khởi tạo cụm **Amazon ECS Cluster**.
 
 Do dự án áp dụng công nghệ **AWS Fargate**, cụm Cluster này sẽ hoạt động như một thực thể logic trống lúc ban đầu. Tài nguyên Compute thực tế sẽ chỉ được AWS cấp phát động ngay tại thời điểm ứng dụng được kích hoạt.
 

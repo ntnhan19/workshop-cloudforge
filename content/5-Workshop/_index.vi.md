@@ -10,9 +10,9 @@ pre: " <b> 5. </b> "
 
 #### Tổng quan
 
-**Smart Media Analytics** (phát triển bởi nhóm **CloudForge**) là một hệ thống phân tích media thông minh End-to-End. Để đưa một hệ thống đồ sộ như thế này lên Cloud, chúng ta cần một hạ tầng mạng linh hoạt, bảo mật cao và tự động mở rộng bằng cách kết hợp các dịch vụ Serverless và Container của AWS.
+**Smart Media Analytics** (phát triển bởi nhóm **CloudForge**) là một hệ thống phân tích media thông minh End-to-End. Để đưa một hệ thống đồ sộ như thế này lên Cloud, cần một hạ tầng mạng linh hoạt, bảo mật cao và tự động mở rộng bằng cách kết hợp các dịch vụ Serverless và Container của AWS.
 
-Bài workshop này là tài liệu ghi nhận lại **toàn bộ quá trình thực tế** mà đội ngũ CloudForge đã trải qua khi thiết kế và đưa dự án này lên môi trường AWS. Xuyên suốt workshop, chúng tôi sẽ thuật lại cách nhóm xây dựng một nền móng mạng VPC bảo mật, triển khai cụm pipeline xử lý AI (AI Pipeline) trên **Amazon ECS (Fargate)**, thiết lập cơ sở dữ liệu vector với **RDS PostgreSQL**, và cuối cùng là khởi chạy giao diện người dùng tự động thông qua **AWS Amplify**.
+Bài workshop này là tài liệu ghi nhận lại **toàn bộ quá trình thực tế** mà đội ngũ CloudForge đã trải qua khi thiết kế và đưa dự án này lên môi trường AWS. Xuyên suốt workshop, chúng tiến hành thuật lại cách nhóm xây dựng một nền móng mạng VPC bảo mật, triển khai cụm pipeline xử lý AI (AI Pipeline) trên **Amazon ECS (Fargate)**, thiết lập cơ sở dữ liệu vector với **RDS PostgreSQL**, và cuối cùng là khởi chạy giao diện người dùng tự động thông qua **AWS Amplify**.
 
 Điểm nhấn của hệ thống là các mô hình bảo mật và tối ưu chi phí, chẳng hạn như việc đặt toàn bộ các dịch vụ tính toán (Compute) ở **Private Subnet** và truy cập Amazon S3 hoàn toàn thông qua mạng nội bộ nhờ vào **S3 Gateway Endpoint**.
 

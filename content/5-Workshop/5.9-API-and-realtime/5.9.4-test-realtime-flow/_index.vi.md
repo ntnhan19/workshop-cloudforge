@@ -20,7 +20,7 @@ npm install -g wscat
 #### Kịch bản Kiểm thử End-to-End (E2E)
 
 **Bước 1: Kích hoạt luồng sự kiện và lấy Job ID (Trigger)**
-Trong thiết kế chuẩn của hệ thống, WebSocket route yêu cầu một UUID hợp lệ. Do đó, chúng ta sẽ kích hoạt tiến trình xử lý thông qua REST API để Backend khởi tạo một Job và cấp phát UUID (thay vì upload trực tiếp lên S3 mà không nhận được ID).
+Trong thiết kế chuẩn của hệ thống, WebSocket route yêu cầu một UUID hợp lệ. Do đó, tiến hành kích hoạt tiến trình xử lý thông qua REST API để Backend khởi tạo một Job và cấp phát UUID (thay vì upload trực tiếp lên S3 mà không nhận được ID).
 
 Sử dụng cURL (hoặc PowerShell) để gọi API Ingest, thay thế `[ALB-DNS]` bằng DNS của ALB:
 ```bash

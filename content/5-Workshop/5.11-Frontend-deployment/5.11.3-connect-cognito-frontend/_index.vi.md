@@ -113,8 +113,6 @@ Lúc này, khi truy cập vào đường dẫn tên miền của ứng dụng, t
 
 ***
 
-**Tổng kết Chương 5.11:** Bằng việc kết hợp AWS Amplify Hosting, Amazon Route 53 và Amazon Cognito, nhóm dự án đã hoàn thiện một kiến trúc Frontend Serverless toàn diện. Hệ thống không chỉ có khả năng tự động hóa triển khai (CI/CD) mà còn đảm bảo tính an toàn truy cập tuyệt đối ở cấp độ người dùng cuối với một giao diện xác thực chuyên nghiệp.
-
 ***
 
 **Bước tiếp theo:** Hệ thống Frontend đã kết nối thành công với Backend. Tuy nhiên, quy trình Build CI/CD hiện tại đang phụ thuộc hoàn toàn vào luồng cơ bản của Amplify. Ở chương tiếp theo ([**Chương 5.12: CI/CD Pipeline**](../../5.12-CICD/)), nhóm dự án sẽ chuẩn hóa quy trình phân phối liên tục (Continuous Delivery) cho toàn bộ hệ thống bằng AWS CodePipeline.

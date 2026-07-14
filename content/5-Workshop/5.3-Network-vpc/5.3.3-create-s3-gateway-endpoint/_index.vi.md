@@ -38,4 +38,4 @@ Bí mật của đường đi tắt nằm ở việc AWS tự động chèn mộ
 
 ***
 
-**Bước tiếp theo:** Sau khi hệ thống mạng, định tuyến, và đường tắt tối ưu chi phí đã được xác minh hoạt động hoàn hảo, chúng ta sẽ tiến tới phần [**5.3.4: Cấu hình Security Groups**](../5.3.4-security-groups/) để thiết lập các lớp khóa tường lửa bảo vệ cho từng dịch vụ cụ thể.
+**Bước tiếp theo:** Sau khi hệ thống mạng, định tuyến, và đường tắt tối ưu chi phí đã được xác minh hoạt động hoàn hảo, tiến hành tiến tới phần [**5.3.4: Cấu hình Security Groups**](../5.3.4-security-groups/) để thiết lập các lớp khóa tường lửa bảo vệ cho từng dịch vụ cụ thể.

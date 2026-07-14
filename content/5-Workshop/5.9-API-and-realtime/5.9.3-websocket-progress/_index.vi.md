@@ -8,7 +8,7 @@ pre : " <b> 5.9.3. </b> "
 
 Nếu HTTP API (RESTful) đóng vai trò là hệ xương sống vững chắc cho các luồng thao tác gửi/nhận dữ liệu tiêu chuẩn, thì giao thức **WebSocket** chính là "hệ thống thần kinh" (Nervous system) truyền tải các luồng tín hiệu thời gian thực (Real-time).
 
-Thay vì bắt buộc Frontend phải liên tục gửi yêu cầu "hỏi thăm" máy chủ (cơ chế Polling) - một phương pháp vô cùng tốn kém tài nguyên mạng và tạo áp lực khổng lồ lên cơ sở dữ liệu, chúng ta sẽ thiết lập một luồng kết nối WebSocket dai dẳng (Persistent Connection). Cơ chế này cho phép máy chủ chủ động đẩy (Push) thông báo trực tiếp về trình duyệt của người dùng ngay khoảnh khắc AI Worker hoàn tất vòng đời phân tích.
+Thay vì bắt buộc Frontend phải liên tục gửi yêu cầu "hỏi thăm" máy chủ (cơ chế Polling) - một phương pháp vô cùng tốn kém tài nguyên mạng và tạo áp lực khổng lồ lên cơ sở dữ liệu, tiến hành thiết lập một luồng kết nối WebSocket dai dẳng (Persistent Connection). Cơ chế này cho phép máy chủ chủ động đẩy (Push) thông báo trực tiếp về trình duyệt của người dùng ngay khoảnh khắc AI Worker hoàn tất vòng đời phân tích.
 
 #### Sức mạnh tiềm ẩn của Application Load Balancer (ALB)
 Trong quá trình triển khai thực tế, việc thiết lập WebSocket qua API Gateway đòi hỏi kiến trúc phức tạp (chẳng hạn như cần Network Load Balancer - NLB để kết nối VPC Link, hoặc phải viết mã nguồn quản lý trạng thái `@connections`).
@@ -28,4 +28,4 @@ Nhờ sự hỗ trợ nguyên bản của ALB, luồng dữ liệu thời gian t
 
 ***
 
-**Bước tiếp theo:** Hệ thống giao tiếp thời gian thực đã sẵn sàng. Chúng ta sẽ tiến tới bài học cuối cùng của chương: [**Kiểm thử luồng dữ liệu toàn vẹn (End-to-End)**](../5.9.4-test-realtime-flow/) để xác nhận sự phối hợp nhịp nhàng giữa HTTP API và WebSocket.
+**Bước tiếp theo:** Hệ thống giao tiếp thời gian thực đã sẵn sàng. Tiến hành tiến tới bài học cuối cùng của chương: [**Kiểm thử luồng dữ liệu toàn vẹn (End-to-End)**](../5.9.4-test-realtime-flow/) để xác nhận sự phối hợp nhịp nhàng giữa HTTP API và WebSocket.

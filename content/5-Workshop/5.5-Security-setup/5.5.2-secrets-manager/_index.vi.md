@@ -8,7 +8,7 @@ pre : " <b> 5.5.2. </b> "
 
 Trong các chương trước, chúng ta đã thu thập được rất nhiều thông số cấu hình nhạy cảm bao gồm mật khẩu cơ sở dữ liệu (`DB_PASSWORD`), mã định danh người dùng (`User Pool ID`), và mã ứng dụng (`App Client ID`). Việc lưu trữ trực tiếp các chuỗi ký tự này dưới dạng văn bản thuần (Plaintext) trong file `.env` hoặc mã nguồn là một lỗ hổng bảo mật nghiêm trọng.
 
-Để giải quyết bài toán này theo tiêu chuẩn doanh nghiệp, chúng ta sẽ sử dụng **AWS Secrets Manager** để mã hóa, lưu trữ tập trung và quản lý vòng đời của các cấu hình nhạy cảm này.
+Để giải quyết bài toán này theo tiêu chuẩn doanh nghiệp, tiến hành sử dụng **AWS Secrets Manager** để mã hóa, lưu trữ tập trung và quản lý vòng đời của các cấu hình nhạy cảm này.
 
 #### 1. Khởi tạo Secret lưu trữ cấu hình ứng dụng
 1. Trên thanh tìm kiếm của AWS Console, gõ **`Secrets Manager`** và chọn dịch vụ tương ứng. Đảm bảo bạn vẫn đang ở Region `ap-southeast-1`.
@@ -51,15 +51,15 @@ Trong các chương trước, chúng ta đã thu thập được rất nhiều t
 #### 2. Kiểm tra thông tin két sắt bảo mật
 Sau khi bấm Store thành công, hệ thống sẽ đưa bạn quay lại danh sách. Hãy click vào Secret mang tên `cloudforge/backend/config` bạn vừa tạo.
 
-Tại đây, bạn cần lưu ý thông số cực kỳ quan trọng sau:
+Tại đây, cần lưu ý thông số cực kỳ quan trọng sau:
 * **Secret ARN:** Chuỗi định danh duy nhất trên toàn cầu của AWS (Có dạng `arn:aws:secretsmanager:ap-southeast-1:xxxxxxxxxxxx:secret:cloudforge/backend/config-xxxxxx`). 
 
 {{% notice info %}}
-**Cơ chế vận hành trong tương lai:** Sau này khi cấu hình dịch vụ AWS ECS (Elastic Container Service) để chạy ứng dụng Backend, chúng ta sẽ không cần truyền file `.env` vào Container nữa. Thay vào đó, chúng ta chỉ cần gắn chuỗi **Secret ARN** này vào phần cấu hình Task Definition. Khi Container khởi động, AWS ECS sẽ tự động dùng quyền IAM để đọc két sắt này và nạp thẳng các biến môi trường vào bộ nhớ RAM của Container một cách tuyệt đối an toàn.
+**Cơ chế vận hành trong tương lai:** Sau này khi cấu hình dịch vụ AWS ECS (Elastic Container Service) để chạy ứng dụng Backend, tiến hành không cần truyền file `.env` vào Container nữa. Thay vào đó, chúng ta chỉ cần gắn chuỗi **Secret ARN** này vào phần cấu hình Task Definition. Khi Container khởi động, AWS ECS sẽ tự động dùng quyền IAM để đọc két sắt này và nạp thẳng các biến môi trường vào bộ nhớ RAM của Container một cách tuyệt đối an toàn.
 {{% /notice %}}
 
 ![Secrets Manager Created](/images/5-Workshop/5.5-Security-setup/5.5.2-secrets-manager/secrets_manager_created.png)
 
 ***
 
-**Bước tiếp theo:** Kho lưu trữ cấu hình bảo mật đã thiết lập xong. Chúng ta sẽ tiến tới phân lớp phòng thủ ngoài cùng tại [**5.5.3: Cấu hình WAF Rules bảo vệ API**](../5.5.3-waf-rules/) để thiết lập tường lửa ngăn chặn các cuộc tấn công mạng phá hoại từ Internet!
+**Bước tiếp theo:** Kho lưu trữ cấu hình bảo mật đã thiết lập xong. Tiến hành tiến tới phân lớp phòng thủ ngoài cùng tại [**5.5.3: Cấu hình WAF Rules bảo vệ API**](../5.5.3-waf-rules/) để thiết lập tường lửa ngăn chặn các cuộc tấn công mạng phá hoại từ Internet!

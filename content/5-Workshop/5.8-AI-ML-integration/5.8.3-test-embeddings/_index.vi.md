@@ -6,9 +6,9 @@ chapter : false
 pre : " <b> 5.8.3. </b> "
 ---
 
-Sau khi đã bóc tách thành công văn bản thô từ dịch vụ Amazon Transcribe, hệ thống của chúng ta tiếp tục đối mặt với một bài toán dữ liệu mới: Làm thế nào để máy tính có thể thực sự hiểu được "ngữ nghĩa" sâu xa của đoạn hội thoại, thay vì chỉ tìm kiếm khớp từ khóa (Keyword matching) một cách máy móc?
+Sau khi đã bóc tách thành công văn bản thô từ dịch vụ Amazon Transcribe, hệ thống của hệ thống tiếp tục đối mặt với một bài toán dữ liệu mới: Làm thế nào để máy tính có thể thực sự hiểu được "ngữ nghĩa" sâu xa của đoạn hội thoại, thay vì chỉ tìm kiếm khớp từ khóa (Keyword matching) một cách máy móc?
 
-Giải pháp tối ưu nhất cho kiến trúc của Smart Media Analytics chính là sử dụng các **Mô hình nhúng (Embeddings Models)**. Trong phân đoạn này, chúng ta sẽ ghi nhận lại cách AI Worker giao tiếp với Amazon Bedrock để chuyển đổi ngôn ngữ tự nhiên thành các Vector toán học.
+Giải pháp tối ưu nhất cho kiến trúc của Smart Media Analytics chính là sử dụng các **Mô hình nhúng (Embeddings Models)**. Trong phân đoạn này, tiến hành ghi nhận lại cách AI Worker giao tiếp với Amazon Bedrock để chuyển đổi ngôn ngữ tự nhiên thành các Vector toán học.
 
 #### Cơ chế hoạt động của Text Embeddings
 
@@ -33,4 +33,4 @@ Trong thế giới của Trí tuệ Nhân tạo, "Embedding" là quá trình mã
 
 ***
 
-**Bước tiếp theo:** Với toàn bộ dữ liệu Vector đã được định hình cấu trúc, luồng xử lý nền (Background Processing) của chúng ta coi như đã hoàn thiện. Ở chương tiếp theo ([**Chương 5.9: API & Real-time**](../../5.9-API-and-realtime/)), chúng ta sẽ quay trở lại với tầng Backend để cấu hình các luồng giao tiếp thời gian thực, giúp thông báo cho người dùng ngay khi AI Worker phân tích xong!
+**Bước tiếp theo:** Với toàn bộ dữ liệu Vector đã được định hình cấu trúc, luồng xử lý nền (Background Processing) của hệ thống coi như đã hoàn thiện. Ở chương tiếp theo ([**Chương 5.9: API & Real-time**](../../5.9-API-and-realtime/)), tiến hành quay trở lại với tầng Backend để cấu hình các luồng giao tiếp thời gian thực, giúp thông báo cho người dùng ngay khi AI Worker phân tích xong!

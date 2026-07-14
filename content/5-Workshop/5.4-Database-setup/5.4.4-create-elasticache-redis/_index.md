@@ -54,4 +54,4 @@ Under the **Cluster details** section, copy the URL provided in the **Primary en
 
 ***
 
-**Next Step:** The core data system is now complete. We will proceed to section **5.4.4** to consolidate all the necessary Endpoints, preparing everything to deploy the Backend source code to the Cloud.
+**Next Step:** The core data system is now complete. We will proceed to section **5.4.5** to consolidate all the necessary Endpoints, preparing everything to deploy the Backend source code to the Cloud.

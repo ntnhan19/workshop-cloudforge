@@ -54,4 +54,4 @@ Tại phần **Cluster details**, hãy copy lại đường dẫn ở mục **Pr
 
 ***
 
-**Bước tiếp theo:** Hệ thống dữ liệu lõi đã hoàn tất. Chúng ta sẽ tiến tới phần **5.4.4** để tổng hợp lại các Endpoint cần thiết, chuẩn bị hành trang đưa mã nguồn Backend lên Cloud.
+**Bước tiếp theo:** Hệ thống dữ liệu lõi đã hoàn tất. Chúng ta sẽ tiến tới phần **5.4.5** để tổng hợp lại các Endpoint cần thiết, chuẩn bị hành trang đưa mã nguồn Backend lên Cloud.

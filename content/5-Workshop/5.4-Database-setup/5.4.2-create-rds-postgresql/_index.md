@@ -51,4 +51,4 @@ Before launching the database, RDS requires us to define a **Subnet Group** to s
 
 ***
 
-**Next Step:** While waiting for the RDS instance to finish provisioning, we will move to section **5.4.2** to enable the `pgvector` extension, preparing the database to store embeddings.
+**Next Step:** While waiting for the RDS instance to finish provisioning, we will move to section **5.4.3** to enable the `pgvector` extension, preparing the database to store embeddings.

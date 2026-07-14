@@ -48,4 +48,4 @@ If the results display `vector` along with its version (e.g., `0.8.1`), congratu
 
 ***
 
-**Next Step:** With our persistent data storage layer completed, we will move to section **5.4.3: Create ElastiCache (Redis)** to build our high-speed caching and Message Queue layer for the AI Workers.
+**Next Step:** With our persistent data storage layer completed, we will move to section **5.4.4: Create ElastiCache (Redis)** to build our high-speed caching and Message Queue layer for the AI Workers.

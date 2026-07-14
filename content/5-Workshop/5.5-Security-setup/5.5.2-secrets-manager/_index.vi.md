@@ -21,24 +21,32 @@ Trong các chương trước, chúng ta đã thu thập được rất nhiều t
   
   | Key | Value |
   | :--- | :--- |
-  | `DB_PASSWORD` | *<Nhập mật khẩu RDS PostgreSQL thật của bạn>* |
-  | `COGNITO_USER_POOL_ID` | *<Nhập User Pool ID vừa lấy ở bài 5.5.1>* |
-  | `COGNITO_APP_CLIENT_ID` | *<Nhập App Client ID vừa lấy ở bài 5.5.1>* |
+  | `DB_PASSWORD` | *<Nhập mật khẩu RDS PostgreSQL>* |
+  | `COGNITO_USER_POOL_ID` | *<Nhập User Pool ID ở bài 5.5.1>* |
+  | `COGNITO_APP_CLIENT_ID` | *<Nhập App Client ID ở bài 5.5.1>* |
 
-- **Encryption key:** Giữ nguyên mặc định là `aws/secretsmanager` (AWS sẽ tự động dùng dịch vụ KMS để mã hóa két sắt này).
+- **Encryption key:** Giữ nguyên mặc định là `aws/secretsmanager` (AWS sẽ tự động dùng dịch vụ KMS để mã hóa).
 - Bấm **Next**.
+
+![AWS Secrets Manager Step 1](/images/5-Workshop/5.5-Security-setup/5.5.2-secrets-manager/aws_secrets_manager_step_1.png)
 
 **Step 2: Configure secret**
 - **Secret name:** Nhập tên theo cấu trúc phân cấp thư mục để dễ quản lý: `cloudforge/backend/config`
-- **Description:** Nhập mô tả ngắn gọn (ví dụ: `Chứa cấu hình nhạy cảm cho ứng dụng Backend Smart Media Analytics`).
+- **Description:** Nhập mô tả ngắn gọn (ví dụ: `Contains sensitive configuration for the Smart Media Analytics Backend application`).
 - Các mục khác giữ nguyên mặc định và bấm **Next**.
 
+![AWS Secrets Manager Step 2](/images/5-Workshop/5.5-Security-setup/5.5.2-secrets-manager/aws_secrets_manager_step_2.png)
+
 **Step 3: Configure rotation (Tùy chọn xoay vòng mật khẩu)**
-- **Automatic rotation:** Chọn **Disable automatic rotation** (Tắt tính năng tự động đổi mật khẩu định kỳ để phục vụ môi trường Lab đơn giản).
+- **Automatic rotation:** Chọn **Disable automatic rotation** (Tắt tính năng tự động đổi mật khẩu định kỳ).
 - Bấm **Next**.
+
+![AWS Secrets Manager Step 3](/images/5-Workshop/5.5-Security-setup/5.5.2-secrets-manager/aws_secrets_manager_step_3.png)
 
 **Step 4: Review**
 - Cuộn xuống dưới cùng để kiểm tra lại cấu trúc cấu hình và bấm nút **Store** để hoàn tất khởi tạo.
+
+![AWS Secrets Manager Step 4](/images/5-Workshop/5.5-Security-setup/5.5.2-secrets-manager/aws_secrets_manager_step_4.png)
 
 #### 2. Kiểm tra thông tin két sắt bảo mật
 Sau khi bấm Store thành công, hệ thống sẽ đưa bạn quay lại danh sách. Hãy click vào Secret mang tên `cloudforge/backend/config` bạn vừa tạo.

@@ -48,4 +48,4 @@ Nếu kết quả trả về hiển thị `vector` kèm theo phiên bản (ví d
 
 ***
 
-**Bước tiếp theo:** Với lớp lưu trữ dữ liệu bền vững đã hoàn thiện, chúng ta sẽ chuyển sang phần **5.4.3: Khởi tạo ElastiCache (Redis)** để xây dựng lớp Caching tốc độ cao và Message Queue cho các AI Worker.
+**Bước tiếp theo:** Với lớp lưu trữ dữ liệu bền vững đã hoàn thiện, chúng ta sẽ chuyển sang phần **5.4.4: Khởi tạo ElastiCache (Redis)** để xây dựng lớp Caching tốc độ cao và Message Queue cho các AI Worker.

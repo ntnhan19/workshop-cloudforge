@@ -74,4 +74,4 @@ You have successfully created the **Task Definition** for the AI Worker. The inf
 
 ***
 
-**Next Step:** The entire core processing infrastructure system including Network connectivity, Storage database, Asynchronous event orchestration, and Compute cluster (ECS Backend & Worker) of the Smart Media Analytics project has been completely built and linked. We will move on to the next chapter to execute [**Frontend Deployment**](../5.7.4-configure-auto-scaling/) and configure an intuitive interactive interface for the end-user.
+**Next Step:** The entire core processing infrastructure system including Network connectivity, Storage database, Asynchronous event orchestration, and Compute cluster (ECS Backend & Worker) of the Smart Media Analytics project has been completely built and linked. We will move on to the next chapter to execute [**Auto Scaling Configuration**](../5.7.4-configure-auto-scaling/) and ensure high availability.

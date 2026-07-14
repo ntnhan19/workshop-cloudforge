@@ -50,4 +50,4 @@ Lưu lượng công việc của AI Worker phụ thuộc hoàn toàn vào số l
 
 ***
 
-**Bước tiếp theo:** Hệ thống hạ tầng Compute đã hoàn thiện với khả năng tự động co giãn thông minh. Có thể tự hào rằng ứng dụng CloudForge giờ đây có khả năng chịu tải cao với kiến trúc Serverless đích thực. Hãy chuyển sang phần tiếp theo để tổng kết kiến trúc và trải nghiệm thực tế!
+**Bước tiếp theo:** Hệ thống hạ tầng Compute đã hoàn thiện với khả năng tự động co giãn thông minh. Có thể tự hào rằng ứng dụng CloudForge giờ đây có khả năng chịu tải cao với kiến trúc Serverless đích thực. Hãy chuyển sang chương tiếp theo để [**Tích hợp các dịch vụ AI/ML**](../../5.8-AI-ML-integration/) mạnh mẽ vào hệ thống!

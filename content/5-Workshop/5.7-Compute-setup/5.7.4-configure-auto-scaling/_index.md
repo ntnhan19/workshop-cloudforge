@@ -50,4 +50,4 @@ The AI Worker's workload depends entirely on the number of messages backlogged i
 
 ***
 
-**Next Step:** The Compute infrastructure system is complete with smart, automatic scaling capabilities. You can be proud that the CloudForge application is now capable of handling high loads with a true Serverless architecture. Let's move on to the next section to summarize the architecture and experience the actual system!
+**Next Step:** The Compute infrastructure system is complete with smart, automatic scaling capabilities. You can be proud that the CloudForge application is now capable of handling high loads with a true Serverless architecture. Let's move on to the next chapter to [**Integrate AI/ML Services**](../../5.8-AI-ML-integration/) into the system!

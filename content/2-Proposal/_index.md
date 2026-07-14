@@ -32,14 +32,14 @@ The platform employs a hybrid local-to-cloud approach. In the local phase, the m
 - **1. Networking & Routing:** Amazon Route 53, AWS Amplify, Amazon API Gateway, AWS ALB (Application Load Balancer), Amazon VPC (including Internet Gateway, NAT Gateway, and S3 Gateway Endpoint).
 - **2. Compute & CI/CD:** Amazon ECS on Fargate (Divided into 2 services: Backend and AI Worker), Amazon ECR (Elastic Container Registry).
 - **3. Storage & Database:** Amazon S3, Amazon RDS (PostgreSQL), Amazon ElastiCache (Redis).
-- **4. AI & ML:** Amazon Bedrock (Nova Lite & Titan Embeddings), Amazon Transcribe.
+- **4. AI & ML:** Amazon Bedrock (Anthropic Claude 3 & Titan Embeddings), Amazon Transcribe.
 - **5. Orchestration & Events:** Amazon SQS, Amazon EventBridge, AWS Step Functions.
 - **6. Security & Observability:** Amazon Cognito, AWS Secrets Manager, Amazon CloudWatch, AWS X-Ray.
 
 **Component Design**
 - **Frontend Layer:** React app managed and distributed by AWS Amplify with Route 53, authenticated via Cognito.
 - **API & Routing Layer:** API Gateway or ALB routes traffic to the Backend running on Amazon ECS Fargate.
-- **Processing & AI Layer:** Step Functions coordinates AI Worker (ECS Fargate) tasks for video processing, followed by Bedrock (Nova Lite & Titan) & Transcribe for AI extraction.
+- **Processing & AI Layer:** Step Functions coordinates AI Worker (ECS Fargate) tasks for video processing, followed by Bedrock (Anthropic Claude 3 & Titan) & Transcribe for AI extraction.
 - **Data Layer:** Metadata is persisted in RDS PostgreSQL, cached in ElastiCache. Secured within a VPC with a NAT Gateway and S3 Gateway Endpoint.
 
 ### 4. Technical Implementation
@@ -81,7 +81,7 @@ Deploying this comprehensive production architecture with over 20 AWS services, 
 | **Amazon SQS, EventBridge, Step Functions** | Workflow Orchestration, Event Bus, Queues | $1.00 |
 | **Amazon Route 53** | DNS Management (1 Hosted Zone) | $0.50 |
 | **Amazon Cognito** | User Authentication (JWT) | $0.00 (Free Tier) |
-| **Estimated Total** | **Entire System** | **~$181.90** |
+| **Estimated Total** | **Entire System** | **~$190.90** |
 
 ### 7. Risk Assessment
 **Risk Matrix**

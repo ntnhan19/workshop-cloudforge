@@ -32,14 +32,14 @@ SMA được thiết kế theo hướng hybrid local-to-cloud. Ở giai đoạn 
 - **1. Mạng & Tiếp nhận Request (Networking & Routing):** Amazon Route 53, AWS Amplify, Amazon API Gateway, AWS ALB (Application Load Balancer), Amazon VPC (bao gồm Internet Gateway, NAT Gateway và S3 Gateway Endpoint).
 - **2. Tính toán & CI/CD (Compute & CI/CD):** Amazon ECS trên Fargate (Được chia làm 2 service: Backend và AI Worker), Amazon ECR (Elastic Container Registry).
 - **3. Lưu trữ & Cơ sở dữ liệu (Storage & Database):** Amazon S3, Amazon RDS (PostgreSQL), Amazon ElastiCache (Redis).
-- **4. Trí tuệ nhân tạo (AI & ML):** Amazon Bedrock (Nova Lite & Titan Embeddings), Amazon Transcribe.
+- **4. Trí tuệ nhân tạo (AI & ML):** Amazon Bedrock (Anthropic Claude 3 & Titan Embeddings), Amazon Transcribe.
 - **5. Điều phối luồng công việc (Orchestration & Events):** Amazon SQS, Amazon EventBridge, AWS Step Functions.
 - **6. Bảo mật & Quan sát hệ thống (Security & Observability):** Amazon Cognito, AWS Secrets Manager, Amazon CloudWatch, AWS X-Ray.
 
 **Thiết kế thành phần**
 - **Lớp Giao diện (Frontend):** Ứng dụng React quản lý và phân phối qua AWS Amplify kết hợp Route 53, xác thực bằng Cognito.
 - **Lớp Ứng dụng (API):** Nhận request từ API Gateway hoặc ALB và định tuyến đến Backend chạy trên Amazon ECS Fargate.
-- **Lớp Xử lý (Pipeline):** Step Functions gọi các AI Worker (ECS Fargate) xử lý video, sau đó dùng Bedrock (Nova Lite & Titan) & Transcribe trích xuất ngữ nghĩa.
+- **Lớp Xử lý (Pipeline):** Step Functions gọi các AI Worker (ECS Fargate) xử lý video, sau đó dùng Bedrock (Anthropic Claude 3 & Titan) & Transcribe trích xuất ngữ nghĩa.
 - **Lớp Dữ liệu (Data):** RDS lưu siêu dữ liệu, S3 lưu file tĩnh, ElastiCache lưu đệm. Tất cả nằm trong VPC bảo mật với NAT Gateway và S3 Gateway Endpoint.
 
 ### 4. Triển khai kỹ thuật
@@ -67,7 +67,7 @@ Với quy mô kiến trúc production sử dụng hơn 20 dịch vụ AWS, ướ
 
 | Dịch vụ AWS | Mục đích sử dụng | Ước tính chi phí / Tháng (USD) |
 | --- | --- | --- |
-| **Amazon RDS (PostgreSQL)** | Database chính (Multi-AZ, `db.t4g.small` - `db.t4g.micro`, 20GB) | $25.00 - $45.00 |
+| **Amazon RDS (PostgreSQL)** | Database chính (Multi-AZ, `db.t4g.medium`, 20GB) | $68.00 |
 | **AWS NAT Gateway** | Cho phép Private Subnet ra Internet (1 NAT, 24/7) | $32.40 |
 | **Amazon ElastiCache** | Cache (Multi-AZ, `cache.t4g.small`, 2 nodes) | $32.00 |
 | **Amazon ECS (Fargate)** | Chạy Auto Scaling Task xử lý Video (~1 vCPU, 2GB RAM) | $15.00 |
@@ -81,7 +81,7 @@ Với quy mô kiến trúc production sử dụng hơn 20 dịch vụ AWS, ướ
 | **Amazon SQS, EventBridge, Step Functions** | Điều phối Workflow, Event Bus, Hàng đợi | $1.00 |
 | **Amazon Route 53** | Quản lý DNS (1 Hosted Zone) | $0.50 |
 | **Amazon Cognito** | Xác thực người dùng (JWT) | $0.00 (Free Tier) |
-| **Tổng cộng ước tính** | **Toàn bộ hệ thống** | **~$181.90** |
+| **Tổng cộng ước tính** | **Toàn bộ hệ thống** | **~$190.90** |
 
 ### 7. Rủi ro
 **Ma trận rủi ro**

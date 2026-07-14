@@ -1,4 +1,4 @@
-﻿---
+---
 title : "Kiểm tra Kết nối"
 date : 2026-07-10
 weight : 5
@@ -67,4 +67,4 @@ REDIS_PORT=6379
 
 ***
 
-**Bước tiếp theo:** Hệ thống mạng và cơ sở dữ liệu nền tảng đã sẵn sàng. Chúng ta sẽ chuyển sang phần [**5.5: Security Setup**](../5.4.6-auto-migration/) để thiết lập kho quản lý Secrets an toàn, đưa cảnh báo bảo mật ở trên vào thực tế!
+**Bước tiếp theo:** Hệ thống mạng và cơ sở dữ liệu nền tảng đã sẵn sàng. Chúng ta sẽ chuyển sang phần [**5.4.6: Khởi tạo Database Schema (Auto-Migration)**](../5.4.6-auto-migration/) để hiểu cách mà các bảng trong Database sẽ được tự động tạo ra như thế nào khi triển khai ứng dụng.

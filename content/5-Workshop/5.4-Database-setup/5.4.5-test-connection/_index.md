@@ -1,4 +1,4 @@
-﻿---
+---
 title : "Test Connection"
 date : 2026-07-10
 weight : 5
@@ -67,4 +67,4 @@ REDIS_PORT=6379
 
 ***
 
-**Next Step:** The foundational network and database systems are ready. We will move to section [**5.5: Security Setup**](../5.4.6-auto-migration/) to establish a secure Secrets management vault, putting the security warning above into practice!
+**Next Step:** The foundational network and database systems are ready. We will move to section [**5.4.6: Initialize Database Schema (Auto-Migration)**](../5.4.6-auto-migration/) to understand how the tables in our Database will be automatically created when deploying the application.

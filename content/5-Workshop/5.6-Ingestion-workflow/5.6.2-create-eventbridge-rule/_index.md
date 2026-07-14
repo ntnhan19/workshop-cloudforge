@@ -33,6 +33,8 @@ Access the **Amazon EventBridge** service → **Rules** → **Create rule**. Use
   }
   ```
 
+![EventBridge Event Pattern](/images/5-Workshop/5.6-Ingestion-workflow/5.6.2-create-eventbridge-rule/eventbridge_event_pattern.png)
+
 **Step 2: Set up Target (Destination)**
 - On the left toolbar, search for the **SQS** service (or open the AWS Services category), and drag the **Amazon SQS** block into the **Targets** area.
 - In the Target configuration panel, under *Queue*, select the exact **`cloudforge-media-task-queue`** queue initialized in the previous section.

@@ -33,3 +33,6 @@ Instead of manually creating each component, we will use the **VPC and more** wi
 7. Wait a few minutes for AWS to provision all the resources (VPC, Subnets, Internet Gateway, NAT Gateway, Route Tables, and S3 Endpoint). Once complete, you will see a "Success" screen.
 
    ![VPC Success](/images/5-Workshop/5.3-Network-vpc/5.3.1-create-vpc-subnets/vpc_success_creation.png)
+
+---
+**Next Step:** Click here to [Verify NAT Gateway & Routing](../5.3.2-create-nat-gateway/)

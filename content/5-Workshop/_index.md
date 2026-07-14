@@ -16,6 +16,10 @@ This workshop serves as a **documented journey** of how the CloudForge team desi
 
 We will focus on implementing secure and cost-optimized architectural patterns, such as utilizing **Private Subnets** for compute layers and connecting to Amazon S3 securely without traversing the public internet using **S3 Gateway Endpoints**.
 
+#### Project Resources
+- 🌐 **Live Demo:** [https://main.d10clqxr7o0tzf.amplifyapp.com/](https://main.d10clqxr7o0tzf.amplifyapp.com/)
+- 💻 **Source Code (GitHub):** [https://github.com/ntnhan19/smart_media_analytics_cloudforge](https://github.com/ntnhan19/smart_media_analytics_cloudforge)
+
 #### Content
 
 1. [Architecture Overview](5.1-Architecture-overview/)
@@ -31,4 +35,5 @@ We will focus on implementing secure and cost-optimized architectural patterns, 
 11. [Frontend Deployment (Amplify, Route53)](5.11-Frontend-deployment/)
 12. [CI/CD (GitHub Actions, ECR)](5.12-CICD/)
 13. [Observability (CloudWatch, X-Ray)](5.13-Observability/)
-14. [Clean up resources](5.14-Cleanup/)
+14. [Test the Application (User Guide)](5.14-User-guide/)
+15. [Clean up resources](5.15-Cleanup/)

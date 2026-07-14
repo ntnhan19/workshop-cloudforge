@@ -15,9 +15,25 @@ Truy cập dịch vụ **Amazon EventBridge** → **Rules** → **Create rule**.
 
 **Bước 1: Thiết lập Trigger (Nguồn phát sự kiện)**
 - Tại thẻ **Build**, khu vực *Events* bên trái, tìm và kéo khối **S3 (Simple Storage Service) Object Created** thả vào khu vực **Triggering Events**.
-- *Tùy chọn nâng cao (Lọc sự kiện):* Thông qua tính năng **Event pattern (Filter)**, kiến trúc có thể được cấu hình để chỉ định bắt sự kiện từ một S3 Bucket cụ thể, giúp tối ưu hóa lưu lượng và ngăn chặn các vòng lặp xử lý không mong muốn.
+- **CỰC KỲ QUAN TRỌNG (Ngăn chặn Infinite Loop):** Bạn bắt buộc phải cuộn xuống mục **Event pattern** (nằm bên phải), chọn tab **JSON** và dán đoạn mã sau vào (nhớ thay `<YOUR_BUCKET_NAME>` thành tên bucket của bạn). Việc thêm `{"prefix": "uploads/"}` đảm bảo hệ thống chỉ kích hoạt AI Worker khi người dùng upload video gốc, và **bỏ qua** các file ảnh Thumbnail do chính AI Worker sinh ra sau này:
+  ```json
+  {
+    "source": ["aws.s3"],
+    "detail-type": ["Object Created"],
+    "detail": {
+      "bucket": {
+        "name": ["<YOUR_BUCKET_NAME>"]
+      },
+      "object": {
+        "key": [{
+          "prefix": "uploads/"
+        }]
+      }
+    }
+  }
+  ```
 
-![EventBridge Trigger Setup](/images/5-Workshop/5.6-Ingestion-workflow/5.6.2-create-eventbridge-rule/eventbridge_trigger.png)
+  ![EventBridge Event Pattern](/images/5-Workshop/5.6-Ingestion-workflow/5.6.2-create-eventbridge-rule/eventbridge_event_pattern.png)
 
 **Bước 2: Thiết lập Target (Đích đến)**
 - Tại thanh công cụ bên trái, tìm kiếm dịch vụ **SQS** (hoặc mở danh mục AWS Services), kéo khối **Amazon SQS** thả vào khu vực **Targets**.

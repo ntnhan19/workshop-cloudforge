@@ -13,11 +13,25 @@ In the Smart Media Analytics system, when a multimedia file (Video/Audio) is upl
 #### 1. Create EventBridge Rule (Enhanced Builder)
 Access the **Amazon EventBridge** service → **Rules** → **Create rule**. Use the visual Enhanced builder interface to configure the routing flow:
 
-**Step 1: Set up Trigger (Event Source)**
-- On the **Build** tab, in the left *Events* pane, find and drag the **S3 (Simple Storage Service) Object Created** block and drop it into the **Triggering Events** area.
-- *Advanced option (Event filtering):* Through the **Event pattern (Filter)** feature, the architecture can be configured to strictly capture events from a specific S3 Bucket, optimizing traffic and preventing unwanted processing loops.
-
-![EventBridge Trigger Setup](/images/5-Workshop/5.6-Ingestion-workflow/5.6.2-create-eventbridge-rule/eventbridge_trigger.png)
+**Step 1: Set Up Trigger (Event Source)**
+- In the **Build** tab, under the *Events* section on the left, search for and drag the **S3 (Simple Storage Service) Object Created** block into the **Triggering Events** area.
+- **CRITICAL STEP (Prevent Infinite Loops):** You must scroll down to the **Event pattern** section (on the right panel), switch to the **JSON** tab, and paste the following code (remembering to replace `<YOUR_BUCKET_NAME>`). Adding the `{"prefix": "uploads/"}` filter ensures the system only triggers the AI Worker when a user uploads an original video, and **ignores** the thumbnail images generated and uploaded by the AI Worker itself later on:
+  ```json
+  {
+    "source": ["aws.s3"],
+    "detail-type": ["Object Created"],
+    "detail": {
+      "bucket": {
+        "name": ["<YOUR_BUCKET_NAME>"]
+      },
+      "object": {
+        "key": [{
+          "prefix": "uploads/"
+        }]
+      }
+    }
+  }
+  ```
 
 **Step 2: Set up Target (Destination)**
 - On the left toolbar, search for the **SQS** service (or open the AWS Services category), and drag the **Amazon SQS** block into the **Targets** area.

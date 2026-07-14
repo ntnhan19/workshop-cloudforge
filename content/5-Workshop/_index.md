@@ -12,9 +12,9 @@ pre: " <b> 5. </b> "
 
 **Smart Media Analytics** (developed by team **CloudForge**) is an end-to-end intelligent media analysis pipeline. Moving this robust architecture to the cloud requires a well-designed, secure, and highly available infrastructure leveraging modern Serverless and Containerized AWS services.
 
-In this workshop, you will learn how to deploy the entire Smart Media Analytics stack on AWS. We will build a secure VPC infrastructure, deploy our AI processing pipeline using Amazon ECS (Fargate), set up our vector databases with RDS PostgreSQL, and host our frontend using AWS App Runner.
+This workshop serves as a **documented journey** of how the CloudForge team designed and migrated this actual project to the AWS cloud. Throughout the workshop, we will walk you through our process of building a secure VPC infrastructure, deploying the AI processing pipeline using **Amazon ECS (Fargate)**, setting up the vector databases with **RDS PostgreSQL**, and automatically hosting the frontend using **AWS Amplify**.
 
-We will focus on implementing secure architectural patterns such as utilizing **Private Subnets** for compute layers and connecting to Amazon S3 securely without traversing the public internet using **S3 Gateway Endpoints**.
+We will focus on implementing secure and cost-optimized architectural patterns, such as utilizing **Private Subnets** for compute layers and connecting to Amazon S3 securely without traversing the public internet using **S3 Gateway Endpoints**.
 
 #### Content
 

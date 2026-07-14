@@ -1,4 +1,4 @@
-﻿---
+---
 title : "Kiểm tra luồng Ingestion"
 date : 2026-07-10
 weight : 4
@@ -33,31 +33,27 @@ Mục tiêu của giai đoạn này là xác nhận Amazon EventBridge có bắt
 ![SQS Message Received](/images/5-Workshop/5.6-Ingestion-workflow/5.6.4-test-ingestion-flow/sqs_message_received.png)
 
 #### 2. Xác thực tiến trình điều phối (Step Functions Workflow)
-Mục tiêu của giai đoạn này là kiểm tra tính hợp lệ và khả năng rẽ nhánh logic nghiệp vụ của máy trạng thái khi tiếp nhận yêu cầu điều phối.
+Mục tiêu của giai đoạn này là kiểm tra xem EventBridge có kích hoạt thành công Step Functions và truyền đúng siêu dữ liệu từ S3 hay không.
 
-**Bước 1: Kích hoạt thực thi State Machine**
+**Bước 1: Kiểm tra lịch sử tự động kích hoạt**
 - Truy cập dịch vụ **[AWS Step Functions](https://console.aws.amazon.com/states/home#/statemachines)** → Chọn máy trạng thái `cloudforge-media-workflow`.
-- Bấm nút **Start execution**. Tại hộp thoại Input, bạn có thể nhập thử một đoạn JSON giả lập (ví dụ: `{"status": "success"}`) và chọn **Start execution** một lần nữa.
+- Bạn KHÔNG CẦN bấm nút "Start execution". Vì chúng ta đã cấu hình EventBridge trỏ tới Step Functions, hành động tải file lên S3 ở bước trước đã tự động tạo ra một lượt chạy (execution) mới!
+- Tại tab **Executions**, hãy click vào lượt chạy gần nhất ở trên cùng.
 
-![Step Functions Input Mock](/images/5-Workshop/5.6-Ingestion-workflow/5.6.4-test-ingestion-flow/step_functions_input_mock.png)
-
-![Step Functions Execution List](/images/5-Workshop/5.6-Ingestion-workflow/5.6.4-test-ingestion-flow/step_functions_execution_list.png)
+![Step Functions Executions](/images/5-Workshop/5.6-Ingestion-workflow/5.6.4-test-ingestion-flow/step_functions_executions.png)
 
 **Bước 2: Giám sát trực quan luồng công việc (Graph View)**
-- Dựa trên điều kiện giữ chỗ (`{% true %}`) đã thiết lập tại phân đoạn xây dựng bộ khung, luồng thực thi sẽ tự động chuyển trạng thái tuần tự từ `Start Processing` → vượt qua điểm đánh giá `Check Status` → hội tụ chính xác về nhánh tác vụ thành công `Update Metadata`.
-- Thanh trạng thái tổng thể hiển thị màu xanh lá kèm nhãn **Succeeded**.
+- Luồng thực thi sẽ chuyển sang trạng thái `Launch AI Worker`.
 
-![Step Functions Success](/images/5-Workshop/5.6-Ingestion-workflow/5.6.4-test-ingestion-flow/step_functions_success.png)
+![Step Functions Graph View](/images/5-Workshop/5.6-Ingestion-workflow/5.6.4-test-ingestion-flow/step_functions_graph.png)
 
-**Bước 3: Phân tích Dữ liệu Đầu vào / Đầu ra (Input/Output)**
-- Click vào một bước (step) bất kỳ trên Graph View (ví dụ: `Update Metadata`).
-- Ở thanh bên phải, kiểm tra tab **Step input** và **Step output** để thấy rõ cách dữ liệu được luân chuyển giữa các bước. *(Lưu ý: Vì đây mới chỉ là các bước "Pass State" làm bộ khung giả lập, dữ liệu bạn nhập ở Bước 1 sẽ được truyền thẳng từ Input sang Output mà không bị biến đổi).*
-
-![Step Functions Details](/images/5-Workshop/5.6-Ingestion-workflow/5.6.4-test-ingestion-flow/step_functions_details.png)
+**Bước 3: Phân tích Dữ liệu Đầu vào (Input)**
+- Click vào bước `Launch AI Worker` (đang báo lỗi) trên Graph View.
+- Ở thanh bên phải, kiểm tra tab **Step input**. Bạn sẽ thấy toàn bộ gói tin JSON sự kiện từ S3, chứng minh rằng EventBridge đã truyền siêu dữ liệu thành công cho Step Functions.
 
 #### 3. Kết luận Phân lớp Điều phối Workflow
-Kết quả thực nghiệm cho thấy toàn bộ đường ống Ingestion Workflow đã vận hành hoàn toàn đúng với thiết kế kiến trúc ban đầu. Dữ liệu từ tầng lưu trữ đã được định tuyến, cô lập an toàn tại bộ đệm hàng đợi và kịch bản điều phối sẵn sàng kết nối với các ứng dụng tính toán thực tế.
+Kết quả thực nghiệm cho thấy toàn bộ đường ống Ingestion Workflow đã vận hành hoàn toàn đúng với thiết kế kiến trúc Fan-out ban đầu. Dữ liệu từ tầng lưu trữ đã được định tuyến tới SQS (để lưu vết) và đồng thời kích hoạt thành công kịch bản điều phối (Step Functions).
 
 ***
 
-**Bước tiếp theo:** Hệ thống điều phối và đường ống tin nhắn hướng sự kiện của Chương 5.6 đã hoàn thành trọn vẹn. Chúng ta đã có đầy đủ nền tảng vững chắc để bước sang **Chương 5.7: Triển khai Compute (ECS)** nhằm cấu hình các cụm máy chủ Container thực thi mô hình AI kéo dữ liệu từ SQS.
+**Bước tiếp theo:** Hệ thống điều phối và đường ống tin nhắn hướng sự kiện của Chương 5.6 đã hoàn thành trọn vẹn. Chúng ta đã có đầy đủ nền tảng vững chắc để bước sang **Chương 5.7: Triển khai Compute (ECS)** nhằm cấu hình các Container thực thi mô hình AI thật sự.

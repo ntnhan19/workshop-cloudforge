@@ -1,4 +1,4 @@
-﻿---
+---
 title : "Test Ingestion Flow"
 date : 2026-07-10
 weight : 4
@@ -33,31 +33,27 @@ The objective of this phase is to confirm that Amazon EventBridge correctly catc
 ![SQS Message Received](/images/5-Workshop/5.6-Ingestion-workflow/5.6.4-test-ingestion-flow/sqs_message_received.png)
 
 #### 2. Validate Orchestration Process (Step Functions Workflow)
-The objective of this phase is to verify the validity and business logic branching capabilities of the state machine upon receiving an orchestration request.
+The objective of this phase is to verify that EventBridge successfully triggered the Step Functions state machine and passed the correct S3 metadata.
 
-**Step 1: Trigger State Machine execution**
-- Access the **[AWS Step Functions](https://console.aws.amazon.com/states/home#/statemachines)** service → Select the state machine `cloudforge-media-workflow`.
-- Click the **Start execution** button. In the Input dialog, you can enter a dummy JSON payload (e.g., `{"status": "success"}`) and click **Start execution** again.
+**Step 1: Check Automatic Execution History**
+- Go to **[AWS Step Functions](https://console.aws.amazon.com/states/home#/statemachines)** → Select the `cloudforge-media-workflow` state machine.
+- You DO NOT NEED to click "Start execution". Since EventBridge is configured to point to Step Functions, the previous S3 upload action automatically spawned a new execution!
+- In the **Executions** tab, click on the most recent execution at the top.
 
-![Step Functions Input Mock](/images/5-Workshop/5.6-Ingestion-workflow/5.6.4-test-ingestion-flow/step_functions_input_mock.png)
+![Step Functions Executions](/images/5-Workshop/5.6-Ingestion-workflow/5.6.4-test-ingestion-flow/step_functions_executions.png)
 
-![Step Functions Execution List](/images/5-Workshop/5.6-Ingestion-workflow/5.6.4-test-ingestion-flow/step_functions_execution_list.png)
+**Step 2: Visually Monitor the Workflow (Graph View)**
+- The execution flow will transition to the `Launch AI Worker` state.
 
-**Step 2: Visually monitor the workflow (Graph View)**
-- Based on the placeholder condition (`{% true %}`) established during the skeleton building segment, the execution flow will automatically transition sequentially from `Start Processing` → pass the evaluation point `Check Status` → accurately converge on the successful task branch `Update Metadata`.
-- The overall status bar displays green with a **Succeeded** label.
+![Step Functions Graph View](/images/5-Workshop/5.6-Ingestion-workflow/5.6.4-test-ingestion-flow/step_functions_graph.png)
 
-![Step Functions Success](/images/5-Workshop/5.6-Ingestion-workflow/5.6.4-test-ingestion-flow/step_functions_success.png)
-
-**Step 3: Analyze Input/Output Data**
-- Click on any specific step on the Graph View (e.g., `Update Metadata`).
-- On the right panel, inspect the **Step input** and **Step output** tabs to clearly see how data is passed between states. *(Note: Since these are currently just placeholder "Pass States", the JSON data you entered in Step 1 will simply pass directly from Input to Output without modification).*
-
-![Step Functions Details](/images/5-Workshop/5.6-Ingestion-workflow/5.6.4-test-ingestion-flow/step_functions_details.png)
+**Step 3: Analyze Input Data**
+- Click on the `Launch AI Worker` step on the Graph View.
+- On the right panel, inspect the **Step input** tab. You should see the full JSON event payload from S3, proving that EventBridge successfully passed the metadata to Step Functions.
 
 #### 3. Conclusion of the Workflow Orchestration Tier
-The experimental results demonstrate that the entire Ingestion Workflow pipeline operates exactly as per the initial architectural design. Data from the storage tier has been routed and securely isolated in the queue buffer, and the orchestration scenario is ready to connect with actual computing applications.
+The experimental results demonstrate that the entire Ingestion Workflow pipeline operates exactly as per the initial architectural design with the Fan-out pattern. Data from the storage tier has been routed to the queue buffer (for auditing) and simultaneously triggered the orchestration scenario (Step Functions).
 
 ***
 
-**Next Step:** The orchestration system and event-driven message pipeline of Chapter 5.6 are fully complete. We now have a solid foundation to move on to **Chapter 5.7: Compute Setup (ECS)** to configure the Container server clusters executing AI models that pull data from SQS.
+**Next Step:** The orchestration system and event-driven message pipeline of Chapter 5.6 are fully complete. We now have a solid foundation to move on to **Chapter 5.7: Compute Setup (ECS)** to configure the actual AI Worker containers to execute the business logic.

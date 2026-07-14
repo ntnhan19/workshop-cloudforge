@@ -8,7 +8,7 @@ pre : " <b> 5.6.2. </b> "
 
 Now that the SQS queue is ready to accept workloads, the next step in the Event-driven architecture is setting up the central router: **Amazon EventBridge**.
 
-In the Smart Media Analytics system, when a multimedia file (Video/Audio) is uploaded to Amazon S3, S3 will emit an event. EventBridge acts as the "listener" and immediately routes the message containing the file's metadata into the SQS queue `cloudforge-media-task-queue` for AI Workers to process.
+In the Smart Media Analytics system, when a multimedia file (Video/Audio) is uploaded to Amazon S3, S3 will emit an event. EventBridge acts as the central router (using the Fan-out pattern) that routes the message containing the file's metadata to multiple destinations: the SQS queue `cloudforge-media-task-queue` (as an audit buffer) and AWS Step Functions (to orchestrate the AI Worker).
 
 #### 1. Create EventBridge Rule (Enhanced Builder)
 Access the **Amazon EventBridge** service → **Rules** → **Create rule**. Use the visual Enhanced builder interface to configure the routing flow:
@@ -22,6 +22,7 @@ Access the **Amazon EventBridge** service → **Rules** → **Create rule**. Use
 **Step 2: Set up Target (Destination)**
 - On the left toolbar, search for the **SQS** service (or open the AWS Services category), and drag the **Amazon SQS** block into the **Targets** area.
 - In the Target configuration panel, under *Queue*, select the exact **`cloudforge-media-task-queue`** queue initialized in the previous section.
+- *(Note: We will add the second target, AWS Step Functions, after creating it in the next chapter).*
 
 ![EventBridge Target Setup](/images/5-Workshop/5.6-Ingestion-workflow/5.6.2-create-eventbridge-rule/eventbridge_target.png)
 

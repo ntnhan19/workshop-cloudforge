@@ -21,20 +21,87 @@ Access the **AWS Step Functions** service → **State machines** → select **Cr
 Click **Continue** to move to the visual design interface.
 
 #### 2. Build the Orchestration Diagram
-In the Workflow Studio Canvas space, drag and drop logic state blocks to establish the Skeleton Architecture for the processing flow:
+In the Workflow Studio Canvas space, drag and drop logic state blocks to establish the integration with the ECS AI Worker:
 
-1. **Initial State (Pass State - Start Processing):** Drag a `Pass` block and drop it right below the `Start` point, rename it to `Start Processing`.
-2. **Branching State (Choice State - Check Status):** Drag a `Choice` block and drop it right below the initial processing block, rename it to `Check Status`.
-   - *Configure branching condition (JSONata):* Under Rule #1, set the Condition to `true` (the system will display it as `{% true %}`). This is a mandatory placeholder value to complete the branching routing skeleton before integrating actual data from the Worker servers.
-3. **Successful Processing Branch (Pass State - Update Metadata):** In the `Rule #1` branch of the Choice block, drag a `Pass` block and configure its name as `Update Metadata` (Defining the task to record the result data into the Database).
-4. **Failed Processing Branch (Pass State - Notify Error):** In the remaining `Default` branch, drag a `Pass` block and configure its name as `Notify Error` (Defining the task to trigger the error alerting system).
+1. **Worker Invocation State (Amazon ECS - RunTask):** From the left toolbar (Actions tab), search for **ECS** and drag the **RunTask** block to drop it right below the `Start` point. Rename it to `Launch AI Worker`.
+2. **Configure Arguments for RunTask (JSONata):**
+   - Click on the `Launch AI Worker` block. On the right panel, under the **Arguments & Output** tab, you will see a text box to write the JSON payload.
+   - Because we chose **JSONata** as the query language, AWS Step Functions uses a single JSON configuration payload instead of separate UI fields.
+   - Replace the default JSON in the **Arguments** box with the following code:
+
+```json
+{
+  "LaunchType": "FARGATE",
+  "Cluster": "cloudforge-compute-cluster",
+  "TaskDefinition": "cloudforge-ai-worker-task",
+  "NetworkConfiguration": {
+    "AwsvpcConfiguration": {
+      "Subnets": [
+        "<YOUR_SUBNET_ID_1>",
+        "<YOUR_SUBNET_ID_2>"
+      ],
+      "SecurityGroups": [
+        "<YOUR_SECURITY_GROUP_ID>"
+      ],
+      "AssignPublicIp": "ENABLED"
+    }
+  },
+  "Overrides": {
+    "ContainerOverrides": [
+      {
+        "Name": "worker-container",
+        "Command": [
+          "python",
+          "entrypoint.py",
+          "--config-json",
+          "{% $string({'bucket': $states.input.detail.bucket.name, 'video_s3_key': $states.input.detail.object.key}) %}"
+        ]
+      }
+    ]
+  }
+}
+```
+   - *(Note: Remember to replace `<YOUR_SUBNET_ID>` and `<YOUR_SECURITY_GROUP_ID>` with your actual VPC Subnet and Security Group IDs. The `{% $string(...) %}` syntax is a powerful JSONata feature that automatically extracts the S3 event metadata and converts it to a JSON string for the Worker's entrypoint).*
 
 ![Workflow Studio Setup](/images/5-Workshop/5.6-Ingestion-workflow/5.6.3-create-step-functions/workflow_studio_setup.png)
 
 #### 3. Execute Infrastructure Deployment
 Once the inverted Y-shaped diagram accurately completes the orchestration logic, perform the saving steps:
 - Move to the top right corner and click the **Create** button.
-- **Confirm IAM Role:** The system will automatically generate a dedicated IAM Role to grant permissions allowing Step Functions to securely interact with related AWS resources. Click **Confirm** to complete.
+- **Configure IAM Role:** Because we used JSONata with a custom JSON payload, the AWS Console cannot auto-detect the `ecs:RunTask` dependency. You MUST manually grant permissions to the generated role:
+  1. Once saved, click on the **IAM role ARN** link in the State Machine details page to open the IAM Console.
+  2. In the IAM Role page, click **Add permissions** -> **Create inline policy**.
+  3. Switch to the **JSON** tab and paste the following policy:
+     ```json
+     {
+         "Version": "2012-10-17",
+         "Statement": [
+             {
+                 "Effect": "Allow",
+                 "Action": "ecs:RunTask",
+                 "Resource": "*"
+             },
+             {
+                 "Effect": "Allow",
+                 "Action": "iam:PassRole",
+                 "Resource": "*"
+             }
+         ]
+     }
+     ```
+  4. Click **Next**, name the policy `AllowECSRunTask`, and click **Create policy**.
+  
+![IAM Inline Policy](/images/5-Workshop/5.6-Ingestion-workflow/5.6.3-create-step-functions/iam_inline_policy.png)
+
+#### 3. Update EventBridge Rule (Event Routing)
+Now that the Step Functions state machine is ready, we must configure EventBridge to route S3 events to it:
+1. Go back to **Amazon EventBridge** -> **Rules**, select the rule `cloudforge-s3-to-sqs-rule` and click **Edit**.
+2. In the **Enhanced builder** interface, click the `>` arrow on the left edge to expand the **Events and Targets** palette.
+3. Search for **AWS Step Functions state machine**, then drag and drop this block into the **Targets** area (alongside the existing SQS queue).
+4. In the configuration panel on the right, select the state machine `cloudforge-media-workflow`.
+5. Click **Update** to save the rule. From now on, every S3 upload event will be fanned out to both SQS and Step Functions simultaneously.
+
+![EventBridge Target Update](/images/5-Workshop/5.6-Ingestion-workflow/5.6.3-create-step-functions/eventbridge_target_update.png)
 
 #### 4. State Machine Initialization Results
 The asynchronous orchestration process is successfully configured, creating a durable Decoupled Architecture.

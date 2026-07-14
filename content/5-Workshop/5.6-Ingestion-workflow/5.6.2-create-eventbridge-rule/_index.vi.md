@@ -8,7 +8,7 @@ pre : " <b> 5.6.2. </b> "
 
 Sau khi hàng đợi SQS đã sẵn sàng tiếp nhận công việc, bước tiếp theo trong kiến trúc hướng sự kiện (Event-driven) là thiết lập bộ định tuyến trung tâm: **Amazon EventBridge**.
 
-Trong hệ thống Smart Media Analytics, khi một tệp đa phương tiện (Video/Audio) được tải lên Amazon S3, S3 sẽ phát ra một sự kiện. EventBridge đóng vai trò "lắng nghe" và ngay lập tức định tuyến thông điệp chứa siêu dữ liệu của tệp tin đó vào hàng đợi SQS `cloudforge-media-task-queue` để các AI Worker lấy ra xử lý.
+Trong hệ thống Smart Media Analytics, khi một tệp đa phương tiện (Video/Audio) được tải lên Amazon S3, S3 sẽ phát ra một sự kiện. EventBridge đóng vai trò bộ định tuyến trung tâm (Fan-out pattern) đẩy sự kiện tới nhiều đích đến cùng lúc: hàng đợi SQS `cloudforge-media-task-queue` (để lưu vết/buffer) và AWS Step Functions (để kích hoạt tiến trình AI Worker).
 
 #### 1. Khởi tạo EventBridge Rule (Enhanced Builder)
 Truy cập dịch vụ **Amazon EventBridge** → **Rules** → **Create rule**. Sử dụng giao diện thiết lập trực quan (Enhanced builder) để cấu hình luồng định tuyến:
@@ -22,6 +22,7 @@ Truy cập dịch vụ **Amazon EventBridge** → **Rules** → **Create rule**.
 **Bước 2: Thiết lập Target (Đích đến)**
 - Tại thanh công cụ bên trái, tìm kiếm dịch vụ **SQS** (hoặc mở danh mục AWS Services), kéo khối **Amazon SQS** thả vào khu vực **Targets**.
 - Tại bảng cấu hình Target, mục *Queue*, chọn đúng hàng đợi **`cloudforge-media-task-queue`** đã khởi tạo ở phân đoạn trước.
+- *(Lưu ý: Chúng ta sẽ thêm Target thứ 2 là AWS Step Functions ở bài tiếp theo sau khi khởi tạo xong).*
 
 ![EventBridge Target Setup](/images/5-Workshop/5.6-Ingestion-workflow/5.6.2-create-eventbridge-rule/eventbridge_target.png)
 

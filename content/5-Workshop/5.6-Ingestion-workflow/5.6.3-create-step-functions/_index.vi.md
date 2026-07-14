@@ -21,20 +21,87 @@ Truy cập dịch vụ **AWS Step Functions** → **State machines** → chọn 
 Bấm **Continue** để chuyển sang giao diện thiết kế trực quan.
 
 #### 2. Xây dựng Sơ đồ Điều phối
-Tại không gian Canvas của Workflow Studio, tiến hành kéo thả các khối trạng thái logic để thiết lập bộ khung kiến trúc (Skeleton Architecture) cho luồng xử lý:
+Tại không gian Canvas của Workflow Studio, tiến hành kéo thả các khối trạng thái logic để thiết lập tích hợp với ECS AI Worker:
 
-1. **Trạng thái Khởi đầu (Pass State - Start Processing):** Kéo khối `Pass` và thả ngay dưới điểm `Start`, đổi tên thành `Start Processing`. 
-2. **Trạng thái Rẽ nhánh (Choice State - Check Status):** Kéo khối `Choice` thả ngay dưới khối xử lý ban đầu, đổi tên thành `Check Status`.
-   - *Cấu hình điều kiện rẽ nhánh (JSONata):* Tại mục Rule #1, thiết lập Condition là `true` (hệ thống sẽ hiển thị dưới dạng `{% true %}`). Đây là giá trị giữ chỗ (placeholder) bắt buộc để hoàn thiện khung định tuyến rẽ nhánh trước khi tích hợp dữ liệu thực tế từ máy chủ Worker.
-3. **Nhánh Xử lý Thành công (Pass State - Update Metadata):** Tại nhánh `Rule #1` của khối Choice, kéo một khối `Pass` vào và cấu hình tên là `Update Metadata` (Định hình tác vụ ghi nhận dữ liệu kết quả vào Cơ sở dữ liệu).
-4. **Nhánh Xử lý Thất bại (Pass State - Notify Error):** Tại nhánh `Default` còn lại, kéo một khối `Pass` vào và cấu hình tên là `Notify Error` (Định hình tác vụ kích hoạt hệ thống cảnh báo lỗi).
+1. **Khối Kích hoạt Worker (Amazon ECS - RunTask):** Từ thanh công cụ bên trái (tab Actions), tìm kiếm **ECS** và kéo khối **RunTask** thả ngay dưới điểm `Start`. Đổi tên thành `Launch AI Worker`.
+2. **Cấu hình tham số Arguments cho RunTask (JSONata):**
+   - Click vào khối `Launch AI Worker`. Ở thanh bên phải, mở tab **Arguments & Output**, bạn sẽ thấy một khung soạn thảo JSON.
+   - Vì ở bước trước chúng ta đã chọn ngôn ngữ truy vấn là **JSONata**, giao diện mới của AWS Step Functions sẽ gộp chung tất cả cấu hình (Cluster, Network, Overrides...) vào một file JSON duy nhất thay vì các ô nhập liệu rời rạc.
+   - Xóa đoạn JSON mặc định và dán đoạn mã sau vào ô **Arguments**:
+
+```json
+{
+  "LaunchType": "FARGATE",
+  "Cluster": "cloudforge-compute-cluster",
+  "TaskDefinition": "cloudforge-ai-worker-task",
+  "NetworkConfiguration": {
+    "AwsvpcConfiguration": {
+      "Subnets": [
+        "<YOUR_SUBNET_ID_1>",
+        "<YOUR_SUBNET_ID_2>"
+      ],
+      "SecurityGroups": [
+        "<YOUR_SECURITY_GROUP_ID>"
+      ],
+      "AssignPublicIp": "ENABLED"
+    }
+  },
+  "Overrides": {
+    "ContainerOverrides": [
+      {
+        "Name": "worker-container",
+        "Command": [
+          "python",
+          "entrypoint.py",
+          "--config-json",
+          "{% $string({'bucket': $states.input.detail.bucket.name, 'video_s3_key': $states.input.detail.object.key}) %}"
+        ]
+      }
+    ]
+  }
+}
+```
+   - *(Lưu ý: Bạn cần thay thế các giá trị `<YOUR_SUBNET_ID>` và `<YOUR_SECURITY_GROUP_ID>` bằng ID thật của VPC Subnet và Security Group mà bạn đang dùng. Cú pháp `{% $string(...) %}` là sức mạnh của JSONata, giúp tự động trích xuất metadata từ EventBridge S3 event và biến nó thành chuỗi JSON truyền vào cho Container).*
 
 ![Workflow Studio Setup](/images/5-Workshop/5.6-Ingestion-workflow/5.6.3-create-step-functions/workflow_studio_setup.png)
 
 #### 3. Thực thi Triển khai Hạ tầng
 Sau khi sơ đồ hình chữ Y ngược hoàn thành đúng logic điều phối, thực hiện các bước lưu trữ:
 - Di chuyển lên góc trên cùng bên phải và bấm nút **Create**.
-- **Xác nhận IAM Role:** Hệ thống sẽ tự động tạo một IAM Role chuyên dụng để cấp quyền cho phép Step Functions tương tác an toàn với các tài nguyên AWS liên quan. Bấm **Confirm** để hoàn tất.
+- **Cấu hình quyền IAM Role:** Do chúng ta sử dụng JSONata với payload tự viết, AWS Console sẽ KHÔNG THỂ tự động nhận diện được quyền `ecs:RunTask` cần thiết. Bạn BẮT BUỘC phải cấp quyền thủ công cho Role này:
+  1. Sau khi lưu thành công, tại trang chi tiết của State Machine, hãy bấm vào đường link ở mục **IAM role ARN** để mở giao diện quản lý IAM.
+  2. Tại trang IAM Role, bấm nút **Add permissions** -> chọn **Create inline policy**.
+  3. Chuyển sang tab **JSON**, xóa mã cũ và dán đoạn mã sau vào:
+     ```json
+     {
+         "Version": "2012-10-17",
+         "Statement": [
+             {
+                 "Effect": "Allow",
+                 "Action": "ecs:RunTask",
+                 "Resource": "*"
+             },
+             {
+                 "Effect": "Allow",
+                 "Action": "iam:PassRole",
+                 "Resource": "*"
+             }
+         ]
+     }
+     ```
+  4. Bấm **Next**, đặt tên policy là `AllowECSRunTask`, rồi bấm **Create policy** để hoàn tất.
+  
+![IAM Inline Policy](/images/5-Workshop/5.6-Ingestion-workflow/5.6.3-create-step-functions/iam_inline_policy.png)
+
+#### 3. Cập nhật EventBridge Rule (Định tuyến Fan-out)
+Sau khi đã có Step Functions, bạn cần quay lại EventBridge để gắn nó thành đích đến thứ 2:
+1. Quay lại dịch vụ **Amazon EventBridge** -> **Rules**, chọn Rule `cloudforge-s3-to-sqs-rule` và bấm **Edit**.
+2. Tại màn hình **Enhanced builder**, bấm vào mũi tên `>` ở viền trái màn hình để mở thanh công cụ **Events and Targets**.
+3. Tìm kiếm dịch vụ **AWS Step Functions state machine**, sau đó kéo thả khối này vào khu vực **Targets** (nằm cùng chỗ với SQS queue).
+4. Tại bảng cấu hình bên phải, chọn State machine là `cloudforge-media-workflow`.
+5. Bấm **Update** (nút màu cam ở góc phải) để lưu lại. Kể từ lúc này, 1 sự kiện từ S3 sẽ được đẩy song song ra cả 2 nơi.
+
+![EventBridge Target Update](/images/5-Workshop/5.6-Ingestion-workflow/5.6.3-create-step-functions/eventbridge_target_update.png)
 
 #### 4. Kết quả Khởi tạo State Machine
 Quy trình điều phối bất đồng bộ đã được cấu hình thành công, tạo ra một kiến trúc phân tách độc lập (Decoupled Architecture) bền bỉ.

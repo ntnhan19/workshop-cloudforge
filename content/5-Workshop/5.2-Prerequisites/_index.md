@@ -167,3 +167,6 @@ Previously, Amazon Bedrock required manual activation for specific foundation mo
 Serverless foundation models (including **Nova Lite** and **Titan Embeddings** used in our project) are now **automatically enabled** across all AWS commercial regions when first invoked in our account. Therefore, no manual intervention is required in the AWS Console for this step.
 
 ![Bedrock Model Access Auto](/images/5-Workshop/5.2-Prerequisites/bedrock_access_retired.png)
+
+---
+**Next Step:** Proceed to **[VPC & Networking](../5.3-network-vpc/)** to build the secure network foundation.

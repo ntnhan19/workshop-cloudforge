@@ -42,3 +42,6 @@ Below is the high-level architecture diagram of the entire system:
 5. **CI/CD & Observability:**
    - **GitHub Actions** automates the build pipeline, pushing Docker images to **Amazon ECR**.
    - System health, traces, and performance are monitored using **CloudWatch** (Logs, Metrics, Alarms) and **AWS X-Ray** (Distributed Tracing).
+
+---
+**Next Step:** Proceed to **[Prerequisites & IAM](../5.2-prerequisites/)** to configure IAM Roles and your local environment.

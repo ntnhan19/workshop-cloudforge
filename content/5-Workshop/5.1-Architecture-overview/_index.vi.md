@@ -41,3 +41,6 @@ Dưới đây là sơ đồ kiến trúc tổng thể của hệ thống:
 5. **CI/CD & Observability (Triển khai & Giám sát):**
    - Quá trình CI/CD hoàn toàn tự động qua **GitHub Actions**, build và đẩy Docker Image lên **Amazon ECR**.
    - Toàn bộ log, số liệu đo lường và theo dõi luồng (tracing) được quản lý bởi **CloudWatch** và **AWS X-Ray**.
+
+---
+**Bước tiếp theo:** Chuyển sang phần **[Chuẩn bị & Phân quyền (Prerequisites)](../5.2-prerequisites/)** để cấu hình IAM Roles và môi trường làm việc.

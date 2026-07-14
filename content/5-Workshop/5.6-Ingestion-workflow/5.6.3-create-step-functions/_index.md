@@ -66,7 +66,7 @@ In the Workflow Studio Canvas space, drag and drop logic state blocks to establi
 3. **Backend Webhook Invocation Block (HTTP - Invoke):** To complete the Event-Driven architecture, after the AI Worker finishes scene extraction, the system needs to notify the Backend to continue running heavy AI Models (Whisper, Bedrock) on the same `job_id`. 
    - We dragged the **HTTP Invoke** block right below `Launch AI Worker` and renamed it `Call Backend Webhook`.
    - In the **API Endpoint** configuration, we entered the Backend Webhook URL: `http://<SYSTEM-ALB-DNS>/api/v1/ingest/webhook` with Method `POST`.
-   - **RequestBody:** We defined the payload to report a success status along with `job_id` and `asset_id` extracted from the output of the preceding ECS block.
+   - **RequestBody:** We defined the payload to report a success status along with `job_id` extracted from EventBridge (the Backend will automatically look up the `asset_id` from the database).
    - **Authentication:** To integrate HTTP Invoke natively in Step Functions, our team configured an **EventBridge Connection** (using API Key or No Auth) to securely manage access between Step Functions and the ALB.
 
 ![Workflow Studio Setup](/images/5-Workshop/5.6-Ingestion-workflow/5.6.3-create-step-functions/workflow_studio_setup.png)

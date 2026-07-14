@@ -1,4 +1,4 @@
-﻿---
+---
 title : "Create S3 Bucket"
 date : 2026-07-10
 weight : 1
@@ -35,7 +35,37 @@ By system default, Amazon S3 will not proactively broadcast event data externall
 **System Design Note:** Toggling the state to *On* allows Amazon S3 to automatically package metadata in JSON format and push it directly into EventBridge's default event Bus whenever a file upload action (`ObjectCreated`) occurs.
 {{% /notice %}}
 
-#### 3. Deployment Results
+#### 3. Configure CORS (Cross-Origin Resource Sharing)
+Because our frontend (hosted on Amplify or running locally) will directly access the video/audio files on S3 via Presigned URLs, S3 needs to be configured with CORS to allow the browser to load media content.
+
+1. Still on the Bucket details page, switch to the **Permissions** tab.
+2. Scroll down to the **Cross-origin resource sharing (CORS)** section and click **Edit**.
+3. Paste the following JSON configuration into the text box:
+```json
+[
+    {
+        "AllowedHeaders": [
+            "*"
+        ],
+        "AllowedMethods": [
+            "GET",
+            "PUT",
+            "POST",
+            "HEAD"
+        ],
+        "AllowedOrigins": [
+            "*"
+        ],
+        "ExposeHeaders": [
+            "ETag"
+        ],
+        "MaxAgeSeconds": 3000
+    }
+]
+```
+4. Click **Save changes**. *(Note: In a real production environment, you should replace the `*` in AllowedOrigins with the official domain of your frontend for better security).*
+
+#### 4. Deployment Results
 The unstructured storage infrastructure (Object Storage) has been successfully established and is ready to act as the task provisioning source for the entire automated processing pipeline downstream.
 
 ![S3 EventBridge Config](/images/5-Workshop/5.4-Database-setup/5.4.1-s3/s3_eventbridge_enabled.png)

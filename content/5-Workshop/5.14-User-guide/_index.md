@@ -39,15 +39,11 @@ This section demonstrates how the Smart Media Analytics platform operates in a r
 
 ![Asset Details, Tags and Transcript](/images/5-Workshop/5.14-User-guide/5.14-asset-detail.png)
 
-### 4. Semantic Search (Global vs. In-Video)
-1. The **Global Search** bar at the top of the Dashboard is utilized to perform library-wide queries. Entering a natural language description returns relevant video assets from the entire collection.
-
-![Global Search Results](/images/5-Workshop/5.14-User-guide/5.14-global-search.png)
-
-2. Within the Asset Detail view, the **Search in Video** functionality allows for deep semantic exploration inside a specific video.
-3. When a natural language query is entered (e.g., *"a tiger running in the snow"* or *"sunset over the ocean"*), the backend leverages Amazon Titan vector embeddings and PostgreSQL `pgvector` to identify semantic similarities.
-4. The system instantly returns the exact scenes along with precise **timestamps** matching the description.
-5. Clicking on a returned scene seamlessly plays the video right from that exact moment.
+### 4. Semantic Search (Search in Video)
+1. Within the Asset Detail view, the **Search in Video** functionality allows for deep semantic exploration inside a specific video.
+2. When a natural language query is entered (e.g., *"a tiger running in the snow"* or *"sunset over the ocean"*), the backend leverages Amazon Titan vector embeddings and PostgreSQL `pgvector` to identify semantic similarities.
+3. The system instantly returns the exact scenes along with precise **timestamps** matching the description.
+4. Clicking on a returned scene seamlessly plays the video right from that exact moment.
 
 ![Search in Video Results](/images/5-Workshop/5.14-User-guide/5.14-search-in-video.png)
 

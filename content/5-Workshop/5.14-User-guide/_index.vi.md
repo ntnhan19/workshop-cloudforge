@@ -39,15 +39,11 @@ Chương này trình diễn cách nền tảng Smart Media Analytics vận hành
 
 ![Chi tiết Asset, Tag và Transcript](/images/5-Workshop/5.14-User-guide/5.14-asset-detail.png)
 
-### 4. Tìm kiếm Ngữ nghĩa (Global Search & Search in Video)
-1. Thanh **Tìm kiếm Tổng (Global Search)** ở góc trên của Dashboard được sử dụng để truy vấn toàn bộ thư viện. Khi nhập một câu mô tả, hệ thống trả về danh sách các video (assets) có nội dung liên quan nhất.
-
-![Kết quả Global Search](/images/5-Workshop/5.14-User-guide/5.14-global-search.png)
-
-2. Bên trong giao diện Asset Detail, tính năng **Search in Video** cho phép tìm kiếm ngữ nghĩa chuyên sâu ngay bên trong nội dung của video đó.
-3. Khi một câu mô tả tự nhiên được nhập vào (ví dụ: *"cảnh con báo đang chạy trên tuyết"* hoặc *"mặt trời lặn trên biển"*), hệ thống Backend mã hóa câu văn thành vector (thông qua Amazon Titan) và đối chiếu trong CSDL RDS PostgreSQL `pgvector`.
-4. Hệ thống trả về chính xác các phân cảnh (scene) kèm theo **mốc thời gian (timestamp)** khớp với miêu tả.
-5. Khi một phân cảnh được click chọn, trình phát (player) sẽ tự động bật video ngay tại đúng thời điểm đó.
+### 4. Tìm kiếm Ngữ nghĩa (Search in Video)
+1. Bên trong giao diện Asset Detail, tính năng **Search in Video** cho phép tìm kiếm ngữ nghĩa chuyên sâu ngay bên trong nội dung của video đó.
+2. Khi một câu mô tả tự nhiên được nhập vào (ví dụ: *"cảnh con báo đang chạy trên tuyết"* hoặc *"mặt trời lặn trên biển"*), hệ thống Backend mã hóa câu văn thành vector (thông qua Amazon Titan) và đối chiếu trong CSDL RDS PostgreSQL `pgvector`.
+3. Hệ thống trả về chính xác các phân cảnh (scene) kèm theo **mốc thời gian (timestamp)** khớp với miêu tả.
+4. Khi một phân cảnh được click chọn, trình phát (player) sẽ tự động bật video ngay tại đúng thời điểm đó.
 
 ![Kết quả Search in Video](/images/5-Workshop/5.14-User-guide/5.14-search-in-video.png)
 

@@ -10,53 +10,51 @@ pre: " <b> 4.1. </b> "
 
 ### Mục Đích Của Sự Kiện
 
-- Chia sẻ best practices trong thiết kế ứng dụng hiện đại
-- Giới thiệu phương pháp DDD và event-driven architecture
-- Hướng dẫn lựa chọn compute services phù hợp
-- Giới thiệu công cụ AI hỗ trợ development lifecycle
+- Chia sẻ các phương pháp tiếp cận học tập (study approaches), khung tư duy (learning frameworks), và sự thay đổi tư duy (mindset shifts) trong quá trình hấp thụ và ứng dụng kiến thức công nghệ.
+- Đi sâu vào Nghệ thuật giao tiếp với AI (Prompt Engineering) và cách tối ưu hóa chất lượng đầu ra của các mô hình LLM.
+- Chia sẻ best practices trong thiết kế ứng dụng hiện đại, chuyển đổi kiến trúc và sử dụng các dịch vụ Cloud/AI.
+- Xây dựng văn hóa học tập liên tục, nơi mọi người không ngại thể hiện điểm yếu (vulnerable) để cùng nhau phát triển bền vững.
 
 ### Danh Sách Diễn Giả
 
-- **Jignesh Shah** - Director, Open Source Databases
-- **Erica Liu** - Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** - Assc. Specialist SA, Serverless Amazon Web Services
+- **Huỳnh Hoàng Long** - Cloud Engineer, eCloudvalley Vietnam
+- **Nguyễn Thịnh** - DevOps Engineer Intern, STYL Solution Pte.Ltd
+- **Nguyen Khang** - Cloud Solution Architect, Cloud Kinetics Vietnam
+- **Nguyen Phuong Thao** - Cloud Engineer Intern, Vietnam International Bank (VIB)
 
 ### Nội Dung Nổi Bật
 
-#### Đưa ra các ảnh hưởng tiêu cực của kiến trúc ứng dụng cũ
+#### Session 1: Huỳnh Hoàng Long - Chuyển Đổi Sang Kiến Trúc Ứng Dụng Mới
+![Session 1 - Long](https://placeholder-image-url.com/session1-long.jpg)
+- **Đưa ra các ảnh hưởng tiêu cực của kiến trúc ứng dụng cũ**:
+  - Thời gian release sản phẩm lâu → Mất doanh thu/bỏ lỡ cơ hội
+  - Hoạt động kém hiệu quả → Mất năng suất, tốn kém chi phí
+  - Không tuân thủ các quy định về bảo mật → Mất an ninh, uy tín
+- **Chuyển đổi sang kiến trúc ứng dụng mới - Microservice Architecture**:
+  - Chuyển đổi thành hệ thống modular – từng chức năng là một **dịch vụ độc lập** giao tiếp với nhau qua **sự kiện** với 3 trụ cột cốt lõi:
+    - **Queue Management**: Xử lý tác vụ bất đồng bộ
+    - **Caching Strategy:** Tối ưu performance
+    - **Message Handling:** Giao tiếp linh hoạt giữa services
 
-- Thời gian release sản phẩm lâu → Mất doanh thu/bỏ lỡ cơ hội
-- Hoạt động kém hiệu quả → Mất năng suất, tốn kém chi phí
-- Không tuân thủ các quy định về bảo mật → Mất an ninh, uy tín
+#### Session 2: Nguyễn Thịnh - Domain-Driven Design & Event-Driven Architecture
+![Session 2 - Thịnh](https://placeholder-image-url.com/session2-thinh.jpg)
+- **Domain-Driven Design (DDD)**:
+  - **Phương pháp 4 bước**: Xác định domain events → sắp xếp timeline → identify actors → xác định bounded contexts
+  - **Case study bookstore**: Minh họa cách áp dụng DDD thực tế
+  - **Context mapping**: 7 patterns tích hợp bounded contexts
+- **Event-Driven Architecture**:
+  - **3 patterns tích hợp**: Publish/Subscribe, Point-to-point, Streaming
+  - **Lợi ích**: Loose coupling, scalability, resilience
+  - **So sánh sync vs async**: Hiểu rõ trade-offs (sự đánh đổi)
 
-#### Chuyển đổi sang kiến trúc ứng dụng mới - Microservice Architecture
-
-Chuyển đổi thành hệ thống modular – từng chức năng là một **dịch vụ độc lập** giao tiếp với nhau qua **sự kiện** với 3 trụ cột cốt lõi:
-
-- **Queue Management**: Xử lý tác vụ bất đồng bộ
-- **Caching Strategy:** Tối ưu performance
-- **Message Handling:** Giao tiếp linh hoạt giữa services
-
-#### Domain-Driven Design (DDD)
-
-- **Phương pháp 4 bước**: Xác định domain events → sắp xếp timeline → identify actors → xác định bounded contexts
-- **Case study bookstore**: Minh họa cách áp dụng DDD thực tế
-- **Context mapping**: 7 patterns tích hợp bounded contexts
-
-#### Event-Driven Architecture
-
-- **3 patterns tích hợp**: Publish/Subscribe, Point-to-point, Streaming
-- **Lợi ích**: Loose coupling, scalability, resilience
-- **So sánh sync vs async**: Hiểu rõ trade-offs (sự đánh đổi)
-
-#### Compute Evolution
-
+#### Session 3: Nguyen Khang - Compute Evolution
+![Session 3 - Khang](https://placeholder-image-url.com/session3-khang.jpg)
 - **Shared Responsibility Model**: Từ EC2 → ECS → Fargate → Lambda
 - **Serverless benefits**: No server management, auto-scaling, pay-for-value
 - **Functions vs Containers**: Criteria lựa chọn phù hợp
 
-#### Amazon Q Developer
-
+#### Session 4: Nguyen Phuong Thao - Amazon Q Developer
+![Session 4 - Thảo](https://placeholder-image-url.com/session4-thao.jpg)
 - **SDLC automation**: Từ planning đến maintenance
 - **Code transformation**: Java upgrade, .NET modernization
 - **AWS Transform agents**: VMware, Mainframe, .NET migration

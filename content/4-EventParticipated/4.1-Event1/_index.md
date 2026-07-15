@@ -17,49 +17,47 @@ pre: " <b> 4.1. </b> "
 
 ### Speakers
 
-- **Jignesh Shah** – Director, Open Source Databases
-- **Erica Liu** – Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** – Assc. Specialist SA, Serverless Amazon Web Services
+- **Huỳnh Hoàng Long** – Cloud Engineer, eCloudvalley Vietnam
+- **Nguyễn Thịnh** – DevOps Engineer Intern, STYL Solution Pte.Ltd
+- **Nguyen Khang** – Cloud Solution Architect, Cloud Kinetics Vietnam
+- **Nguyen Phuong Thao** – Cloud Engineer Intern, Vietnam International Bank (VIB)
 
 ### Key Highlights
 
-#### Identifying the drawbacks of legacy application architecture
+#### Session 1: Huỳnh Hoàng Long - Transitioning to Modern Application Architecture
+![Session 1 - Long](https://placeholder-image-url.com/session1-long.jpg)
+- **Identifying the drawbacks of legacy application architecture**:
+  - Long product release cycles → Lost revenue/missed opportunities  
+  - Inefficient operations → Reduced productivity, higher costs  
+  - Non-compliance with security regulations → Security breaches, loss of reputation  
+- **Transitioning to modern application architecture – Microservices**:
+  - Migrating to a modular system — each function is an **independent service** communicating via **events**, built on three core pillars:
+    - **Queue Management**: Handle asynchronous tasks  
+    - **Caching Strategy**: Optimize performance  
+    - **Message Handling**: Flexible inter-service communication  
 
-- Long product release cycles → Lost revenue/missed opportunities  
-- Inefficient operations → Reduced productivity, higher costs  
-- Non-compliance with security regulations → Security breaches, loss of reputation  
+#### Session 2: Nguyễn Thịnh - Domain-Driven Design & Event-Driven Architecture
+![Session 2 - Thinh](https://placeholder-image-url.com/session2-thinh.jpg)
+- **Domain-Driven Design (DDD)**:
+  - **Four-step method**: Identify domain events → arrange timeline → identify actors → define bounded contexts  
+  - **Bookstore case study**: Demonstrates real-world DDD application  
+  - **Context mapping**: 7 patterns for integrating bounded contexts  
+- **Event-Driven Architecture**:
+  - **3 integration patterns**: Publish/Subscribe, Point-to-point, Streaming  
+  - **Benefits**: Loose coupling, scalability, resilience  
+  - **Sync vs async comparison**: Understanding the trade-offs  
 
-#### Transitioning to modern application architecture – Microservices
-
-Migrating to a modular system — each function is an **independent service** communicating via **events**, built on three core pillars:
-
-- **Queue Management**: Handle asynchronous tasks  
-- **Caching Strategy**: Optimize performance  
-- **Message Handling**: Flexible inter-service communication  
-
-#### Domain-Driven Design (DDD)
-
-- **Four-step method**: Identify domain events → arrange timeline → identify actors → define bounded contexts  
-- **Bookstore case study**: Demonstrates real-world DDD application  
-- **Context mapping**: 7 patterns for integrating bounded contexts  
-
-#### Event-Driven Architecture
-
-- **3 integration patterns**: Publish/Subscribe, Point-to-point, Streaming  
-- **Benefits**: Loose coupling, scalability, resilience  
-- **Sync vs async comparison**: Understanding the trade-offs  
-
-#### Compute Evolution
-
+#### Session 3: Nguyen Khang - Compute Evolution
+![Session 3 - Khang](https://placeholder-image-url.com/session3-khang.jpg)
 - **Shared Responsibility Model**: EC2 → ECS → Fargate → Lambda  
 - **Serverless benefits**: No server management, auto-scaling, pay-for-value  
 - **Functions vs Containers**: Criteria for appropriate choice  
 
-#### Amazon Q Developer
-
+#### Session 4: Nguyen Phuong Thao - Amazon Q Developer
+![Session 4 - Thao](https://placeholder-image-url.com/session4-thao.jpg)
 - **SDLC automation**: From planning to maintenance  
 - **Code transformation**: Java upgrade, .NET modernization  
-- **AWS Transform agents**: VMware, Mainframe, .NET migration  
+- **AWS Transform agents**: VMware, Mainframe, .NET migration
 
 ### Key Takeaways
 

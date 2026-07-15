@@ -1,39 +1,35 @@
 ---
-title: "Self-Assessment"
-date: 2024-01-01
+title: "Self Evaluation"
+date: 2026-07-15
 weight: 6
 chapter: false
 pre: " <b> 6. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it verbatim** into your report, including this warning.
-{{% /notice %}}
+Throughout my participation in the **First Cloud AI Journey** program, I had the opportunity to learn, practice, and apply my knowledge in building the **Smart Media Analytics - CloudForge** project.
+I was directly involved from the very first steps, including **brainstorming, drawing system architectures, distributing tasks within the team, and deploying locally**, all the way to **deploying the entire AI Video Ingestion Pipeline on AWS infrastructure** (ECS, Lambda, DynamoDB, S3, Amazon Bedrock).
 
-During my internship at **[Company/Organization Name]** from **[start date]** to **[end date]**, I had the opportunity to learn, practice, and apply the knowledge acquired in school to a real-world working environment.  
-I participated in **[briefly describe the main project or task]**, through which I improved my skills in **[list skills: programming, analysis, reporting, communication, etc.]**.  
+In terms of professionalism, I constantly took the initiative to face and resolve various challenges during teamwork, coordinated smoothly between Frontend and Backend, and persevered through countless errors while integrating Cloud services and Generative AI.
 
-In terms of work ethic, I always strived to complete tasks well, complied with workplace regulations, and actively engaged with colleagues to improve work efficiency.
+To objectively reflect on my learning and working process, I evaluate myself based on the following criteria:
 
-To objectively reflect on my internship period, I would like to evaluate myself based on the following criteria:
+| No. | Criteria                            | Description                                                                                      | Good| Fair| Average |
+| --- | ----------------------------------- | ------------------------------------------------------------------------------------------------ | --- | --- | ------- |
+| 1   | **Professional Knowledge & Skills** | Grasped the full software development lifecycle, from ideation and architecture to AWS deployment.| ✅   | ☐   | ☐       |
+| 2   | **Learning Ability**                | Self-studied through AWS service documentation and proficiently applied it to real projects.      | ✅   | ☐   | ☐       |
+| 3   | **Proactiveness**                   | Proactively sought solutions for issues ranging from local deployment to Cloud migration.         | ✅   | ☐   | ☐       |
+| 4   | **Sense of Responsibility**         | Successfully completed assigned tasks within the team, keeping the project on schedule.           | ✅   | ☐   | ☐       |
+| 5   | **Discipline**                      | Followed teamwork processes, clear task division, and committed code consistently.                | ✅   | ☐   | ☐       |
+| 6   | **Progressive Attitude**            | Listened to mentors' feedback on architecture and actively refined the system.                    | ✅   | ☐   | ☐       |
+| 7   | **Communication**                   | Coordinated smoothly with team members to resolve conflicts during code integration.              | ☐   | ✅   | ☐       |
+| 8   | **Teamwork**                        | Worked effectively, supported teammates in debugging, and shared newly acquired knowledge.        | ✅   | ☐   | ☐       |
+| 9   | **Professional Conduct**            | Respected collective input and maintained a positive attitude even when facing complex bugs.      | ✅   | ☐   | ☐       |
+| 10  | **Problem-Solving Mindset**         | Solved diverse problems including code bugs, network issues, and system resource limits.          | ✅   | ☐   | ☐       |
+| 11  | **Contribution to Project**         | Contributed to the overall architecture design and successfully deployed the core pipeline.       | ✅   | ☐   | ☐       |
+| 12  | **Overall**                         | A challenging journey that has helped me grow significantly in all aspects.                       | ✅   | ☐   | ☐       |
 
-| No. | Criteria                            | Description                                                                                      | Good | Fair | Average |
-| --- | ----------------------------------- | ------------------------------------------------------------------------------------------------ | ---- | ---- | ------- |
-| 1   | **Professional knowledge & skills** | Understanding of the field, applying knowledge in practice, proficiency with tools, work quality | ✅    | ☐    | ☐       |
-| 2   | **Ability to learn**                | Ability to absorb new knowledge and learn quickly                                                | ☐    | ✅    | ☐       |
-| 3   | **Proactiveness**                   | Taking initiative, seeking out tasks without waiting for instructions                            | ✅    | ☐    | ☐       |
-| 4   | **Sense of responsibility**         | Completing tasks on time and ensuring quality                                                    | ✅    | ☐    | ☐       |
-| 5   | **Discipline**                      | Adhering to schedules, rules, and work processes                                                 | ☐    | ☐    | ✅       |
-| 6   | **Progressive mindset**             | Willingness to receive feedback and improve oneself                                              | ☐    | ✅    | ☐       |
-| 7   | **Communication**                   | Presenting ideas and reporting work clearly                                                      | ☐    | ✅    | ☐       |
-| 8   | **Teamwork**                        | Working effectively with colleagues and participating in teams                                   | ✅    | ☐    | ☐       |
-| 9   | **Professional conduct**            | Respecting colleagues, partners, and the work environment                                        | ✅    | ☐    | ☐       |
-| 10  | **Problem-solving skills**          | Identifying problems, proposing solutions, and showing creativity                                | ☐    | ✅    | ☐       |
-| 11  | **Contribution to project/team**    | Work effectiveness, innovative ideas, recognition from the team                                  | ✅    | ☐    | ☐       |
-| 12  | **Overall**                         | General evaluation of the entire internship period                                               | ✅    | ☐    | ☐       |
+### Areas for Improvement
 
-### Needs Improvement
-
-* Strengthen discipline and strictly comply with the rules and regulations of the company or any organization  
-* Improve problem-solving thinking  
-* Enhance communication skills in both daily interactions and professional contexts, including handling situations effectively
+* Occasionally struggled with proper time management when handling multiple complex tasks simultaneously.
+* Need to further develop communication skills to convey technical ideas more concisely during team meetings.
+* Enhance documentation writing skills so that other members or newcomers can easily approach the project.

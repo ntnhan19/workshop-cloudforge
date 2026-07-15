@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 4.1. </b> "
 ---
 
-# Summary Report: First Cloud Journey Event
+# Summary Report: First Cloud AI Journey Event
 
 ### Event Objectives
 
@@ -71,7 +71,7 @@ pre: " <b> 4.1. </b> "
 
 ### Event Experience
 
-Attending the First Cloud Journey event was an eye-opening experience, not only in terms of technology but also in mindset development. Some highlights include:
+Attending the First Cloud AI Journey event was an eye-opening experience, not only in terms of technology but also in mindset development. Some highlights include:
 
 #### Learning from passionate speakers
 - The speakers brought fresh energy, sharing extremely practical perspectives from their personal experiences, from overcoming procrastination to mastering AI technology.

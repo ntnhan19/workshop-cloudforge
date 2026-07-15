@@ -1,47 +1,39 @@
 ---
-title: "Sharing and Feedback"
-date: 2024-01-01
+title: "Feedback & Suggestions"
+date: 2026-07-15
 weight: 7
 chapter: false
 pre: " <b> 7. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
+> Here, I would like to share my personal perspectives and experiences after participating in the 3-month **First Cloud AI Journey** internship program, and throughout the development of the **Smart Media Analytics - CloudForge** project.
 
-> Here, you can freely share your personal opinions about your experience participating in the First Cloud AI Journey program. This will help the FCAJ team improve any shortcomings based on the following aspects:
+### Overall Assessment
 
-### Overall Evaluation
+**1. Working Environment & Community**  
+The program provides a highly dynamic learning environment. The AWS community organizes many high-quality events every weekend, creating opportunities for me to broaden my knowledge and learn from industry experts.
 
-**1. Working Environment**  
-The working environment is very friendly and open. FCAJ members are always willing to help whenever I encounter difficulties, even outside working hours. The workspace is tidy and comfortable, helping me focus better. However, I think it would be nice to have more social gatherings or team bonding activities to strengthen relationships.
+**2. Support from Mentors / Team Admins**  
+As Cloud experts, the mentors provided excellent guidance and direction focused on system architecture. Thanks to this high-level mentorship, I gained a solid architectural foundation. For the detailed source code implementation, I took full ownership by exploring the rich AWS technical documentation. This approach greatly enhanced my self-reliance and problem-solving skills.
 
-**2. Support from Mentor / Team Admin**  
-The mentor provides very detailed guidance, explains clearly when I don’t understand, and always encourages me to ask questions. The admin team supports administrative tasks, provides necessary documents, and creates favorable conditions for me to work effectively. I especially appreciate that the mentor allows me to try and solve problems myself instead of just giving the answer.
+**3. Facilities and Offline Experience**  
+Every opportunity to work directly at the office was a fun and engaging experience. However, due to the massive appeal of the program and the large number of interns, registration slots for offline sessions filled up very quickly. Over the past 3 months, I happily managed to secure slots for 3 office sessions and 3 offline events.
 
-**3. Relevance of Work to Academic Major**  
-The tasks I was assigned align well with the knowledge I learned at university, while also introducing me to new areas I had never encountered before. This allowed me to both strengthen my foundational knowledge and gain practical skills.
+**4. Opportunities for Learning & Skill Development**  
+Through the program, I was trained in a practical teamwork process: from ideation and architecture design to deploying the project on AWS. Taking the initiative to handle errors along the way helped me build a strong problem-solving mindset and essential survival skills for real-world projects.
 
-**4. Learning & Skill Development Opportunities**  
-During the internship, I learned many new skills such as using project management tools, teamwork skills, and professional communication in a corporate environment. The mentor also shared valuable real-world experiences that helped me better plan my career path.
+**5. Alignment between the Project and Career Goals**  
+The **Smart Media Analytics - CloudForge** project was truly an ideal playground, perfectly combining the technology trends I am passionate about: Generative AI and Cloud Computing. This practical experience has firmly solidified my career orientation.
 
-**5. Company Culture & Team Spirit**  
-The company culture is very positive: everyone respects each other, works seriously but still keeps things enjoyable. When there are urgent projects, everyone works together and supports one another regardless of their position. This made me feel like a real part of the team, even as an intern.
+### Other Questions
+- **What were you most satisfied with?**  
+  What I am most proud of is successfully collaborating with my team to build a project from initial architectural sketches to a smoothly running AI Pipeline on AWS.
+- **Would you recommend this program to friends?**  
+  Absolutely. This is an excellent training environment for anyone passionate about Cloud computing who wants to experience real-world work.
 
-**6. Internship Policies / Benefits**  
-The company provides an internship allowance and offers flexible working hours when needed. In addition, having the opportunity to join internal training sessions is a big plus.
-
----
-
-### Additional Questions
-- What did you find **most satisfying** during your internship?  
-- What do you think the company **should improve** for future interns?  
-- If recommending to a friend, would you **suggest they intern here**? Why or why not?  
-
----
-
-### Suggestions & Expectations
-- Do you have any suggestions to improve the internship experience?  
-- Would you like to continue this program in the future?  
-- Any other comments (free sharing):
+### Proposals & Desires
+To help further improve the program and provide a more comprehensive evaluation of interns' actual capabilities, I would like to offer a few constructive perspectives:
+- **Diversifying the internship completion criteria:** Given the massive interest from the community, slots for offline office sessions and events frequently reach full capacity. Therefore, the program might consider incorporating additional metrics to evaluate remote work progress. For instance, analyzing productivity and quality through the **Git commit history** would serve as clear evidence of a team's discipline and continuous effort, even without face-to-face meetings.
+- **Recognizing proactive engagement on the portal:** The frequency of interaction and the number of registration attempts on the portal could also serve as a good indicator of an intern's eagerness to learn, regardless of whether slots were available to be approved.
+- **Encouraging efforts that exceed expectations:** Introducing a mechanism to acknowledge teams that surpass initial targets would be highly motivating. For example, our team proactively completed 4 technical blogs instead of the minimum requirement of 3. Diversifying the evaluation metrics in these ways would help reflect the overall internship experience more objectively and completely.
+- Finally, thank you to the organizers and mentors for creating such a rewarding launchpad. I wish the FCAJ community continued success in spreading great values!

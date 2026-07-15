@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 4.1. </b> "
 ---
 
-# Bài thu hoạch Sự kiện First Cloud Journey
+# Bài thu hoạch Sự kiện First Cloud AI Journey
 
 ### Mục Đích Của Sự Kiện
 
@@ -71,7 +71,7 @@ pre: " <b> 4.1. </b> "
 
 ### Trải nghiệm trong event
 
-Tham gia sự kiện First Cloud Journey lần này là một trải nghiệm mở mang tầm mắt, không chỉ về mặt công nghệ mà còn về tư duy phát triển bản thân. Một số trải nghiệm nổi bật:
+Tham gia sự kiện First Cloud AI Journey lần này là một trải nghiệm mở mang tầm mắt, không chỉ về mặt công nghệ mà còn về tư duy phát triển bản thân. Một số trải nghiệm nổi bật:
 
 #### Học hỏi từ các diễn giả nhiệt huyết
 - Các diễn giả mang đến năng lượng tươi mới, chia sẻ những góc nhìn cực kỳ thực tế từ kinh nghiệm cá nhân, từ cách vượt qua sự trì hoãn đến cách làm chủ công nghệ AI.

@@ -6,14 +6,14 @@ chapter: false
 pre: " <b> 4.1. </b> "
 ---
 
-# Summary Report: “GenAI-powered App-DB Modernization workshop”
+# Summary Report: First Cloud Journey Event
 
 ### Event Objectives
 
-- Share best practices in modern application design
-- Introduce Domain-Driven Design (DDD) and event-driven architecture
-- Provide guidance on selecting the right compute services
-- Present AI tools to support the development lifecycle
+- Share study approaches, learning frameworks, and mindset shifts necessary for absorbing and applying technology knowledge.
+- Dive deep into the Art of AI Communication (Prompt Engineering) and how to optimize the output quality of LLM models.
+- Explore the power of AI Agents (such as Developer Agents) in automating and maintaining discipline in software development.
+- Build a culture of continuous learning, where people are not afraid to be vulnerable to grow sustainably together.
 
 ### Speakers
 
@@ -24,97 +24,63 @@ pre: " <b> 4.1. </b> "
 
 ### Key Highlights
 
-#### Session 1: Huỳnh Hoàng Long - Transitioning to Modern Application Architecture
-![Session 1 - Long](https://placeholder-image-url.com/session1-long.jpg)
-- **Identifying the drawbacks of legacy application architecture**:
-  - Long product release cycles → Lost revenue/missed opportunities  
-  - Inefficient operations → Reduced productivity, higher costs  
-  - Non-compliance with security regulations → Security breaches, loss of reputation  
-- **Transitioning to modern application architecture – Microservices**:
-  - Migrating to a modular system — each function is an **independent service** communicating via **events**, built on three core pillars:
-    - **Queue Management**: Handle asynchronous tasks  
-    - **Caching Strategy**: Optimize performance  
-    - **Message Handling**: Flexible inter-service communication  
+#### Session 1: Huỳnh Hoàng Long - Steal the Formula Used by Social Media
+![Session 1](/images/4-EventParticipated/4.1-Event1/session1.jpg)
+- **Use the fear of loss**: "Humans fear losing more than they enjoy gaining".
+- **Learn from Social Media**: Discover the secrets and formulas used by social media platforms to attract and engage users.
+- **Practical Application in Learning**: Apply these psychological mechanisms (like streaks and self-rewards) to learning in order to maintain continuous motivation and discipline.
 
-#### Session 2: Nguyễn Thịnh - Domain-Driven Design & Event-Driven Architecture
-![Session 2 - Thinh](https://placeholder-image-url.com/session2-thinh.jpg)
-- **Domain-Driven Design (DDD)**:
-  - **Four-step method**: Identify domain events → arrange timeline → identify actors → define bounded contexts  
-  - **Bookstore case study**: Demonstrates real-world DDD application  
-  - **Context mapping**: 7 patterns for integrating bounded contexts  
-- **Event-Driven Architecture**:
-  - **3 integration patterns**: Publish/Subscribe, Point-to-point, Streaming  
-  - **Benefits**: Loose coupling, scalability, resilience  
-  - **Sync vs async comparison**: Understanding the trade-offs  
+#### Session 2: Nguyễn Tuấn Thịnh - The Art of AI Communication & Automated Prompt Engineering
+![Session 2](/images/4-EventParticipated/4.1-Event1/session2.jpg)
+- **The Importance of Prompts**: Generic commands produce generic results, leading to wasted tokens and inconsistent outputs. A standard prompt should include: Role, Instruction, Context, Input, Output format, Examples, and Constraints.
+- **"Mastering LLM" Principles**: Be clear, use directive language and delimiters. Specifically, tell the AI WHAT TO DO (DOs) rather than WHAT NOT TO DO (DON'Ts), avoid making the AI do math independently, and allow the model to say "I don't know".
+- **Advanced Optimization Techniques**: Apply Chain-of-Thought (CoT), Self-Consistency, Tree-of-Thoughts (ToT), and RAG to improve AI logical processing.
+- **Proptimizer Architecture**: A browser extension that automates prompting with $0 platform cost (excluding AI API fees). The system runs entirely on Serverless with S3/CloudFront (Frontend), Cognito (Authentication), API Gateway/Lambda (Backend), DynamoDB (High-speed storage), and Amazon Bedrock to invoke AI models (Claude, GPT).
 
-#### Session 3: Nguyen Khang - Compute Evolution
-![Session 3 - Khang](https://placeholder-image-url.com/session3-khang.jpg)
-- **Shared Responsibility Model**: EC2 → ECS → Fargate → Lambda  
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value  
-- **Functions vs Containers**: Criteria for appropriate choice  
+#### Session 3: Nguyen Khang - Growth Mindset
+![Session 3](/images/4-EventParticipated/4.1-Event1/session3.jpg)
+- **Growth Mindset – Ask "Why?"**: Always ask "Why?" – curiosity is your greatest asset.
+- **Question Everything**: Don't take things for granted; always stay curious and delve deep into the core of the problem.
+- **Embrace Mistakes**: In the early stages of learning, mistakes are valuable lessons, not failures.
+- **Stay Hungry**: The moment you stop learning is the moment you fall behind. Always be ready to face new challenges.
 
-#### Session 4: Nguyen Phuong Thao - Amazon Q Developer
-![Session 4 - Thao](https://placeholder-image-url.com/session4-thao.jpg)
-- **SDLC automation**: From planning to maintenance  
-- **Code transformation**: Java upgrade, .NET modernization  
-- **AWS Transform agents**: VMware, Mainframe, .NET migration
+#### Session 4: Nguyen Phuong Thao - Developer Agent
+![Session 4](/images/4-EventParticipated/4.1-Event1/session4.jpg)
+- **Developer Agent: Coding Discipline per Story**: Applying AI Agents to the software development process with strict discipline.
+- **The 4-Step Process of Dev Agent**:
+  1. **Start Dev Agent**: Automatically finds Stories in the "Approved" status.
+  2. **Analyze Subtasks**: Breaks down the Story into extremely detailed tasks.
+  3. **Execute Code**: Codes accurately without leaving ambiguity, no guesswork.
+  4. **Complete Code**: Changes the Story status to "Ready for Review" once finished.
 
 ### Key Takeaways
 
-#### Design Mindset
+#### Learning Mindset & Methodology
+- **Growth Mindset**: Always maintain curiosity, ask "Why", and treat mistakes as opportunities to learn rather than reasons to be discouraged.
+- **Learning Motivation**: Leverage the "fear of loss" psychology and reward mechanisms to create continuous learning streaks, similar to how social media retains users.
 
-- **Business-first approach**: Always start from the business domain, not the technology  
-- **Ubiquitous language**: Importance of a shared vocabulary between business and tech teams  
-- **Bounded contexts**: Identifying and managing complexity in large systems  
+#### Technical & AI Optimization
+- **Prompting Skills**: Writing clear instructions with a complete Role, Instruction, and Context will determine the quality of the AI's response. Apply a proactive mindset (DOs) rather than a prohibitive one (DON'Ts).
+- **Automation with AI Agents**: Utilize AI not just for chatting, but to create Agents (like the Developer Agent) that help handle disciplined software development processes (from task breakdown to code completion).
 
-#### Technical Architecture
+### Applying to Work & Study
 
-- **Event storming technique**: Practical method for modeling business processes  
-- Use **event-driven communication** instead of synchronous calls  
-- **Integration patterns**: When to use sync, async, pub/sub, streaming  
-- **Compute spectrum**: Criteria for choosing between VM, containers, and serverless  
-
-#### Modernization Strategy
-
-- **Phased approach**: No rushing — follow a clear roadmap  
-- **7Rs framework**: Multiple modernization paths depending on the application  
-- **ROI measurement**: Cost reduction + business agility  
-
-### Applying to Work
-
-- **Apply DDD** to current projects: Event storming sessions with business teams  
-- **Refactor microservices**: Use bounded contexts to define service boundaries  
-- **Implement event-driven patterns**: Replace some sync calls with async messaging  
-- **Adopt serverless**: Pilot AWS Lambda for suitable use cases  
-- **Try Amazon Q Developer**: Integrate into the dev workflow to boost productivity  
+- **Establish Learning Streaks**: Apply the fear of loss mechanism to maintain a daily habit of learning new technologies (Cloud, AI) without interruption.
+- **Optimize Prompts**: Restructure how questions are posed to AI (ChatGPT, Claude, Amazon Q) in daily work according to the learned framework to get the most accurate answers.
+- **Explore Developer Agents**: Research and integrate Agents into the code handling process to increase productivity and minimize errors.
 
 ### Event Experience
 
-Attending the **“GenAI-powered App-DB Modernization”** workshop was extremely valuable, giving me a comprehensive view of modernizing applications and databases using advanced methods and tools. Key experiences included:
+Attending the First Cloud Journey event was an eye-opening experience, not only in terms of technology but also in mindset development. Some highlights include:
 
-#### Learning from highly skilled speakers
-- Experts from AWS and major tech organizations shared **best practices** in modern application design.  
-- Through real-world case studies, I gained a deeper understanding of applying **DDD** and **Event-Driven Architecture** to large projects.  
+#### Learning from passionate speakers
+- The speakers brought fresh energy, sharing extremely practical perspectives from their personal experiences, from overcoming procrastination to mastering AI technology.
 
-#### Hands-on technical exposure
-- Participating in **event storming** sessions helped me visualize how to **model business processes** into domain events.  
-- Learned how to **split microservices** and define **bounded contexts** to manage large-system complexity.  
-- Understood trade-offs between **synchronous and asynchronous communication** and integration patterns like **pub/sub, point-to-point, streaming**.  
-
-#### Leveraging modern tools
-- Explored **Amazon Q Developer**, an AI tool for SDLC support from planning to maintenance.  
-- Learned to **automate code transformation** and pilot serverless with **AWS Lambda** to improve productivity.  
-
-#### Networking and discussions
-- The workshop offered opportunities to exchange ideas with experts, peers, and business teams, enhancing the **ubiquitous language** between business and tech.  
-- Real-world examples reinforced the importance of the **business-first approach** rather than focusing solely on technology.  
-
-#### Lessons learned
-- Applying DDD and event-driven patterns reduces **coupling** while improving **scalability** and **resilience**.  
-- Modernization requires a **phased approach** with **ROI measurement**; rushing the process can be risky.  
-- AI tools like Amazon Q Developer can significantly **boost productivity** when integrated into the current workflow.  
+#### Mindset Shift
+- I realized that learning doesn't have to be forced, but can be "hacked" using psychological tools (like streaks, rewards) borrowed from social media platforms.
+- I understood the immense value of a "Growth Mindset" – not being afraid of making mistakes, because every mistake is a valuable lesson in the early stages.
 
 #### Some event photos
-*Add your event photos here*  
-
-> Overall, the event not only provided technical knowledge but also helped me reshape my thinking about application design, system modernization, and cross-team collaboration.
+![Event Photo 1](/images/4-EventParticipated/4.1-Event1/event_09_05(1).jpg)
+![Event Photo 2](/images/4-EventParticipated/4.1-Event1/event_09_05(2).jpg)
+> Overall, the event profoundly changed my approach to learning, as well as provided methods to optimize productivity using artificial intelligence, giving me great motivation for my upcoming development journey.

@@ -8,8 +8,8 @@ pre: " <b> 4. </b> "
 
 Trong quá trình thực tập, mình đã có cơ hội tham gia 3 sự kiện lớn của cộng đồng AWS. Mỗi sự kiện đều là một trải nghiệm đáng nhớ, mang lại những kiến thức thực tế vô cùng bổ ích, đồng thời giúp mình mở rộng mạng lưới kết nối và học hỏi từ các chuyên gia hàng đầu trong ngành.
 
-### [Event 1: GenAI-powered App-DB Modernization Workshop](4.1-Event1/)
-&emsp;**Tên sự kiện:** GenAI-powered App-DB Modernization workshop
+### [Event 1: First Cloud Journey](4.1-Event1/)
+&emsp;**Tên sự kiện:** First Cloud Journey
 
 &emsp;**Thời gian:** 09:00 ngày 09/05/2026
 

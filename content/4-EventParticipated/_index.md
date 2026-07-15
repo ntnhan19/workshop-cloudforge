@@ -8,10 +8,21 @@ pre: " <b> 4. </b> "
 
 During my internship, I had the opportunity to participate in three major events hosted by the AWS community. Each event was a memorable experience that provided invaluable practical knowledge, while also helping me expand my professional network and learn from top industry experts.
 
-### [Event 1: GenAI-powered App-DB Modernization Workshop](4.1-Event1/)  
-&emsp;**Event Name:** GenAI-powered App-DB Modernization workshop  
+### [Event 1: First Cloud Journey](4.1-Event1/)  
+&emsp;**Event Name:** First Cloud Journey  
 
 &emsp;**Date & Time:** 09:00, May 09, 2026  
+
+&emsp;**Location:** 26th Floor, Bitexco Tower, 02 Hai Trieu Street, Saigon Ward, Ho Chi Minh City  
+
+&emsp;**Role:** Attendee  
+
+---
+
+### [Event 2: AWS Vietnam Community Day & First Cloud Journey 2026](4.2-Event2/)  
+&emsp;**Event Name:** AWS Vietnam Community Day & First Cloud Journey 2026  
+
+&emsp;**Date & Time:** 09:00, May 23, 2026  
 
 &emsp;**Location:** 26th Floor, Bitexco Tower, 02 Hai Trieu Street, Saigon Ward, Ho Chi Minh City  
 

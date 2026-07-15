@@ -15,9 +15,9 @@ pre: " <b> 1.4. </b> "
 
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | --- | --------- | ------------ | --------------- | -------------- |
-| Thứ Hai | Tìm hiểu về API Gateway và kiến trúc serverless trên AWS. | 11/05/2026 | 11/05/2026 | Amazon API Gateway Guide |
+| Thứ Hai | Tìm hiểu về API Gateway và kiến trúc serverless trên AWS. | 11/05/2026 | 11/05/2026 | [Amazon API Gateway Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html) <br> [Develop REST APIs in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-develop.html) <br> [Best Practices for RESTful API](https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api) <br> [Lab: Introduction to Amazon API Gateway](https://skillbuilder.aws/learn/87NHV2TSKV/introduction-to-amazon-api-gateway/3S1482KMEZ?parentId=955TYR1UFV) |
 | Thứ Ba | Tìm hiểu cách tích hợp API Gateway với AWS Lambda. | 12/05/2026 | 12/05/2026 | AWS Serverless Architecture Docs |
-| Thứ Tư | Tìm hiểu luồng xử lý dữ liệu chuẩn trên môi trường AWS. | 13/05/2026 | 13/05/2026 | AWS Well-Architected Framework |
+| Thứ Tư | Tìm hiểu luồng xử lý dữ liệu chuẩn trên môi trường AWS (Monitoring với CloudWatch). | 13/05/2026 | 13/05/2026 | AWS Well-Architected Framework <br> [AWS CloudWatch Workshop](https://000008.awsstudygroup.com/vi/) |
 | Thứ Năm | Xây dựng API serverless cơ bản sử dụng Lambda và DynamoDB. | 14/05/2026 | 14/05/2026 | AWS Serverless Labs |
 | Thứ Sáu | Thực hành deploy API Gateway lên môi trường test. | 15/05/2026 | 15/05/2026 | AWS Serverless Labs |
 | Thứ Bảy | Thực hành test API serverless bằng Postman và AWS Console. | 16/05/2026 | 16/05/2026 | Postman Docs / AWS Console |

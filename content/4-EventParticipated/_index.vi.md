@@ -27,3 +27,14 @@ Trong quá trình thực tập, mình đã có cơ hội tham gia 2 sự kiện 
 &emsp;**Địa điểm:** Tầng 26, tòa nhà Bitexco, số 02 đường Hải Triều, phường Sài Gòn, thành phố Hồ Chí Minh
 
 &emsp;**Vai trò trong sự kiện:** Người tham dự
+
+---
+
+### [Event 2: AWS Vietnam Community Day & First Cloud Journey 2026](4.2-Event2/)
+&emsp;**Tên sự kiện:** AWS Vietnam Community Day & First Cloud Journey 2026
+
+&emsp;**Thời gian:** 09:00 ngày 23/05/2026
+
+&emsp;**Địa điểm:** Tầng 26, tòa nhà Bitexco, số 02 đường Hải Triều, phường Sài Gòn, thành phố Hồ Chí Minh
+
+&emsp;**Vai trò trong sự kiện:** Người tham dự

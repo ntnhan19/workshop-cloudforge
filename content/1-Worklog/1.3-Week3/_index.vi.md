@@ -15,7 +15,7 @@ pre: " <b> 1.3. </b> "
 
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | --- | --------- | ------------ | --------------- | -------------- |
-| Thứ Hai | Tìm hiểu về DynamoDB và cơ sở dữ liệu NoSQL trên AWS. | 04/05/2026 | 04/05/2026 | Amazon DynamoDB Developer Guide |
+| Thứ Hai | Tìm hiểu về DynamoDB và cơ sở dữ liệu NoSQL trên AWS. | 04/05/2026 | 04/05/2026 | [Amazon DynamoDB Developer Guide](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html) <br> [Lab: Introduction to Amazon DynamoDB](https://skillbuilder.aws/learn/6DYXN7K7ZQ/lab--introduction-to-amazon-dynamodb/GZ3EU55RYJ?parentId=955TYR1UFV) |
 | Thứ Ba | Nghiên cứu sự khác nhau giữa Query và Scan trong DynamoDB. | 05/05/2026 | 05/05/2026 | DynamoDB Query/Scan Docs |
 | Thứ Tư | Tìm hiểu nguyên tắc thiết kế dữ liệu NoSQL. | 06/05/2026 | 06/05/2026 | NoSQL Design Patterns |
 | Thứ Năm | Thực hành thiết kế bảng dữ liệu, partition key và sort key. | 07/05/2026 | 07/05/2026 | AWS DynamoDB Labs |

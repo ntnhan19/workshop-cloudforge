@@ -15,9 +15,9 @@ pre: " <b> 1.2. </b> "
 
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | --- | --------- | ------------ | --------------- | -------------- |
-| Thứ Hai | Tìm hiểu về dịch vụ lưu trữ Amazon S3. | 27/04/2026 | 27/04/2026 | Amazon S3 Documentation |
-| Thứ Ba | Tìm hiểu về Serverless Compute với AWS Lambda. | 28/04/2026 | 28/04/2026 | AWS Lambda Developer Guide |
-| Thứ Tư | Nghiên cứu kiến trúc mạng ảo Amazon VPC. | 29/04/2026 | 29/04/2026 | Amazon VPC User Guide |
+| Thứ Hai | Tìm hiểu về dịch vụ lưu trữ Amazon S3. | 27/04/2026 | 27/04/2026 | [Amazon S3 Documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) <br> [Amazon S3 Workshop](https://000057.awsstudygroup.com/vi/) <br> [Lab: Introduction to Amazon S3](https://skillbuilder.aws/learn/R54NZHEX5K/introduction-to-amazon-simple-storage-service-s3/SKTY8SPYDX?parentId=955TYR1UFV) <br> [Amazon S3 + Amazon CloudFront](https://aws.amazon.com/vi/blogs/networking-and-content-delivery/amazon-s3-amazon-cloudfront-a-match-made-in-the-cloud/) <br> [Amazon CloudFront Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html) <br> [Lab: Introduction to Amazon CloudFront](https://skillbuilder.aws/learn/NVJ224EA5N/introduction-to-amazon-cloudfront/7JNHFE69BD?parentId=955TYR1UFV) |
+| Thứ Ba | Tìm hiểu về Serverless Compute với AWS Lambda. | 28/04/2026 | 28/04/2026 | [AWS Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html) <br> [Clip 5 - AWS Compute Services (Lambda)](https://www.youtube.com/watch?v=uNoY1NTUfQU) <br> [Lab: Introduction to AWS Lambda](https://skillbuilder.aws/learn/G3BEYRFNPS/introduction-to-aws-lambda/5PSQXY58Y7?parentId=955TYR1UFV) |
+| Thứ Tư | Nghiên cứu kiến trúc mạng ảo Amazon VPC. | 29/04/2026 | 29/04/2026 | [Amazon VPC User Guide](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) <br> [Amazon VPC Workshop](https://000003.awsstudygroup.com/vi/) <br> [Lab: Introduction to Amazon VPC](https://skillbuilder.aws/learn/PH6Z6EVH8Z/introduction-to-amazon-virtual-private-cloud-vpc/PA8H7FUE15?parentId=955TYR1UFV) |
 | Thứ Năm | Tìm hiểu tổng quan về cách kết hợp kiến trúc của AWS. | 30/04/2026 | 30/04/2026 | AWS Architecture Center |
 | Thứ Sáu | Thực hành bài tập lab cơ bản về S3 để làm quen dịch vụ. | 01/05/2026 | 01/05/2026 | AWS Training Labs |
 | Thứ Bảy | Thực hành bài tập lab về Lambda để làm quen với Serverless. | 02/05/2026 | 02/05/2026 | AWS Training Labs |

@@ -16,7 +16,7 @@ pre: " <b> 1.4. </b> "
 | Day | Task | Start Date | Completion Date | Source/Resource |
 | --- | ---- | ---------- | --------------- | --------------- |
 | Mon | Learn about API Gateway and serverless architecture on AWS. | 11/05/2026 | 11/05/2026 | Amazon API Gateway Guide |
-| Tue | Learn how to integrate API Gateway with AWS Lambda. | 12/05/2026 | 12/05/2026 | AWS Serverless Architecture Docs |
+| Tue | Learn how to integrate API Gateway with AWS Lambda. | 12/05/2026 | 12/05/2026 | [Create RESTful APIs with Amazon API Gateway and AWS Lambda](https://viblo.asia/p/tao-restful-apis-voi-amazon-api-gateway-va-aws-lambda-ORNZqgxe50n) <br> [Build a Serverless Web App](https://aws.amazon.com/vi/getting-started/hands-on/build-serverless-web-app-lambda-apigateway-s3-dynamodb-cognito/) |
 | Wed | Study standard data processing flows on AWS environments. | 13/05/2026 | 13/05/2026 | AWS Well-Architected Framework |
 | Thu | Build basic serverless APIs using Lambda and DynamoDB. | 14/05/2026 | 14/05/2026 | AWS Serverless Labs |
 | Fri | Practice deploying API Gateway to the test environment. | 15/05/2026 | 15/05/2026 | AWS Serverless Labs |

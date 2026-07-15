@@ -6,7 +6,9 @@ chapter: false
 pre: " <b> 7. </b> "
 ---
 
-> Tại đây em xin phép được chia sẻ những góc nhìn và trải nghiệm cá nhân sau 3 tháng tham gia chương trình thực tập **First Cloud AI Journey**, cũng như trong quá trình xây dựng dự án **Smart Media Analytics - CloudForge**.
+{{% notice info %}}
+Tại đây em xin phép được chia sẻ những góc nhìn và trải nghiệm cá nhân sau 3 tháng tham gia chương trình thực tập **First Cloud AI Journey**, cũng như trong quá trình xây dựng dự án **Smart Media Analytics - CloudForge**.
+{{% /notice %}}
 
 ### Đánh giá chung
 

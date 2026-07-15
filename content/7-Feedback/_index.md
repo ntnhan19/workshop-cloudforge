@@ -6,7 +6,9 @@ chapter: false
 pre: " <b> 7. </b> "
 ---
 
-> Here, I would like to share my personal perspectives and experiences after participating in the 3-month **First Cloud AI Journey** internship program, and throughout the development of the **Smart Media Analytics - CloudForge** project.
+{{% notice info %}}
+Here, I would like to share my personal perspectives and experiences after participating in the 3-month **First Cloud AI Journey** internship program, and throughout the development of the **Smart Media Analytics - CloudForge** project.
+{{% /notice %}}
 
 ### Overall Assessment
 

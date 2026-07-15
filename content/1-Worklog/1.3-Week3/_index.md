@@ -21,7 +21,7 @@ pre: " <b> 1.3. </b> "
 | Thu | Practice designing data tables, partition keys, and sort keys. | 07/05/2026 | 07/05/2026 | [Using Sort Keys to Organize Data](https://aws.amazon.com/vi/blogs/database/using-sort-keys-to-organize-data-in-amazon-dynamodb/) |
 | Fri | Install and get familiar with the AWS SDK. | 08/05/2026 | 08/05/2026 | [AWS SDK with BOTO3 (Python)](https://www.youtube.com/watch?v=_MxtcMEBCls) <br> [Using QueryCommand SDK (Javascript)](https://www.youtube.com/watch?v=32kMiMCONrg) |
 | Sat | Practice basic CRUD operations with DynamoDB using AWS SDK. | 09/05/2026 | 09/05/2026 | [CRUD operations using Java document API](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/JavaDocumentAPICRUDExample.html) |
-| Sun | Complete DynamoDB lab and consolidate self-study materials. | 10/05/2026 | 10/05/2026 | FCAJ Shared Resources |
+| Sun | Complete DynamoDB lab and consolidate self-study materials. | 10/05/2026 | 10/05/2026 | [AWSStudyGroup YouTube](https://www.youtube.com/@AWSStudyGroup) <br> [CloudJourney](https://cloudjourney.awsstudygroup.com/) |
 
 ### Week 3 Achievements:
 - Mastered DynamoDB, NoSQL, Query vs Scan knowledge.

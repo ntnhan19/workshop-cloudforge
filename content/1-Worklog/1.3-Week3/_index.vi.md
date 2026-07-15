@@ -21,7 +21,7 @@ pre: " <b> 1.3. </b> "
 | Thứ Năm | Thực hành thiết kế bảng dữ liệu, partition key và sort key. | 07/05/2026 | 07/05/2026 | [Using Sort Keys to Organize Data](https://aws.amazon.com/vi/blogs/database/using-sort-keys-to-organize-data-in-amazon-dynamodb/) |
 | Thứ Sáu | Cài đặt và làm quen với AWS SDK. | 08/05/2026 | 08/05/2026 | [AWS SDK với BOTO3 (Python)](https://www.youtube.com/watch?v=_MxtcMEBCls) <br> [Using QueryCommand SDK (Javascript)](https://www.youtube.com/watch?v=32kMiMCONrg) |
 | Thứ Bảy | Thực hành thao tác CRUD cơ bản với DynamoDB thông qua AWS SDK. | 09/05/2026 | 09/05/2026 | [CRUD operations using Java document API](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/JavaDocumentAPICRUDExample.html) |
-| Chủ Nhật | Hoàn thiện bài lab DynamoDB và tổng hợp tài liệu tự học. | 10/05/2026 | 10/05/2026 | FCAJ Shared Resources |
+| Chủ Nhật | Hoàn thiện bài lab DynamoDB và tổng hợp tài liệu tự học. | 10/05/2026 | 10/05/2026 | [AWSStudyGroup YouTube](https://www.youtube.com/@AWSStudyGroup) <br> [CloudJourney](https://cloudjourney.awsstudygroup.com/) |
 
 ### Kết quả đạt được tuần 3:
 - Nắm vững kiến thức về DynamoDB, NoSQL, Query vs Scan.

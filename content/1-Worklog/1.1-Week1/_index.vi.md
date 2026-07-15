@@ -21,7 +21,7 @@ pre: " <b> 1.1. </b> "
 | Thứ Năm | Khởi tạo EC2 instance đầu tiên trên AWS. | 23/04/2026 | 23/04/2026 | [AWS EC2 Getting Started](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html) <br> [Understand what Amazon EC2 is and how it works](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html) <br> [Launch an Amazon EC2 instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/LaunchingAndUsingInstances.html) <br> [Lab: Introduction to Amazon EC2](https://skillbuilder.aws/learn/9VNGAHHAUU/introduction-to-amazon-ec2/AJZEJRN2BQ?parentId=955TYR1UFV) |
 | Thứ Sáu | Cấu hình Security Group và kết nối SSH vào EC2 instance. | 24/04/2026 | 24/04/2026 | [AWS EC2 Security Groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-security-groups.html) |
 | Thứ Bảy | Ôn tập lại kiến thức về EC2 và IAM thông qua tài liệu. | 25/04/2026 | 25/04/2026 | [Understand Amazon EC2 fundamentals and its core components (Lab)](https://skillbuilder.aws/learn/9VNGAHHAUU/introduction-to-amazon-ec2/AJZEJRN2BQ) |
-| Chủ Nhật | Tự học thêm tài liệu AWS và họp nhóm online chốt ý tưởng đề tài dự án. | 26/04/2026 | 26/04/2026 | FCAJ Shared Resources |
+| Chủ Nhật | Tự học thêm tài liệu AWS và họp nhóm online chốt ý tưởng đề tài dự án. | 26/04/2026 | 26/04/2026 | [AWSStudyGroup YouTube](https://www.youtube.com/@AWSStudyGroup) <br> [CloudJourney](https://cloudjourney.awsstudygroup.com/) |
 
 ### Kết quả đạt được tuần 1:
 - Nắm bắt tổng quan về AWS, cloud computing và quen thuộc với AWS Console.

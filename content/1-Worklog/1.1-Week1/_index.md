@@ -21,7 +21,7 @@ pre: " <b> 1.1. </b> "
 | Thu | Launch the first EC2 instance on AWS. | 23/04/2026 | 23/04/2026 | [AWS EC2 Getting Started](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html) <br> [Understand what Amazon EC2 is and how it works](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html) |
 | Fri | Configure Security Group and connect via SSH to the EC2 instance. | 24/04/2026 | 24/04/2026 | [AWS EC2 Security Groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-security-groups.html) |
 | Sat | Review EC2 and IAM knowledge through documentation. | 25/04/2026 | 25/04/2026 | [Understand Amazon EC2 fundamentals and its core components (Lab)](https://skillbuilder.aws/learn/9VNGAHHAUU/introduction-to-amazon-ec2/AJZEJRN2BQ) |
-| Sun | Self-study AWS materials and have an online meeting to finalize project ideas. | 26/04/2026 | 26/04/2026 | FCAJ Shared Resources |
+| Sun | Self-study AWS materials and have an online meeting to finalize project ideas. | 26/04/2026 | 26/04/2026 | [AWSStudyGroup YouTube](https://www.youtube.com/@AWSStudyGroup) <br> [CloudJourney](https://cloudjourney.awsstudygroup.com/) |
 
 ### Week 1 Achievements:
 - Grasped an overview of AWS, cloud computing and AWS Console.
